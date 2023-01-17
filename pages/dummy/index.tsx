@@ -3,7 +3,7 @@ import React from 'react'
 const index = () => {
   return (
     <>
-    NOT AVAILABLE
+    NOT AVAILABLE Page
     </>
   )
 }

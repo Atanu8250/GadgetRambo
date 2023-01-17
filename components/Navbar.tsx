@@ -7,6 +7,7 @@ import { Icon, Button } from "@chakra-ui/react";
 import Logo from "../assets/Logo.png";
 import { Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react";
 import Marquee from "react-fast-marquee";
+import { Divider } from "@chakra-ui/react";
 
 const Navbar = () => {
   const handleFuse = () => {
@@ -32,6 +33,9 @@ const Navbar = () => {
     setGames(false);
     setAirCooler(false);
     setWashingMashine(false);
+    setTablets(false);
+    setHeadPhones(false);
+    setLaptops(false);
   };
 
   // HOME
@@ -189,14 +193,40 @@ const Navbar = () => {
     setWashingMashine(true);
   };
 
+  // TABLETS
+  const [focustablets, setTablets] = React.useState<boolean>(false);
+  const handleTablets = () => {
+    handleFuse();
+    setTablets(true);
+  };
+
+  // HEADPHONES
+  const [focusheadphones, setHeadPhones] = React.useState<boolean>(false);
+  const handleHeadPhones = () => {
+    handleFuse();
+    setHeadPhones(true);
+  };
+
+  // LAPTOPS
+  const [focuslaptops, setLaptops] = React.useState<boolean>(false);
+  const handleLaptops = () => {
+    handleFuse();
+    setLaptops(true);
+  };
+
   return (
     <div>
-      <div>
+      <div className={style.marquee}>
+        <Marquee>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim cumque, consequatur ut unde nulla minus ratione quo! Nihil, omnis! Iusto exercitationem repellat voluptatem fugiat commodi dolorem, praesentium nihil dolores eveniet!
+        </Marquee>
+      </div>
+      <div className={style.logo}>
         <Image
           src="https://i.ibb.co/kmPvGZt/Capture-removebg-preview.png"
           alt="logo"
-          width={200}
-          height={60}
+          width={150}
+          height={20}
         />
       </div>
       <div className={style.topNav}>
@@ -415,188 +445,253 @@ const Navbar = () => {
 
       {/* SECOND NAVBAR */}
       <div className={style.secondNav}>
-        <Marquee gradientWidth={30}>
-          <Link
-            href="/dummy"
-            className={style.secondComp}
-            onClick={handleMobile}
-            style={
-              focusmobile
-                ? {
-                    backgroundColor: "black",
-                    borderRadius: "10px",
-                    color: "#EE3E38",
-                  }
-                : {
-                    backgroundColor: "#EE3E38",
-                    borderRadius: "0",
-                    color: "rgb(32, 32, 32)",
-                  }
-            }
-          >
-            MOBILES
-          </Link>
-          <Link
-            href="/dummy"
-            className={style.secondComp}
-            onClick={handleTV}
-            style={
-              focusTV
-                ? {
-                    backgroundColor: "black",
-                    borderRadius: "10px",
-                    color: "#EE3E38",
-                  }
-                : {
-                    backgroundColor: "#EE3E38",
-                    borderRadius: "0",
-                    color: "rgb(32, 32, 32)",
-                  }
-            }
-          >
-            TV
-          </Link>
-          <Link
-            href="/dummy"
-            className={style.secondComp}
-            onClick={handleSmartWatches}
-            style={
-              focussmartwatches
-                ? {
-                    backgroundColor: "black",
-                    borderRadius: "10px",
-                    color: "#EE3E38",
-                  }
-                : {
-                    backgroundColor: "#EE3E38",
-                    borderRadius: "0",
-                    color: "rgb(32, 32, 32)",
-                  }
-            }
-          >
-            SMART WATCHES
-          </Link>
-          <Link
-            href="/dummy"
-            className={style.secondComp}
-            onClick={handleCameras}
-            style={
-              focuscameras
-                ? {
-                    backgroundColor: "black",
-                    borderRadius: "10px",
-                    color: "#EE3E38",
-                  }
-                : {
-                    backgroundColor: "#EE3E38",
-                    borderRadius: "0",
-                    color: "rgb(32, 32, 32)",
-                  }
-            }
-          >
-            CAMERAS
-          </Link>
-          <Link
-            href="/dummy"
-            className={style.secondComp}
-            onClick={handleSmartBands}
-            style={
-              focussmartbands
-                ? {
-                    backgroundColor: "black",
-                    borderRadius: "10px",
-                    color: "#EE3E38",
-                  }
-                : {
-                    backgroundColor: "#EE3E38",
-                    borderRadius: "0",
-                    color: "rgb(32, 32, 32)",
-                  }
-            }
-          >
-            SMART BANDS
-          </Link>
-          <Link
-            href="/dummy"
-            className={style.secondComp}
-            onClick={handleSpeakers}
-            style={
-              focusspeakers
-                ? {
-                    backgroundColor: "black",
-                    borderRadius: "10px",
-                    color: "#EE3E38",
-                  }
-                : {
-                    backgroundColor: "#EE3E38",
-                    borderRadius: "0",
-                    color: "rgb(32, 32, 32)",
-                  }
-            }
-          >
-            SMART SPEAKERS
-          </Link>
-          <Link
-            href="/dummy"
-            className={style.secondComp}
-            onClick={handleGames}
-            style={
-              focusgames
-                ? {
-                    backgroundColor: "black",
-                    borderRadius: "10px",
-                    color: "#EE3E38",
-                  }
-                : {
-                    backgroundColor: "#EE3E38",
-                    borderRadius: "0",
-                    color: "rgb(32, 32, 32)",
-                  }
-            }
-          >
-            GAMES
-          </Link>
-          <Link
-            href="/dummy"
-            className={style.secondComp}
-            onClick={handleAirCooler}
-            style={
-              focusaircooler
-                ? {
-                    backgroundColor: "black",
-                    borderRadius: "10px",
-                    color: "#EE3E38",
-                  }
-                : {
-                    backgroundColor: "#EE3E38",
-                    borderRadius: "0",
-                    color: "rgb(32, 32, 32)",
-                  }
-            }
-          >
-            AIR COOLER
-          </Link>
-          <Link
-            href="/dummy"
-            className={style.secondComp}
-            onClick={handleWashingMashine}
-            style={
-              focuswashingmashine
-                ? {
-                    backgroundColor: "black",
-                    borderRadius: "10px",
-                    color: "#EE3E38",
-                  }
-                : {
-                    backgroundColor: "#EE3E38",
-                    borderRadius: "0",
-                    color: "rgb(32, 32, 32)",
-                  }
-            }
-          >
-            WASHING MACHINE
-          </Link>
-        </Marquee>
+        <Link
+          href="/dummy"
+          className={style.secondComp}
+          onClick={handleMobile}
+          style={
+            focusmobile
+              ? {
+                  backgroundColor: "black",
+                  borderRadius: "10px",
+                  color: "#EE3E38",
+                }
+              : {
+                  backgroundColor: "#EE3E38",
+                  borderRadius: "0",
+                  color: "rgb(32, 32, 32)",
+                }
+          }
+        >
+          MOBILES
+        </Link>
+        <Link
+          href="/dummy"
+          className={style.secondComp}
+          onClick={handleLaptops}
+          style={
+            focuslaptops
+              ? {
+                  backgroundColor: "black",
+                  borderRadius: "10px",
+                  color: "#EE3E38",
+                }
+              : {
+                  backgroundColor: "#EE3E38",
+                  borderRadius: "0",
+                  color: "rgb(32, 32, 32)",
+                }
+          }
+        >
+          LAPTOPS
+        </Link>
+        <Link
+          href="/dummy"
+          className={style.secondComp}
+          onClick={handleTV}
+          style={
+            focusTV
+              ? {
+                  backgroundColor: "black",
+                  borderRadius: "10px",
+                  color: "#EE3E38",
+                }
+              : {
+                  backgroundColor: "#EE3E38",
+                  borderRadius: "0",
+                  color: "rgb(32, 32, 32)",
+                }
+          }
+        >
+          TV
+        </Link>
+        <Link
+          href="/dummy"
+          className={style.secondComp}
+          onClick={handleSmartWatches}
+          style={
+            focussmartwatches
+              ? {
+                  backgroundColor: "black",
+                  borderRadius: "10px",
+                  color: "#EE3E38",
+                }
+              : {
+                  backgroundColor: "#EE3E38",
+                  borderRadius: "0",
+                  color: "rgb(32, 32, 32)",
+                }
+          }
+        >
+          SMART WATCHES
+        </Link>
+        <Link
+          href="/dummy"
+          className={style.secondComp}
+          onClick={handleCameras}
+          style={
+            focuscameras
+              ? {
+                  backgroundColor: "black",
+                  borderRadius: "10px",
+                  color: "#EE3E38",
+                }
+              : {
+                  backgroundColor: "#EE3E38",
+                  borderRadius: "0",
+                  color: "rgb(32, 32, 32)",
+                }
+          }
+        >
+          CAMERAS
+        </Link>
+
+        <Link
+          href="/dummy"
+          className={style.secondComp}
+          onClick={handleSmartBands}
+          style={
+            focussmartbands
+              ? {
+                  backgroundColor: "black",
+                  borderRadius: "10px",
+                  color: "#EE3E38",
+                }
+              : {
+                  backgroundColor: "#EE3E38",
+                  borderRadius: "0",
+                  color: "rgb(32, 32, 32)",
+                }
+          }
+        >
+          SMART BANDS
+        </Link>
+
+        <Link
+          href="/dummy"
+          className={style.secondComp}
+          onClick={handleSpeakers}
+          style={
+            focusspeakers
+              ? {
+                  backgroundColor: "black",
+                  borderRadius: "10px",
+                  color: "#EE3E38",
+                }
+              : {
+                  backgroundColor: "#EE3E38",
+                  borderRadius: "0",
+                  color: "rgb(32, 32, 32)",
+                }
+          }
+        >
+          SMART SPEAKERS
+        </Link>
+
+        <Link
+          href="/dummy"
+          className={style.secondComp}
+          onClick={handleGames}
+          style={
+            focusgames
+              ? {
+                  backgroundColor: "black",
+                  borderRadius: "10px",
+                  color: "#EE3E38",
+                }
+              : {
+                  backgroundColor: "#EE3E38",
+                  borderRadius: "0",
+                  color: "rgb(32, 32, 32)",
+                }
+          }
+        >
+          GAMES
+        </Link>
+
+        <Link
+          href="/dummy"
+          className={style.secondComp}
+          onClick={handleAirCooler}
+          style={
+            focusaircooler
+              ? {
+                  backgroundColor: "black",
+                  borderRadius: "10px",
+                  color: "#EE3E38",
+                }
+              : {
+                  backgroundColor: "#EE3E38",
+                  borderRadius: "0",
+                  color: "rgb(32, 32, 32)",
+                }
+          }
+        >
+          AIR COOLER
+        </Link>
+
+        <Link
+          href="/dummy"
+          className={style.secondComp}
+          onClick={handleWashingMashine}
+          style={
+            focuswashingmashine
+              ? {
+                  backgroundColor: "black",
+                  borderRadius: "10px",
+                  color: "#EE3E38",
+                }
+              : {
+                  backgroundColor: "#EE3E38",
+                  borderRadius: "0",
+                  color: "rgb(32, 32, 32)",
+                }
+          }
+        >
+          WASHING MACHINE
+        </Link>
+
+        <Link
+          href="/dummy"
+          className={style.secondComp}
+          onClick={handleTablets}
+          style={
+            focustablets
+              ? {
+                  backgroundColor: "black",
+                  borderRadius: "10px",
+                  color: "#EE3E38",
+                }
+              : {
+                  backgroundColor: "#EE3E38",
+                  borderRadius: "0",
+                  color: "rgb(32, 32, 32)",
+                }
+          }
+        >
+          TABLETS
+        </Link>
+
+        <Link
+          href="/dummy"
+          className={style.secondComp}
+          onClick={handleHeadPhones}
+          style={
+            focusheadphones
+              ? {
+                  backgroundColor: "black",
+                  borderRadius: "10px",
+                  color: "#EE3E38",
+                }
+              : {
+                  backgroundColor: "#EE3E38",
+                  borderRadius: "0",
+                  color: "rgb(32, 32, 32)",
+                }
+          }
+        >
+          HEADPHONES
+        </Link>
       </div>
     </div>
   );
