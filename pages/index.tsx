@@ -118,7 +118,7 @@ export default function Home() {
           </a>
         </div>
       </main>
-      <footer></footer>
+      <footer>footer</footer>
     </>
   )
 }
