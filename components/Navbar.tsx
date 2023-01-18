@@ -452,15 +452,15 @@ const Navbar = () => {
           style={
             focusmobile
               ? {
-                  backgroundColor: "black",
-                  borderRadius: "10px",
-                  color: "#EE3E38",
-                }
+                backgroundColor: "black",
+                borderRadius: "10px",
+                color: "#EE3E38",
+              }
               : {
-                  backgroundColor: "#EE3E38",
-                  borderRadius: "0",
-                  color: "rgb(32, 32, 32)",
-                }
+                backgroundColor: "#EE3E38",
+                borderRadius: "0",
+                color: "rgb(32, 32, 32)",
+              }
           }
         >
           MOBILES
@@ -472,15 +472,15 @@ const Navbar = () => {
           style={
             focuslaptops
               ? {
-                  backgroundColor: "black",
-                  borderRadius: "10px",
-                  color: "#EE3E38",
-                }
+                backgroundColor: "black",
+                borderRadius: "10px",
+                color: "#EE3E38",
+              }
               : {
-                  backgroundColor: "#EE3E38",
-                  borderRadius: "0",
-                  color: "rgb(32, 32, 32)",
-                }
+                backgroundColor: "#EE3E38",
+                borderRadius: "0",
+                color: "rgb(32, 32, 32)",
+              }
           }
         >
           LAPTOPS
@@ -492,15 +492,15 @@ const Navbar = () => {
           style={
             focusTV
               ? {
-                  backgroundColor: "black",
-                  borderRadius: "10px",
-                  color: "#EE3E38",
-                }
+                backgroundColor: "black",
+                borderRadius: "10px",
+                color: "#EE3E38",
+              }
               : {
-                  backgroundColor: "#EE3E38",
-                  borderRadius: "0",
-                  color: "rgb(32, 32, 32)",
-                }
+                backgroundColor: "#EE3E38",
+                borderRadius: "0",
+                color: "rgb(32, 32, 32)",
+              }
           }
         >
           TV
@@ -512,15 +512,15 @@ const Navbar = () => {
           style={
             focussmartwatches
               ? {
-                  backgroundColor: "black",
-                  borderRadius: "10px",
-                  color: "#EE3E38",
-                }
+                backgroundColor: "black",
+                borderRadius: "10px",
+                color: "#EE3E38",
+              }
               : {
-                  backgroundColor: "#EE3E38",
-                  borderRadius: "0",
-                  color: "rgb(32, 32, 32)",
-                }
+                backgroundColor: "#EE3E38",
+                borderRadius: "0",
+                color: "rgb(32, 32, 32)",
+              }
           }
         >
           SMART WATCHES
@@ -532,15 +532,15 @@ const Navbar = () => {
           style={
             focuscameras
               ? {
-                  backgroundColor: "black",
-                  borderRadius: "10px",
-                  color: "#EE3E38",
-                }
+                backgroundColor: "black",
+                borderRadius: "10px",
+                color: "#EE3E38",
+              }
               : {
-                  backgroundColor: "#EE3E38",
-                  borderRadius: "0",
-                  color: "rgb(32, 32, 32)",
-                }
+                backgroundColor: "#EE3E38",
+                borderRadius: "0",
+                color: "rgb(32, 32, 32)",
+              }
           }
         >
           CAMERAS
@@ -553,15 +553,15 @@ const Navbar = () => {
           style={
             focussmartbands
               ? {
-                  backgroundColor: "black",
-                  borderRadius: "10px",
-                  color: "#EE3E38",
-                }
+                backgroundColor: "black",
+                borderRadius: "10px",
+                color: "#EE3E38",
+              }
               : {
-                  backgroundColor: "#EE3E38",
-                  borderRadius: "0",
-                  color: "rgb(32, 32, 32)",
-                }
+                backgroundColor: "#EE3E38",
+                borderRadius: "0",
+                color: "rgb(32, 32, 32)",
+              }
           }
         >
           SMART BANDS
@@ -574,15 +574,15 @@ const Navbar = () => {
           style={
             focusspeakers
               ? {
-                  backgroundColor: "black",
-                  borderRadius: "10px",
-                  color: "#EE3E38",
-                }
+                backgroundColor: "black",
+                borderRadius: "10px",
+                color: "#EE3E38",
+              }
               : {
-                  backgroundColor: "#EE3E38",
-                  borderRadius: "0",
-                  color: "rgb(32, 32, 32)",
-                }
+                backgroundColor: "#EE3E38",
+                borderRadius: "0",
+                color: "rgb(32, 32, 32)",
+              }
           }
         >
           SMART SPEAKERS
@@ -595,15 +595,15 @@ const Navbar = () => {
           style={
             focusgames
               ? {
-                  backgroundColor: "black",
-                  borderRadius: "10px",
-                  color: "#EE3E38",
-                }
+                backgroundColor: "black",
+                borderRadius: "10px",
+                color: "#EE3E38",
+              }
               : {
-                  backgroundColor: "#EE3E38",
-                  borderRadius: "0",
-                  color: "rgb(32, 32, 32)",
-                }
+                backgroundColor: "#EE3E38",
+                borderRadius: "0",
+                color: "rgb(32, 32, 32)",
+              }
           }
         >
           GAMES
@@ -616,15 +616,15 @@ const Navbar = () => {
           style={
             focusaircooler
               ? {
-                  backgroundColor: "black",
-                  borderRadius: "10px",
-                  color: "#EE3E38",
-                }
+                backgroundColor: "black",
+                borderRadius: "10px",
+                color: "#EE3E38",
+              }
               : {
-                  backgroundColor: "#EE3E38",
-                  borderRadius: "0",
-                  color: "rgb(32, 32, 32)",
-                }
+                backgroundColor: "#EE3E38",
+                borderRadius: "0",
+                color: "rgb(32, 32, 32)",
+              }
           }
         >
           AIR COOLER
@@ -637,15 +637,15 @@ const Navbar = () => {
           style={
             focuswashingmashine
               ? {
-                  backgroundColor: "black",
-                  borderRadius: "10px",
-                  color: "#EE3E38",
-                }
+                backgroundColor: "black",
+                borderRadius: "10px",
+                color: "#EE3E38",
+              }
               : {
-                  backgroundColor: "#EE3E38",
-                  borderRadius: "0",
-                  color: "rgb(32, 32, 32)",
-                }
+                backgroundColor: "#EE3E38",
+                borderRadius: "0",
+                color: "rgb(32, 32, 32)",
+              }
           }
         >
           WASHING MACHINE
@@ -658,15 +658,15 @@ const Navbar = () => {
           style={
             focustablets
               ? {
-                  backgroundColor: "black",
-                  borderRadius: "10px",
-                  color: "#EE3E38",
-                }
+                backgroundColor: "black",
+                borderRadius: "10px",
+                color: "#EE3E38",
+              }
               : {
-                  backgroundColor: "#EE3E38",
-                  borderRadius: "0",
-                  color: "rgb(32, 32, 32)",
-                }
+                backgroundColor: "#EE3E38",
+                borderRadius: "0",
+                color: "rgb(32, 32, 32)",
+              }
           }
         >
           TABLETS
@@ -679,15 +679,15 @@ const Navbar = () => {
           style={
             focusheadphones
               ? {
-                  backgroundColor: "black",
-                  borderRadius: "10px",
-                  color: "#EE3E38",
-                }
+                backgroundColor: "black",
+                borderRadius: "10px",
+                color: "#EE3E38",
+              }
               : {
-                  backgroundColor: "#EE3E38",
-                  borderRadius: "0",
-                  color: "rgb(32, 32, 32)",
-                }
+                backgroundColor: "#EE3E38",
+                borderRadius: "0",
+                color: "rgb(32, 32, 32)",
+              }
           }
         >
           HEADPHONES
