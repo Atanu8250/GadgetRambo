@@ -1,0 +1,36 @@
+.topNav{
+    font-family: Titillium, sans-serif;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10rem;
+    margin-right: 10rem;
+    gap: 0.5rem;
+}
+.notdropDown{
+    font-weight: 700;
+    padding-top: 0.5rem;
+    width: max-content;
+}
+.secondNav{
+    font-family: Titillium, sans-serif;
+    font-size: small;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10rem;
+    padding-right: 10rem;
+    margin-top: 1rem;
+    color: rgb(32, 32, 32);
+    background-color: #EE3E38;
+    border-radius: 10px;
+}
+.secondComp{
+    font-weight: 300;
+    padding: 1rem;
+    width:max-content;
+}
+.logo{
+    padding-left: 10rem;
+}
+.marquee{
+    background-color: #EE3E38;
+}
