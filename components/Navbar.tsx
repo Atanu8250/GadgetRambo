@@ -305,8 +305,8 @@ const Navbar = () => {
         <div>
           <Menu>
             <MenuButton
-              paddingRight={0}
-              paddingLeft={0}
+              paddingRight={"10px"}
+              paddingLeft={"10px"}
               bgColor={"white"}
               as={Button}
               rightIcon={<Icon as={IoIosArrowDown} />}
@@ -368,8 +368,8 @@ const Navbar = () => {
         <div>
           <Menu>
             <MenuButton
-              paddingRight={0}
-              paddingLeft={0}
+              paddingRight={"10px"}
+              paddingLeft={"10px"}
               bgColor={"white"}
               as={Button}
               rightIcon={<Icon as={IoIosArrowDown} />}
@@ -406,8 +406,8 @@ const Navbar = () => {
         <div>
           <Menu>
             <MenuButton
-              paddingRight={0}
-              paddingLeft={0}
+              paddingRight={"10px"}
+              paddingLeft={"10px"}
               bgColor={"white"}
               as={Button}
               rightIcon={<Icon as={IoIosArrowDown} />}
