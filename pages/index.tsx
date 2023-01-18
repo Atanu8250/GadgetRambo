@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import React from 'react'
+import Footer from '../components/Footer'
 import styles from '@/styles/Home.module.css'
 
 // interface formProps{
@@ -23,7 +24,9 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
       </main>
-      <footer>footer</footer>
+      <footer>
+        <Footer/>
+      </footer>
     </>
   )
 }

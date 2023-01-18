@@ -223,7 +223,7 @@ const Navbar = () => {
       </div>
       <div className={style.logo}>
         <Image
-          src="https://i.ibb.co/kmPvGZt/Capture-removebg-preview.png"
+          src="https://cdn.gadgets360.com/gadgets360_logo.png"
           alt="logo"
           width={150}
           height={20}
