@@ -3,14 +3,6 @@ import React from 'react'
 import Footer from '../components/Footer'
 import styles from '@/styles/Home.module.css'
 
-// interface formProps{
-//   name: string;
-//   description: string;
-//   brand: string;
-//   model: string;
-//   price: number;
-// }
-
 export default function Home() {
   
   
