@@ -1,7 +1,7 @@
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/Backend/Firebase/firebase";
 
-export const getData = async () => {
+export const getMobileAPI = async () => {
   try {
     const mobileRef = collection(db, "mobiles");
     const res = await getDocs(mobileRef);
