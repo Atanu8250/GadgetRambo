@@ -9,7 +9,7 @@ import {
   VStack,
   Icon,
   useColorModeValue,
-  Link,
+  // Link,
   Drawer,
   DrawerContent,
   Text,
@@ -21,6 +21,7 @@ import {
   MenuDivider,
   MenuItem,
   MenuList,
+  Button,
 } from '@chakra-ui/react';
 import {
   FiUser,
@@ -36,17 +37,19 @@ import {
 } from 'react-icons/fi';
 import { IconType } from 'react-icons';
 import { ReactText } from 'react';
+import Link from 'next/link'
 
 interface LinkItemProps {
   name: string;
   icon: IconType;
+  href: string;
 }
 const LinkItems: Array<LinkItemProps> = [
-  { name: 'Dashboard', icon: FiTrendingUp },
-  { name: 'Products', icon: FiBarChart },
-  { name: 'Orders', icon: FiPieChart },
-  { name: 'Users', icon: FiUser },
-  { name: 'Settings', icon: FiSettings },
+  { name: 'Dashboard', href: "/admin", icon: FiTrendingUp },
+  { name: 'Products', href: "/admin/products", icon: FiBarChart },
+  { name: 'Orders', href: "/admin/orders", icon: FiPieChart },
+  { name: 'Users', href: "/admin/users", icon: FiUser },
+  { name: 'Settings', href: "/admin/settings", icon: FiSettings },
 ];
 
 export default function SidebarWithHeader({
@@ -104,7 +107,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
       {LinkItems.map((link) => (
-        <NavItem key={link.name} icon={link.icon}>
+        <NavItem key={link.name} icon={link.icon} href={link.href}>
           {link.name}
         </NavItem>
       ))}
@@ -115,10 +118,11 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 interface NavItemProps extends FlexProps {
   icon: IconType;
   children: ReactText;
+  href: string;
 }
-const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
+const NavItem = ({ icon, href, children, ...rest }: NavItemProps) => {
   return (
-    <Link href="#" style={{ textDecoration: 'none' }} _focus={{ boxShadow: 'none' }}>
+    <Link href={href} style={{ textDecoration: 'none' }}>
       <Flex
         align="center"
         p="4"

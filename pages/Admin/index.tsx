@@ -1,6 +1,7 @@
-import Dashboard from '@/components/admin/Dashboard'
 import SidebarWithHeader from '@/components/admin/Navbar'
+import { Flex, Box } from '@chakra-ui/react'
 import React from 'react'
+
 
 type Props = {}
 
@@ -8,7 +9,14 @@ type Props = {}
 const home = (props: Props) => {
   return (
     <div>
-        <SidebarWithHeader><Dashboard/></SidebarWithHeader>
+        <SidebarWithHeader>
+          <div>hello from deshboard</div>
+          <Flex>
+                <Box>
+                  
+                </Box>
+            </Flex>
+        </SidebarWithHeader>
     </div>
   )
 }
