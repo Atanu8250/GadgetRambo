@@ -34,3 +34,7 @@
 .marquee{
     background-color: #EE3E38;
 }
+
+@media only screen and (max-width: 414px) {
+    
+}

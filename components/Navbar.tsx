@@ -223,7 +223,7 @@ const Navbar = () => {
       </div>
       <div className={style.logo}>
         <Image
-          src="https://i.ibb.co/kmPvGZt/Capture-removebg-preview.png"
+          src="https://cdn.gadgets360.com/gadgets360_logo.png"
           alt="logo"
           width={150}
           height={20}
@@ -305,8 +305,8 @@ const Navbar = () => {
         <div>
           <Menu>
             <MenuButton
-              paddingRight={0}
-              paddingLeft={0}
+              paddingRight={"10px"}
+              paddingLeft={"10px"}
               bgColor={"white"}
               as={Button}
               rightIcon={<Icon as={IoIosArrowDown} />}
@@ -368,8 +368,8 @@ const Navbar = () => {
         <div>
           <Menu>
             <MenuButton
-              paddingRight={0}
-              paddingLeft={0}
+              paddingRight={"10px"}
+              paddingLeft={"10px"}
               bgColor={"white"}
               as={Button}
               rightIcon={<Icon as={IoIosArrowDown} />}
@@ -406,8 +406,8 @@ const Navbar = () => {
         <div>
           <Menu>
             <MenuButton
-              paddingRight={0}
-              paddingLeft={0}
+              paddingRight={"10px"}
+              paddingLeft={"10px"}
               bgColor={"white"}
               as={Button}
               rightIcon={<Icon as={IoIosArrowDown} />}
