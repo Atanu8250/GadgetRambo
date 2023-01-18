@@ -1,16 +1,16 @@
 import { ProductsTypes } from "./products.types";
+import * as interfaces from "./products.interface";
 
-interface actionProps {
-  type: string;
-  payload: [];
-}
 const initialState = {
   mobiles: [],
   televisions: [],
   laptops: [],
 };
 
-const productsReducer = (state = initialState, action: actionProps) => {
+const productsReducer = (
+  state = initialState,
+  action: interfaces.actionProps
+) => {
   switch (action.type) {
     case ProductsTypes.GET_MOBILES_DATA: {
       return {
