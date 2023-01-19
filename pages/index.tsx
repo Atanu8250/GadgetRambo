@@ -1,18 +1,35 @@
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import Head from "next/head";
 import React from "react";
 import styles from "@/styles/Home.module.css";
-import { cssVar, Text } from "@chakra-ui/react";
+import { Text } from "@chakra-ui/react";
+import Slider from "react-slick";
 import NewsCard from "@/components/newsCard";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getNews } from "@/redux/news/news.actions";
 import { State } from "../redux/store";
+import { AiOutlineMobile } from "react-icons/ai";
+import { BsLaptop } from "react-icons/bs";
 
 export default function Home() {
+  const productFinderArr = [
+    {
+      name: "Mobiles",
+      icon: AiOutlineMobile,
+    },
+    {
+      name: "Laptops",
+      icon: BsLaptop,
+    },
+  ];
+  const settings = {
+    speed: 500,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+  };
   const { news } = useSelector((store: State) => store.newsManager);
-  const store = useSelector((store: State) => store.productsManager);
-  console.log(store);
-
   const dispatch = useDispatch();
   useEffect(() => {
     if (news.length === 0) {
@@ -28,16 +45,17 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <main className={styles.main}>
+        {/* left side bar of homepage starts  */}
         <div className={styles.left_sideBar}>
           <Text
             color={"var(--color-primary)"}
             fontSize={"18px"}
-            fontWeight={"500"}
+            fontWeight={"400"}
           >
             TRENDING
           </Text>
           {news.map((el: any, index: number) => {
-            if (index > 10) {
+            if (index >= 10) {
               return;
             }
             return (
@@ -52,11 +70,15 @@ export default function Home() {
             );
           })}
         </div>
+        {/* middle contents starts  */}
         <div className={styles.mainContainer}>
+          <Text fontSize={"20px"} fontWeight={"500"}>
+            IN-DEPTH
+          </Text>
           <div className={styles.inDepthBox}>
-            <div style={{ display: "flex", gap: "1rem" }}>
+            <div style={{ display: "flex", gap: "2rem" }}>
               {news.map((el: any, index: number) => {
-                if (index > 4) {
+                if (index >= 4) {
                   return;
                 }
                 return (
@@ -72,6 +94,19 @@ export default function Home() {
                 );
               })}
             </div>
+          </div>
+          <div className={styles.productFinderBox}>
+            <Text fontSize={"20px"} fontWeight={"500"}>
+              PRODUCT FINDER
+            </Text>
+            <Slider {...settings}>
+              {productFinderArr.map((item, id) => (
+                <div key={id}>
+                  <item.icon />
+                  <Text>{item.name}</Text>
+                </div>
+              ))}
+            </Slider>
           </div>
         </div>
       </main>

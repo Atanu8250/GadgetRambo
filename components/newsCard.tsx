@@ -24,8 +24,20 @@ const NewsCard = ({
 }: newsCardProps) => {
   return (
     <div style={{ width: cardWidth, margin: "15px 0" }}>
-      <Image src={banner} alt={banner} width={width} height={height} />
-      <Text color={"var(--color-light)"} fontSize={titleSize}>
+      <Image
+        margin={"10px 0"}
+        src={banner}
+        alt={banner}
+        width={width}
+        height={height}
+      />
+      <Text
+        overflow={"hidden"}
+        maxHeight={"4rem"}
+        textOverflow={"ellipsis"}
+        color={"var(--color-light)"}
+        fontSize={titleSize}
+      >
         {title}
       </Text>
       <Text fontSize={desSize}>{description}</Text>

@@ -4,19 +4,26 @@
   margin: auto;
   display: flex;
   margin-top: 2rem;
-  justify-content: flex-start
+  justify-content: flex-start;
 }
-.main >div{
+.main > div {
   margin: 0 1rem;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .left_sideBar {
+  padding: 1rem;
   width: 12%;
   background: var(--color-bg-light);
 }
-.mainContainer{
-  width: 65%;
+.mainContainer {
+  padding: 1rem;
+  width: 60%;
 }
-.inDepthBox{
-  padding: 1rem;  
+.mainContainer > div {
+  margin-bottom: 1rem;
+}
+.inDepthBox {
+}
+.productFinderBox{
+  border: 1px solid rebeccapurple;
 }
