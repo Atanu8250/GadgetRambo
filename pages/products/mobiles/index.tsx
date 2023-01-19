@@ -1,11 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import styles from "../../../styles/products.module.css";
 import { Show } from "@chakra-ui/react";
-import ProductFilter from "@/components/ProductList/ProductFilter";
-import SmallScreenFilter from "@/components/ProductList/SmallScreenFIlter";
+import ProductFilter from "@/components/MobileSection/ProductFilter";
+import SmallScreenFilter from "@/components/MobileSection/SmallScreenFIlter";
 import { useDispatch, useSelector } from "react-redux";
 import { getMobile } from "@/redux/products/products.actions";
-import ProductCard from "@/components/ProductList/ProductCard";
+import ProductCard from "@/components/MobileSection/ProductCard";
 
 const Products = () => {
   const { mobiles } = useSelector((store: any) => store.productsManager);
