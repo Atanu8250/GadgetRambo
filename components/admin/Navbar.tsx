@@ -9,7 +9,6 @@ import {
   VStack,
   Icon,
   useColorModeValue,
-  // Link,
   Drawer,
   DrawerContent,
   Text,
@@ -21,13 +20,10 @@ import {
   MenuDivider,
   MenuItem,
   MenuList,
-  Button,
 } from '@chakra-ui/react';
 import {
   FiUser,
   FiTrendingUp,
-  FiCompass,
-  FiStar,
   FiSettings,
   FiMenu,
   FiBell,

@@ -21,18 +21,18 @@ const Footer = () => {
                 </div>
                 <div className={style.texts}>
                     <div className={style.footerText}>
-                        <Link href="/dummy"><p>About Us</p></Link>
-                        <Link href="/dummy"><p>Sitemaps</p></Link>
-                        <Link href="/dummy"><p>Feedback</p></Link>
-                        <Link href="/dummy"><p>Archives</p></Link>
-                        <Link href="/dummy"><p>Contact Us</p></Link>
+                        <Link href="/dummy" className={style.footerText1}><p>About Us</p></Link>
+                        <Link href="/dummy" className={style.footerText2}><p>Sitemaps</p></Link>
+                        <Link href="/dummy" className={style.footerText3}><p>Feedback</p></Link>
+                        <Link href="/dummy" className={style.footerText4}><p>Archives</p></Link>
+                        <Link href="/dummy" className={style.footerText5}><p>Contact Us</p></Link>
                     </div>
                     <div className={style.footerText}>
-                        <Link href="/dummy"><p>Advertise</p></Link>
-                        <Link href="/dummy"><p>Career</p></Link>
-                        <Link href="/dummy"><p>Privacy Policy</p></Link>
-                        <Link href="/dummy"><p>Ethics</p></Link>
-                        <Link href="/dummy"><p>Terms & Conditions</p></Link>
+                        <Link href="/dummy" className={style.footerText6}><p>Advertise</p></Link>
+                        <Link href="/dummy" className={style.footerText7}><p>Career</p></Link>
+                        <Link href="/dummy" className={style.footerText10}><p>Privacy Policy</p></Link>
+                        <Link href="/dummy" className={style.footerText11}><p>Ethics</p></Link>
+                        <Link href="/dummy" className={style.footerText12}><p>Terms & Conditions</p></Link>
                     </div>
                 </div>
                 {/* <Divider orientation='vertical' colorScheme="whiteAlpha" /> */}
@@ -40,19 +40,19 @@ const Footer = () => {
                     <div className={style.centerText}>
                         <h3>Gadgets 360 is available in</h3>
                     </div>
-                    <div style={{ display: "flex", justifyContent: "space-around" }}>
-                        <Link href="/"><p>English</p></Link>
+                    <div style={{ display: "flex", justifyContent: "center",gap:"0.5rem" }}>
+                        <Link href="/"><p className={style.footerText17} >English</p></Link>
                         <Divider orientation='vertical' colorScheme="whiteAlpha" />
-                        <Link href="/dummy"><p>Hindi</p></Link>
+                        <Link href="/dummy"><p className={style.footerText18} >Hindi</p></Link>
                     </div>
                     <div className={style.centerText}>
                         <h3>Follow Us</h3>
                     </div>
                     <div className={style.follow}>
-                        <Link href="/dummy"><Icon as={FaFacebook} boxSize={6} /></Link>
-                        <Link href="/dummy"><Icon as={FaTwitter} boxSize={6} /></Link>
-                        <Link href="/dummy"><Icon as={FaInstagram} boxSize={6} /></Link>
-                        <Link href="/dummy"><Icon as={FaYoutube} boxSize={6} /></Link>
+                        <Link href="/dummy"><Icon className={style.footerText13} as={FaFacebook} boxSize={6} /></Link>
+                        <Link href="/dummy"><Icon className={style.footerText14} as={FaTwitter} boxSize={6} /></Link>
+                        <Link href="/dummy"><Icon className={style.footerText15} as={FaInstagram} boxSize={6} /></Link>
+                        <Link href="/dummy"><Icon className={style.footerText16} as={FaYoutube} boxSize={6} /></Link>
                     </div>
                 </div>
                 <div className={style.download}>

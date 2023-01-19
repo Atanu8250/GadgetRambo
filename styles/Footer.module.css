@@ -26,7 +26,61 @@
     justify-content: center;
     gap: 1rem;
 }
-@media only screen and (max-width: 414px) {
+.footerText1:hover{
+    color: #EE3E38;
+}
+.footerText2:hover{
+    color: #EE3E38;
+}
+.footerText3:hover{
+    color: #EE3E38;
+}
+.footerText4:hover{
+    color: #EE3E38;
+}
+.footerText5:hover{
+    color: #EE3E38;
+}
+.footerText6:hover{
+    color: #EE3E38;
+}
+.footerText7:hover{
+    color: #EE3E38;
+}
+.footerText8:hover{
+    color: #EE3E38;
+}
+.footerText9:hover{
+    color: #EE3E38;
+}
+.footerText10:hover{
+    color: #EE3E38;
+}
+.footerText11:hover{
+    color: #EE3E38;
+}
+.footerText12:hover{
+    color: #EE3E38;
+}
+.footerText13:hover{
+    color: blue;
+}
+.footerText14:hover{
+    color: rgb(74, 187, 224);
+}
+.footerText15:hover{
+    color: rgb(255, 128, 149);
+}
+.footerText16:hover{
+    color: #EE3E38;
+}
+.footerText17:hover{
+    color: #EE3E38;
+}
+.footerText18:hover{
+    color: #EE3E38;
+}
+@media only screen and (max-width: 784px) {
     .main{
         background-color:#414347 ;
         padding-top: 2rem;
@@ -37,6 +91,29 @@
     }
     .secMain{
         display: block;
+    }
+    .logo{
+        padding-bottom: 3rem;
+    }
+    .centerText{
+        text-align: center;
+        padding-top: 1rem;
+    }
+    .follow{
+        gap: 2.5rem;
+    }
+    .download{
+        display: none;
+    }
+}
+@media only screen and (max-width: 1180px) {
+    .main{
+        background-color:#414347 ;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        color: aliceblue;
     }
     .logo{
         padding-bottom: 3rem;

@@ -1,20 +1,20 @@
 import SidebarWithHeader from '@/components/admin/Navbar'
-import React from 'react'
 import Head from 'next/head'
+import React from 'react'
 
 type Props = {}
 
-const Products = (props: Props) => {
+const users = (props: Props) => {
   return (
-  <>
+    <>
     <Head>
-    <title>GadgetRambo: Products</title>
+    <title>GadgetRambo: Users</title>
     </Head>
     <SidebarWithHeader>
-      <div>Products</div>
+      <div>Users</div>
     </SidebarWithHeader>
   </>
   )
 }
 
-export default Products
+export default users

@@ -1,11 +1,20 @@
+import SidebarWithHeader from '@/components/admin/Navbar'
+import Head from 'next/head'
 import React from 'react'
 
 type Props = {}
 
-const orders = (props: Props) => {
+const Orders = (props: Props) => {
   return (
-    <div>orders</div>
+    <>
+      <Head>
+        <title>GadgetRambo: Orders</title>
+      </Head>
+      <SidebarWithHeader>
+        <div>Orders</div>
+      </SidebarWithHeader>
+    </>
   )
 }
 
-export default orders
+export default Orders

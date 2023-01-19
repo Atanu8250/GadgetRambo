@@ -1,0 +1,26 @@
+.loginButton{
+    padding: 0.5rem 1rem;
+    margin-right: 0.5rem;
+    background-color: #EE3E38;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: Titillium, sans-serif;
+    font-weight: 700;
+    color: white;
+    border: 2px solid #EE3E38;
+}
+.loginButton:hover{
+    background-color: white;
+    color: #EE3E38;
+}
+.loginHead{
+    padding-bottom: 1.5rem;
+    text-align: center;
+    font-size: 2rem;
+    color: #EE3E38;
+}
+.loginHeadBase{
+    padding-top: 1rem;
+    font-size: 1rem;
+    color: #EE3E38;
+}
