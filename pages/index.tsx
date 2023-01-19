@@ -10,11 +10,14 @@ import { State } from "../redux/store";
 
 export default function Home() {
   const { news } = useSelector((store: State) => store.newsManager);
+  const store = useSelector((store: State) => store.productsManager);
+  console.log(store);
+
   const dispatch = useDispatch();
   useEffect(() => {
-    // if (news.length === 0) {
-    getNews(dispatch, 15);
-    // }
+    if (news.length === 0) {
+      getNews(dispatch, 15);
+    }
   }, []);
 
   return (
@@ -51,7 +54,7 @@ export default function Home() {
         </div>
         <div className={styles.mainContainer}>
           <div className={styles.inDepthBox}>
-            <div style={{display:"flex",gap:"1rem"}}>
+            <div style={{ display: "flex", gap: "1rem" }}>
               {news.map((el: any, index: number) => {
                 if (index > 4) {
                   return;
