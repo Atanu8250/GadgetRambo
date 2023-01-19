@@ -4,6 +4,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import "../styles/globals.css";
 import { Provider, useSelector } from "react-redux";
 import { store } from "@/redux/store";
+import Footer from "@/components/Footer";
 
 export default function App({ Component, pageProps }: AppProps) {
   // const {}  = useSelector(store => store.authManager)
@@ -13,6 +14,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <Provider store={store}>
         <Navbar />
         <Component {...pageProps} />
+        <Footer />
       </Provider>
     </ChakraProvider>
   );
