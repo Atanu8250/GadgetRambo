@@ -11,7 +11,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider>
       <Provider store={store}>
-      {/* <Navbar /> */}
+      <Navbar />
         <Component {...pageProps} />
       </Provider>
     </ChakraProvider>
