@@ -1,4 +1,22 @@
 .main {
-  width: 80%;
   margin: auto;
+  width: 97%;
+  margin: auto;
+  display: flex;
+  margin-top: 2rem;
+  justify-content: flex-start
+}
+.main >div{
+  margin: 0 1rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.left_sideBar {
+  width: 12%;
+  background: var(--color-bg-light);
+}
+.mainContainer{
+  width: 65%;
+}
+.inDepthBox{
+  padding: 1rem;  
 }

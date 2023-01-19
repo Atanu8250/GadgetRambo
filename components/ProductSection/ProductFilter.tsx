@@ -27,13 +27,17 @@ import Image from "next/image";
 
 type Props = {};
 
-const MobileFilters = (props: Props) => {
-  const [value, setValue] = useState<string>("1");
+const ProductFilter = (props: Props) => {
   const [range, setRange] = useState<number>(198000);
-  console.log(range);
   return (
     <Flex direction={"column"} p={"1"} w={"248px"} bgColor={"#DDDDDD"}>
-      <Flex bgColor={"white"} mb={"5"} borderRadius={"8"} justifyContent={"space-evenly"} alignItems={"center"}>
+      <Flex
+        bgColor={"white"}
+        mb={"5"}
+        borderRadius={"8"}
+        justifyContent={"space-evenly"}
+        alignItems={"center"}
+      >
         {/* Top Heading */}
         <Text>Filters</Text>
         <Button borderRadius={"4"} bgColor={"#FFFFFFFF"} _hover={{}}>
@@ -54,14 +58,24 @@ const MobileFilters = (props: Props) => {
           </h2>
           <AccordionPanel pb={4}>
             <Text fontSize={"sm"}>{"₹ " + range + " /-"}</Text>
-            <Slider aria-label="slider-ex-1" defaultValue={198000} onChangeEnd={(val) => setRange(val * 1980)}>
+            <Slider
+              aria-label="slider-ex-1"
+              defaultValue={198000}
+              onChangeEnd={(val) => setRange(val * 1980)}
+            >
               <SliderTrack>
                 <SliderFilledTrack />
               </SliderTrack>
               <SliderThumb />
             </Slider>
 
-            <Button color={"white"} mt={2} w={"100%"} bgColor={"red"} _hover={{}}>
+            <Button
+              color={"white"}
+              mt={2}
+              w={"100%"}
+              bgColor={"red"}
+              _hover={{}}
+            >
               Go
             </Button>
           </AccordionPanel>
@@ -78,7 +92,11 @@ const MobileFilters = (props: Props) => {
           </h2>
           <AccordionPanel pb={4}>
             <Flex>
-              <Input fontSize={"xs"} borderRadius={"0px"} placeholder="Search by Brand" />
+              <Input
+                fontSize={"xs"}
+                borderRadius={"0px"}
+                placeholder="Search by Brand"
+              />
               {/* <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<SearchIcon />} /> */}
             </Flex>
             <Flex direction={"column"}>
@@ -89,7 +107,13 @@ const MobileFilters = (props: Props) => {
               <Checkbox value="oppo">Oppo</Checkbox>
               <Checkbox value="vivo">Vivo</Checkbox>
             </Flex>
-            <Link mt={"7"} fontSize={"xs"} _hover={{ color: "red" }} color={"red"} href="/**">
+            <Link
+              mt={"7"}
+              fontSize={"xs"}
+              _hover={{ color: "red" }}
+              color={"red"}
+              href="/**"
+            >
               *** More
             </Link>
           </AccordionPanel>
@@ -106,7 +130,11 @@ const MobileFilters = (props: Props) => {
           </h2>
           <AccordionPanel pb={4}>
             <Flex>
-              <Input fontSize={"xs"} borderRadius={"0px"} placeholder="Search by Ram" />
+              <Input
+                fontSize={"xs"}
+                borderRadius={"0px"}
+                placeholder="Search by Ram"
+              />
               {/* <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<SearchIcon />} /> */}
             </Flex>
             <Flex direction={"column"}>
@@ -116,7 +144,13 @@ const MobileFilters = (props: Props) => {
               <Checkbox value="3">3 GB</Checkbox>
               <Checkbox value="2">2 GB</Checkbox>
             </Flex>
-            <Link mt={"7"} fontSize={"xs"} _hover={{ color: "red" }} color={"red"} href="/**">
+            <Link
+              mt={"7"}
+              fontSize={"xs"}
+              _hover={{ color: "red" }}
+              color={"red"}
+              href="/**"
+            >
               *** More
             </Link>
           </AccordionPanel>
@@ -133,7 +167,11 @@ const MobileFilters = (props: Props) => {
           </h2>
           <AccordionPanel pb={4}>
             <Flex>
-              <Input fontSize={"xs"} borderRadius={"0px"} placeholder="Search by Ram" />
+              <Input
+                fontSize={"xs"}
+                borderRadius={"0px"}
+                placeholder="Search by Ram"
+              />
               {/* <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<SearchIcon />} /> */}
             </Flex>
             <Flex direction={"column"}>
@@ -143,7 +181,13 @@ const MobileFilters = (props: Props) => {
               <Checkbox value="32">32 GB - 63.9 GB</Checkbox>
               <Checkbox value="16">16 GB - 31.9 GB</Checkbox>
             </Flex>
-            <Link mt={"7"} fontSize={"xs"} _hover={{ color: "red" }} color={"red"} href="/**">
+            <Link
+              mt={"7"}
+              fontSize={"xs"}
+              _hover={{ color: "red" }}
+              color={"red"}
+              href="/**"
+            >
               *** More
             </Link>
           </AccordionPanel>
@@ -160,7 +204,11 @@ const MobileFilters = (props: Props) => {
           </h2>
           <AccordionPanel pb={4}>
             <Flex>
-              <Input fontSize={"xs"} borderRadius={"0px"} placeholder="Search by Ram" />
+              <Input
+                fontSize={"xs"}
+                borderRadius={"0px"}
+                placeholder="Search by Ram"
+              />
               {/* <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<SearchIcon />} /> */}
             </Flex>
             <Flex direction={"column"}>
@@ -168,7 +216,13 @@ const MobileFilters = (props: Props) => {
               <Checkbox value="usb">USB OTG</Checkbox>
               <Checkbox value="memc">Dedicated MemoryCard Slot</Checkbox>
             </Flex>
-            <Link mt={"7"} fontSize={"xs"} _hover={{ color: "red" }} color={"red"} href="/**">
+            <Link
+              mt={"7"}
+              fontSize={"xs"}
+              _hover={{ color: "red" }}
+              color={"red"}
+              href="/**"
+            >
               *** More
             </Link>
           </AccordionPanel>
@@ -185,7 +239,11 @@ const MobileFilters = (props: Props) => {
           </h2>
           <AccordionPanel pb={4}>
             <Flex>
-              <Input fontSize={"xs"} borderRadius={"0px"} placeholder="Search by Ram" />
+              <Input
+                fontSize={"xs"}
+                borderRadius={"0px"}
+                placeholder="Search by Ram"
+              />
               {/* <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<SearchIcon />} /> */}
             </Flex>
             <Flex direction={"column"}>
@@ -194,7 +252,13 @@ const MobileFilters = (props: Props) => {
               <Checkbox value="3000">3000 - 3999mAh</Checkbox>
               <Checkbox value="2000">2000 - 2999mAh</Checkbox>
             </Flex>
-            <Link mt={"7"} fontSize={"xs"} _hover={{ color: "red" }} color={"red"} href="/**">
+            <Link
+              mt={"7"}
+              fontSize={"xs"}
+              _hover={{ color: "red" }}
+              color={"red"}
+              href="/**"
+            >
               *** More
             </Link>
           </AccordionPanel>
@@ -211,7 +275,11 @@ const MobileFilters = (props: Props) => {
           </h2>
           <AccordionPanel pb={4}>
             <Flex>
-              <Input fontSize={"xs"} borderRadius={"0px"} placeholder="Search by Ram" />
+              <Input
+                fontSize={"xs"}
+                borderRadius={"0px"}
+                placeholder="Search by Ram"
+              />
               {/* <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<SearchIcon />} /> */}
             </Flex>
             <Flex direction={"column"}>
@@ -221,7 +289,13 @@ const MobileFilters = (props: Props) => {
               <Checkbox value="5.2">5.2 - 5.4 inches</Checkbox>
               <Checkbox value="5">5 - 5.1 inches</Checkbox>
             </Flex>
-            <Link mt={"7"} fontSize={"xs"} _hover={{ color: "red" }} color={"red"} href="/**">
+            <Link
+              mt={"7"}
+              fontSize={"xs"}
+              _hover={{ color: "red" }}
+              color={"red"}
+              href="/**"
+            >
               *** More
             </Link>
           </AccordionPanel>
@@ -238,7 +312,11 @@ const MobileFilters = (props: Props) => {
           </h2>
           <AccordionPanel pb={4}>
             <Flex>
-              <Input fontSize={"xs"} borderRadius={"0px"} placeholder="Search by Ram" />
+              <Input
+                fontSize={"xs"}
+                borderRadius={"0px"}
+                placeholder="Search by Ram"
+              />
               {/* <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<SearchIcon />} /> */}
             </Flex>
             <Flex direction={"column"}>
@@ -248,7 +326,13 @@ const MobileFilters = (props: Props) => {
               <Checkbox value="quad">Quad Camera</Checkbox>
               <Checkbox value="penta">Penta Camera</Checkbox>
             </Flex>
-            <Link mt={"7"} fontSize={"xs"} _hover={{ color: "red" }} color={"red"} href="/**">
+            <Link
+              mt={"7"}
+              fontSize={"xs"}
+              _hover={{ color: "red" }}
+              color={"red"}
+              href="/**"
+            >
               *** More
             </Link>
           </AccordionPanel>
@@ -265,7 +349,11 @@ const MobileFilters = (props: Props) => {
           </h2>
           <AccordionPanel pb={4}>
             <Flex>
-              <Input fontSize={"xs"} borderRadius={"0px"} placeholder="Search by Ram" />
+              <Input
+                fontSize={"xs"}
+                borderRadius={"0px"}
+                placeholder="Search by Ram"
+              />
               {/* <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<SearchIcon />} /> */}
             </Flex>
             <Flex direction={"column"}>
@@ -275,7 +363,13 @@ const MobileFilters = (props: Props) => {
               <Checkbox value="12"> 12 MP - 12.9 MP</Checkbox>
               <Checkbox value="8"> 8 MP - 11.9 MP</Checkbox>
             </Flex>
-            <Link mt={"7"} fontSize={"xs"} _hover={{ color: "red" }} color={"red"} href="/**">
+            <Link
+              mt={"7"}
+              fontSize={"xs"}
+              _hover={{ color: "red" }}
+              color={"red"}
+              href="/**"
+            >
               *** More
             </Link>
           </AccordionPanel>
@@ -292,7 +386,11 @@ const MobileFilters = (props: Props) => {
           </h2>
           <AccordionPanel pb={4}>
             <Flex>
-              <Input fontSize={"xs"} borderRadius={"0px"} placeholder="Search by Ram" />
+              <Input
+                fontSize={"xs"}
+                borderRadius={"0px"}
+                placeholder="Search by Ram"
+              />
               {/* <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<SearchIcon />} /> */}
             </Flex>
             <Flex direction={"column"}>
@@ -302,7 +400,13 @@ const MobileFilters = (props: Props) => {
               <Checkbox value="12"> 12 MP - 12.9 MP</Checkbox>
               <Checkbox value="8"> 8 MP - 11.9 MP</Checkbox>
             </Flex>
-            <Link mt={"7"} fontSize={"xs"} _hover={{ color: "red" }} color={"red"} href="/**">
+            <Link
+              mt={"7"}
+              fontSize={"xs"}
+              _hover={{ color: "red" }}
+              color={"red"}
+              href="/**"
+            >
               *** More
             </Link>
           </AccordionPanel>
@@ -312,4 +416,4 @@ const MobileFilters = (props: Props) => {
   );
 };
 
-export default MobileFilters;
+export default ProductFilter;
