@@ -7,9 +7,12 @@ import { Icon, Button } from "@chakra-ui/react";
 import Logo from "../assets/Logo.png";
 import { Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react";
 import Marquee from "react-fast-marquee";
-import { Divider } from "@chakra-ui/react";
+import useAuth from "@/customHook/UseAuth";
 
 const Navbar = () => {
+
+  useAuth()
+
   const handleFuse = () => {
     setFocusHome(false);
     setFocusGuide(false);
