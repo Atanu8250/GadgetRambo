@@ -12,7 +12,7 @@ const Laptops = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     if (mobiles.length === 0) {
-      //   getMobile(dispatch);
+    //   getMobile(dispatch);
     }
   }, []);
 
