@@ -1,0 +1,94 @@
+.dashboard {
+    /* border: 2px solid rgb(220, 220, 3); */
+}
+
+/* overview cards */
+.dashboard>div:nth-child(1) {
+    /* border: 2px solid blue; */
+    width: 100%;
+    justify-content: space-around;
+}
+
+
+/* single overview card */
+.overviewCard {
+    padding: 10px 20px;
+    width: 28%;
+    border-radius: 8px;
+    background: linear-gradient(to bottom, #a32424, #ee3e38);
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* information */
+.overviewCard>div:nth-child(1)>h2:nth-child(1) {
+    font-family: Roboto, sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #ececec;
+}
+
+.overviewCard>div:nth-child(1)>p:nth-child(2) {
+    font-family: Roboto, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #fcfcfc;
+}
+
+.overviewCard>div:nth-child(1)>p:nth-child(3) {
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    color: #cececeee;
+}
+
+.overviewCard:nth-child(2)>div:nth-child(2)>svg{
+    rotate: 180deg;
+}
+
+
+
+
+/* logo */
+.overviewCard>div:nth-child(2) {
+    margin: auto 0px;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: #f3f3f3;
+    color: #ee3e38;
+    font-size: 35px;
+}
+
+
+
+/* chart section */
+.dashboard>div:nth-child(2) {
+    height: 500px;
+    margin-top: 15px;
+    border: 2px solid red;
+    justify-content: space-between;
+}
+
+.dashboard>div:nth-child(2)>div{
+    height: 200px;
+    width: 200px;
+}
+
+
+/* line chart */
+.dashboard>div:nth-child(2)>div:nth-child(1){
+    width: 55%;
+    height: 100%;
+}
+
+/* pie chart */
+.dashboard>div:nth-child(2)>div:nth-child(2){
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid red; */
+}

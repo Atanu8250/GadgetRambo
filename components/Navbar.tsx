@@ -13,7 +13,12 @@ import NavbarDrawer from "../components/NavbarDrawer";
 import Login from "./Login";
 import Signup from "./Signup";
 
+import useAuth from "@/customHook/UseAuth";
+
 const Navbar = () => {
+
+  useAuth()
+
   const handleFuse = () => {
     setFocusHome(false);
     setFocusGuide(false);
