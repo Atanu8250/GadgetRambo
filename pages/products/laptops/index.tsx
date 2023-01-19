@@ -1,36 +1,44 @@
-import React, { useEffect, useRef } from "react";
-import styles from "../../../styles/laptops.module.css";
-import { Show } from "@chakra-ui/react";
+import React, { useEffect } from "react";
+import { Flex, Show } from "@chakra-ui/react";
 import ProductFilter from "@/components/ProductSection/ProductFilter";
 import SmallScreenFilter from "@/components/ProductSection/SmallScreenFIlter";
 import { useDispatch, useSelector } from "react-redux";
-// import {  } from "@/redux/laptops/laptops.actions";
+import { getLaptop, getMobile } from "@/redux/products/products.actions";
 import ProductCard from "@/components/ProductSection/ProductCard";
+import { State } from "@/redux/store";
 
 const Laptops = () => {
-  const { mobiles } = useSelector((store: any) => store.laptopsManager);
+  const { laptops } = useSelector((store: State) => store.productsManager);
+  console.log("laptops: ", laptops);
+
   const dispatch = useDispatch();
   useEffect(() => {
-    if (mobiles.length === 0) {
-    //   getMobile(dispatch);
+    if (laptops.length === 0) {
+      getLaptop(dispatch);
     }
   }, []);
 
   return (
-    <div className={styles.laptops_container}>
-      <div className={styles.filter_container_left}>
-        <Show above="md">
-          <ProductFilter />
+    <>
+      <Flex w={"100%"} p={"8"} justifyContent={"center"}>
+        <Flex flex={1} justifyContent={"center"}>
+          <Show above="md">
+            <ProductFilter />
+          </Show>
+          <SmallScreenFilter />
+        </Flex>
+        <Flex flex={2} direction={"column"}>
+          {laptops.map((data: any) => (
+            <ProductCard key={data.id} {...data} />
+          ))}
+        </Flex>
+        <Show above="lg">
+          <Flex flex={2} justifyContent={"center"}>
+            Last Div
+          </Flex>
         </Show>
-        <SmallScreenFilter />
-      </div>
-      <div className={styles.alllaptops_middle}>
-        {mobiles.map((mobile: any) => (
-          <ProductCard key={mobile.id} {...mobile} />
-        ))}
-      </div>
-      <div className={styles.suggestion_container}>last div</div>
-    </div>
+      </Flex>
+    </>
   );
 };
 
