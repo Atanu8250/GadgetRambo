@@ -1,18 +1,18 @@
 import React, { useEffect, useRef } from "react";
 import styles from "../../../styles/laptops.module.css";
 import { Show } from "@chakra-ui/react";
-import ProductFilter from "@/components/MobileSection/ProductFilter";
-import SmallScreenFilter from "@/components/MobileSection/SmallScreenFIlter";
+import ProductFilter from "@/components/ProductSection/ProductFilter";
+import SmallScreenFilter from "@/components/ProductSection/SmallScreenFIlter";
 import { useDispatch, useSelector } from "react-redux";
 // import {  } from "@/redux/laptops/laptops.actions";
-import ProductCard from "@/components/MobileSection/ProductCard";
+import ProductCard from "@/components/ProductSection/ProductCard";
 
 const Laptops = () => {
   const { mobiles } = useSelector((store: any) => store.laptopsManager);
   const dispatch = useDispatch();
   useEffect(() => {
     if (mobiles.length === 0) {
-    //   getMobile(dispatch);
+      //   getMobile(dispatch);
     }
   }, []);
 

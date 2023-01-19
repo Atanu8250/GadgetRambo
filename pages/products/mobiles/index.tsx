@@ -1,11 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import styles from "../../../styles/products.module.css";
 import { Show } from "@chakra-ui/react";
-import ProductFilter from "@/components/MobileSection/ProductFilter";
-import SmallScreenFilter from "@/components/MobileSection/SmallScreenFIlter";
+import ProductFilter from "@/components/ProductSection/ProductFilter";
+import SmallScreenFilter from "@/components/ProductSection/SmallScreenFIlter";
 import { useDispatch, useSelector } from "react-redux";
 import { getMobile } from "@/redux/products/products.actions";
-import ProductCard from "@/components/MobileSection/ProductCard";
+import ProductCard from "@/components/ProductSection/ProductCard";
 
 const Products = () => {
   const { mobiles } = useSelector((store: any) => store.productsManager);
@@ -15,7 +15,6 @@ const Products = () => {
       getMobile(dispatch);
     }
   }, []);
-  
 
   return (
     <div className={styles.products_container}>
