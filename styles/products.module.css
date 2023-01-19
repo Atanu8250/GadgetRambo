@@ -1,0 +1,17 @@
+.products_container {
+  display: flex;
+  justify-content: center;
+  align-items: auto;
+  margin-top: 1rem;
+  position: relative;
+}
+
+.filter_container_left {
+  width: 20%;
+}
+.allProducts_middle {
+  width: 50%;
+}
+.suggestion_container {
+  width: 25%;
+}
