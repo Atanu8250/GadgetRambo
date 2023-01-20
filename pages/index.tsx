@@ -113,12 +113,9 @@ export default function Home() {
   const { mobiles } = useSelector((store: State) => store.productsManager);
   const dispatch = useDispatch();
   useEffect(() => {
-    if (news.length === 0) {
-      getNews(dispatch, 15);
-      getMobile(dispatch);
-    }
+    getNews(dispatch, 15);
+    getMobile(dispatch, 20);
   }, []);
-  console.log(mobiles);
 
   return (
     <>

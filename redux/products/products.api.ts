@@ -1,30 +1,33 @@
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, limit, query } from "firebase/firestore";
 import { db } from "@/Backend/Firebase/firebase";
 
-export const getMobileAPI = async () => {
+export const getMobileAPI = async (limitQuery: number) => {
   try {
     const mobileRef = collection(db, "mobiles");
-    const res = await getDocs(mobileRef);
+    const q = query(mobileRef, limit(limitQuery));
+    const res = await getDocs(q);
     const mobiles = res.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
     return mobiles;
   } catch (error) {
     console.log(error);
   }
 };
-export const getLaptopAPI = async () => {
+export const getLaptopAPI = async (limitQuery: number) => {
   try {
     const laptopRef = collection(db, "gadget_rambo/products/laptops");
-    const res = await getDocs(laptopRef);
+    const q = query(laptopRef, limit(limitQuery));
+    const res = await getDocs(q);
     const laptops = res.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
     return laptops;
   } catch (error) {
     console.log(error);
   }
 };
-export const getTvAPI = async () => {
+export const getTvAPI = async (limitQuery: number) => {
   try {
     const tvRef = collection(db, "tv");
-    const res = await getDocs(tvRef);
+    const q = query(tvRef, limit(limitQuery));
+    const res = await getDocs(q);
     const tv = res.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
     console.log(tv);
 

@@ -2,10 +2,12 @@
   width: 25%;
   padding-left: 1rem;
 }
+.container > div {
+  margin-top: 2rem;
+}
 .newsLetterBox {
   display: flex;
   justify-content: space-between;
-  margin: 2rem 0;
 }
 .newsLetterBox > input,
 .newsLetterBox > button {
@@ -23,12 +25,45 @@
 .socialHandle {
   text-align: center;
   background-color: white;
+  padding: 1rem;
 }
 .socialHandle > div {
   display: flex;
   justify-content: space-evenly;
 }
-.socialHandle > div > .socialIcons {
-  font-size: 30px;
-  background-color: blue;
+.socialHandle > p {
+  font-size: 20px;
+  font-weight: 500;
+}
+.socialIcons {
+  font-size: 25px;
+  color: white;
+  padding: 8px;
+  border-radius: 50%;
+}
+.gadGetsAndTopics > p {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.5rem;
+}
+.gadGetsAndTopics > div {
+  display: flex;
+}
+.gadGetsAndTopics > div > div {
+  width: 50%;
+  padding: 0.5rem;
+}
+.gadGetsAndTopics > div > div > p {
+  font-size: 20px;
+  font-weight: 600;
+}
+.gadGetsAndTopics > div > div > div > p {
+  color: var(--color-light);
+  font-size: 13px;
+  line-height: 30px;
+  border-bottom: 1px solid #eae8e8;
+  cursor: pointer;
+}
+.gadGetsAndTopics > div > div > div > p:hover {
+  color: var(--color-primary);
 }
