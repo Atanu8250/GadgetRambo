@@ -1,4 +1,4 @@
-import { auth, provider } from '@/Backend/Firebase/firebase'
+import { auth,  provider } from '@/Backend/Firebase/firebase'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth'
 
 export const SignupWithEmailAndPwdAPI = async (email: string, password: string) => {
