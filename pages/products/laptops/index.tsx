@@ -1,36 +1,49 @@
-import React, { useEffect, useRef } from "react";
-import styles from "../../../styles/laptops.module.css";
-import { Show } from "@chakra-ui/react";
-import ProductFilter from "@/components/ProductSection/ProductFilter";
-import SmallScreenFilter from "@/components/ProductSection/SmallScreenFIlter";
+import React, { useEffect } from "react";
+import { Flex, IconButton, Input, Show } from "@chakra-ui/react";
+import LaptopFilter from "@/components/ProductSection/Laptops/LaptopFilter";
+import ResponsiveLaptopFilter from "@/components/ProductSection/Laptops/ResponsiveLaptopFilter";
 import { useDispatch, useSelector } from "react-redux";
-// import {  } from "@/redux/laptops/laptops.actions";
+import { getLaptop } from "@/redux/products/products.actions";
 import ProductCard from "@/components/ProductSection/ProductCard";
+import { State } from "@/redux/store";
+import { BsSearch } from "react-icons/bs";
 
 const Laptops = () => {
-  const { mobiles } = useSelector((store: any) => store.laptopsManager);
+  const { laptops } = useSelector((store: State) => store.productsManager);
+  console.log("laptops: ", laptops);
+
   const dispatch = useDispatch();
   useEffect(() => {
-    if (mobiles.length === 0) {
-    //   getMobile(dispatch);
+    if (laptops.length === 0) {
+      getLaptop(dispatch);
     }
   }, []);
 
   return (
-    <div className={styles.laptops_container}>
-      <div className={styles.filter_container_left}>
-        <Show above="md">
-          <ProductFilter />
+    <>
+      <Flex direction={{ base: "column", sm: "column", md: "row" }} w={"100%"} p={"8"} justifyContent={"center"}>
+        <Flex flex={1} justifyContent={{ base: "flex-start", sm: "flex-start", md: "center" }}>
+          <Show above="md">
+            <LaptopFilter />
+          </Show>
+          <ResponsiveLaptopFilter />
+        </Flex>
+        <Flex flex={2} direction={"column"} alignItems={"center"}>
+          <Flex>
+            <Input w={"380px"} variant="flushed" type={"text"} placeholder={"Search Here"} />
+            <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<BsSearch />} />
+          </Flex>
+          {laptops.map((data: any) => (
+            <ProductCard key={data.id} {...data} />
+          ))}
+        </Flex>
+        <Show above="lg">
+          <Flex flex={2} justifyContent={"center"}>
+            Last Div
+          </Flex>
         </Show>
-        <SmallScreenFilter />
-      </div>
-      <div className={styles.alllaptops_middle}>
-        {mobiles.map((mobile: any) => (
-          <ProductCard key={mobile.id} {...mobile} />
-        ))}
-      </div>
-      <div className={styles.suggestion_container}>last div</div>
-    </div>
+      </Flex>
+    </>
   );
 };
 
