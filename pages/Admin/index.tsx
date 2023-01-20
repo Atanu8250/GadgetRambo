@@ -1,12 +1,15 @@
 import LineChartCompo from '@/components/admin/LineChart'
 import SidebarWithHeader from '@/components/admin/Navbar'
-import PieChartCompo from '@/components/admin/pieChart'
-import { Flex, Box, HStack, VStack } from '@chakra-ui/react'
+import PieChartCompo from '@/components/admin/PieChart'
+import { getUsers } from '@/redux/users/users.action'
+import { Flex, Box } from '@chakra-ui/react'
 import Head from 'next/head'
-import React from 'react'
+import React, { useState } from 'react'
 import { FaUsers } from 'react-icons/fa'
 import { GiMoneyStack } from 'react-icons/gi'
 import { VscProject } from 'react-icons/vsc'
+import { useDispatch, useSelector } from 'react-redux'
+import { Dispatch } from 'redux'
 
 import styles from '../../styles/adminDashboard.module.css'
 
@@ -14,7 +17,24 @@ import styles from '../../styles/adminDashboard.module.css'
 type Props = {}
 
 
-const home = (props: Props) => {
+const Home = (props: Props) => {
+
+  const dispatch: Dispatch<any> = useDispatch();
+  const { users } = useSelector(store => store.usersManager)
+  const [mountTime, setMountTime] = useState<string>("");
+
+  React.useEffect(() => {
+    if (!users.length) {
+      dispatch(getUsers())
+    }
+    getMountTime()
+  }, [])
+
+  const getMountTime = () => {
+    setMountTime(new Date().toLocaleString())
+  }
+
+
   return (
     <>
       <Head>
@@ -29,8 +49,8 @@ const home = (props: Props) => {
             <Box className={styles.overviewCard}>
               <Box>
                 <h2>Users</h2>
-                <p>12345</p>
-                <p>Last updated: 6 min ago </p>
+                <p>{users.length}</p>
+                <p>Last updated: {mountTime} </p>
               </Box>
               <Box>
                 <FaUsers />
@@ -41,7 +61,7 @@ const home = (props: Props) => {
               <Box>
                 <h2>Total Orders</h2>
                 <p>12345</p>
-                <p>Last updated: 6 min ago</p>
+                <p>Last updated: {mountTime}</p>
               </Box>
               <Box>
                 <VscProject />
@@ -52,7 +72,7 @@ const home = (props: Props) => {
               <Box>
                 <h2>Total Sale</h2>
                 <p>₹ 12,345.00 /-</p>
-                <p>Last updated: 6 min ago</p>
+                <p>Last updated: {mountTime} </p>
               </Box>
               <Box>
                 <GiMoneyStack />
@@ -64,12 +84,18 @@ const home = (props: Props) => {
           {/* Chart section */}
 
           <Flex>
-            <Box>
-              <LineChartCompo />
-            </Box>
-            <Box>
-              <PieChartCompo />
-            </Box>
+            <Flex>
+              <h2>Revenue & users graph</h2>
+              <Box>
+                <LineChartCompo />
+              </Box>
+            </Flex>
+            <Flex>
+              <Box>
+                <PieChartCompo />
+              </Box>
+              <h2>Users details</h2>
+            </Flex>
           </Flex>
         </div>
       </SidebarWithHeader>
@@ -77,4 +103,4 @@ const home = (props: Props) => {
   )
 }
 
-export default home
+export default Home

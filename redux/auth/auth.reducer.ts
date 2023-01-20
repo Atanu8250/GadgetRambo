@@ -1,4 +1,3 @@
-import React from 'react'
 import * as authTypes from './auth.type';
 
 type reducerAction = {
