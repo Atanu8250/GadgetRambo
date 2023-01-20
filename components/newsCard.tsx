@@ -6,10 +6,12 @@ interface newsCardProps {
   title: string;
   titleSize: string;
   banner?: string;
-  width?: string;
-  height?: string;
+  imgWidth?: string;
+  imgHeight?: string;
   description?: string;
   desSize?: string;
+  titleMaxHeight?: string;
+  titleAlign?: boolean;
 }
 
 const NewsCard = ({
@@ -17,26 +19,34 @@ const NewsCard = ({
   title,
   titleSize,
   banner,
-  width,
-  height,
+  imgWidth,
+  imgHeight,
+  titleMaxHeight,
+  titleAlign,
   description,
   desSize,
 }: newsCardProps) => {
   return (
-    <div style={{ width: cardWidth, margin: "15px 0" }}>
+    <div
+      style={{
+        width: cardWidth,
+        margin: "15px 0",
+      }}
+    >
       <Image
-        margin={"10px 0"}
+        margin={"10px auto"}
         src={banner}
         alt={banner}
-        width={width}
-        height={height}
+        width={imgWidth}
+        height={imgHeight}
       />
       <Text
         overflow={"hidden"}
-        maxHeight={"4rem"}
+        maxHeight={titleMaxHeight}
         textOverflow={"ellipsis"}
         color={"var(--color-light)"}
         fontSize={titleSize}
+        textAlign={titleAlign ? "center" : "left"}
       >
         {title}
       </Text>
