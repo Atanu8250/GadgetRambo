@@ -210,6 +210,7 @@ export default function Home() {
                   backgroundColor: "white",
                   margin: ".4rem",
                   borderRadius: ".5rem",
+                  boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
                 }}
               >
                 {mobiles.map((mobile: any, id: number) => {
@@ -238,6 +239,7 @@ export default function Home() {
                   backgroundColor: "white",
                   margin: ".4rem",
                   borderRadius: ".5rem",
+                  boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
                 }}
               >
                 {mobiles.map((mobile: any, id: number) => {
@@ -266,6 +268,7 @@ export default function Home() {
                   backgroundColor: "white",
                   margin: ".4rem",
                   borderRadius: ".5rem",
+                  boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
                 }}
               >
                 {mobiles.map((mobile: any, id: number) => {

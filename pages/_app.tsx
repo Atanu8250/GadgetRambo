@@ -14,8 +14,8 @@ export default function App({ Component, pageProps }: AppProps) {
     <Provider store={store}>
       <ChakraProvider theme={customTheme}>
         <Navbar />
-        <div style={{ display: "flex", padding: "2rem" }}>
-          <div style={{ width: "75%" }}>
+        <div style={{ display: "flex", padding: "1rem" }}>
+          <div style={{ width: "80%" }}>
             <Component {...pageProps} />
           </div>
           <RightSidebar />

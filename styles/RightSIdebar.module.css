@@ -1,5 +1,5 @@
 .container {
-  width: 25%;
+  width: 20%;
   padding-left: 1rem;
 }
 .container > div {
@@ -25,7 +25,8 @@
 .socialHandle {
   text-align: center;
   background-color: white;
-  padding: 1rem;
+  padding: 1rem 0;
+  border: 1px solid #eae8e8;
 }
 .socialHandle > div {
   display: flex;
@@ -33,10 +34,11 @@
 }
 .socialHandle > p {
   font-size: 20px;
+  margin-bottom: 10px;
   font-weight: 500;
 }
 .socialIcons {
-  font-size: 25px;
+  font-size: 45px;
   color: white;
   padding: 8px;
   border-radius: 50%;
@@ -59,7 +61,7 @@
 }
 .gadGetsAndTopics > div > div > div > p {
   color: var(--color-light);
-  font-size: 13px;
+  font-size: 15px;
   line-height: 30px;
   border-bottom: 1px solid #eae8e8;
   cursor: pointer;

@@ -8,7 +8,6 @@
   padding: 1rem;
   width: 22%;
   background: var(--color-bg-light);
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .mainContainer {
   width: 78%;
@@ -17,6 +16,7 @@
   margin-bottom: 1rem;
   padding: 0.5rem 1rem;
   background-color: white;
+
 }
 .mainContainer > div > p {
   font-size: 22px;
