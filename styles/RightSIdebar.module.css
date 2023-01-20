@@ -1,0 +1,34 @@
+.container {
+  width: 25%;
+  padding-left: 1rem;
+}
+.newsLetterBox {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0;
+}
+.newsLetterBox > input,
+.newsLetterBox > button {
+  padding: 0.5rem;
+}
+.newsLetterBox > input {
+  width: 68%;
+  border: 1px solid #eae8e8;
+}
+.newsLetterBox > button {
+  background-color: var(--color-primary);
+  color: white;
+  width: 30%;
+}
+.socialHandle {
+  text-align: center;
+  background-color: white;
+}
+.socialHandle > div {
+  display: flex;
+  justify-content: space-evenly;
+}
+.socialHandle > div > .socialIcons {
+  font-size: 30px;
+  background-color: blue;
+}

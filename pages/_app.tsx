@@ -3,19 +3,25 @@ import Navbar from "../components/Navbar";
 import Footer from "@/components/Footer";
 import { ChakraProvider } from "@chakra-ui/react";
 import "../styles/globals.css";
-import { Provider, useSelector } from "react-redux";
+import { Provider } from "react-redux";
 import { store } from "@/redux/store";
+import RightSidebar from "@/components/RightSidebar";
 
 export default function App({ Component, pageProps }: AppProps) {
-  // const {}  = useSelector(store => store.authManager)
+  const customTheme = {};
 
   return (
-    <ChakraProvider>
-      <Provider store={store}>
+    <Provider store={store}>
+      <ChakraProvider theme={customTheme}>
         <Navbar />
-        <Component {...pageProps} />
+        <div style={{ display: "flex", padding: "2rem" }}>
+          <div style={{ width: "75%" }}>
+            <Component {...pageProps} />
+          </div>
+          <RightSidebar />
+        </div>
         <Footer />
-      </Provider>
-    </ChakraProvider>
+      </ChakraProvider>
+    </Provider>
   );
 }

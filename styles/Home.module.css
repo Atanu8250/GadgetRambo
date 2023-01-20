@@ -1,29 +1,34 @@
 .main {
-  margin: auto;
-  width: 97%;
-  margin: auto;
   display: flex;
-  margin-top: 2rem;
-  justify-content: flex-start;
 }
 .main > div {
   margin: 0 1rem;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .left_sideBar {
   padding: 1rem;
-  width: 12%;
+  width: 22%;
   background: var(--color-bg-light);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .mainContainer {
-  padding: 1rem;
-  width: 60%;
+  width: 78%;
 }
 .mainContainer > div {
   margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-.inDepthBox {
+.mainContainer > div > p {
+  font-size: 22px;
+  margin-bottom: 1rem;
+  font-weight: 500;
 }
-.productFinderBox{
-  border: 1px solid rebeccapurple;
+.productFinderContent {
+  background-color: #eae8e8;
+  padding-bottom: 1rem;
+}
+.productFinderContent > p {
+  padding: 1rem 1rem 0 1rem;
+  font-size: 17px;
 }
