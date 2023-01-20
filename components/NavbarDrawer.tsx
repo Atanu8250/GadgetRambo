@@ -44,7 +44,7 @@ const NavbarDrawer = () => {
       >
         <DrawerOverlay />
         <DrawerContent>
-          <DrawerCloseButton />
+          <DrawerCloseButton color={"#EE3E38"}/>
           <DrawerHeader className={style.drawer}>
             <Link href="/">
             <Image

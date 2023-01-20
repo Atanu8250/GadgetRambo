@@ -1,0 +1,11 @@
+.subitem{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    vertical-align: auto;
+}
+.subitemText{
+    width: 30rem;
+    text-align: "center"
+}
