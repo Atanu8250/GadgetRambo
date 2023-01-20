@@ -1,26 +1,27 @@
 import React, { useRef } from "react";
-import { Drawer, DrawerBody, Show, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton, useDisclosure, IconButton } from "@chakra-ui/react";
-import ProductFilter from "./ProductFilter";
+import { Drawer, DrawerBody, Show, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton, useDisclosure, IconButton, Heading, Flex } from "@chakra-ui/react";
+import LaptopFilter from "./LaptopFilter";
 import { BiFilterAlt } from "react-icons/bi";
-import { useSelector } from "react-redux";
-import { State } from "@/redux/store";
 
 type Props = {};
 
-const SmallScreenFilter = (props: Props) => {
+const ResponsiveLaptopFilter = (props: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef() as React.MutableRefObject<HTMLButtonElement>;
 
   return (
     <Show below="md">
-      <IconButton ref={btnRef} colorScheme="red" onClick={onOpen} icon={<BiFilterAlt />} aria-label={"Blank Drwawer"} />
+      <Flex gap={3} alignItems={"center"}>
+        <Heading size={"md"}>Filters</Heading>
+        <IconButton ref={btnRef} colorScheme="red" onClick={onOpen} icon={<BiFilterAlt />} aria-label={"Blank Drwawer"} />
+      </Flex>
       <Drawer isOpen={isOpen} placement="left" onClose={onClose} finalFocusRef={btnRef}>
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader></DrawerHeader>
           <DrawerBody>
-            <ProductFilter />
+            <LaptopFilter />
           </DrawerBody>
         </DrawerContent>
       </Drawer>
@@ -28,4 +29,4 @@ const SmallScreenFilter = (props: Props) => {
   );
 };
 
-export default SmallScreenFilter;
+export default ResponsiveLaptopFilter;

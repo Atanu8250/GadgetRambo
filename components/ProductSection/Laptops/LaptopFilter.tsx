@@ -21,22 +21,9 @@ import {
 import { MdRestartAlt } from "react-icons/md";
 import { BsSearch } from "react-icons/bs";
 
-type mobileType = {
-  imgsrc: string;
-  modal: string;
-  displaySize: string;
-  frontCamera: string;
-  rearCamera: string;
-  processor: string;
-  releaseDate: string;
-  price: number;
-};
-
 // { imgsrc, modal, displaySize, frontCamera, rearCamera, processor, releaseDate, price }: mobileType
 
-type Props = {};
-
-const ProductFilter = () => {
+const LaptopFilter = () => {
   const [range, setRange] = useState<number>(198000);
   return (
     <Flex direction={"column"} p={"1"} w={"248px"} bgColor={"#DDDDDD"}>
@@ -76,7 +63,7 @@ const ProductFilter = () => {
         <AccordionItem bgColor={"white"}>
           <AccordionButton>
             <Box fontSize={"sm"} as="span" flex="1" textAlign="left">
-              By Brand
+              Brand
             </Box>
             <AccordionIcon />
           </AccordionButton>
@@ -87,23 +74,20 @@ const ProductFilter = () => {
               <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<BsSearch />} />
             </Flex>
             <Flex direction={"column"}>
-              <Checkbox value="samsung">Samsung</Checkbox>
+              <Checkbox value="samsung">Asus</Checkbox>
               <Checkbox value="apple">Apple</Checkbox>
-              <Checkbox value="oneplus">OnePlus</Checkbox>
-              <Checkbox value="xiaomi">Xiaomi</Checkbox>
-              <Checkbox value="oppo">Oppo</Checkbox>
-              <Checkbox value="vivo">Vivo</Checkbox>
+              <Checkbox value="oneplus">Dell</Checkbox>
+              <Checkbox value="xiaomi">Lenovo</Checkbox>
+              <Checkbox value="xiaomi">Acer</Checkbox>
+              <Checkbox value="oppo">RealMe</Checkbox>
             </Flex>
-            <Link mt={"7"} fontSize={"xs"} _hover={{ color: "red" }} color={"red"} href="/**">
-              *** More
-            </Link>
           </AccordionPanel>
         </AccordionItem>
         {/* By Screen Sizes */}
         <AccordionItem bgColor={"white"}>
           <AccordionButton>
             <Box fontSize={"sm"} as="span" flex="1" textAlign="left">
-              By Screen Sizes
+              Screen Sizes
             </Box>
             <AccordionIcon />
           </AccordionButton>
@@ -114,22 +98,19 @@ const ProductFilter = () => {
               <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<BsSearch />} />
             </Flex>
             <Flex direction={"column"}>
-              <Checkbox value="6">6 inches & Above</Checkbox>
-              <Checkbox value="5.7">5.7 - 5.9 inches</Checkbox>
-              <Checkbox value="5.5">5.5 - 5.6 inches</Checkbox>
-              <Checkbox value="5.2">5.2 - 5.4 inches</Checkbox>
-              <Checkbox value="5">5 - 5.1 inches</Checkbox>
+              <Checkbox value="11">11 inches & Below</Checkbox>
+              <Checkbox value="12">12 inches</Checkbox>
+              <Checkbox value="13">13 inches</Checkbox>
+              <Checkbox value="14">14 inches</Checkbox>
+              <Checkbox value="15">15 inches & Above</Checkbox>
             </Flex>
-            <Link mt={"7"} fontSize={"xs"} _hover={{ color: "red" }} color={"red"} href="/**">
-              *** More
-            </Link>
           </AccordionPanel>
         </AccordionItem>
-        {/* By Number Of Rear Cameras */}
+        {/* By Screen Resolution */}
         <AccordionItem bgColor={"white"}>
           <AccordionButton>
             <Box fontSize={"sm"} as="span" flex="1" textAlign="left">
-              By Number Of Rear Cameras
+              Screen Resolution
             </Box>
             <AccordionIcon />
           </AccordionButton>
@@ -140,22 +121,17 @@ const ProductFilter = () => {
               <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<BsSearch />} />
             </Flex>
             <Flex direction={"column"}>
-              <Checkbox value="single">Single Camera</Checkbox>
-              <Checkbox value="double">Double Camera</Checkbox>
-              <Checkbox value="triple">Triple Camera</Checkbox>
-              <Checkbox value="quad">Quad Camera</Checkbox>
-              <Checkbox value="penta">Penta Camera</Checkbox>
+              <Checkbox value="hd">HD</Checkbox>
+              <Checkbox value="fhd">Full HD</Checkbox>
+              <Checkbox value="uhd">Ultra HD</Checkbox>
             </Flex>
-            <Link mt={"7"} fontSize={"xs"} _hover={{ color: "red" }} color={"red"} href="/**">
-              *** More
-            </Link>
           </AccordionPanel>
         </AccordionItem>
-        {/* By Primary Rear Camera */}
+        {/* Processor Brands */}
         <AccordionItem bgColor={"white"}>
           <AccordionButton>
             <Box fontSize={"sm"} as="span" flex="1" textAlign="left">
-              By Primary Rear Camera
+              Processor Brands
             </Box>
             <AccordionIcon />
           </AccordionButton>
@@ -166,22 +142,19 @@ const ProductFilter = () => {
               <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<BsSearch />} />
             </Flex>
             <Flex direction={"column"}>
-              <Checkbox value="21"> 21 MP & Above</Checkbox>
-              <Checkbox value="16"> 16 MP - 20.9 MP</Checkbox>
-              <Checkbox value="13"> 13 MP - 15.9 MP</Checkbox>
-              <Checkbox value="12"> 12 MP - 12.9 MP</Checkbox>
-              <Checkbox value="8"> 8 MP - 11.9 MP</Checkbox>
+              <Checkbox value="intel"> Intel</Checkbox>
+              <Checkbox value="qualcomm"> Qualcomm</Checkbox>
+              <Checkbox value="mediatek"> Mediatek</Checkbox>
+              <Checkbox value="amd"> AMD</Checkbox>
+              <Checkbox value="apple"> Apple</Checkbox>
             </Flex>
-            <Link mt={"7"} fontSize={"xs"} _hover={{ color: "red" }} color={"red"} href="/**">
-              *** More
-            </Link>
           </AccordionPanel>
         </AccordionItem>
-        {/* By Front Camera */}
+        {/* By Processor Clock Speeds */}
         <AccordionItem bgColor={"white"}>
           <AccordionButton>
             <Box fontSize={"sm"} as="span" flex="1" textAlign="left">
-              By Front Camera
+              Processor Clock Speeds
             </Box>
             <AccordionIcon />
           </AccordionButton>
@@ -192,22 +165,18 @@ const ProductFilter = () => {
               <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<BsSearch />} />
             </Flex>
             <Flex direction={"column"}>
-              <Checkbox value="21"> 21 MP & Above</Checkbox>
-              <Checkbox value="16"> 16 MP - 20.9 MP</Checkbox>
-              <Checkbox value="13"> 13 MP - 15.9 MP</Checkbox>
-              <Checkbox value="12"> 12 MP - 12.9 MP</Checkbox>
-              <Checkbox value="8"> 8 MP - 11.9 MP</Checkbox>
+              <Checkbox value="1.5"> 1.5 Ghz & Below</Checkbox>
+              <Checkbox value="1.6"> 1.6 Ghz - 1.9 Ghz</Checkbox>
+              <Checkbox value="2"> 2 Ghz - 2.4 Ghz</Checkbox>
+              <Checkbox value="2.5"> 2.5 Ghz & Above</Checkbox>
             </Flex>
-            <Link mt={"7"} fontSize={"xs"} _hover={{ color: "red" }} color={"red"} href="/**">
-              *** More
-            </Link>
           </AccordionPanel>
         </AccordionItem>
         {/* By Ram */}
         <AccordionItem bgColor={"white"}>
           <AccordionButton>
             <Box fontSize={"sm"} as="span" flex="1" textAlign="left">
-              By Ram
+              RAM
             </Box>
             <AccordionIcon />
           </AccordionButton>
@@ -218,22 +187,19 @@ const ProductFilter = () => {
               <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<BsSearch />} />
             </Flex>
             <Flex direction={"column"}>
-              <Checkbox value="8">8 GB & Above</Checkbox>
-              <Checkbox value="6">6 GB</Checkbox>
-              <Checkbox value="4">4 GB</Checkbox>
+              <Checkbox value="2">2 GB & Below</Checkbox>
               <Checkbox value="3">3 GB</Checkbox>
-              <Checkbox value="2">2 GB</Checkbox>
+              <Checkbox value="4">4 GB</Checkbox>
+              <Checkbox value="6">6 GB</Checkbox>
+              <Checkbox value="8">8 GB & Above</Checkbox>
             </Flex>
-            <Link mt={"7"} fontSize={"xs"} _hover={{ color: "red" }} color={"red"} href="/**">
-              *** More
-            </Link>
           </AccordionPanel>
         </AccordionItem>
-        {/* By Internal Storage */}
+        {/* By Storage */}
         <AccordionItem bgColor={"white"}>
           <AccordionButton>
             <Box fontSize={"sm"} as="span" flex="1" textAlign="left">
-              By Internal Storage
+              Storage Type
             </Box>
             <AccordionIcon />
           </AccordionButton>
@@ -244,22 +210,19 @@ const ProductFilter = () => {
               <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<BsSearch />} />
             </Flex>
             <Flex direction={"column"}>
-              <Checkbox value="256">256 GB & Above</Checkbox>
-              <Checkbox value="128">128 GB - 255.9 GB</Checkbox>
-              <Checkbox value="64">64 GB - 127.9 GB</Checkbox>
-              <Checkbox value="32">32 GB - 63.9 GB</Checkbox>
-              <Checkbox value="16">16 GB - 31.9 GB</Checkbox>
+              <Checkbox value="hdd">HDD</Checkbox>
+              <Checkbox value="ssd">SSD</Checkbox>
+              <Checkbox value="hdd">HDD or SSHD</Checkbox>
+              <Checkbox value="sshd">SSHD</Checkbox>
+              <Checkbox value="hhd">HHD</Checkbox>
             </Flex>
-            <Link mt={"7"} fontSize={"xs"} _hover={{ color: "red" }} color={"red"} href="/**">
-              *** More
-            </Link>
           </AccordionPanel>
         </AccordionItem>
         {/* External Storage */}
         <AccordionItem bgColor={"white"}>
           <AccordionButton>
             <Box fontSize={"sm"} as="span" flex="1" textAlign="left">
-              By External Storage
+              Operating System
             </Box>
             <AccordionIcon />
           </AccordionButton>
@@ -270,20 +233,19 @@ const ProductFilter = () => {
               <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<BsSearch />} />
             </Flex>
             <Flex direction={"column"}>
-              <Checkbox value="exp">Expandable Storage</Checkbox>
-              <Checkbox value="usb">USB OTG</Checkbox>
-              <Checkbox value="memc">Dedicated MemoryCard Slot</Checkbox>
+              <Checkbox value="w10">Windows 10</Checkbox>
+              <Checkbox value="w10h">Windows 10 Home</Checkbox>
+              <Checkbox value="mos">MacOS</Checkbox>
+              <Checkbox value="w8">Windows 8</Checkbox>
+              <Checkbox value="w11">Windows 11</Checkbox>
             </Flex>
-            <Link mt={"7"} fontSize={"xs"} _hover={{ color: "red" }} color={"red"} href="/**">
-              *** More
-            </Link>
           </AccordionPanel>
         </AccordionItem>
         {/* Battery Capacity */}
         <AccordionItem bgColor={"white"}>
           <AccordionButton>
             <Box fontSize={"sm"} as="span" flex="1" textAlign="left">
-              By Battery Capacity
+              Number of USB Ports
             </Box>
             <AccordionIcon />
           </AccordionButton>
@@ -294,14 +256,12 @@ const ProductFilter = () => {
               <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<BsSearch />} />
             </Flex>
             <Flex direction={"column"}>
-              <Checkbox value="5000">5000 - 5999mAh</Checkbox>
-              <Checkbox value="4000">4000 - 4999mAh</Checkbox>
-              <Checkbox value="3000">3000 - 3999mAh</Checkbox>
-              <Checkbox value="2000">2000 - 2999mAh</Checkbox>
+              <Checkbox value="1">1</Checkbox>
+              <Checkbox value="2">2</Checkbox>
+              <Checkbox value="3">3</Checkbox>
+              <Checkbox value="4">4</Checkbox>
+              <Checkbox value="5">5</Checkbox>
             </Flex>
-            <Link mt={"7"} fontSize={"xs"} _hover={{ color: "red" }} color={"red"} href="/**">
-              *** More
-            </Link>
           </AccordionPanel>
         </AccordionItem>
       </Accordion>
@@ -309,4 +269,4 @@ const ProductFilter = () => {
   );
 };
 
-export default ProductFilter;
+export default LaptopFilter;
