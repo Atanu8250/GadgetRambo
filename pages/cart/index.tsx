@@ -5,7 +5,7 @@ import CartItem from "@/components/CartItem";
 import { Divider, Button, Input } from "@chakra-ui/react";
 import Link from "next/link";
 
-const index = () => {
+const Index = () => {
   const [Item, setItem] = React.useState<Array<object>>([]);
   const [discount, setDiscount] = React.useState<number>(0);
   const [delivery, setDelivery] = React.useState<number>(0);
@@ -13,15 +13,15 @@ const index = () => {
   const [total, setTotal] = React.useState<number>(0);
 
 
-  // React.useEffect(() => {
-  //   fetch("http://localhost:3030/product")
-  //     .then((res) => {
-  //       return res.json();
-  //     })
-  //     .then((data) => {
-  //       setItem(data);
-  //     });
-  // }, []);
+  React.useEffect(() => {
+    fetch("http://localhost:3030/product")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setItem(data);
+      });
+  }, []);
 
   console.log(Item);
   return (
@@ -86,4 +86,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;
