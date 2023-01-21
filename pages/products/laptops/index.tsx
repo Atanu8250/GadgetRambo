@@ -15,7 +15,7 @@ const Laptops = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     if (laptops.length === 0) {
-      getLaptop(dispatch);
+      getLaptop(dispatch, 16);
     }
   }, []);
 
