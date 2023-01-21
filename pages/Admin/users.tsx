@@ -2,7 +2,7 @@ import SidebarWithHeader from '@/components/admin/Navbar'
 import { State } from '@/redux/store'
 import { getUsers, updateUser } from '@/redux/users/users.action'
 import { deleteUserAPI } from '@/redux/users/users.api'
-import { Button, Table, TableCaption, TableContainer, Tbody, Th, Thead, Tr } from '@chakra-ui/react'
+import { Badge, Button, Table, TableCaption, TableContainer, Tbody, Th, Thead, Tr } from '@chakra-ui/react'
 import Head from 'next/head'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -18,7 +18,7 @@ const Users = () => {
 
   useEffect(() => {
       dispatch(getUsers())
-  }, [changeby])
+  }, [users,changeby])
 
 
   return (
@@ -35,6 +35,7 @@ const Users = () => {
                 <Tr>
                   <Th>uid</Th>
                   <Th>email</Th>
+                  <Th>last login</Th>
                   <Th>Status</Th>
                   <Th>Edit</Th>
                   <Th>Delete</Th>
@@ -45,7 +46,10 @@ const Users = () => {
                   users.map((user: intrfcUser) => <Tr key={user.uid}>
                     <Th>{user.uid}</Th>
                     <Th>{user.email}</Th>
-                    <Th>{user.isActive ? "Active" : "Inactive"}</Th>
+                    <Th>{user.lastSignInTime}</Th>
+                    <Th>
+                      <Badge colorScheme={user.isActive ? "green" : "red"}>{user.isActive ? "Active" : "Inactive"}</Badge>
+                      </Th>
                     <Th><Button colorScheme={"blue"} onClick={() => {
                       dispatch(updateUser(user.uid, {isAdmin: !user.isAdmin}))
                     }}>{

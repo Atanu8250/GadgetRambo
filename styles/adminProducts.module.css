@@ -1,0 +1,54 @@
+
+/* laptop cards */
+.Prod>div{
+    margin: 10px 0px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #fff;
+}
+
+
+
+/* laptop heading part */
+.Prod>div:nth-child(1) p{
+    font-weight: bold;
+}
+
+
+.Prod>div>div{
+    /* border: 1px solid red; */
+    width: 100%;
+    margin-right: 10px;
+}
+
+/* serial no box */
+.Prod>div>div:nth-child(1){
+    width: 100px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+}
+
+/* price section */
+.Prod>div>div:nth-child(7){
+    width: 650px;
+    margin-right: 20px;
+}
+
+
+/* Edit section */
+.Prod>div>div:nth-child(8){
+    width: 400px;
+    margin-right: 20px;
+}
+
+
+/* Delete section */
+.Prod>div>div:nth-child(9){
+    width: 400px;
+    margin-right: 20px;
+}
+

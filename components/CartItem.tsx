@@ -1,8 +1,7 @@
 import React from "react";
-import { Box, Button, Divider, Icon } from "@chakra-ui/react";
+import { Box, Button, Divider, Icon,Image, Text } from "@chakra-ui/react";
 import { RxCross2 } from "react-icons/rx";
 import style from "../styles/CartItem.module.css";
-import Image from "next/image";
 
 type CartProps = {
   items: object;
@@ -28,7 +27,7 @@ const CartItem = (props: CartProps) => {
         className={style.subitem}
       >
         <div style={{ width: "10%",margin:"auto", textAlign: "center"}}>
-          <Image src={props.items.phone} alt="" width={100} height={100}/>
+          <Image src={props.items.phone} mx="auto" alt=""/>
         </div>
         <div className={style.subitemText}>
           <h1
@@ -39,13 +38,13 @@ const CartItem = (props: CartProps) => {
           >
             {props.items.name}
           </h1>
-          <p>{props.items.des}</p>
+          <Text noOfLines={2}>{props.items.des}</Text>
         </div>
         <div className={style.quantity}>
           <div className={style.quantityInner}>
-            <Button onClick={() => inc()}>+</Button>
-            <Button isDisabled>{count}</Button>
             <Button onClick={() => dec()}>-</Button>
+            <Button isDisabled fontSize={20}>{count}</Button>
+            <Button onClick={() => inc()}>+</Button>
           </div>
         </div>
         <div className={style.remove}>

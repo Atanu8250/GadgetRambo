@@ -8,18 +8,9 @@ import ProductCard from "@/components/ProductSection/ProductCard";
 import { State } from "@/redux/store";
 import { BsSearch } from "react-icons/bs";
 import RightSidebar from "@/components/RightSidebar";
+import { getLaptopAPI } from "@/redux/products/products.api";
 
-const Laptops = () => {
-  const { laptops } = useSelector((store: State) => store.productsManager);
-  console.log("laptops: ", laptops);
-  const srcIpRef = useRef<HTMLInputElement>(null);
-
-  const dispatch = useDispatch();
-  useEffect(() => {
-    if (laptops.length === 0) {
-      getLaptop(dispatch, 20);
-    }
-  }, []);
+const Laptops = ({ laptops }: any) => {
 
   return (
     <>
@@ -44,7 +35,7 @@ const Laptops = () => {
             />
           </Flex>
           {laptops.map((data: any) => (
-            <ProductCard key={data.id} {...data} />
+            <ProductCard key={data.id} {...data} productLink={"laptops"}/>
           ))}
         </Flex>
         <Show above="lg">
@@ -58,3 +49,12 @@ const Laptops = () => {
 };
 
 export default Laptops;
+
+export const getServerSideProps = async () => {
+  const laptops = await getLaptopAPI(10);
+  return {
+    props: {
+      laptops,
+    },
+  };
+};
