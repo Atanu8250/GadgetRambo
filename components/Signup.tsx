@@ -29,11 +29,11 @@ const Signup = () => {
   });
 
   const passwordHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     setPassword(e.target.value);
   };
   const userHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     setUserName(e.target.value);
   };
   const userDetails = () => {
@@ -42,7 +42,7 @@ const Signup = () => {
       PASSWORD: password,
     });
   };
-  console.log(details);
+  // console.log(details);
   return (
     <div>
       <div onClick={onOpen} className={style.loginButton}>

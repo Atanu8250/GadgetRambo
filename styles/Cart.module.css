@@ -25,27 +25,27 @@
     color: #EE3E38;
 }
 .headCart1{
-    width: 10rem;
+    width: 10%;
     text-align: center;
     margin: auto;
 }
 .headCart2{
-    width: 30rem;
+    width: 30%;
     text-align: center;
     margin: auto;
 }
 .headCart3{
-    width: 10rem;
+    width: 20%;
     text-align: center;
     margin: auto;
 }
 .headCart4{
-    width: 10rem;
+    width: 10%;
     text-align: center;
     margin: auto;
 }
 .headCart5{
-    width: 10rem;
+    width: 10%;
     text-align: center;
     margin: auto;
 }
@@ -77,4 +77,25 @@
     background-color: white;
     color: #EE3E38;
     padding: 1rem;
+}
+@media only screen and (max-width: 784px) {
+    .bottomCart{
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .box{
+        width: 70%;
+        margin: auto;
+    }
+    .headCart2{
+        display: none;
+    }
+    .bottomDiscount{
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0rem 1rem 1rem 1rem;
+    }
+    .continue{
+        width: 100%;
+    }
 }

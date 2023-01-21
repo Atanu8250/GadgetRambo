@@ -27,7 +27,7 @@ const CartItem = (props: CartProps) => {
         key={props.items.id}
         className={style.subitem}
       >
-        <div style={{ width: "10rem", textAlign: "center",paddingLeft:"1.5rem"}}>
+        <div style={{ width: "10%",margin:"auto", textAlign: "center"}}>
           <Image src={props.items.phone} alt="" width={100} height={100}/>
         </div>
         <div className={style.subitemText}>
@@ -41,19 +41,19 @@ const CartItem = (props: CartProps) => {
           </h1>
           <p>{props.items.des}</p>
         </div>
-        <div style={{ display: "flex",paddingTop:"0.5rem"}}>
-          <div style={{ width: "10rem", textAlign: "center"}}>
+        <div className={style.quantity}>
+          <div className={style.quantityInner}>
             <Button onClick={() => inc()}>+</Button>
             <Button isDisabled>{count}</Button>
             <Button onClick={() => dec()}>-</Button>
           </div>
         </div>
-        <div style={{ width: "10rem", textAlign: "center",paddingTop:"0.5rem"}}>
+        <div className={style.remove}>
           <Button>
             <Icon as={RxCross2} />
           </Button>
         </div>
-        <div style={{ width: "10rem", textAlign: "center",paddingTop:"0.5rem"}}>
+        <div style={{ width: "10%",margin:"auto", textAlign: "center",paddingTop:"0.5rem"}}>
           <h1>{price}</h1>
         </div>
       </div>
