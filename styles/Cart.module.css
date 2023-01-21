@@ -1,0 +1,80 @@
+.mainSkeleton{
+    margin: 2rem;
+    padding-bottom: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.headCart{
+    display:flex;
+    justify-content: space-around;
+    font-family: Titillium, sans-serif;
+    font-weight: 500;
+    padding: 1rem 0rem;
+    margin: auto;
+}
+.bottomCart{
+    display:flex;
+    justify-content:space-around;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.box{
+    padding:1rem;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    width: 20%;
+    text-align: center;
+    color: #EE3E38;
+}
+.headCart1{
+    width: 10rem;
+    text-align: center;
+    margin: auto;
+}
+.headCart2{
+    width: 30rem;
+    text-align: center;
+    margin: auto;
+}
+.headCart3{
+    width: 10rem;
+    text-align: center;
+    margin: auto;
+}
+.headCart4{
+    width: 10rem;
+    text-align: center;
+    margin: auto;
+}
+.headCart5{
+    width: 10rem;
+    text-align: center;
+    margin: auto;
+}
+.input{
+    padding: 1rem;
+    width: 40vw;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+.buttonpromo{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    background-color: #EE3E38;
+    color: aliceblue;
+    padding: 1rem;
+}
+.bottomDiscount{
+    display: flex;
+    justify-content:space-between;
+    padding: 0rem 3rem 3rem 3rem;
+    width: 100%;
+}
+.checkout{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    background-color: #EE3E38;
+    color: aliceblue;
+    padding: 1rem;
+}
+.continue{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    background-color: white;
+    color: #EE3E38;
+    padding: 1rem;
+}

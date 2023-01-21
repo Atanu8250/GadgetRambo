@@ -12,8 +12,10 @@ import {
   Input,
   InputGroup,
   InputRightElement,
+  Icon
 } from "@chakra-ui/react";
 import style from "../styles/Signup.module.css"
+import { FcGoogle } from "react-icons/fc";
 
 const Signup = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -83,6 +85,11 @@ const Signup = () => {
                 <Button colorScheme="red" onClick={userDetails}>Sign Up</Button>
               </div>
             </form>
+            <div>
+              <div style={{textAlign:"center",marginTop:"2rem"}}>
+                <Button style={{borderRadius:"100px",padding:"1.5rem"}}><Icon as={FcGoogle} boxSize={6} /><h3 style={{paddingLeft:"0.5rem"}}>SIGNUP WITH GOOGLE</h3></Button>
+              </div>
+            </div>
           </ModalBody>
 
           <ModalFooter>

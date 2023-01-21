@@ -12,8 +12,10 @@ import {
   Input,
   InputGroup,
   InputRightElement,
+  Icon
 } from "@chakra-ui/react";
 import style from "../styles/Login.module.css";
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -25,7 +27,6 @@ const Login = () => {
     USERNAME: "",
     PASSWORD: "",
   });
-
   const passwordHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log(e.target.value);
     setPassword(e.target.value);
@@ -40,7 +41,6 @@ const Login = () => {
       PASSWORD: password,
     });
   };
-  console.log(details);
   return (
     <div>
       <div onClick={onOpen} className={style.loginButton}>
@@ -84,10 +84,9 @@ const Login = () => {
               </div>
             </form>
             <div>
-              <div style={{display:"flex"}}>
-                
+              <div style={{textAlign:"center",marginTop:"2rem"}}>
+                <Button style={{borderRadius:"100px",padding:"1.5rem"}}><Icon as={FcGoogle} boxSize={6} /><h3 style={{paddingLeft:"0.5rem"}}>LOGIN WITH GOOGLE</h3></Button>
               </div>
-              
             </div>
           </ModalBody>
 
