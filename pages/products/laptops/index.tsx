@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Flex, IconButton, Input, Show } from "@chakra-ui/react";
 import LaptopFilter from "@/components/ProductSection/Laptops/LaptopFilter";
 import ResponsiveLaptopFilter from "@/components/ProductSection/Laptops/ResponsiveLaptopFilter";
 import ProductCard from "@/components/ProductSection/ProductCard";
 import { BsSearch } from "react-icons/bs";
+import RightSidebar from "@/components/RightSidebar";
 import { getLaptopAPI } from "@/redux/products/products.api";
 
 const Laptops = ({ laptops }: any) => {
@@ -12,7 +13,7 @@ const Laptops = ({ laptops }: any) => {
       <Flex
         direction={{ base: "column", sm: "column", md: "row" }}
         w={"100%"}
-        p={"8"}
+        p={"10"}
         justifyContent={"center"}
       >
         <Flex
@@ -22,6 +23,7 @@ const Laptops = ({ laptops }: any) => {
             sm: "flex-start",
             md: "center",
           }}
+          mx={"4"}
         >
           <Show above="md">
             <LaptopFilter />
@@ -31,13 +33,14 @@ const Laptops = ({ laptops }: any) => {
         <Flex flex={2} direction={"column"} alignItems={"center"}>
           <Flex>
             <Input
-              w={"380px"}
+              w={{ base: "300px", sm: "380px" }}
               variant="flushed"
               type={"text"}
               placeholder={"Search Here"}
             />
             <IconButton
-              aria-label="SearchByBrand"
+              aria-label="xyz"
+              // onClick={() => HandleSearch()}
               borderRadius={"0px"}
               _hover={{}}
               color={"white"}
@@ -50,8 +53,8 @@ const Laptops = ({ laptops }: any) => {
           ))}
         </Flex>
         <Show above="lg">
-          <Flex flex={2} justifyContent={"center"}>
-            Last Div
+          <Flex mx={4} flex={2} justifyContent={"center"}>
+            <RightSidebar />
           </Flex>
         </Show>
       </Flex>
