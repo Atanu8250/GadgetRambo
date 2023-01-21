@@ -5,6 +5,8 @@ import { ChakraProvider } from "@chakra-ui/react";
 import "../styles/globals.css";
 import { Provider } from "react-redux";
 import { store } from "@/redux/store";
+//import Features from "@/components/Features";
+//import Allfeatures from "@/components/Allfeatures";
 import RightSidebar from "@/components/RightSidebar";
 
 export default function App({ Component, pageProps }: AppProps) {

@@ -1,0 +1,44 @@
+.main{
+    /* border: 1px solid black; */
+    width: 60%;
+    margin: auto;
+    padding:10px;
+    padding-bottom: 20px;
+}
+
+.FeaturesHeading{
+    /* border: 1px solid red; */
+    font-size:35px;
+
+}
+.img{
+    /* border: 1px solid blue; */
+    width:20%;
+    flex:1;
+}
+.dec{
+    /* border: 1px solid red; */
+    width: 80%;
+    margin-left:10px;
+}
+.dec h1{
+    font-size: 25px;
+    cursor: pointer;
+}
+.dec h1:hover{
+    color: red;
+}
+.dec h6{
+    font-size: small;
+}
+.dec h3{
+    font-size:20px;
+    cursor: pointer;
+    color: red;
+}
+.div{
+    display: flex;
+    margin-bottom: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-top: 1px solid rgb(182, 163, 163);
+}
