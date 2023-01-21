@@ -15,8 +15,3 @@
   --color-light: rgba(53, 47, 47, 0.863);
   --color-bg: #f7f7f7;
 }
-
-body {
-  font-family: "Poppins", sans-serif;
-  background-color: var(--color-bg);
-}
