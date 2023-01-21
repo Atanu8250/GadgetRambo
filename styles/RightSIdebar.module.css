@@ -23,7 +23,7 @@
 .newsLetterBox > button {
   background-color: var(--color-primary);
   color: white;
-  font-size: 15px;
+  font-size: 13px;
   width: 30%;
 }
 .socialHandle {
@@ -66,7 +66,7 @@
   font-size: 18px;
   font-weight: 600;
 }
-.gadGetsAndTopics > div > div > div > p {
+.gadGetsAndTopics > div > div > div p {
   color: var(--color-light);
   font-size: 12px;
   line-height: 30px;

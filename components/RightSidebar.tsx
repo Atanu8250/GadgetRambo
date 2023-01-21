@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { State } from "@/redux/store";
 import { getNews } from "@/redux/news/news.actions";
 import { getMobile } from "@/redux/products/products.actions";
+import Link from "next/link";
 
 const RightSidebar = () => {
   const { news } = useSelector((store: State) => store.newsManager);
@@ -13,7 +14,7 @@ const RightSidebar = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     getNews(dispatch, 15);
-    getMobile(dispatch, 30);
+    getMobile(dispatch, 43);
   }, []);
 
   return (
@@ -57,17 +58,29 @@ const RightSidebar = () => {
           <div>
             <p>Latest</p>
             <div>
-              {mobiles.map((el: any) => (
-                <p key={el.id}>{el.modal}</p>
-              ))}
+              {mobiles.map((el: any, i: number) => {
+                if (i <= 20) {
+                  return (
+                    <Link href={`products/mobiles/${el.id}`} key={el.id}>
+                      <p>{el.modal}</p>
+                    </Link>
+                  );
+                }
+              })}
             </div>
           </div>
           <div>
             <p>Popular</p>
             <div>
-              {mobiles.map((el: any) => (
-                <p key={el.id}>{el.modal}</p>
-              ))}
+              {mobiles.map((el: any, i: number) => {
+                if (i > 20) {
+                  return (
+                    <Link href={`products/mobiles/${el.id}`} key={el.id}>
+                      <p>{el.modal}</p>
+                    </Link>
+                  );
+                }
+              })}
             </div>
           </div>
         </div>
