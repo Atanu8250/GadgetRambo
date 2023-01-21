@@ -7,11 +7,9 @@ import { Provider } from "react-redux";
 import { store } from "@/redux/store";
 
 export default function App({ Component, pageProps }: AppProps) {
-  const customTheme = {};
-
   return (
     <Provider store={store}>
-      <ChakraProvider theme={customTheme}>
+      <ChakraProvider>
         <Navbar />
         <Component {...pageProps} />
         <Footer />
