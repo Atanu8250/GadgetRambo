@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Flex,
-  Heading,
-  Button,
-  Text,
-  SimpleGrid,
-  Image,
-} from "@chakra-ui/react";
+import { Flex, Heading, Button, Text, SimpleGrid, Image } from "@chakra-ui/react";
 import { BsDisplay, BsCpu, BsCameraFill, BsWifi } from "react-icons/bs";
 import { BiAperture } from "react-icons/bi";
 import { MdOutlineScreenSearchDesktop } from "react-icons/md";
@@ -30,39 +23,23 @@ type productProps = {
   productLink?: string;
 };
 
-const ProductCard = ({
-  imgsrc,
-  modal,
-  displaySize,
-  frontCamera,
-  rearCamera,
-  processor,
-  releaseDate,
-  price,
-  image,
-  name,
-  os,
-  wifi,
-  size,
-  id,
-  productLink,
-}: productProps) => {
+const ProductCard = ({ imgsrc, modal, displaySize, frontCamera, rearCamera, processor, releaseDate, price, image, name, os, wifi, size, id, productLink }: productProps) => {
   return (
     <Flex
       direction={"column"}
       transition={"1000ms"}
-      width={{ base: "300px", sm: "500px" }}
+      width={{ base: "300px", sm: "550px", md: "700px" }}
       m={"4"}
       borderRadius={"8"}
       p={"3"}
       bgColor={"white"}
       boxShadow={"rgba(0, 0, 0, 0.24) 0px 3px 8px"}
     >
-      <Flex>
-        <Flex direction={"column"} alignItems={"center"}>
-          <Image src={imgsrc ? imgsrc : image} alt={imgsrc} width={"80px"} />
+      <Flex justifyContent={"space-evenly"}>
+        <Flex flex={1} direction={"column"} alignItems={"center"}>
+          <Image src={imgsrc ? imgsrc : image} alt={imgsrc} width={"100px"} />
         </Flex>
-        <Flex direction={"column"}>
+        <Flex flex={4} direction={"column"}>
           <Text ml={3} fontSize={"lg"}>
             {modal ? modal : name}
           </Text>
@@ -73,9 +50,7 @@ const ProductCard = ({
                 <BsDisplay />
                 <Flex direction={"column"}>
                   <Text fontSize={"xs"}>Display Size</Text>
-                  <Text fontSize={"sm"}>
-                    {displaySize ? displaySize : size}
-                  </Text>
+                  <Text fontSize={"sm"}>{displaySize ? displaySize : size}</Text>
                 </Flex>
               </Flex>
               <Flex alignItems={"center"} gap={"3"}>
@@ -123,18 +98,9 @@ const ProductCard = ({
           </Flex>
         </Flex>
       </Flex>
-      <Flex
-        w={"100%"}
-        m={"3"}
-        border={"1px soild red"}
-        justifyContent={"space-evenly"}
-      >
+      <Flex w={"100%"} m={"3"} border={"1px soild red"} justifyContent={"space-evenly"}>
         {/* Contains Price and Release Date */}
-        <Flex
-          direction={"column"}
-          justifyContent={"center"}
-          alignItems={"center"}
-        >
+        <Flex direction={"column"} justifyContent={"center"} alignItems={"center"}>
           <Text fontSize={"xs"}>Release Date</Text>
           <Text fontSize={"sm"}>{releaseDate}</Text>
         </Flex>
