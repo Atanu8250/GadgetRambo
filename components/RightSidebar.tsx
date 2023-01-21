@@ -20,7 +20,7 @@ const RightSidebar = () => {
     <div className={styles.container}>
       {/* newletter section  */}
       <div className={styles.newsLetterBox}>
-        <input type="text" placeholder="enter email for our newsletter" />
+        <input type="text" placeholder="Enter email for our newsletter" />
         <button>Subscribe</button>
       </div>
       {/* social handles section  */}
