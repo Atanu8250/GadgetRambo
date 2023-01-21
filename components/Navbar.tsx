@@ -227,10 +227,7 @@ const Navbar = () => {
     <div>
       <div className={style.marquee}>
         <Marquee>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim cumque,
-          consequatur ut unde nulla minus ratione quo! Nihil, omnis! Iusto
-          exercitationem repellat voluptatem fugiat commodi dolorem, praesentium
-          nihil dolores eveniet!
+          
         </Marquee>
       </div>
       <div className={style.main}>

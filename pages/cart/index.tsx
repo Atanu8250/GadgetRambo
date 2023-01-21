@@ -11,15 +11,17 @@ const index = () => {
   const [delivery, setDelivery] = React.useState<number>(0);
   const [subTotal, setSubTotal] = React.useState<number>(0);
   const [total, setTotal] = React.useState<number>(0);
-  React.useEffect(() => {
-    fetch("http://localhost:3030/product")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setItem(data);
-      });
-  }, []);
+
+
+  // React.useEffect(() => {
+  //   fetch("http://localhost:3030/product")
+  //     .then((res) => {
+  //       return res.json();
+  //     })
+  //     .then((data) => {
+  //       setItem(data);
+  //     });
+  // }, []);
 
   console.log(Item);
   return (
