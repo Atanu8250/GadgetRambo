@@ -24,6 +24,7 @@ import { CgSmartHomeRefrigerator, CgGames } from "react-icons/cg";
 import { getMobile } from "@/redux/products/products.actions";
 import RightSidebar from "@/components/RightSidebar";
 import LeftSidebar from "@/components/LeftSidebar";
+import Link from "next/link";
 
 // function SampleNextArrow(props: any) {
 //   const { className, style, onClick } = props;
@@ -116,7 +117,7 @@ export default function Home() {
   const dispatch = useDispatch();
   useEffect(() => {
     getNews(dispatch, 15);
-    getMobile(dispatch, 20);
+    getMobile(dispatch, 43);
   }, []);
 
   return (
@@ -128,7 +129,9 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         {/* left side bar  */}
-        <LeftSidebar />
+        <div style={{ width: "15%" }}>
+          <LeftSidebar />
+        </div>
         {/* middle contents starts  */}
         <div className={styles.mainContainer}>
           {/* indepth section starts here  */}
@@ -197,15 +200,16 @@ export default function Home() {
                     return;
                   }
                   return (
-                    <NewsCard
-                      key={mobile.id}
-                      title={mobile.modal}
-                      banner={mobile.imgsrc}
-                      titleSize={"13px"}
-                      cardWidth={"16%"}
-                      imgHeight={"100px"}
-                      titleAlign={true}
-                    />
+                    <Link style={{width:"16%"}} key={mobile.id} href={`products/mobiles/${mobile.id}`}>
+                      <NewsCard
+                        title={mobile.modal}
+                        banner={mobile.imgsrc}
+                        titleSize={"13px"}
+                        cardWidth={"100%"}
+                        imgHeight={"100px"}
+                        titleAlign={true}
+                      />
+                    </Link>
                   );
                 })}
               </div>
@@ -222,20 +226,24 @@ export default function Home() {
                 }}
               >
                 {mobiles.map((mobile: any, id: number) => {
-                  if (id >= 6) {
-                    return;
-                  }
-                  return (
-                    <NewsCard
-                      key={mobile.id}
-                      title={mobile.modal}
-                      banner={mobile.imgsrc}
-                      titleSize={"13px"}
-                      cardWidth={"16%"}
-                      imgHeight={"100px"}
-                      titleAlign={true}
-                    />
-                  );
+                  if (id > 12 && id<19) {
+                    return (
+                      <Link
+                        style={{ width: "16%" }}
+                        key={mobile.id}
+                        href={`products/mobiles/${mobile.id}`}
+                      >
+                        <NewsCard
+                          title={mobile.modal}
+                          banner={mobile.imgsrc}
+                          titleSize={"13px"}
+                          cardWidth={"100%"}
+                          imgHeight={"100px"}
+                          titleAlign={true}
+                        />
+                      </Link>
+                    )
+                  };
                 })}
               </div>
               {/* upcoming phones section  */}
@@ -251,20 +259,24 @@ export default function Home() {
                 }}
               >
                 {mobiles.map((mobile: any, id: number) => {
-                  if (id >= 6) {
-                    return;
+                  if (id > 20 && id<27) {
+                    return (
+                      <Link
+                        style={{ width: "16%" }}
+                        key={mobile.id}
+                        href={`products/mobiles/${mobile.id}`}
+                      >
+                        <NewsCard
+                          title={mobile.modal}
+                          banner={mobile.imgsrc}
+                          titleSize={"13px"}
+                          cardWidth={"100%"}
+                          imgHeight={"100px"}
+                          titleAlign={true}
+                        />
+                      </Link>
+                    );
                   }
-                  return (
-                    <NewsCard
-                      key={mobile.id}
-                      title={mobile.modal}
-                      banner={mobile.imgsrc}
-                      titleSize={"13px"}
-                      cardWidth={"16%"}
-                      imgHeight={"100px"}
-                      titleAlign={true}
-                    />
-                  );
                 })}
               </div>
               {/* popular comparisons carousel  */}
@@ -290,7 +302,9 @@ export default function Home() {
           </div>
         </div>
         {/* right side bar  */}
-        <RightSidebar />
+        <div style={{ width: "25%" }}>
+          <RightSidebar />
+        </div>
       </main>
     </>
   );

@@ -6,6 +6,7 @@ import styles from "@/styles/Home.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getNews } from "@/redux/news/news.actions";
 import NewsCard from "./newsCard";
+import Link from "next/link";
 
 const LeftSidebar = () => {
   const { news } = useSelector((store: State) => store.newsManager);
@@ -23,14 +24,15 @@ const LeftSidebar = () => {
           return;
         }
         return (
-          <NewsCard
-            key={el.id}
-            title={el.title}
-            titleSize={"11px"}
-            banner={el.banner}
-            imgHeight={"100px"}
-            titleMaxHeight={"3.9rem"}
-          />
+          <Link href={`blogs/${el.id}`} key={el.id}>
+            <NewsCard
+              title={el.title}
+              titleSize={"11px"}
+              banner={el.banner}
+              imgHeight={"100px"}
+              titleMaxHeight={"3.9rem"}
+            />
+          </Link>
         );
       })}
     </div>
