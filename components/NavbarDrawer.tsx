@@ -20,7 +20,7 @@ import {
 import { Icon } from "@chakra-ui/react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { HiShoppingCart } from "react-icons/hi";
-import { Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react";
+import { Menu, MenuButton, MenuList, MenuItem, Avatar } from "@chakra-ui/react";
 import style from "../styles/NavDrawer.module.css";
 import Link from "next/link";
 import { IoIosArrowDown } from "react-icons/io";
@@ -30,6 +30,7 @@ import Signup from "./Signup";
 
 const NavbarDrawer = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [youIn, setYouIn] = React.useState<boolean>(true);
   const btnRef = React.useRef();
   return (
     <div>
@@ -44,15 +45,15 @@ const NavbarDrawer = () => {
       >
         <DrawerOverlay />
         <DrawerContent>
-          <DrawerCloseButton color={"#EE3E38"}/>
+          <DrawerCloseButton color={"#EE3E38"} />
           <DrawerHeader className={style.drawer}>
             <Link href="/">
-            <Image
-              src="https://cdn.gadgets360.com/gadgets360_logo.png"
-              alt="logo"
-              width={150}
-              height={20}
-            />
+              <Image
+                src="https://cdn.gadgets360.com/gadgets360_logo.png"
+                alt="logo"
+                width={150}
+                height={20}
+              />
             </Link>
           </DrawerHeader>
 
@@ -116,7 +117,12 @@ const NavbarDrawer = () => {
                 <AccordionItem>
                   <h2>
                     <AccordionButton>
-                      <Box as="span" flex="1" textAlign="left"  className={style.drawer}>
+                      <Box
+                        as="span"
+                        flex="1"
+                        textAlign="left"
+                        className={style.drawer}
+                      >
                         VIDEOS
                       </Box>
                       <AccordionIcon />
@@ -155,7 +161,12 @@ const NavbarDrawer = () => {
                 <AccordionItem>
                   <h2>
                     <AccordionButton>
-                      <Box as="span" flex="1" textAlign="left" className={style.drawer}>
+                      <Box
+                        as="span"
+                        flex="1"
+                        textAlign="left"
+                        className={style.drawer}
+                      >
                         PRODUCT FINDER
                       </Box>
                       <AccordionIcon />
@@ -242,7 +253,12 @@ const NavbarDrawer = () => {
                 <AccordionItem>
                   <h2>
                     <AccordionButton>
-                      <Box as="span" flex="1" textAlign="left" className={style.drawer}>
+                      <Box
+                        as="span"
+                        flex="1"
+                        textAlign="left"
+                        className={style.drawer}
+                      >
                         COMPARE
                       </Box>
                       <AccordionIcon />
@@ -329,7 +345,12 @@ const NavbarDrawer = () => {
                 <AccordionItem>
                   <h2>
                     <AccordionButton>
-                      <Box as="span" flex="1" textAlign="left" className={style.drawer}>
+                      <Box
+                        as="span"
+                        flex="1"
+                        textAlign="left"
+                        className={style.drawer}
+                      >
                         RECHARGE
                       </Box>
                       <AccordionIcon />
@@ -356,7 +377,12 @@ const NavbarDrawer = () => {
                 <AccordionItem>
                   <h2>
                     <AccordionButton>
-                      <Box as="span" flex="1" textAlign="left" className={style.drawer}>
+                      <Box
+                        as="span"
+                        flex="1"
+                        textAlign="left"
+                        className={style.drawer}
+                      >
                         MORE
                       </Box>
                       <AccordionIcon />
@@ -425,9 +451,37 @@ const NavbarDrawer = () => {
           </DrawerBody>
 
           <DrawerFooter className={style.drawer}>
-            <Login/>
-            <Signup/>
-            <Link href="/cart"><Icon as={HiShoppingCart} boxSize={8} color={"#EE3E38"} paddingTop="0.2rem"/></Link>
+            
+            {/*
+            Login and Logout 
+             */}
+
+            {youIn ? (
+              <div style={{ display: "flex", gap: "1rem" }}>
+                <div className={style.avatar}>
+                  <Avatar src="https://lh3.googleusercontent.com/ogw/AAEL6sj5ldG0q8z-IHftwzB6vcn6fay6knkGTD2W0ChUQQ=s32-c-mo" />
+                  <div style={{paddingTop:"0.5rem"}}>
+                    <p>Name</p>
+                  </div>
+                </div>
+                <div className={style.login}>
+                  <div className={style.loginButton}>Logout</div>
+                </div>
+              </div>
+            ) : (
+              <div className={style.login}>
+                <Login />
+                <Signup />
+              </div>
+            )}
+            <Link href="/cart">
+              <Icon
+                as={HiShoppingCart}
+                boxSize={8}
+                color={"#EE3E38"}
+                paddingTop="0.2rem"
+              />
+            </Link>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>

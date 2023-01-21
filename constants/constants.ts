@@ -64,3 +64,13 @@ export interface intrfcTv {
     related: string,
     resolutionStandard: string,
 }
+
+export type newsBlogObj = { banner: string; description: string; id: string; title: string };
+
+export type newsBlogIndex = {
+  newsData: newsBlogObj[];
+};
+export type newsBlogId = {
+  newsData: newsBlogObj;
+};
+

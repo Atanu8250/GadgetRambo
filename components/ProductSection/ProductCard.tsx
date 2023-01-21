@@ -1,8 +1,16 @@
 import React from "react";
-import { Flex, Heading, Button, Text, SimpleGrid, Image } from "@chakra-ui/react";
+import {
+  Flex,
+  Heading,
+  Button,
+  Text,
+  SimpleGrid,
+  Image,
+} from "@chakra-ui/react";
 import { BsDisplay, BsCpu, BsCameraFill, BsWifi } from "react-icons/bs";
 import { BiAperture } from "react-icons/bi";
 import { MdOutlineScreenSearchDesktop } from "react-icons/md";
+import Link from "next/link";
 
 type productProps = {
   imgsrc?: string;
@@ -19,9 +27,26 @@ type productProps = {
   os?: string;
   size?: string;
   wifi?: string;
+  productLink?: string;
 };
 
-const ProductCard = ({ imgsrc, modal, displaySize, frontCamera, rearCamera, processor, releaseDate, price, image, name, os, wifi, size }: productProps) => {
+const ProductCard = ({
+  imgsrc,
+  modal,
+  displaySize,
+  frontCamera,
+  rearCamera,
+  processor,
+  releaseDate,
+  price,
+  image,
+  name,
+  os,
+  wifi,
+  size,
+  id,
+  productLink,
+}: productProps) => {
   return (
     <Flex
       direction={"column"}
@@ -48,7 +73,9 @@ const ProductCard = ({ imgsrc, modal, displaySize, frontCamera, rearCamera, proc
                 <BsDisplay />
                 <Flex direction={"column"}>
                   <Text fontSize={"xs"}>Display Size</Text>
-                  <Text fontSize={"sm"}>{displaySize ? displaySize : size}</Text>
+                  <Text fontSize={"sm"}>
+                    {displaySize ? displaySize : size}
+                  </Text>
                 </Flex>
               </Flex>
               <Flex alignItems={"center"} gap={"3"}>
@@ -96,15 +123,26 @@ const ProductCard = ({ imgsrc, modal, displaySize, frontCamera, rearCamera, proc
           </Flex>
         </Flex>
       </Flex>
-      <Flex w={"100%"} m={"3"} border={"1px soild red"} justifyContent={"space-evenly"}>
+      <Flex
+        w={"100%"}
+        m={"3"}
+        border={"1px soild red"}
+        justifyContent={"space-evenly"}
+      >
         {/* Contains Price and Release Date */}
-        <Flex direction={"column"} justifyContent={"center"} alignItems={"center"}>
+        <Flex
+          direction={"column"}
+          justifyContent={"center"}
+          alignItems={"center"}
+        >
           <Text fontSize={"xs"}>Release Date</Text>
           <Text fontSize={"sm"}>{releaseDate}</Text>
         </Flex>
         <Flex alignItems={"center"} justifyContent={"center"} gap={"3"}>
           <Heading size={"md"}>{"₹" + price}</Heading>
-          <Button>Buy</Button>
+          <Link href={`${productLink}/${id}`}>
+            <Button>Buy</Button>
+          </Link>
         </Flex>
       </Flex>
     </Flex>

@@ -1,12 +1,15 @@
 .main {
   display: flex;
+  padding: 1rem;
+  font-family: "Poppins", sans-serif;
+  background-color: var(--color-bg);
 }
 .main > div {
   margin: 0 1rem;
 }
 .left_sideBar {
   padding: 1rem;
-  width: 15%;
+  width: 100%;
   background: var(--color-bg-light);
 }
 .mainContainer {
@@ -16,7 +19,6 @@
   margin-bottom: 1rem;
   padding: 0.5rem 1rem;
   background-color: white;
-
 }
 .mainContainer > div > p {
   font-size: 22px;
