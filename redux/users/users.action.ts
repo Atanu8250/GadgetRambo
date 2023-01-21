@@ -12,7 +12,7 @@ export const storeUser = async (obj: any) => {
         emailVerified: obj.emailVerified,
         photoURL: obj.photoURL,
         creationTime: obj.metadata.creationTime,
-        lastSignInTime: obj.metadata.lastSignInTime,
+        lastSignInTime: new Date().toLocaleString(),
         // isAnonymous: obj.isAnonymous,
         // metadata: obj.metadata,
         // providerData: obj.providerData,
@@ -35,7 +35,6 @@ export const getUsers = () => async (dispatch: ({ type, payload }: authActionTyp
     try {
         const res = await getUsersAPI()
         dispatch({ type: GET_USERS_SUCCESS, payload: res })
-        console.log('res:', res)
     } catch (error) {
         dispatch({ type: USERS_ERROR })
         console.log('error:', error)
@@ -43,7 +42,7 @@ export const getUsers = () => async (dispatch: ({ type, payload }: authActionTyp
 }
 
 
-export const updateUser = (uid: string, updatedData: {}) => async (dispatch: Dispatch<any> ) => {
+export const updateUser = (uid: string , updatedData: {}) => async (dispatch: Dispatch<any> ) => {
     dispatch({ type: USERS_LOADING })
     try {
         await updateUserAPI(uid, updatedData)

@@ -5,6 +5,9 @@
     padding-bottom: 1.5rem;
     vertical-align: auto;
 }
+.item{
+    background-color: white;
+}
 .subitemText{
     width: 30%;
     text-align: "center";

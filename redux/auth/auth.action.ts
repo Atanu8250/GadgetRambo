@@ -1,9 +1,13 @@
+import { auth } from "@/Backend/Firebase/firebase";
 import { authActionType } from "@/constants/constants";
-import { storeUser } from "../users/users.action";
+import { Dispatch } from "react";
+import { storeUser, updateUser } from "../users/users.action";
+import { updateUserAPI } from "../users/users.api";
 
 import { loginWithEmailAndPwdAPI, logoutAPI, SignupWithEmailAndPwdAPI, googleAuthAPI } from "./auth.api";
 
 import * as authTypes from "./auth.type";
+
 
 // sign up with only email and password
 export const signupWithEmailAndPwd = (cred: { email: string, password: string }) => (dispatch: ({ type, payload }: authActionType) => void) => {
@@ -24,6 +28,7 @@ export const signupWithEmailAndPwd = (cred: { email: string, password: string })
         })
 }
 
+
 // it's for signup and login via google accounts
 export const googleAuth = () => (dispatch: ({ type, payload }: authActionType) => void) => {
 
@@ -41,8 +46,9 @@ export const googleAuth = () => (dispatch: ({ type, payload }: authActionType) =
 
 }
 
+
 // Login with only email and password
-export const login = (cred: { email: string, password: string }) => async (dispatch: ({ type, payload }: authActionType) => void) => {
+export const login = (cred: { email: string, password: string }) => (dispatch: Dispatch<any>) => {
 
     dispatch({ type: authTypes.AUTH_LOADING })
     const email = cred.email;
@@ -50,6 +56,7 @@ export const login = (cred: { email: string, password: string }) => async (dispa
 
     loginWithEmailAndPwdAPI(email, password)
         .then((res) => {
+            dispatch(updateUser(res.user.uid, { isActive: true, lastSignInTime: new Date().toLocaleString() }))
             dispatch({ type: authTypes.AUTH_LOGIN_SUCCESS, payload: res.user })
             alert("login success");
         })
@@ -58,18 +65,22 @@ export const login = (cred: { email: string, password: string }) => async (dispa
         })
 }
 
+
 // Logout function
-export const logout = () => (dispatch: ({ type, payload }: authActionType) => void) => {
+export const logout = () => (dispatch: Dispatch<any>) => {
 
     dispatch({ type: authTypes.AUTH_LOADING })
 
-    logoutAPI().then(() => {
-        dispatch({ type: authTypes.AUTH_LOGOUT_SUCCESS })
-        alert("logout success");
+    logoutAPI().then((res) => {
+        updateUserAPI(res || "", { isActive: false }).then(() => {
+            dispatch({ type: authTypes.AUTH_LOGOUT_SUCCESS })
+            alert("logout success");
+        }).catch((error) => {
+            console.log('error:', error)
+        })
     })
         .catch((err) => {
             console.log(err);
         })
 }
-
 

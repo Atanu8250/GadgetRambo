@@ -34,14 +34,13 @@ const NavbarDrawer = () => {
   const btnRef = React.useRef();
   return (
     <div>
-      <Button ref={btnRef} colorScheme="red" onClick={onOpen}>
+      <Button colorScheme="red" onClick={onOpen}>
         <Icon as={GiHamburgerMenu} />
       </Button>
       <Drawer
         isOpen={isOpen}
         placement="right"
         onClose={onClose}
-        finalFocusRef={btnRef}
       >
         <DrawerOverlay />
         <DrawerContent>
@@ -65,49 +64,49 @@ const NavbarDrawer = () => {
             </p>
             <br />
             <p style={{ paddingLeft: "1rem" }}>
-              <Link href="/dummy" className={style.notdropDown}>
+              <Link href="/" className={style.notdropDown}>
                 GUIDE
               </Link>
             </p>
             <br />
             <p style={{ paddingLeft: "1rem" }}>
-              <Link href="/dummy" className={style.notdropDown}>
+              <Link href="/" className={style.notdropDown}>
                 AUTO EXPO 2023
               </Link>
             </p>
             <br />
             <p style={{ paddingLeft: "1rem" }}>
-              <Link href="/dummy" className={style.notdropDown}>
+              <Link href="/" className={style.notdropDown}>
                 NEWS
               </Link>
             </p>
             <br />
             <p style={{ paddingLeft: "1rem" }}>
-              <Link href="/dummy" className={style.notdropDown}>
+              <Link href="/" className={style.notdropDown}>
                 REVIEWS
               </Link>
             </p>
             <br />
             <p style={{ paddingLeft: "1rem" }}>
-              <Link href="/dummy" className={style.notdropDown}>
+              <Link href="/" className={style.notdropDown}>
                 FEATURES
               </Link>
             </p>
             <br />
             <p style={{ paddingLeft: "1rem" }}>
-              <Link href="/dummy" className={style.notdropDown}>
+              <Link href="/" className={style.notdropDown}>
                 BRANDS
               </Link>
             </p>
             <br />
             <p style={{ paddingLeft: "1rem" }}>
-              <Link href="/dummy" className={style.notdropDown}>
+              <Link href="/" className={style.notdropDown}>
                 PODCASTS
               </Link>
             </p>
             <br />
             <p style={{ paddingLeft: "1rem" }}>
-              <Link href="/dummy" className={style.notdropDown}>
+              <Link href="/" className={style.notdropDown}>
                 PRODUCT FINDER
               </Link>
             </p>
@@ -130,27 +129,27 @@ const NavbarDrawer = () => {
                   </h2>
                   <AccordionPanel pb={4}>
                     <p>
-                      <Link href="/dummy">LATEST</Link>
+                      <Link href="/">LATEST</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">BUYING GUIDES</Link>
+                      <Link href="/">BUYING GUIDES</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">CRYPTOCURRENCY</Link>
+                      <Link href="/">CRYPTOCURRENCY</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">EVENTS</Link>
+                      <Link href="/">EVENTS</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">HOW TO</Link>
+                      <Link href="/">HOW TO</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">SPONSORED</Link>
+                      <Link href="/">SPONSORED</Link>
                     </p>
                   </AccordionPanel>
                 </AccordionItem>
@@ -174,75 +173,75 @@ const NavbarDrawer = () => {
                   </h2>
                   <AccordionPanel pb={4}>
                     <p>
-                      <Link href="/dummy">MOBILE</Link>
+                      <Link href="/">MOBILE</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">LAPTOPS</Link>
+                      <Link href="/">LAPTOPS</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">TV</Link>
+                      <Link href="/">TV</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">SMART WATCH</Link>
+                      <Link href="/">SMART WATCH</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">CAMERAS</Link>
+                      <Link href="/">CAMERAS</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">SMART BANDS</Link>
+                      <Link href="/">SMART BANDS</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">SMART SPEAKERS</Link>
+                      <Link href="/">SMART SPEAKERS</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">GAMES</Link>
+                      <Link href="/">GAMES</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">AIR COOLER</Link>
+                      <Link href="/">AIR COOLER</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">WASHING MACHINE</Link>
+                      <Link href="/">WASHING MACHINE</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">TABLETS</Link>
+                      <Link href="/">TABLETS</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">HEADPHONES</Link>
+                      <Link href="/">HEADPHONES</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">GAMING CONSOLE</Link>
+                      <Link href="/">GAMING CONSOLE</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">SPEAKERS</Link>
+                      <Link href="/">SPEAKERS</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">AC</Link>
+                      <Link href="/">AC</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">REFRIGERATOR</Link>
+                      <Link href="/">REFRIGERATOR</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">AIR PURIFIER</Link>
+                      <Link href="/">AIR PURIFIER</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">INVERTER</Link>
+                      <Link href="/">INVERTER</Link>
                     </p>
                   </AccordionPanel>
                 </AccordionItem>
@@ -266,75 +265,75 @@ const NavbarDrawer = () => {
                   </h2>
                   <AccordionPanel pb={4}>
                     <p>
-                      <Link href="/dummy">MOBILE</Link>
+                      <Link href="/products/mobiles">MOBILE</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">LAPTOPS</Link>
+                      <Link href="/products/laptops">LAPTOPS</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">TV</Link>
+                      <Link href="/products/tv">TV</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">SMART WATCH</Link>
+                      <Link href="/">SMART WATCH</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">CAMERAS</Link>
+                      <Link href="/">CAMERAS</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">SMART BANDS</Link>
+                      <Link href="/">SMART BANDS</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">SMART SPEAKERS</Link>
+                      <Link href="/">SMART SPEAKERS</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">GAMES</Link>
+                      <Link href="/">GAMES</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">AIR COOLER</Link>
+                      <Link href="/">AIR COOLER</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">WASHING MACHINE</Link>
+                      <Link href="/">WASHING MACHINE</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">TABLETS</Link>
+                      <Link href="/">TABLETS</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">HEADPHONES</Link>
+                      <Link href="/">HEADPHONES</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">GAMING CONSOLE</Link>
+                      <Link href="/">GAMING CONSOLE</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">SPEAKERS</Link>
+                      <Link href="/">SPEAKERS</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">AC</Link>
+                      <Link href="/">AC</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">REFRIGERATOR</Link>
+                      <Link href="/">REFRIGERATOR</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">AIR PURIFIER</Link>
+                      <Link href="/">AIR PURIFIER</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">INVERTER</Link>
+                      <Link href="/">INVERTER</Link>
                     </p>
                   </AccordionPanel>
                 </AccordionItem>
@@ -358,15 +357,15 @@ const NavbarDrawer = () => {
                   </h2>
                   <AccordionPanel pb={4}>
                     <p>
-                      <Link href="/dummy">BROADBAND PLANS</Link>
+                      <Link href="/">BROADBAND PLANS</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">DTH RECHARGE</Link>
+                      <Link href="/">DTH RECHARGE</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">MOBILE RECHARGE</Link>
+                      <Link href="/">MOBILE RECHARGE</Link>
                     </p>
                   </AccordionPanel>
                 </AccordionItem>
@@ -390,59 +389,59 @@ const NavbarDrawer = () => {
                   </h2>
                   <AccordionPanel pb={4}>
                     <p>
-                      <Link href="/dummy">CRYPTOCURRENCY PRICES</Link>
+                      <Link href="/">CRYPTOCURRENCY PRICES</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">GOLD RATE</Link>
+                      <Link href="/">GOLD RATE</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">AMAZON SALE</Link>
+                      <Link href="/">AMAZON SALE</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">MOVIES</Link>
+                      <Link href="/">MOVIES</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">SERVICE CENTERS</Link>
+                      <Link href="/">SERVICE CENTERS</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">FINANCE</Link>
+                      <Link href="/">FINANCE</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">COMMUNITY</Link>
+                      <Link href="/">COMMUNITY</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">DIGITAL GOLD</Link>
+                      <Link href="/">DIGITAL GOLD</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">DEALS</Link>
+                      <Link href="/">DEALS</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">FLIPKART SALE</Link>
+                      <Link href="/">FLIPKART SALE</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">WEB SERIES</Link>
+                      <Link href="/">WEB SERIES</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">SMART HOME</Link>
+                      <Link href="/">SMART HOME</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">CLUB360</Link>
+                      <Link href="/">CLUB360</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/dummy">SILVER RATE</Link>
+                      <Link href="/">SILVER RATE</Link>
                     </p>
                   </AccordionPanel>
                 </AccordionItem>

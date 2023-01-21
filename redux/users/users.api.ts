@@ -3,6 +3,7 @@ import { intrfcUser } from '@/constants/constants';
 import { getAuth } from 'firebase/auth';
 import { collection, deleteDoc, doc, getDocs, setDoc, updateDoc } from 'firebase/firestore'
 
+
 // api call for storing the user who just signed up
 export const storeUserAPI = async (user: intrfcUser) => {
 
@@ -11,12 +12,14 @@ export const storeUserAPI = async (user: intrfcUser) => {
 
 }
 
+
 // api for get all the users
 export const getUsersAPI = async () => {
     const userRef = collection(db, "users")
     const res = await getDocs(userRef);
     return res.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
 }
+
 
 // api for deleting user
 export const deleteUserAPI = async (uid: string) => {
@@ -37,13 +40,14 @@ export const deleteUserAPI = async (uid: string) => {
 
 }
 
+
 // api calling for updating user's data
 export const updateUserAPI = async (uid:string, updatedData:{}) => {
     try {
-        console.log('updatedData:',uid, updatedData)
-        const userRef = doc(db, "users", uid)
-        await updateDoc(userRef, updatedData)
-        alert('user updated')
+        console.log({uid, updatedData})
+        const userRef = doc(db, "users", uid )
+        await updateDoc(userRef, {...updatedData})
+        alert('user credential updated')
     } catch (error) {
         console.log('error:', error)
     }

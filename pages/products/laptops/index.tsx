@@ -10,6 +10,7 @@ import { BsSearch } from "react-icons/bs";
 import { getLaptopAPI } from "@/redux/products/products.api";
 
 const Laptops = ({ laptops }: any) => {
+
   return (
     <>
       <Flex

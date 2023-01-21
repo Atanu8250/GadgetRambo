@@ -1,6 +1,7 @@
 import LineChartCompo from '@/components/admin/LineChart'
 import SidebarWithHeader from '@/components/admin/Navbar'
 import PieChartCompo from '@/components/admin/PieChart'
+import { State } from '@/redux/store'
 import { getUsers } from '@/redux/users/users.action'
 import { Flex, Box } from '@chakra-ui/react'
 import Head from 'next/head'
@@ -20,7 +21,7 @@ type Props = {}
 const Home = (props: Props) => {
 
   const dispatch: Dispatch<any> = useDispatch();
-  const { users } = useSelector(store => store.usersManager)
+  const { users } = useSelector((store:State) => store.usersManager)
   const [mountTime, setMountTime] = useState<string>("");
 
   React.useEffect(() => {
