@@ -4,6 +4,7 @@ import style from "../../styles/Cart.module.css";
 import CartItem from "@/components/CartItem";
 import { Divider, Button, Input } from "@chakra-ui/react";
 import Link from "next/link";
+import RightSidebar from "@/components/RightSidebar";
 
 const Index = () => {
   const [Item, setItem] = React.useState<Array<object>>([]);
@@ -25,7 +26,8 @@ const Index = () => {
 
   console.log(Item);
   return (
-    <div className={style.mainSkeleton}>
+    <div style={{display:"flex",padding:"1rem",backgroundColor:"var(--color-bg)"}}>
+      <div className={style.mainSkeleton}>
       <div className={style.headCart}>
         <h1 className={style.headCart1}>
           Image
@@ -82,6 +84,10 @@ const Index = () => {
           <Link href="/"><button className={style.continue}>Continue Shopping</button></Link>
         </div>
       </div>
+    </div>
+    <div style={{width:"30%",margin:"0 1rem"}}>
+      <RightSidebar/>
+    </div>
     </div>
   );
 };
