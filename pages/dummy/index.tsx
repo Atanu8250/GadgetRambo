@@ -1,4 +1,5 @@
 import { googleAuth, login, logout, signupWithEmailAndPwd } from '@/redux/auth/auth.action'
+import { State } from '@/redux/store'
 import { Button } from '@chakra-ui/react'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -7,7 +8,7 @@ import { Dispatch } from 'redux'
 
 const Index = () => {
 
-  const store = useSelector(store=> store.authManager)
+  const store = useSelector((store:State)=> store.authManager)
   console.log('store:', store)
 
   // ! Dummy signup with email and password

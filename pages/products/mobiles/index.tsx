@@ -1,37 +1,65 @@
-import React, { useEffect, useRef } from "react";
-import styles from "../../../styles/products.module.css";
-import { Show } from "@chakra-ui/react";
-import ProductFilter from "@/components/ProductSection/ProductFilter";
-import SmallScreenFilter from "@/components/ProductSection/SmallScreenFIlter";
+import React, { useEffect, useRef, useState } from "react";
+import { Flex, IconButton, Input, Show } from "@chakra-ui/react";
+import MobileFilter from "@/components/ProductSection/Mobiles/MobileFilter";
+import ResponsiveMobileFilter from "@/components/ProductSection/Mobiles/ResponsiveMobileFilter";
 import { useDispatch, useSelector } from "react-redux";
 import { getMobile } from "@/redux/products/products.actions";
 import ProductCard from "@/components/ProductSection/ProductCard";
+import { State } from "@/redux/store";
+import { BsSearch } from "react-icons/bs";
 
-const Products = () => {
-  const { mobiles } = useSelector((store: any) => store.productsManager);
+const Mobiles = () => {
+  const srcIpRef = useRef<HTMLInputElement>(null);
+
+  const { mobiles } = useSelector((store: State) => store.productsManager);
+  const [mobileData, setMobileData] = useState([]);
+
   const dispatch = useDispatch();
   useEffect(() => {
     if (mobiles.length === 0) {
       getMobile(dispatch);
+    } else {
+      setMobileData(mobiles);
     }
-  }, []);
+  }, [mobiles]);
+  let searchValue = srcIpRef?.current?.value || "";
+
+  const HandleSearch = () => {
+    let searchedData = mobiles.filter((el) => {
+      // return Object.values(el).find((str) => ("" + str).toLowerCase().includes(searchValue.toLowerCase()));
+      return Object.values(el);
+    });
+    setMobileData(searchedData);
+  };
 
   return (
-    <div className={styles.products_container}>
-      <div className={styles.filter_container_left}>
-        <Show above="md">
-          <ProductFilter />
+    <>
+      <Flex direction={{ base: "column", sm: "column", md: "row" }} w={"100%"} p={"8"} justifyContent={"center"}>
+        <Flex flex={1} justifyContent={{ base: "flex-start", sm: "flex-start", md: "center" }}>
+          <Show above="md">
+            <MobileFilter />
+          </Show>
+          <ResponsiveMobileFilter />
+        </Flex>
+        <Flex flex={2} direction={"column"} alignItems={"center"}>
+          {/* Search Functionality */}
+          <Flex>
+            <Input ref={srcIpRef} w={{ base: "270px", sm: "380px" }} variant="flushed" type={"text"} placeholder={"Search Here"} />
+            <IconButton aria-label="xyz" onClick={() => HandleSearch()} borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<BsSearch />} />
+          </Flex>
+          {/* Search Function End */}
+          {(mobileData ? mobileData : mobiles).map((data: any) => (
+            <ProductCard key={data.id} {...data} />
+          ))}
+        </Flex>
+        <Show above="lg">
+          <Flex flex={2} justifyContent={"center"}>
+            Last Div
+          </Flex>
         </Show>
-        <SmallScreenFilter />
-      </div>
-      <div className={styles.allProducts_middle}>
-        {mobiles.map((mobile: any) => (
-          <ProductCard key={mobile.id} {...mobile} />
-        ))}
-      </div>
-      <div className={styles.suggestion_container}>last div</div>
-    </div>
+      </Flex>
+    </>
   );
 };
 
-export default Products;
+export default Mobiles;

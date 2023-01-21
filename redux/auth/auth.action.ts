@@ -1,8 +1,11 @@
 import { authActionType } from "@/constants/constants";
+import { storeUser } from "../users/users.action";
+
 import { loginWithEmailAndPwdAPI, logoutAPI, SignupWithEmailAndPwdAPI, googleAuthAPI } from "./auth.api";
+
 import * as authTypes from "./auth.type";
 
-
+// sign up with only email and password
 export const signupWithEmailAndPwd = (cred: { email: string, password: string }) => (dispatch: ({ type, payload }: authActionType) => void) => {
 
     dispatch({ type: authTypes.AUTH_LOADING })
@@ -11,22 +14,26 @@ export const signupWithEmailAndPwd = (cred: { email: string, password: string })
 
     SignupWithEmailAndPwdAPI(email, password)
         .then((res) => {
-            dispatch({ type: authTypes.AUTH_LOGIN_SUCCESS, payload: res.user })
-            alert("signup success");
+            storeUser(res.user).then(res => {
+                dispatch({ type: authTypes.AUTH_LOGIN_SUCCESS, payload: res })
+                alert("signup success");
+            }).catch(err => console.log(err))
         })
         .catch((err) => {
             console.log(err);
         })
 }
 
-
+// it's for signup and login via google accounts
 export const googleAuth = () => (dispatch: ({ type, payload }: authActionType) => void) => {
 
     dispatch({ type: authTypes.AUTH_LOADING })
 
     googleAuthAPI().then((res) => {
-        dispatch({ type: authTypes.AUTH_LOGIN_SUCCESS, payload: res.user })
-        alert("signup with google success");
+        storeUser(res.user).then(res => {
+            dispatch({ type: authTypes.AUTH_LOGIN_SUCCESS, payload: res })
+            alert("signup with google success");
+        }).catch(err => console.log(err))
     })
         .catch((err) => {
             console.log(err);
@@ -34,6 +41,7 @@ export const googleAuth = () => (dispatch: ({ type, payload }: authActionType) =
 
 }
 
+// Login with only email and password
 export const login = (cred: { email: string, password: string }) => async (dispatch: ({ type, payload }: authActionType) => void) => {
 
     dispatch({ type: authTypes.AUTH_LOADING })
@@ -50,7 +58,7 @@ export const login = (cred: { email: string, password: string }) => async (dispa
         })
 }
 
-
+// Logout function
 export const logout = () => (dispatch: ({ type, payload }: authActionType) => void) => {
 
     dispatch({ type: authTypes.AUTH_LOADING })
@@ -63,3 +71,5 @@ export const logout = () => (dispatch: ({ type, payload }: authActionType) => vo
             console.log(err);
         })
 }
+
+

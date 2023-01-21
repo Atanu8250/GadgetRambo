@@ -1,0 +1,6 @@
+export const USERS_LOADING = "users/loading"
+export const USERS_ERROR = "users/error"
+// export const ADD_USER_SUCCESS = "users/add/success"
+export const GET_USERS_SUCCESS = "users/get/success"
+// export const DELETE_USERS_SUCCESS = "users/delete/success"
+// export const UPDATE_USERS_SUCCESS = "users/update/sucess"

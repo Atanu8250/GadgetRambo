@@ -44,7 +44,7 @@
     color: #cececeee;
 }
 
-.overviewCard:nth-child(2)>div:nth-child(2)>svg{
+.overviewCard:nth-child(2)>div:nth-child(2)>svg {
     rotate: 180deg;
 }
 
@@ -67,28 +67,46 @@
 .dashboard>div:nth-child(2) {
     height: 500px;
     margin-top: 15px;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     justify-content: space-between;
 }
 
-.dashboard>div:nth-child(2)>div{
-    height: 200px;
-    width: 200px;
+.dashboard>div:nth-child(2)>div>h2 {
+    text-align: center;
 }
 
 
 /* line chart */
-.dashboard>div:nth-child(2)>div:nth-child(1){
-    width: 55%;
+.dashboard>div:nth-child(2)>div:nth-child(1) {
+    flex-direction: column;
+    width: 65%;
     height: 100%;
+    /* border: 1px solid red; */
+}
+
+/* heading */
+.dashboard>div:nth-child(2)>div>h2{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.dashboard>div:nth-child(2)>div:nth-child(1)>div {
+    height: 100%;
+    width: 100%;
 }
 
 /* pie chart */
-.dashboard>div:nth-child(2)>div:nth-child(2){
-    width: 40%;
+.dashboard>div:nth-child(2)>div:nth-child(2) {
+    flex-direction: column;
+    width: 35%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     /* border: 1px solid red; */
+}
+
+.dashboard>div:nth-child(2)>div:nth-child(2)>div {
+    height: 100%;
+    width: 100%;
 }
