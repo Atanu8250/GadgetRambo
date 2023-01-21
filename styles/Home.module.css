@@ -6,11 +6,11 @@
 }
 .left_sideBar {
   padding: 1rem;
-  width: 22%;
+  width: 15%;
   background: var(--color-bg-light);
 }
 .mainContainer {
-  width: 78%;
+  width: 60%;
 }
 .mainContainer > div {
   margin-bottom: 1rem;
