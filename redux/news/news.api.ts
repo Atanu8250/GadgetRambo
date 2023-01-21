@@ -6,6 +6,7 @@ export const getNewsAPI = async (limitQuery: number) => {
     const newsRef = collection(db, "news");
     const q = query(newsRef, limit(limitQuery));
     const res = await getDocs(q);
+
     const newsData = res.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
     return newsData;
   } catch (error) {

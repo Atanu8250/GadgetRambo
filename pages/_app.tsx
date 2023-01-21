@@ -5,7 +5,6 @@ import { ChakraProvider } from "@chakra-ui/react";
 import "../styles/globals.css";
 import { Provider } from "react-redux";
 import { store } from "@/redux/store";
-import RightSidebar from "@/components/RightSidebar";
 
 export default function App({ Component, pageProps }: AppProps) {
   const customTheme = {};
@@ -14,12 +13,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <Provider store={store}>
       <ChakraProvider theme={customTheme}>
         <Navbar />
-        <div style={{ display: "flex", padding: "1rem" }}>
-          <div style={{ width: "80%" }}>
-            <Component {...pageProps} />
-          </div>
-          <RightSidebar />
-        </div>
+        <Component {...pageProps} />
         <Footer />
       </ChakraProvider>
     </Provider>

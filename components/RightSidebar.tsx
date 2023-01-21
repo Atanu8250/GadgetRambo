@@ -52,6 +52,7 @@ const RightSidebar = () => {
       {/* TRENDING GADGETS AND TOPICS SECTION  */}
       <div className={styles.gadGetsAndTopics}>
         <p>TRENDING GADGETS AND TOPICS</p>
+        <p></p>
         <div>
           <div>
             <p>Latest</p>

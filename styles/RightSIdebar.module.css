@@ -1,26 +1,29 @@
 .container {
-  width: 20%;
-  padding-left: 1rem;
+  width: 25%;
 }
 .container > div {
   margin-top: 2rem;
 }
 .newsLetterBox {
   display: flex;
+  width: 100%;
   justify-content: space-between;
 }
 .newsLetterBox > input,
 .newsLetterBox > button {
-  padding: 0.5rem;
+  padding: 5px;
 }
 .newsLetterBox > input {
-  width: 68%;
+  /* width: 68%; */
   border: 1px solid #eae8e8;
+}
+.newsLetterBox > input::placeholder{
+  font-size: 12px;
 }
 .newsLetterBox > button {
   background-color: var(--color-primary);
   color: white;
-  width: 30%;
+  /* width: 30%; */
 }
 .socialHandle {
   text-align: center;
@@ -38,7 +41,7 @@
   font-weight: 500;
 }
 .socialIcons {
-  font-size: 45px;
+  font-size: 25px;
   color: white;
   padding: 8px;
   border-radius: 50%;
@@ -61,7 +64,7 @@
 }
 .gadGetsAndTopics > div > div > div > p {
   color: var(--color-light);
-  font-size: 15px;
+  font-size: 14px;
   line-height: 30px;
   border-bottom: 1px solid #eae8e8;
   cursor: pointer;
