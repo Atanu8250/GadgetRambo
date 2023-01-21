@@ -3,7 +3,6 @@ import { doc, getDoc } from "firebase/firestore";
 import React from "react";
 
 const Mobile = ({ mobile }: any) => {
-  console.log(mobile);
 
   return (
     <div>

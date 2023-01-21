@@ -73,6 +73,6 @@
   border-bottom: 1px solid #eae8e8;
   cursor: pointer;
 }
-.gadGetsAndTopics > div > div > div > p:hover {
+.gadGetsAndTopics > div > div > div p:hover {
   color: var(--color-primary);
 }

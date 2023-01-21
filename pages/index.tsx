@@ -150,7 +150,6 @@ export default function Home() {
                     titleSize={"15px"}
                     banner={el.banner}
                     imgHeight={"120px"}
-                    titleMaxHeight={"4.2rem"}
                   />
                 );
               })}

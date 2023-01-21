@@ -4,9 +4,11 @@ import LaptopFilter from "@/components/ProductSection/Laptops/LaptopFilter";
 import ResponsiveLaptopFilter from "@/components/ProductSection/Laptops/ResponsiveLaptopFilter";
 import ProductCard from "@/components/ProductSection/ProductCard";
 import { BsSearch } from "react-icons/bs";
-import { getLaptopAPI } from "@/redux/products/products.api";
+import { getTvAPI } from "@/redux/products/products.api";
 
-const Laptops = ({ laptops }: any) => {
+const Television = ({ televisons }: any) => {
+  console.log(televisons);
+
   return (
     <>
       <Flex
@@ -45,8 +47,8 @@ const Laptops = ({ laptops }: any) => {
               icon={<BsSearch />}
             />
           </Flex>
-          {laptops.map((data: any) => (
-            <ProductCard key={data.id} {...data} productLink={"laptops"} />
+          {televisons.map((data: any) => (
+            <ProductCard key={data.id} {...data} productLink={"tv"} />
           ))}
         </Flex>
         <Show above="lg">
@@ -59,13 +61,13 @@ const Laptops = ({ laptops }: any) => {
   );
 };
 
-export default Laptops;
+export default Television;
 
 export const getServerSideProps = async () => {
-  const laptops = await getLaptopAPI(10);
+  const televisons = await getTvAPI(10);
   return {
     props: {
-      laptops,
+      televisons,
     },
   };
 };
