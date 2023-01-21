@@ -9,7 +9,7 @@
 }
 .left_sideBar {
   padding: 1rem;
-  width: 15%;
+  width: 100%;
   background: var(--color-bg-light);
 }
 .mainContainer {
