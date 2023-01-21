@@ -1,19 +1,20 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { Flex, IconButton, Input, Show } from "@chakra-ui/react";
 import LaptopFilter from "@/components/ProductSection/Laptops/LaptopFilter";
 import ResponsiveLaptopFilter from "@/components/ProductSection/Laptops/ResponsiveLaptopFilter";
 import ProductCard from "@/components/ProductSection/ProductCard";
 import { BsSearch } from "react-icons/bs";
-import RightSidebar from "@/components/RightSidebar";
-import { getLaptopAPI } from "@/redux/products/products.api";
+import { getTvAPI } from "@/redux/products/products.api";
 
-const Laptops = ({ laptops }: any) => {
+const Television = ({ televisons }: any) => {
+  console.log(televisons);
+
   return (
     <>
       <Flex
         direction={{ base: "column", sm: "column", md: "row" }}
         w={"100%"}
-        p={"10"}
+        p={"8"}
         justifyContent={"center"}
       >
         <Flex
@@ -23,7 +24,6 @@ const Laptops = ({ laptops }: any) => {
             sm: "flex-start",
             md: "center",
           }}
-          mx={"4"}
         >
           <Show above="md">
             <LaptopFilter />
@@ -33,14 +33,13 @@ const Laptops = ({ laptops }: any) => {
         <Flex flex={2} direction={"column"} alignItems={"center"}>
           <Flex>
             <Input
-              w={{ base: "300px", sm: "380px" }}
+              w={"380px"}
               variant="flushed"
               type={"text"}
               placeholder={"Search Here"}
             />
             <IconButton
-              aria-label="xyz"
-              // onClick={() => HandleSearch()}
+              aria-label="SearchByBrand"
               borderRadius={"0px"}
               _hover={{}}
               color={"white"}
@@ -48,13 +47,13 @@ const Laptops = ({ laptops }: any) => {
               icon={<BsSearch />}
             />
           </Flex>
-          {laptops.map((data: any) => (
-            <ProductCard key={data.id} {...data} productLink={"laptops"} />
+          {televisons.map((data: any) => (
+            <ProductCard key={data.id} {...data} productLink={"tv"} />
           ))}
         </Flex>
         <Show above="lg">
-          <Flex mx={4} flex={2} justifyContent={"center"}>
-            <RightSidebar />
+          <Flex flex={2} justifyContent={"center"}>
+            Last Div
           </Flex>
         </Show>
       </Flex>
@@ -62,13 +61,13 @@ const Laptops = ({ laptops }: any) => {
   );
 };
 
-export default Laptops;
+export default Television;
 
 export const getServerSideProps = async () => {
-  const laptops = await getLaptopAPI(10);
+  const televisons = await getTvAPI(10);
   return {
     props: {
-      laptops,
+      televisons,
     },
   };
 };

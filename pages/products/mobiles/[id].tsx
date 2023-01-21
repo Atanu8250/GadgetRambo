@@ -23,7 +23,6 @@ interface singleMobile {
 }
 
 const Mobile = ({ mobile }: singleMobile) => {
-  console.log(mobile);
 
   return (
     <Flex p={7}>
