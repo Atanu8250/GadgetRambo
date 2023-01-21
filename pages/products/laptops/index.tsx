@@ -7,22 +7,26 @@ import { getLaptop } from "@/redux/products/products.actions";
 import ProductCard from "@/components/ProductSection/ProductCard";
 import { State } from "@/redux/store";
 import { BsSearch } from "react-icons/bs";
+import { getLaptopAPI } from "@/redux/products/products.api";
 
-const Laptops = () => {
-  const { laptops } = useSelector((store: State) => store.productsManager);
-  console.log("laptops: ", laptops);
-
-  const dispatch = useDispatch();
-  useEffect(() => {
-    if (laptops.length === 0) {
-      getLaptop(dispatch, 16);
-    }
-  }, []);
+const Laptops = ({ laptops }: any) => {
 
   return (
     <>
-      <Flex direction={{ base: "column", sm: "column", md: "row" }} w={"100%"} p={"8"} justifyContent={"center"}>
-        <Flex flex={1} justifyContent={{ base: "flex-start", sm: "flex-start", md: "center" }}>
+      <Flex
+        direction={{ base: "column", sm: "column", md: "row" }}
+        w={"100%"}
+        p={"8"}
+        justifyContent={"center"}
+      >
+        <Flex
+          flex={1}
+          justifyContent={{
+            base: "flex-start",
+            sm: "flex-start",
+            md: "center",
+          }}
+        >
           <Show above="md">
             <LaptopFilter />
           </Show>
@@ -30,8 +34,20 @@ const Laptops = () => {
         </Flex>
         <Flex flex={2} direction={"column"} alignItems={"center"}>
           <Flex>
-            <Input w={"380px"} variant="flushed" type={"text"} placeholder={"Search Here"} />
-            <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<BsSearch />} />
+            <Input
+              w={"380px"}
+              variant="flushed"
+              type={"text"}
+              placeholder={"Search Here"}
+            />
+            <IconButton
+              aria-label="SearchByBrand"
+              borderRadius={"0px"}
+              _hover={{}}
+              color={"white"}
+              bgColor={"red"}
+              icon={<BsSearch />}
+            />
           </Flex>
           {laptops.map((data: any) => (
             <ProductCard key={data.id} {...data} />
@@ -48,3 +64,12 @@ const Laptops = () => {
 };
 
 export default Laptops;
+
+export const getServerSideProps = async () => {
+  const laptops = await getLaptopAPI(10);
+  return {
+    props: {
+      laptops,
+    },
+  };
+};
