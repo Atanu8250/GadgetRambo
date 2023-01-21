@@ -6,7 +6,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { HiShoppingCart } from "react-icons/hi";
 import { Icon, Button } from "@chakra-ui/react";
 import Logo from "../assets/Logo.png";
-import { Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react";
+import { Menu, MenuButton, MenuList, MenuItem, Avatar } from "@chakra-ui/react";
 import Marquee from "react-fast-marquee";
 import { Divider } from "@chakra-ui/react";
 import NavbarDrawer from "../components/NavbarDrawer";
@@ -14,10 +14,16 @@ import Login from "./Login";
 import Signup from "./Signup";
 
 import useAuth from "@/customHook/UseAuth";
+import { logout } from "@/redux/auth/auth.action";
+import { truncate } from "fs";
 
 const Navbar = () => {
+  const [youIn, setYouIn] = React.useState<boolean>(false);
 
-  useAuth()
+  // Avatar
+  const [name, setName] = React.useState<string>("Rajkumar");
+
+  useAuth();
 
   const handleFuse = () => {
     setFocusHome(false);
@@ -226,9 +232,7 @@ const Navbar = () => {
   return (
     <div>
       <div className={style.marquee}>
-        <Marquee>
-          
-        </Marquee>
+        <Marquee></Marquee>
       </div>
       <div className={style.main}>
         <div className={style.logoUpper}>
@@ -243,12 +247,33 @@ const Navbar = () => {
             </Link>
           </div>
           <div className={style.personData}>
-            <div className={style.login}>
-              <Login />
-            </div>
-            <div className={style.signup}>
-              <Signup />
-            </div>
+
+            {/*
+            Login and Logout 
+             */}
+
+            {youIn ? (
+              <div className={style.personData}>
+                <div className={style.avatar}>
+                  <Avatar src="https://lh3.googleusercontent.com/ogw/AAEL6sj5ldG0q8z-IHftwzB6vcn6fay6knkGTD2W0ChUQQ=s32-c-mo" />
+                  <div className={style.avName}>
+                    <p>{name}</p>
+                  </div>
+                </div>
+                <div className={style.login}>
+                  <div className={style.loginButton}>Logout</div>
+                </div>
+              </div>
+            ) : (
+              <div className={style.personData}>
+                <div className={style.login}>
+                  <Login />
+                </div>
+                <div className={style.signup}>
+                  <Signup />
+                </div>
+              </div>
+            )}
             <div className={style.cart}>
               <Link href="/cart">
                 <Icon as={HiShoppingCart} boxSize={8} />

@@ -28,11 +28,11 @@ const Login = () => {
     PASSWORD: "",
   });
   const passwordHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     setPassword(e.target.value);
   };
   const userHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     setUserName(e.target.value);
   };
   const userDetails = () => {
