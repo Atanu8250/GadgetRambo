@@ -61,10 +61,14 @@ const Tv = ({ tv }: any) => {
             </SimpleGrid>
           </Flex>
         </Flex>
-        <Flex justify={"flex-end"} w={"100%"}>
-          <Button mt={3} colorScheme={"red"}>
-            Buy Now
-          </Button>
+        <Flex mt={3} gap={5} alignItems={"center"} justify={"flex-end"} w={"100%"}>
+          <Text as={"b"} fontSize={"lg"}>
+            Price
+          </Text>
+          <Text fontSize={"xl"} as={"b"}>
+            {"₹ " + tv.price}
+          </Text>
+          <Button colorScheme={"red"}>Buy Now</Button>
         </Flex>
         <Flex direction={"column"} gap={3}>
           <Text as={"b"}>{tv.name} Summary</Text>
@@ -79,10 +83,6 @@ const Tv = ({ tv }: any) => {
           <Text fontSize={"md"}>{tv.brand}</Text>
           <Text as={"b"}>Release Date</Text>
           <Text fontSize={"md"}>{tv.releaseDate}</Text>
-          <Text as={"b"} fontSize={"lg"}>
-            Price
-          </Text>
-          <Text fontSize={"lg"}>{"₹ " + tv.price}</Text>
         </Flex>
       </Flex>
       <Show above="xl">
