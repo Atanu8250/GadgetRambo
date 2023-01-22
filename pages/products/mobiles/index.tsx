@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Flex, IconButton, Input, Show } from "@chakra-ui/react";
+import { Button, Flex, IconButton, Input, Show } from "@chakra-ui/react";
 import MobileFilter from "@/components/ProductSection/Mobiles/MobileFilter";
 import ResponsiveMobileFilter from "@/components/ProductSection/Mobiles/ResponsiveMobileFilter";
 import ProductCard from "@/components/ProductSection/ProductCard";
@@ -9,6 +9,7 @@ import RightSidebar from "@/components/RightSidebar";
 
 const Mobiles = ({ mobiles }: any) => {
   const srcIpRef = useRef<HTMLInputElement>(null);
+  const [loader, setLoader] = useState<number>(5);
 
   // let searchValue = srcIpRef?.current?.value || "";
 
@@ -22,7 +23,7 @@ const Mobiles = ({ mobiles }: any) => {
 
   return (
     <>
-      <Flex direction={{ base: "column", sm: "column", md: "row" }} w={"100%"} p={"10"} justifyContent={"center"}>
+      <Flex direction={{ base: "column", sm: "column", md: "row" }} w={"100%"} p={"10"}>
         <Flex
           flex={1}
           justifyContent={{
@@ -30,6 +31,7 @@ const Mobiles = ({ mobiles }: any) => {
             sm: "flex-start",
             md: "center",
           }}
+          alignItems={"flex-start"}
           mx={4}
         >
           <Show above="md">
@@ -52,9 +54,14 @@ const Mobiles = ({ mobiles }: any) => {
             />
           </Flex>
           {/* Search Function End */}
-          {mobiles?.map((data: any) => (
-            <ProductCard key={data.id} {...data} productLink={"mobiles"} />
-          ))}
+          {mobiles?.map((data: any, id: number) => {
+            if (id < loader) {
+              return <ProductCard key={data.id} {...data} productLink={"mobiles"} />;
+            }
+          })}
+          <Button onClick={() => setLoader((prev) => prev + 2)} colorScheme={"red"}>
+            Load More
+          </Button>
         </Flex>
         <Show above="xl">
           <Flex mx={4} flex={2} justifyContent={"center"}>

@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from "react";
-import { Flex, IconButton, Input, Show } from "@chakra-ui/react";
+import React, { useEffect, useRef, useState } from "react";
+import { Button, Flex, IconButton, Input, Show } from "@chakra-ui/react";
 import LaptopFilter from "@/components/ProductSection/Laptops/LaptopFilter";
 import ResponsiveLaptopFilter from "@/components/ProductSection/Laptops/ResponsiveLaptopFilter";
 import ProductCard from "@/components/ProductSection/ProductCard";
@@ -8,6 +8,7 @@ import RightSidebar from "@/components/RightSidebar";
 import { getLaptopAPI } from "@/redux/products/products.api";
 
 const Laptops = ({ laptops }: any) => {
+  const [loader, setLoader] = useState<number>(5);
   return (
     <>
       <Flex direction={{ base: "column", sm: "column", md: "row" }} w={"100%"} p={"10"} justifyContent={"center"}>
@@ -18,6 +19,7 @@ const Laptops = ({ laptops }: any) => {
             sm: "flex-start",
             md: "center",
           }}
+          alignItems={"flex-start"}
           mx={"4"}
         >
           <Show above="md">
@@ -38,9 +40,14 @@ const Laptops = ({ laptops }: any) => {
               icon={<BsSearch />}
             />
           </Flex>
-          {laptops.map((data: any) => (
-            <ProductCard key={data.id} {...data} productLink={"laptops"} />
-          ))}
+          {laptops.map((data: any, id: number) => {
+            if (id < loader) {
+              return <ProductCard key={data.id} {...data} productLink={"laptops"} />;
+            }
+          })}
+          <Button onClick={() => setLoader((prev) => prev + 2)} colorScheme={"red"}>
+            Load More
+          </Button>
         </Flex>
         <Show above="xl">
           <Flex mx={4} flex={2} justifyContent={"center"}>
@@ -55,7 +62,7 @@ const Laptops = ({ laptops }: any) => {
 export default Laptops;
 
 export const getServerSideProps = async () => {
-  const laptops = await getLaptopAPI(10);
+  const laptops = await getLaptopAPI(50);
   return {
     props: {
       laptops,

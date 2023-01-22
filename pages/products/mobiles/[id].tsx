@@ -75,10 +75,14 @@ const Mobile = ({ mobile }: singleMobile) => {
             </SimpleGrid>
           </Flex>
         </Flex>
-        <Flex justify={"flex-end"} w={"100%"}>
-          <Button mt={3} colorScheme={"red"}>
-            Buy Now
-          </Button>
+        <Flex mt={3} gap={5} justify={"flex-end"} w={"100%"} alignItems={"center"}>
+          <Text as={"b"} fontSize={"lg"}>
+            Price
+          </Text>
+          <Text fontSize={"xl"} as={"b"}>
+            {"₹ " + mobile.price}
+          </Text>
+          <Button colorScheme={"red"}>Add To Cart</Button>
         </Flex>
         <Flex direction={"column"} gap={3}>
           <Text as={"b"}>Description</Text>
@@ -98,10 +102,6 @@ const Mobile = ({ mobile }: singleMobile) => {
           <Text fontSize={"md"}>{mobile.related2}</Text>
           <Text as={"b"}>Release Date</Text>
           <Text fontSize={"md"}>{mobile.releaseDate}</Text>
-          <Text as={"b"} fontSize={"lg"}>
-            Price
-          </Text>
-          <Text fontSize={"lg"}>{"₹ " + mobile.price}</Text>
         </Flex>
       </Flex>
       <Show above="xl">
