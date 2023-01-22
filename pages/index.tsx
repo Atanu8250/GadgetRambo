@@ -139,19 +139,23 @@ export default function Home() {
             <p>IN-DEPTH</p>
             <div style={{ display: "flex", gap: "2rem" }}>
               {news.map((el: any, index: number) => {
-                if (index >= 4) {
-                  return;
+                if (index > 5 && index <10) {
+                  return (
+                    <Link
+                      key={el.id}
+                      style={{ width: "25" }}
+                      href={`blogs/${el.id}`}
+                    >
+                      <NewsCard
+                        cardWidth="100%"
+                        title={el.title}
+                        titleSize={"15px"}
+                        banner={el.banner}
+                        imgHeight={"120px"}
+                      />
+                    </Link>
+                  );
                 }
-                return (
-                  <NewsCard
-                    cardWidth="25%"
-                    key={el.id}
-                    title={el.title}
-                    titleSize={"15px"}
-                    banner={el.banner}
-                    imgHeight={"120px"}
-                  />
-                );
               })}
             </div>
           </div>
