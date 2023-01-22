@@ -74,3 +74,8 @@ export type newsBlogId = {
   newsData: newsBlogObj;
 };
 
+export interface intrfcToastMsg {
+  title: string;
+  desc?: string;
+  status: "info" | "warning" | "success" | "error" | "loading" | undefined;
+}
