@@ -2,7 +2,7 @@ import { db } from "@/Backend/Firebase/firebase";
 import LeftSidebar from "@/components/LeftSidebar";
 import RightSidebar from "@/components/RightSidebar";
 import { Button, Flex, Heading, Image, Show, SimpleGrid, Text } from "@chakra-ui/react";
-import { doc, getDoc } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import React from "react";
 import { BsDisplay } from "react-icons/bs";
 import { IoMdPricetags } from "react-icons/io";
@@ -97,7 +97,20 @@ const Tv = ({ tv }: any) => {
 
 export default Tv;
 
-export const getServerSideProps = async (context: any) => {
+
+export async function getStaticPaths() {
+  const prodRef = collection(db, "tv");
+  let res = await getDocs(prodRef)
+  let data = res.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+  return {
+    paths: data.map((blog) => ({ params: { id: blog.id.toString() } })),
+    fallback: false, // can also be true or 'blocking'
+  }
+}
+
+
+
+export const getStaticProps = async (context: any) => {
   const { params } = context;
   try {
     const tvRef = doc(db, "tv", params.id);

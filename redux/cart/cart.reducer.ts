@@ -36,6 +36,11 @@ const cartReducer = (
         cart: action.payload,
       };
     }
+
+    case CartTypes.CLEAR_CART: {
+      return initialState;
+    }
+    
     default:
       return state;
   }

@@ -54,7 +54,7 @@ const Television = ({ televisons }: any) => {
 
 export default Television;
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const televisons = await getTvAPI(10);
   return {
     props: {

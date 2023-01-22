@@ -28,14 +28,10 @@ export const getCartAPI = async () => {
 // api for adding items in cart reducer
 export const addCartAPI = async (
   cartItems: any,
-  toastMsg: ({}: intrfcToastMsg) => void
+  toastMsg: ({ }: intrfcToastMsg) => void
 ) => {
   try {
-    const cartRef = doc(
-      db,
-      `cartItems/${auth.currentUser?.email}/items`,
-      cartItems.id
-    );
+    const cartRef = doc(db, `cartItems/${auth.currentUser?.email}/items`, cartItems.id);
     await setDoc(cartRef, cartItems);
     toastMsg({
       title: "Item added to Cart",

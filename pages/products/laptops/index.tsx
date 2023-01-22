@@ -61,7 +61,7 @@ const Laptops = ({ laptops }: any) => {
 
 export default Laptops;
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const laptops = await getLaptopAPI(50);
   return {
     props: {

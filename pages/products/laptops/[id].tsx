@@ -2,7 +2,7 @@ import { db } from "@/Backend/Firebase/firebase";
 import LeftSidebar from "@/components/LeftSidebar";
 import RightSidebar from "@/components/RightSidebar";
 import { Button, Flex, Heading, Image, Show, SimpleGrid, Text } from "@chakra-ui/react";
-import { doc, getDoc } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import React from "react";
 import { BiMemoryCard } from "react-icons/bi";
 import { BsCpu, BsDisplay, BsWifi } from "react-icons/bs";
@@ -111,7 +111,19 @@ const Laptop = ({ laptop }: any) => {
 
 export default Laptop;
 
-export const getServerSideProps = async (context: any) => {
+
+export async function getStaticPaths() {
+  const prodRef = collection(db, "gadget_rambo/products/laptops");
+  let res = await getDocs(prodRef)
+  let data = res.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+  return {
+    paths: data.map((blog) => ({ params: { id: blog.id.toString() } })),
+    fallback: false, // can also be true or 'blocking'
+  }
+}
+
+
+export const getStaticProps = async (context: any) => {
   const { params } = context;
   try {
     const laptopRef = doc(db, "gadget_rambo/products/laptops", params.id);

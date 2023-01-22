@@ -17,8 +17,7 @@ export const signupWithEmailAndPwd = (cred: { email: string, password: string },
 
     if (!email.includes("@") || !email.includes(".com")) {
         toastMsg({
-            title: "Wrong input Credentials!",
-            desc: "Please put correct email address",
+            title: "Please put correct email address",
             status: "warning"
         })
         return;
@@ -26,8 +25,7 @@ export const signupWithEmailAndPwd = (cred: { email: string, password: string },
 
     if (password.length <= 7) {
         toastMsg({
-            title: "Wrong input Credentials!",
-            desc: "Please Enter longer password than 6",
+            title: "Please Enter longer password than 6",
             status: "warning"
         })
         return;
@@ -38,14 +36,12 @@ export const signupWithEmailAndPwd = (cred: { email: string, password: string },
             storeUser(res.user).then(res => {
                 dispatch({ type: authTypes.AUTH_LOGIN_SUCCESS, payload: res })
                 toastMsg({
-                    title: "Mission Successful",
-                    desc: "Sign up successful",
+                    title: "Sign up successful",
                     status: "success"
                 })
             }).catch(err => {
                 toastMsg({
-                    title: "Sign up failed!",
-                    desc: err.code,
+                    title: err.code,
                     status: "error"
                 })
                 dispatch({ type: authTypes.AUTH_ERROR })
@@ -53,8 +49,7 @@ export const signupWithEmailAndPwd = (cred: { email: string, password: string },
         })
         .catch((err) => {
             toastMsg({
-                title: "Sign up failed!",
-                desc: err.code,
+                title: err.code,
                 status: "error"
             });
             dispatch({ type: authTypes.AUTH_ERROR });
@@ -71,14 +66,12 @@ export const googleAuth = (toastMsg: ({ }: intrfcToastMsg) => void) => (dispatch
         storeUser(res.user).then(res => {
             dispatch({ type: authTypes.AUTH_LOGIN_SUCCESS, payload: res })
             toastMsg({
-                title: "Mission Successful",
-                desc: "Sign up successful",
+                title: "Sign up successful",
                 status: "success"
             })
         }).catch(err => {
             toastMsg({
-                title: "Google Authantication failed",
-                desc: err.code,
+                title: err.code,
                 status: "error"
             })
             dispatch({ type: authTypes.AUTH_ERROR })
@@ -86,8 +79,7 @@ export const googleAuth = (toastMsg: ({ }: intrfcToastMsg) => void) => (dispatch
     })
         .catch((err) => {
             toastMsg({
-                title: "Google Authantication failed",
-                desc: err.code,
+                title: err.code,
                 status: "error"
             });
             dispatch({ type: authTypes.AUTH_ERROR })
@@ -108,15 +100,13 @@ export const login = (cred: { email: string, password: string }, toastMsg: ({ }:
             dispatch(updateUser(res.user.uid, { isActive: true, lastSignInTime: new Date().toLocaleString() }))
             dispatch({ type: authTypes.AUTH_LOGIN_SUCCESS, payload: res.user })
             toastMsg({
-                title: "Mission Successful",
-                desc: "Log in successful",
+                title: "Log in successful",
                 status: "success"
             })
         })
         .catch((err) => {
             toastMsg({
-                title: "LogIn failed",
-                desc: err.code,
+                title: err.code,
                 status: "error"
             })
             dispatch({ type: authTypes.AUTH_ERROR })
@@ -133,8 +123,7 @@ export const logout = (toastMsg: ({ }: intrfcToastMsg) => void) => (dispatch: Di
         updateUserAPI(res || "", { isActive: false }).then(() => {
             dispatch({ type: authTypes.AUTH_LOGOUT_SUCCESS })
             toastMsg({
-                title: "Mission Successful",
-                desc: "Logout Successful",
+                title: "Logout Successful",
                 status: "success"
             })
         }).catch((err) => {

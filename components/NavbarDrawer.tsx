@@ -130,7 +130,7 @@ const NavbarDrawer = () => {
               </Link>
             </p>
             <br />
-            <p>
+            <div>
               <Accordion defaultIndex={[0]} allowMultiple>
                 <AccordionItem>
                   <h2>
@@ -173,8 +173,8 @@ const NavbarDrawer = () => {
                   </AccordionPanel>
                 </AccordionItem>
               </Accordion>
-            </p>
-            <p>
+            </div>
+            <div>
               <Accordion defaultIndex={[0]} allowMultiple>
                 <AccordionItem>
                   <h2>
@@ -265,8 +265,8 @@ const NavbarDrawer = () => {
                   </AccordionPanel>
                 </AccordionItem>
               </Accordion>
-            </p>
-            <p>
+            </div>
+            <div>
               <Accordion defaultIndex={[0]} allowMultiple>
                 <AccordionItem>
                   <h2>
@@ -357,8 +357,8 @@ const NavbarDrawer = () => {
                   </AccordionPanel>
                 </AccordionItem>
               </Accordion>
-            </p>
-            <p>
+            </div>
+            <div>
               <Accordion defaultIndex={[0]} allowMultiple>
                 <AccordionItem>
                   <h2>
@@ -389,8 +389,8 @@ const NavbarDrawer = () => {
                   </AccordionPanel>
                 </AccordionItem>
               </Accordion>
-            </p>
-            <p>
+            </div>
+            <div>
               <Accordion defaultIndex={[0]} allowMultiple>
                 <AccordionItem>
                   <h2>
@@ -465,7 +465,7 @@ const NavbarDrawer = () => {
                   </AccordionPanel>
                 </AccordionItem>
               </Accordion>
-            </p>
+            </div>
           </DrawerBody>
 
           <DrawerFooter className={style.drawer}>

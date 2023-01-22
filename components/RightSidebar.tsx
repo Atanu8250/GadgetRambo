@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import styles from ".././styles/RightSidebar.module.css";
+import styles from "@/styles/RightSidebar.module.css";
 import { BsTwitter, BsYoutube } from "react-icons/bs";
 import { FaPodcast, FaRss, FaFacebookF } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";

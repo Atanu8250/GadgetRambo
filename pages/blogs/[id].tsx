@@ -10,7 +10,7 @@ import {
   Show,
   Text,
 } from "@chakra-ui/react";
-import { doc, getDoc } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import React from "react";
 import {
   AiFillFacebook,
@@ -148,7 +148,17 @@ const Blog = ({ newsData }: newsBlogId) => {
 
 export default Blog;
 
-export async function getServerSideProps(context: any) {
+export async function getStaticPaths() {
+  const prodRef = collection(db, "news");
+  let res = await getDocs(prodRef)
+  let data = res.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+  return {
+    paths: data.map((blog) => ({ params: { id: blog.id.toString() } })),
+    fallback: false, // can also be true or 'blocking'
+  }
+}
+
+export async function getStaticProps(context: any) {
   const { params } = context;
   try {
     const newsRef = doc(db, "news", params.id);

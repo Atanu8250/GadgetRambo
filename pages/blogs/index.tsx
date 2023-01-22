@@ -54,7 +54,7 @@ const Blogs = ({ newsData }: newsBlogIndex) => {
 
 export default Blogs;
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   try {
     const newsRef = collection(db, "news");
     //   const q = query(newsRef, limi(limitQuery));

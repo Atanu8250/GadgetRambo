@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Dispatch } from "react";
 import style from "../../styles/Checkout.module.css";
 import RightSidebar from "@/components/RightSidebar";
 import {
@@ -11,7 +11,6 @@ import {
   Radio,
   Stack,
   Icon,
-  Image,
 } from "@chakra-ui/react";
 import { RiVisaFill } from "react-icons/ri";
 import { SiAmericanexpress } from "react-icons/si";
@@ -19,17 +18,27 @@ import { FaCcMastercard } from "react-icons/fa";
 import Link from "next/link";
 import useToastMsg from "@/customHook/UseToastMsg";
 import Router from "next/router";
+import { deleteDoc, doc } from "firebase/firestore";
+import { auth, db } from "@/Backend/Firebase/firebase";
+import { useDispatch, useSelector } from "react-redux";
+import { State } from "@/redux/store";
+import { intrfcUser } from "@/constants/constants";
 
 const Checkout = () => {
+
+  // const { user }: { user: intrfcUser } = useSelector((store: State) => store.authManager)
+  const dispatch = useDispatch()
   const toastmsg = useToastMsg();
   const [value, setValue] = React.useState("1");
-  const handlePayment = () => {
-    toastmsg({
-      title: "Payment Success",
-      status: "success",
-    });
-    Router.replace("/");
+
+  const handlePayment =  () => {
+      toastmsg({
+        title: "Payment Success",
+        status: "success",
+      });
+      Router.replace("/");
   };
+
   return (
     <div className={style.main}>
       <div className={style.mainSkeleton}>
