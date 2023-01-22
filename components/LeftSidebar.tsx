@@ -20,7 +20,7 @@ const LeftSidebar = () => {
         TRENDING
       </Text>
       {news.map((el: any, index: number) => {
-        if (index >= 10) {
+        if (index >= 11) {
           return;
         }
         return (
@@ -30,7 +30,6 @@ const LeftSidebar = () => {
               titleSize={"11px"}
               banner={el.banner}
               imgHeight={"100px"}
-              titleMaxHeight={"3.9rem"}
             />
           </Link>
         );
