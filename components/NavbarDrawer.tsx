@@ -32,7 +32,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { State } from "@/redux/store";
 import { logout } from "@/redux/auth/auth.action";
 import { Dispatch } from "redux";
+import logo from '../assets/GadgetRambo.png'
 import useToastMsg from "@/customHook/UseToastMsg";
+
 
 const NavbarDrawer = () => {
 
@@ -65,7 +67,7 @@ const NavbarDrawer = () => {
           <DrawerHeader className={style.drawer}>
             <Link href="/">
               <Image
-                src="https://cdn.gadgets360.com/gadgets360_logo.png"
+                src={logo}
                 alt="logo"
                 width={150}
                 height={20}

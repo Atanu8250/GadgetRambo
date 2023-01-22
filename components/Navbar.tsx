@@ -17,6 +17,7 @@ import { useDispatch, useSelector } from "react-redux";
 import useToastMsg from "@/customHook/UseToastMsg";
 import { MdAdminPanelSettings } from 'react-icons/md'
 
+import logo from '../assets/GadgetRambo.png'
 import Login from "./Login";
 import Signup from "./Signup";
 import { State } from "@/redux/store";
@@ -34,30 +35,30 @@ const Navbar = () => {
   const dispatch: Dispatch<any> = useDispatch()
   const { showAdminPanel }: { showAdminPanel: boolean } = useSelector((store: State) => store.authManager)
   const toastMsg = useToastMsg()
-  const [isAdmin, setIsAdmin] = useState<boolean>(false)
-  console.log('isAdmin:', isAdmin)
-  const [change, setChange] = useState<boolean>(false);
+  // const [isAdmin, setIsAdmin] = useState<boolean>(false)
+  // console.log('isAdmin:', isAdmin)
+  // const [change, setChange] = useState<boolean>(false);
 
 
-  useEffect(() => {
-    dispatch(getUsers())
-    setTimeout(() => {
-      setChange((prev:boolean) => !prev);
-    }, 200)
-  }, [])
+  // useEffect(() => {
+  //   dispatch(getUsers())
+  //   setTimeout(() => {
+  //     setChange((prev:boolean) => !prev);
+  //   }, 200)
+  // }, [])
 
-  console.log({users});
+  // console.log({users});
   
 
-  // checking user is admin or not
-  const checkUserAdminOrNot = () => {
-    users.forEach((el) => {
-      if (el.email === auth.currentUser?.email) {
-        setIsAdmin(el.isAdmin)
-        return;
-      }
-    })
-  }
+  // // checking user is admin or not
+  // const checkUserAdminOrNot = () => {
+  //   users.forEach((el) => {
+  //     if (el.email === auth.currentUser?.email) {
+  //       setIsAdmin(el.isAdmin)
+  //       return;
+  //     }
+  //   })
+  // }
 
 
 
@@ -289,9 +290,9 @@ const Navbar = () => {
           <div className={style.logo}>
             <Link href="/">
               <Image
-                src="https://cdn.gadgets360.com/gadgets360_logo.png"
+                src={logo}
                 alt="logo"
-                width={150}
+                width={100}
                 height={20}
               />
             </Link>
