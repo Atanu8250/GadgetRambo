@@ -15,13 +15,10 @@ import { Dispatch } from 'redux'
 import styles from '../../styles/adminDashboard.module.css'
 
 
-type Props = {}
-
-
-const Home = (props: Props) => {
+const Home = () => {
 
   const dispatch: Dispatch<any> = useDispatch();
-  const { users } = useSelector((store:State) => store.usersManager)
+  const { users }:any = useSelector((store:State) => store.usersManager)
   const [mountTime, setMountTime] = useState<string>("");
 
   React.useEffect(() => {
@@ -41,7 +38,7 @@ const Home = (props: Props) => {
       <Head>
         <title>GadgetRambo: admin</title>
       </Head>
-      <SidebarWithHeader>
+      <SidebarWithHeader active="Dashboard">
         <div className={styles.dashboard}>
 
           {/* overview cards */}

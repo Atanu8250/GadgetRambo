@@ -1,5 +1,5 @@
 import { auth } from "@/Backend/Firebase/firebase";
-import { authActionType } from "@/constants/constants";
+import { authActionType, intrfcToastMsg } from "@/constants/constants";
 import { Dispatch } from "react";
 import { storeUser, updateUser } from "../users/users.action";
 import { updateUserAPI } from "../users/users.api";
@@ -10,45 +10,94 @@ import * as authTypes from "./auth.type";
 
 
 // sign up with only email and password
-export const signupWithEmailAndPwd = (cred: { email: string, password: string }) => (dispatch: ({ type, payload }: authActionType) => void) => {
-
+export const signupWithEmailAndPwd = (cred: { email: string, password: string }, toastMsg: ({ }: intrfcToastMsg) => void) => (dispatch: ({ type, payload }: authActionType) => void) => {
     dispatch({ type: authTypes.AUTH_LOADING })
     const email = cred.email;
     const password = cred.password;
+
+    if (!email.includes("@") || !email.includes(".com")) {
+        toastMsg({
+            title: "Wrong input Credentials!",
+            desc: "Please put correct email address",
+            status: "warning"
+        })
+        return;
+    }
+
+    if (password.length <= 7) {
+        toastMsg({
+            title: "Wrong input Credentials!",
+            desc: "Please Enter longer password than 6",
+            status: "warning"
+        })
+        return;
+    }
 
     SignupWithEmailAndPwdAPI(email, password)
         .then((res) => {
             storeUser(res.user).then(res => {
                 dispatch({ type: authTypes.AUTH_LOGIN_SUCCESS, payload: res })
-                alert("signup success");
-            }).catch(err => console.log(err))
+                toastMsg({
+                    title: "Mission Successful",
+                    desc: "Sign up successful",
+                    status: "success"
+                })
+            }).catch(err => {
+                toastMsg({
+                    title: "Sign up failed!",
+                    desc: err.code,
+                    status: "error"
+                })
+                dispatch({ type: authTypes.AUTH_ERROR })
+            })
         })
         .catch((err) => {
-            console.log(err);
+            toastMsg({
+                title: "Sign up failed!",
+                desc: err.code,
+                status: "error"
+            });
+            dispatch({ type: authTypes.AUTH_ERROR });
         })
 }
 
 
 // it's for signup and login via google accounts
-export const googleAuth = () => (dispatch: ({ type, payload }: authActionType) => void) => {
+export const googleAuth = (toastMsg: ({ }: intrfcToastMsg) => void) => (dispatch: ({ type, payload }: authActionType) => void) => {
 
     dispatch({ type: authTypes.AUTH_LOADING })
 
     googleAuthAPI().then((res) => {
         storeUser(res.user).then(res => {
             dispatch({ type: authTypes.AUTH_LOGIN_SUCCESS, payload: res })
-            alert("signup with google success");
-        }).catch(err => console.log(err))
+            toastMsg({
+                title: "Mission Successful",
+                desc: "Sign up successful",
+                status: "success"
+            })
+        }).catch(err => {
+            toastMsg({
+                title: "Google Authantication failed",
+                desc: err.code,
+                status: "error"
+            })
+            dispatch({ type: authTypes.AUTH_ERROR })
+        })
     })
         .catch((err) => {
-            console.log(err);
+            toastMsg({
+                title: "Google Authantication failed",
+                desc: err.code,
+                status: "error"
+            });
+            dispatch({ type: authTypes.AUTH_ERROR })
         })
 
 }
 
 
 // Login with only email and password
-export const login = (cred: { email: string, password: string }) => (dispatch: Dispatch<any>) => {
+export const login = (cred: { email: string, password: string }, toastMsg: ({ }: intrfcToastMsg) => void) => (dispatch: Dispatch<any>) => {
 
     dispatch({ type: authTypes.AUTH_LOADING })
     const email = cred.email;
@@ -58,29 +107,60 @@ export const login = (cred: { email: string, password: string }) => (dispatch: D
         .then((res) => {
             dispatch(updateUser(res.user.uid, { isActive: true, lastSignInTime: new Date().toLocaleString() }))
             dispatch({ type: authTypes.AUTH_LOGIN_SUCCESS, payload: res.user })
-            alert("login success");
+            toastMsg({
+                title: "Mission Successful",
+                desc: "Log in successful",
+                status: "success"
+            })
         })
         .catch((err) => {
-            console.log(err);
+            toastMsg({
+                title: "LogIn failed",
+                desc: err.code,
+                status: "error"
+            })
+            dispatch({ type: authTypes.AUTH_ERROR })
         })
 }
 
 
 // Logout function
-export const logout = () => (dispatch: Dispatch<any>) => {
+export const logout = (toastMsg: ({ }: intrfcToastMsg) => void) => (dispatch: Dispatch<any>) => {
 
     dispatch({ type: authTypes.AUTH_LOADING })
 
     logoutAPI().then((res) => {
         updateUserAPI(res || "", { isActive: false }).then(() => {
             dispatch({ type: authTypes.AUTH_LOGOUT_SUCCESS })
-            alert("logout success");
-        }).catch((error) => {
-            console.log('error:', error)
+            toastMsg({
+                title: "Mission Successful",
+                desc: "Logout Successful",
+                status: "success"
+            })
+        }).catch((err) => {
+            toastMsg({
+                title: "Logout failed!",
+                desc: err.code,
+                status: "error"
+            })
+            dispatch({ type: authTypes.AUTH_ERROR })
         })
     })
         .catch((err) => {
-            console.log(err);
+            toastMsg({
+                title: "Logout failed!",
+                desc: err.code,
+                status: "error"
+            })
+            dispatch({ type: authTypes.AUTH_ERROR })
         })
 }
 
+
+export const setShowAdminPanel = (dispatch: Dispatch<any>) => {
+    dispatch({ type: authTypes.AUTH_SHOW_ADMIN_PANEL })
+}
+
+export const setHideAdminPanel = (dispatch: Dispatch<any>) => {
+    dispatch({ type: authTypes.AUTH_HIDE_ADMIN_PANEL })
+}

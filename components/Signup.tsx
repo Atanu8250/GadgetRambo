@@ -16,33 +16,44 @@ import {
 } from "@chakra-ui/react";
 import style from "../styles/Signup.module.css"
 import { FcGoogle } from "react-icons/fc";
+import { useDispatch, useSelector } from "react-redux";
+import { googleAuth, signupWithEmailAndPwd } from "@/redux/auth/auth.action";
+import { Dispatch } from 'redux'
+import useToastMsg from "@/customHook/UseToastMsg";
+import { State } from "@/redux/store";
+
 
 const Signup = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [show, setShow] = React.useState(false);
   const handleClick = () => setShow(!show);
   const [password, setPassword] = React.useState<string>("");
-  const [userName, setUserName] = React.useState<string>("");
-  const [details, setDetails] = React.useState<object>({
-    USERNAME: "",
-    PASSWORD: "",
-  });
+  const [email, setEmail] = React.useState<string>("");
+  const dispatch: Dispatch<any> = useDispatch()
+  const { loading } = useSelector((store: State) => store.authManager)
+
+
+  const toastMsg = useToastMsg()
 
   const passwordHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // console.log(e.target.value);
     setPassword(e.target.value);
   };
+
   const userHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // console.log(e.target.value);
-    setUserName(e.target.value);
+    setEmail(e.target.value);
   };
-  const userDetails = () => {
-    setDetails({
-      USERNAME: userName,
-      PASSWORD: password,
-    });
+
+  const handleSignUp = () => {
+    dispatch(signupWithEmailAndPwd({ email, password }, toastMsg))
+    setEmail("");
+    setPassword("");
   };
-  // console.log(details);
+
+  const handleGoogleSignup = () => {
+    dispatch(googleAuth(toastMsg))
+  }
+
+
   return (
     <div>
       <div onClick={onOpen} className={style.loginButton}>
@@ -56,22 +67,22 @@ const Signup = () => {
           <ModalBody>
             <h1 className={style.loginHead}>SIGNUP</h1>
             <form>
-              <h3 className={style.loginHeadBase}>USERNAME</h3>
+              <h3 className={style.loginHeadBase}>Email</h3>
               <InputGroup>
                 <Input
-                  type="tel"
-                  value={userName}
-                  placeholder="Enter Username"
+                  type="email"
+                  value={email}
+                  placeholder="Enter Email"
                   onChange={(e) => userHandler(e)}
                 />
               </InputGroup>
-              <h3 className={style.loginHeadBase}>PASSWORD</h3>
+              <h3 className={style.loginHeadBase}>Password</h3>
               <InputGroup size="md">
                 <Input
                   pr="4.5rem"
                   type={show ? "text" : "password"}
                   value={password}
-                  placeholder="Enter Password"
+                  placeholder="Create Password"
                   onChange={(e) => passwordHandler(e)}
                 />
                 <InputRightElement width="4.5rem">
@@ -81,13 +92,26 @@ const Signup = () => {
                 </InputRightElement>
               </InputGroup>
               <br />
-              <div style={{textAlign:"center"}}>
-                <Button colorScheme="red" onClick={userDetails}>Sign Up</Button>
+              <div style={{ textAlign: "center" }}>
+                <Button
+                  colorScheme="red"
+                  onClick={handleSignUp}
+                  isLoading={loading}
+                  loadingText="Signing up"
+                >Sign Up</Button>
               </div>
             </form>
             <div>
-              <div style={{textAlign:"center",marginTop:"2rem"}}>
-                <Button style={{borderRadius:"100px",padding:"1.5rem"}}><Icon as={FcGoogle} boxSize={6} /><h3 style={{paddingLeft:"0.5rem"}}>SIGNUP WITH GOOGLE</h3></Button>
+              <div style={{ textAlign: "center", marginTop: "2rem" }}>
+                <Button
+                  style={{ borderRadius: "100px", padding: "1.5rem" }}
+                  onClick={handleGoogleSignup}
+                  isLoading={loading}
+                  loadingText="Signing up"
+                >
+                  <Icon as={FcGoogle} boxSize={6} />
+                  <h3 style={{ paddingLeft: "0.5rem" }}>SIGNUP WITH GOOGLE</h3>
+                </Button>
               </div>
             </div>
           </ModalBody>

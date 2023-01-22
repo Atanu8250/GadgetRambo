@@ -17,6 +17,7 @@ export interface intrfcUser {
 
 
 export interface intrfcLaptop {
+    id?: string,
     bateryCapacity: number,
     brand: string,
     colours: string,
@@ -42,6 +43,7 @@ export interface intrfcLaptop {
 }
 
 export interface intrfcMobile {
+    id?: string,
     displaySize: string,
     frontCamera: string,
     imgsrc: string,
@@ -55,6 +57,7 @@ export interface intrfcMobile {
 }
 
 export interface intrfcTv {
+    id?: string,
     displaySize: string,
     displayType: string,
     imgsrc: string,
@@ -65,12 +68,22 @@ export interface intrfcTv {
     resolutionStandard: string,
 }
 
-export type newsBlogObj = { banner: string; description: string; id: string; title: string };
+export type newsBlogObj = {
+    banner: string;
+    description: string;
+    id: string;
+    title: string
+};
 
 export type newsBlogIndex = {
-  newsData: newsBlogObj[];
+    newsData: newsBlogObj[];
 };
 export type newsBlogId = {
-  newsData: newsBlogObj;
+    newsData: newsBlogObj;
 };
 
+export interface intrfcToastMsg {
+    title: string,
+    desc?: string,
+    status: "info" | "warning" | "success" | "error" | "loading" | undefined
+}

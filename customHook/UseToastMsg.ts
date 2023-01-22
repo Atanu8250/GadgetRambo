@@ -1,10 +1,10 @@
+import { intrfcToastMsg } from '@/constants/constants';
 import { useToast } from '@chakra-ui/react';
-
 
 const useToastMsg = () => {
     const toast = useToast();
 
-    return ({title, desc, status}: {title: string, desc: string, status: "info" | "warning" | "success" | "error" | "loading" | undefined}) => {
+    return ({title, desc, status}: intrfcToastMsg) => {
         toast({
             title,
             status,

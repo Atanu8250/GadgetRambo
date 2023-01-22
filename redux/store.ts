@@ -16,6 +16,5 @@ const rootReducer = combineReducers({
 });
 
 export const store = legacy_createStore(rootReducer, applyMiddleware(thunk));
-// export const storeType = typeof store;
 
 export type State = ReturnType<typeof rootReducer>;

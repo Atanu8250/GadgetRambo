@@ -1,6 +1,5 @@
-import { auth, db } from '@/Backend/Firebase/firebase';
+import {  db } from '@/Backend/Firebase/firebase';
 import { intrfcUser } from '@/constants/constants';
-import { getAuth } from 'firebase/auth';
 import { collection, deleteDoc, doc, getDocs, setDoc, updateDoc } from 'firebase/firestore'
 
 
@@ -25,14 +24,6 @@ export const getUsersAPI = async () => {
 export const deleteUserAPI = async (uid: string) => {
     try {
         const userRef = doc(db, "users", uid)
-        // getAuth()
-        //     .deleteUser(uid)
-        //     .then(() => {
-        //         console.log('Successfully deleted user');
-        //     })
-        //     .catch((error) => {
-        //         console.log('Error deleting user:', error);
-        //     });
         await deleteDoc(userRef)
     } catch (error) {
         console.log('error:', error)
@@ -44,10 +35,8 @@ export const deleteUserAPI = async (uid: string) => {
 // api calling for updating user's data
 export const updateUserAPI = async (uid:string, updatedData:{}) => {
     try {
-        console.log({uid, updatedData})
         const userRef = doc(db, "users", uid )
         await updateDoc(userRef, {...updatedData})
-        alert('user credential updated')
     } catch (error) {
         console.log('error:', error)
     }

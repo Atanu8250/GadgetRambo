@@ -26,7 +26,7 @@ const Users = () => {
       <Head>
         <title>GadgetRambo: Users</title>
       </Head>
-      <SidebarWithHeader>
+      <SidebarWithHeader active='Users'>
         <div>
           <TableContainer>
             <Table variant='simple'>

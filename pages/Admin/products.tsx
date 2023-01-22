@@ -3,12 +3,15 @@ import React from 'react'
 import Head from 'next/head'
 import { useDispatch, useSelector } from 'react-redux'
 import { State } from '@/redux/store'
-import { getLaptop, getMobile, getTv } from '@/redux/products/products.actions'
+import { deleteMobile, deleteTv, getLaptop, getMobile, getTv } from '@/redux/products/products.actions'
 import { Dispatch } from 'redux'
 import { intrfcLaptop, intrfcMobile, intrfcTv } from '@/constants/constants'
 import { Box, Button, Flex, Image, Select, Text } from '@chakra-ui/react'
+
+import { GrAdd } from 'react-icons/gr'
 import { RiDeleteBin6Line } from 'react-icons/ri'
 import { BiEdit } from 'react-icons/bi'
+import { deleteLaptop } from '../../redux/products/products.actions'
 
 import styles from '../../styles/adminProducts.module.css'
 import useToastMsg from '@/customHook/UseToastMsg'
@@ -28,15 +31,14 @@ const Products = () => {
   const [showItems, setShowItems] = React.useState<string>("laptops")
 
   React.useEffect(() => {
-    if (!laptops.length) {
-      getLaptop(dispatch, 16)
-    }
-    if (!mobiles.length) {
-      getMobile(dispatch, 80)
-    }
-    if (!televisions.length) {
-      getTv(dispatch, 80)
-    }
+
+    
+    getLaptop(dispatch, 16)
+
+    getMobile(dispatch, 80)
+
+    getTv(dispatch, 80)
+
   }, [])
 
   const handleChange: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
@@ -49,7 +51,13 @@ const Products = () => {
   }
 
 
-
+  const underConstruction = () => {
+    toastMsg({
+      title: "Sorry!",
+      desc: "This part is under Construction",
+      status: "info"
+    })
+  }
 
 
   return (
@@ -57,14 +65,17 @@ const Products = () => {
       <Head>
         <title>GadgetRambo: Products</title>
       </Head>
-      <SidebarWithHeader>
-        <div>
+      <SidebarWithHeader active='Products'>
+        <div className={styles.products}>
           <Flex>
             <Select variant="filled" bgColor="#fff" placeholder='Choose Product' onChange={handleChange}>
               <option value='laptops'>Laptops</option>
               <option value='mobiles'>Mobiles</option>
               <option value='televisions'>Televisions</option>
             </Select>
+            <Button onClick={underConstruction}>
+              <GrAdd />
+            </Button>
           </Flex>
           {
             showItems === "laptops" ?
@@ -123,12 +134,20 @@ const Products = () => {
                       <Text>₹ {dollarIndianLocale.format(item.price)} /-</Text>
                     </Box>
                     <Box>
-                      <Button colorScheme="blue">
+                      <Button
+                        colorScheme="blue"
+                        onClick={underConstruction}
+                      >
                         <BiEdit />
                       </Button>
                     </Box>
                     <Box>
-                      <Button colorScheme="red">
+                      <Button
+                        colorScheme="red"
+                        onClick={() => {
+                          dispatch(deleteLaptop(item.id || "", toastMsg))
+                        }}
+                      >
                         <RiDeleteBin6Line />
                       </Button>
                     </Box>
@@ -190,12 +209,20 @@ const Products = () => {
                         <Text>₹ {dollarIndianLocale.format(item.price)} /-</Text>
                       </Box>
                       <Box>
-                        <Button colorScheme="blue">
+                        <Button
+                          colorScheme="blue"
+                          onClick={underConstruction}
+                        >
                           <BiEdit />
                         </Button>
                       </Box>
                       <Box>
-                        <Button colorScheme="red">
+                        <Button
+                          colorScheme="red"
+                          onClick={() => {
+                            dispatch(deleteMobile(item.id || "", toastMsg))
+                          }}
+                        >
                           <RiDeleteBin6Line />
                         </Button>
                       </Box>
@@ -257,12 +284,20 @@ const Products = () => {
                         <Text>₹ {dollarIndianLocale.format(item.price)} /-</Text>
                       </Box>
                       <Box>
-                        <Button colorScheme="blue">
+                        <Button
+                          colorScheme="blue"
+                          onClick={underConstruction}
+                        >
                           <BiEdit />
                         </Button>
                       </Box>
                       <Box>
-                        <Button colorScheme="red">
+                        <Button
+                          colorScheme="red"
+                          onClick={() => {
+                            dispatch(deleteTv(item.id || "", toastMsg))
+                          }}
+                        >
                           <RiDeleteBin6Line />
                         </Button>
                       </Box>
