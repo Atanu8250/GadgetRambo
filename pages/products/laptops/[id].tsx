@@ -10,7 +10,6 @@ import { FaUsb } from "react-icons/fa";
 import { MdOutlineScreenSearchDesktop } from "react-icons/md";
 
 const Laptop = ({ laptop }: any) => {
-  console.log("laptop: ", laptop);
   return (
     <Flex p={7}>
       <Show above="lg">
@@ -77,10 +76,14 @@ const Laptop = ({ laptop }: any) => {
             </SimpleGrid>
           </Flex>
         </Flex>
-        <Flex justify={"flex-end"} w={"100%"}>
-          <Button mt={3} colorScheme={"red"}>
-            Buy Now
-          </Button>
+        <Flex mt={3} gap={5} justify={"flex-end"} alignItems={"center"} w={"100%"}>
+          <Text as={"b"} fontSize={"lg"}>
+            Price
+          </Text>
+          <Text fontSize={"xl"} as={"b"}>
+            {"₹ " + laptop.price}
+          </Text>
+          <Button colorScheme={"red"}>Add To Cart</Button>
         </Flex>
         <Flex direction={"column"} gap={3}>
           <Text as={"b"}>{laptop.name} Summary</Text>
@@ -94,10 +97,6 @@ const Laptop = ({ laptop }: any) => {
           <Text fontSize={"md"}>{laptop.brand}</Text>
           <Text as={"b"}>Release Date</Text>
           <Text fontSize={"md"}>{laptop.releaseDate}</Text>
-          <Text as={"b"} fontSize={"lg"}>
-            Price
-          </Text>
-          <Text fontSize={"lg"}>{"₹ " + laptop.price}</Text>
         </Flex>
       </Flex>
       <Show above="xl">

@@ -1,5 +1,5 @@
-import React from "react";
-import { Flex, IconButton, Input, Show } from "@chakra-ui/react";
+import React, { useState } from "react";
+import { Button, Flex, IconButton, Input, Show } from "@chakra-ui/react";
 import LaptopFilter from "@/components/ProductSection/Laptops/LaptopFilter";
 import ResponsiveLaptopFilter from "@/components/ProductSection/Laptops/ResponsiveLaptopFilter";
 import ProductCard from "@/components/ProductSection/ProductCard";
@@ -8,7 +8,7 @@ import { getTvAPI } from "@/redux/products/products.api";
 import RightSidebar from "@/components/RightSidebar";
 
 const Television = ({ televisons }: any) => {
-  console.log(televisons);
+  const [loader, setLoader] = useState<number>(5);
 
   return (
     <>
@@ -20,6 +20,7 @@ const Television = ({ televisons }: any) => {
             sm: "flex-start",
             md: "center",
           }}
+          alignItems={"flex-start"}
           mx={4}
         >
           <Show above="md">
@@ -32,9 +33,14 @@ const Television = ({ televisons }: any) => {
             <Input w={{ base: "300px", sm: "380px" }} variant="flushed" type={"text"} placeholder={"Search Here"} />
             <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<BsSearch />} />
           </Flex>
-          {televisons.map((data: any) => (
-            <ProductCard key={data.id} {...data} productLink={"tv"} />
-          ))}
+          {televisons.map((data: any, id: number) => {
+            if (id < loader) {
+              return <ProductCard key={data.id} {...data} productLink={"tv"} />;
+            }
+          })}
+          <Button onClick={() => setLoader((prev) => prev + 2)} colorScheme={"red"}>
+            Load More
+          </Button>
         </Flex>
         <Show above="lg">
           <Flex mx={4} flex={2} justifyContent={"center"}>
