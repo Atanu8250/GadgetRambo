@@ -3,7 +3,7 @@ import LeftSidebar from "@/components/LeftSidebar";
 import RightSidebar from "@/components/RightSidebar";
 import { intrfcMobile } from "@/constants/constants";
 import useToastMsg from "@/customHook/UseToastMsg";
-import { addCart } from "@/redux/cart/cart.actions";
+import { addCart, getCart } from "@/redux/cart/cart.actions";
 import {
   Button,
   Flex,
@@ -26,8 +26,10 @@ interface singleMobile {
 const Mobile = ({ mobile }: singleMobile) => {
   const toastMsg = useToastMsg();
   const dispatch = useDispatch();
+
   const handleAddtoCart = () => {
     addCart(mobile, dispatch, toastMsg);
+    getCart(dispatch);
   };
   return (
     <Flex p={7}>
@@ -170,7 +172,7 @@ export const getServerSideProps = async (context: any) => {
     const mobile = res.data();
     return {
       props: {
-        mobile: { ...mobile, id: params.id ,quantity:1},
+        mobile: { ...mobile, id: params.id, quantity: 1 },
       },
     };
   } catch (error) {

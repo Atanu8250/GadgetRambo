@@ -1,6 +1,6 @@
 import { intrfcToastMsg } from "@/constants/constants";
 import { Dispatch } from "redux";
-import { addCartAPI, getCartAPI } from "./cart.api";
+import { addCartAPI, getCartAPI, removeCartAPI } from "./cart.api";
 import { CartTypes } from "./cart.types";
 
 // adding data in cart
@@ -26,7 +26,8 @@ export const addCart = async (
 };
 
 // removing cart items
-export const removeCart = (id: any, dispatch: Dispatch) => {
+export const removeCart = async (id: string, dispatch: Dispatch) => {
+  await removeCartAPI(id)
   dispatch({
     type: CartTypes.REMOVE_FROM_CART,
     payload: id,

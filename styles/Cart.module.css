@@ -1,5 +1,6 @@
 .mainSkeleton{
     margin: 2rem;
+    height: fit-content;
     padding-bottom: 2rem;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
@@ -15,8 +16,7 @@
 .bottomCart{
     display:flex;
     justify-content:space-around;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin: 2rem 0;
 }
 .box{
     padding:1rem;
@@ -60,12 +60,13 @@
     background-color: #EE3E38;
     color: aliceblue;
     padding: 1rem;
+    white-space: nowrap;
 }
 .bottomDiscount{
     display: flex;
     justify-content:space-between;
-    padding: 0rem 3rem 3rem 3rem;
-    width: 100%;
+    gap: 2rem;
+    margin: 0 2rem;
 }
 .checkout{
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
@@ -78,6 +79,7 @@
     background-color: white;
     color: #EE3E38;
     padding: 1rem;
+    white-space: nowrap;
 }
 @media only screen and (max-width: 784px) {
     .bottomCart{
