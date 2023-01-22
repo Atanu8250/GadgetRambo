@@ -83,7 +83,7 @@ export type newsBlogId = {
 };
 
 export interface intrfcToastMsg {
-    title: string,
-    desc?: string,
-    status: "info" | "warning" | "success" | "error" | "loading" | undefined
+  title: string;
+  desc?: string;
+  status: "info" | "warning" | "success" | "error" | "loading" | undefined;
 }

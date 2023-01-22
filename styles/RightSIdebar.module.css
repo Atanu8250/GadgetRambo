@@ -53,10 +53,16 @@
   font-size: 14px;
   font-weight: 500;
   padding: 0.2rem 0.5rem 0 0.5rem;
-  /* line-height: 18px; */
 }
 .gadGetsAndTopics > div {
   display: flex;
+}
+.latestNews > p {
+  background-color: var(--color-primary);
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0.2rem 0.5rem;
 }
 .gadGetsAndTopics > div > div {
   width: 50%;
@@ -73,6 +79,6 @@
   border-bottom: 1px solid #eae8e8;
   cursor: pointer;
 }
-.gadGetsAndTopics > div > div > div > p:hover {
+.gadGetsAndTopics > div > div > div p:hover {
   color: var(--color-primary);
 }

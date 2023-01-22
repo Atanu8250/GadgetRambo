@@ -4,7 +4,7 @@ import { useToast } from '@chakra-ui/react';
 const useToastMsg = () => {
     const toast = useToast();
 
-    return ({title, desc, status}: intrfcToastMsg) => {
+    return ({title, desc, status}:intrfcToastMsg) => {
         toast({
             title,
             status,

@@ -328,7 +328,7 @@ const Navbar = () => {
             HOME
           </Link>
           <Link
-            href="/dummy"
+            href="/blogs"
             className={style.notdropDown}
             onClick={handleGuide}
             style={
@@ -340,7 +340,7 @@ const Navbar = () => {
             GUIDE
           </Link>
           <Link
-            href="/dummy"
+            href="/"
             className={style.notdropDown}
             onClick={handleAutoExpo}
             style={
@@ -352,7 +352,7 @@ const Navbar = () => {
             AUTO EXPO 2023
           </Link>
           <Link
-            href="/dummy"
+            href="/blogs"
             className={style.notdropDown}
             onClick={handleNews}
             style={
@@ -364,7 +364,7 @@ const Navbar = () => {
             NEWS
           </Link>
           <Link
-            href="/dummy"
+            href="/blogs"
             className={style.notdropDown}
             onClick={handleReviews}
             style={
@@ -376,7 +376,7 @@ const Navbar = () => {
             REVIEWS
           </Link>
           <Link
-            href="/dummy"
+            href="/"
             className={style.notdropDown}
             onClick={handleFeatures}
             style={
@@ -413,53 +413,53 @@ const Navbar = () => {
               >
                 <div>
                   <MenuItem>
-                    <Link href="/dummy">LATEST</Link>
+                    <Link href="/">LATEST</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">BUYING GUIDES</Link>
+                    <Link href="/">BUYING GUIDES</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">CRYPTOCURRENCY</Link>
+                    <Link href="/">CRYPTOCURRENCY</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">EVENTS</Link>
+                    <Link href="/">EVENTS</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">HOW TO</Link>
+                    <Link href="/">HOW TO</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">SPONSORED</Link>
+                    <Link href="/">SPONSORED</Link>
                   </MenuItem>
                 </div>
                 <Divider orientation="vertical" color={"black"} />
                 <div>
                   <MenuItem>
-                    <Link href="/dummy">REVIEWS & FIRST LOOKS</Link>
+                    <Link href="/">REVIEWS & FIRST LOOKS</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">HINDI</Link>
+                    <Link href="/">HINDI</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">ENTERTAINMENT</Link>
+                    <Link href="/">ENTERTAINMENT</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">FEATURES</Link>
+                    <Link href="/">FEATURES</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">SHORTS</Link>
+                    <Link href="/">SHORTS</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">TV SHOWS</Link>
+                    <Link href="/">TV SHOWS</Link>
                   </MenuItem>
                 </div>
               </MenuList>
@@ -491,76 +491,76 @@ const Navbar = () => {
               >
                 <div>
                   <MenuItem>
-                    <Link href="/dummy">MOBILES</Link>
+                    <Link href="/products/mobiles">MOBILES</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">LAPTOPS</Link>
+                    <Link href="/products/laptops">LAPTOPS</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">TV</Link>
+                    <Link href="/products/tv">TV</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">TABLETS</Link>
+                    <Link href="/">TABLETS</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">SMART WATCHES</Link>
+                    <Link href="/">SMART WATCHES</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">HEADPHONES</Link>
+                    <Link href="/">HEADPHONES</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">CAMERAS</Link>
+                    <Link href="/">CAMERAS</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">GAMING CONSOLES</Link>
+                    <Link href="/">GAMING CONSOLES</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">SMART BANDS</Link>
+                    <Link href="/">SMART BANDS</Link>
                   </MenuItem>
                 </div>
                 <Divider orientation="vertical" color={"black"} />
                 <div>
                   <MenuItem>
-                    <Link href="/dummy">SPEAKERS</Link>
+                    <Link href="/">SPEAKERS</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">SMART SPEAKERS</Link>
+                    <Link href="/">SMART SPEAKERS</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">AC</Link>
+                    <Link href="/">AC</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">GAMES</Link>
+                    <Link href="/">GAMES</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">REFRIGERATOR</Link>
+                    <Link href="/">REFRIGERATOR</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">AIR COOLER</Link>
+                    <Link href="/">AIR COOLER</Link>
                   </MenuItem>
                   <MenuItem>
-                    <Link href="/dummy">AIR PURIFIER</Link>
-                  </MenuItem>
-
-                  <MenuItem>
-                    <Link href="/dummy">WASHINE MACHINE</Link>
+                    <Link href="/">AIR PURIFIER</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">INVERTER</Link>
+                    <Link href="/">WASHINE MACHINE</Link>
+                  </MenuItem>
+
+                  <MenuItem>
+                    <Link href="/">INVERTER</Link>
                   </MenuItem>
                 </div>
               </MenuList>
@@ -593,84 +593,84 @@ const Navbar = () => {
               >
                 <div>
                   <MenuItem>
-                    <Link href="/dummy">MOBILES</Link>
+                    <Link href="/products/mobiles">MOBILES</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">LAPTOPS</Link>
+                    <Link href="/products/laptops">LAPTOPS</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">TV</Link>
+                    <Link href="/products/tv">TV</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">TABLETS</Link>
+                    <Link href="/">TABLETS</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">SMART WATCHES</Link>
+                    <Link href="/">SMART WATCHES</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">HEADPHONES</Link>
+                    <Link href="/">HEADPHONES</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">CAMERAS</Link>
+                    <Link href="/">CAMERAS</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">GAMING CONSOLES</Link>
+                    <Link href="/">GAMING CONSOLES</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">SMART BANDS</Link>
+                    <Link href="/">SMART BANDS</Link>
                   </MenuItem>
                 </div>
                 <Divider orientation="vertical" />
                 <div>
                   <MenuItem>
-                    <Link href="/dummy">SPEAKERS</Link>
+                    <Link href="/">SPEAKERS</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">SMART SPEAKERS</Link>
+                    <Link href="/">SMART SPEAKERS</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">AC</Link>
+                    <Link href="/">AC</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">GAMES</Link>
+                    <Link href="/">GAMES</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">REFRIGERATOR</Link>
+                    <Link href="/">REFRIGERATOR</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">AIR COOLER</Link>
+                    <Link href="/">AIR COOLER</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">AIR PURIFIER</Link>
+                    <Link href="/">AIR PURIFIER</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">WASHINE MACHINE</Link>
+                    <Link href="/">WASHINE MACHINE</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">INVERTER</Link>
+                    <Link href="/">INVERTER</Link>
                   </MenuItem>
                 </div>
               </MenuList>
             </Menu>
           </div>
           <Link
-            href="/dummy"
+            href="/"
             className={style.notdropDown}
             onClick={handleBrands}
             style={
@@ -707,39 +707,39 @@ const Navbar = () => {
               >
                 <div>
                   <MenuItem>
-                    <Link href="/dummy">MOBILES</Link>
+                    <Link href="/products/mobiles">MOBILES</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">LAPTOPS</Link>
+                    <Link href="/">LAPTOPS</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">TV</Link>
+                    <Link href="/">TV</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">TABLETS</Link>
+                    <Link href="/">TABLETS</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">SMART WATCHES</Link>
+                    <Link href="/">SMART WATCHES</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">HEADPHONES</Link>
+                    <Link href="/">HEADPHONES</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">CAMERAS</Link>
+                    <Link href="/">CAMERAS</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">GAMING CONSOLES</Link>
+                    <Link href="/">GAMING CONSOLES</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">SMART BANDS</Link>
+                    <Link href="/">SMART BANDS</Link>
                   </MenuItem>
                 </div>
               </MenuList>
@@ -772,61 +772,61 @@ const Navbar = () => {
               >
                 <div>
                   <MenuItem>
-                    <Link href="/dummy">CRYPTOCURRENCY PRICES</Link>
+                    <Link href="/">CRYPTOCURRENCY PRICES</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">GOLD RATE</Link>
+                    <Link href="/">GOLD RATE</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">AMAZON SALE</Link>
+                    <Link href="/">AMAZON SALE</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">MOVIES</Link>
+                    <Link href="/">MOVIES</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">SERVICE CENTERS</Link>
+                    <Link href="/">SERVICE CENTERS</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">FINANCE</Link>
+                    <Link href="/">FINANCE</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">COMMUNITY</Link>
+                    <Link href="/">COMMUNITY</Link>
                   </MenuItem>
                 </div>
                 <Divider orientation="vertical" color={"black"} />
                 <div>
                   <MenuItem>
-                    <Link href="/dummy">DIGITAL GOLD</Link>
+                    <Link href="/">DIGITAL GOLD</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">DEALS</Link>
+                    <Link href="/">DEALS</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">FLIPKART SALE</Link>
+                    <Link href="/">FLIPKART SALE</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">WEB SERIES</Link>
+                    <Link href="/">WEB SERIES</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">SMART HOME</Link>
+                    <Link href="/">SMART HOME</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">CLUB360</Link>
+                    <Link href="/">CLUB360</Link>
                   </MenuItem>
 
                   <MenuItem>
-                    <Link href="/dummy">SILVER RATE</Link>
+                    <Link href="/">SILVER RATE</Link>
                   </MenuItem>
                 </div>
               </MenuList>
@@ -837,7 +837,7 @@ const Navbar = () => {
         {/* SECOND NAVBAR */}
         <div className={style.secondNav}>
           <Link
-            href="/dummy"
+            href="/products/mobiles"
             className={style.secondComp}
             onClick={handleMobile}
             style={
@@ -855,7 +855,7 @@ const Navbar = () => {
             MOBILES
           </Link>
           <Link
-            href="/dummy"
+            href="/products/laptops"
             className={style.secondComp}
             onClick={handleLaptops}
             style={
@@ -873,7 +873,7 @@ const Navbar = () => {
             LAPTOPS
           </Link>
           <Link
-            href="/dummy"
+            href="/products/tv"
             className={style.secondComp}
             onClick={handleTV}
             style={
@@ -891,7 +891,7 @@ const Navbar = () => {
             TV
           </Link>
           <Link
-            href="/dummy"
+            href="/"
             className={style.secondComp}
             onClick={handleSmartWatches}
             style={
@@ -909,7 +909,7 @@ const Navbar = () => {
             SMART WATCHES
           </Link>
           <Link
-            href="/dummy"
+            href="/"
             className={style.secondComp}
             onClick={handleCameras}
             style={
@@ -928,7 +928,7 @@ const Navbar = () => {
           </Link>
 
           <Link
-            href="/dummy"
+            href="/"
             className={style.secondComp}
             onClick={handleSmartBands}
             style={
@@ -947,7 +947,7 @@ const Navbar = () => {
           </Link>
 
           <Link
-            href="/dummy"
+            href="/"
             className={style.secondComp}
             onClick={handleSpeakers}
             style={
@@ -966,7 +966,7 @@ const Navbar = () => {
           </Link>
 
           <Link
-            href="/dummy"
+            href="/"
             className={style.secondComp}
             onClick={handleGames}
             style={
@@ -985,7 +985,7 @@ const Navbar = () => {
           </Link>
 
           <Link
-            href="/dummy"
+            href="/"
             className={style.secondComp}
             onClick={handleAirCooler}
             style={
@@ -1004,7 +1004,7 @@ const Navbar = () => {
           </Link>
 
           <Link
-            href="/dummy"
+            href="/"
             className={style.secondComp}
             onClick={handleWashingMashine}
             style={
@@ -1023,7 +1023,7 @@ const Navbar = () => {
           </Link>
 
           <Link
-            href="/dummy"
+            href="/"
             className={style.secondComp}
             onClick={handleTablets}
             style={
@@ -1042,7 +1042,7 @@ const Navbar = () => {
           </Link>
 
           <Link
-            href="/dummy"
+            href="/"
             className={style.secondComp}
             onClick={handleHeadPhones}
             style={

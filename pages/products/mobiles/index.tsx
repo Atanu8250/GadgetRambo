@@ -1,14 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Flex, IconButton, Input, Show } from "@chakra-ui/react";
+import { Button, Flex, IconButton, Input, Show } from "@chakra-ui/react";
 import MobileFilter from "@/components/ProductSection/Mobiles/MobileFilter";
 import ResponsiveMobileFilter from "@/components/ProductSection/Mobiles/ResponsiveMobileFilter";
 import ProductCard from "@/components/ProductSection/ProductCard";
 import { BsSearch } from "react-icons/bs";
 import { getMobileAPI } from "@/redux/products/products.api";
-import Link from "next/link";
+import RightSidebar from "@/components/RightSidebar";
 
 const Mobiles = ({ mobiles }: any) => {
   const srcIpRef = useRef<HTMLInputElement>(null);
+  const [loader, setLoader] = useState<number>(5);
 
   // let searchValue = srcIpRef?.current?.value || "";
 
@@ -22,12 +23,7 @@ const Mobiles = ({ mobiles }: any) => {
 
   return (
     <>
-      <Flex
-        direction={{ base: "column", sm: "column", md: "row" }}
-        w={"100%"}
-        p={"8"}
-        justifyContent={"center"}
-      >
+      <Flex direction={{ base: "column", sm: "column", md: "row" }} w={"100%"} p={"10"}>
         <Flex
           flex={1}
           justifyContent={{
@@ -35,22 +31,18 @@ const Mobiles = ({ mobiles }: any) => {
             sm: "flex-start",
             md: "center",
           }}
+          alignItems={"flex-start"}
+          mx={4}
         >
           <Show above="md">
             <MobileFilter />
           </Show>
           <ResponsiveMobileFilter />
         </Flex>
-        <Flex flex={2} direction={"column"} alignItems={"center"}>
+        <Flex mx={4} flex={2} direction={"column"} alignItems={"center"}>
           {/* Search Functionality */}
           <Flex>
-            <Input
-              ref={srcIpRef}
-              w={{ base: "270px", sm: "380px" }}
-              variant="flushed"
-              type={"text"}
-              placeholder={"Search Here"}
-            />
+            <Input ref={srcIpRef} w={{ base: "300px", sm: "380px" }} variant="flushed" type={"text"} placeholder={"Search Here"} />
             <IconButton
               aria-label="xyz"
               // onClick={() => HandleSearch()}
@@ -62,13 +54,18 @@ const Mobiles = ({ mobiles }: any) => {
             />
           </Flex>
           {/* Search Function End */}
-          {mobiles?.map((data: any) => (
-            <ProductCard key={data.id} {...data} productLink={"mobiles"} />
-          ))}
+          {mobiles?.map((data: any, id: number) => {
+            if (id < loader) {
+              return <ProductCard key={data.id} {...data} productLink={"mobiles"} />;
+            }
+          })}
+          <Button onClick={() => setLoader((prev) => prev + 2)} colorScheme={"red"}>
+            Load More
+          </Button>
         </Flex>
-        <Show above="lg">
-          <Flex flex={2} justifyContent={"center"}>
-            Last Div
+        <Show above="xl">
+          <Flex mx={4} flex={2} justifyContent={"center"}>
+            <RightSidebar />
           </Flex>
         </Show>
       </Flex>

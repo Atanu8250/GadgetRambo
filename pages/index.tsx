@@ -139,20 +139,23 @@ export default function Home() {
             <p>IN-DEPTH</p>
             <div style={{ display: "flex", gap: "2rem" }}>
               {news.map((el: any, index: number) => {
-                if (index >= 4) {
-                  return;
+                if (index > 5 && index <10) {
+                  return (
+                    <Link
+                      key={el.id}
+                      style={{ width: "25" }}
+                      href={`blogs/${el.id}`}
+                    >
+                      <NewsCard
+                        cardWidth="100%"
+                        title={el.title}
+                        titleSize={"15px"}
+                        banner={el.banner}
+                        imgHeight={"120px"}
+                      />
+                    </Link>
+                  );
                 }
-                return (
-                  <NewsCard
-                    cardWidth="25%"
-                    key={el.id}
-                    title={el.title}
-                    titleSize={"15px"}
-                    banner={el.banner}
-                    imgHeight={"120px"}
-                    titleMaxHeight={"4.2rem"}
-                  />
-                );
               })}
             </div>
           </div>
@@ -200,7 +203,11 @@ export default function Home() {
                     return;
                   }
                   return (
-                    <Link style={{width:"16%"}} key={mobile.id} href={`products/mobiles/${mobile.id}`}>
+                    <Link
+                      style={{ width: "16%" }}
+                      key={mobile.id}
+                      href={`products/mobiles/${mobile.id}`}
+                    >
                       <NewsCard
                         title={mobile.modal}
                         banner={mobile.imgsrc}
@@ -226,40 +233,7 @@ export default function Home() {
                 }}
               >
                 {mobiles.map((mobile: any, id: number) => {
-                  if (id > 12 && id<19) {
-                    return (
-                      <Link
-                        style={{ width: "16%" }}
-                        key={mobile.id}
-                        href={`products/mobiles/${mobile.id}`}
-                      >
-                        <NewsCard
-                          title={mobile.modal}
-                          banner={mobile.imgsrc}
-                          titleSize={"13px"}
-                          cardWidth={"100%"}
-                          imgHeight={"100px"}
-                          titleAlign={true}
-                        />
-                      </Link>
-                    )
-                  };
-                })}
-              </div>
-              {/* upcoming phones section  */}
-              <p>Upcoming Phones</p>
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-evenly",
-                  backgroundColor: "white",
-                  margin: ".4rem",
-                  borderRadius: ".5rem",
-                  boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
-                }}
-              >
-                {mobiles.map((mobile: any, id: number) => {
-                  if (id > 20 && id<27) {
+                  if (id > 12 && id < 19) {
                     return (
                       <Link
                         style={{ width: "16%" }}
@@ -279,26 +253,57 @@ export default function Home() {
                   }
                 })}
               </div>
-              {/* popular comparisons carousel  */}
-              {/* <Slider {...ComparisonCarouselSettings}>
-                {mobiles.map((mobile: any, id) => {
-                  if (id >= 20) {
-                    return;
+              {/* upcoming phones section  */}
+              <p>Upcoming Phones</p>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-evenly",
+                  backgroundColor: "white",
+                  margin: ".4rem",
+                  borderRadius: ".5rem",
+                  boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
+                }}
+              >
+                {mobiles.map((mobile: any, id: number) => {
+                  if (id > 20 && id < 27) {
+                    return (
+                      <Link
+                        style={{ width: "16%" }}
+                        key={mobile.id}
+                        href={`products/mobiles/${mobile.id}`}
+                      >
+                        <NewsCard
+                          title={mobile.modal}
+                          banner={mobile.imgsrc}
+                          titleSize={"13px"}
+                          cardWidth={"100%"}
+                          imgHeight={"100px"}
+                          titleAlign={true}
+                        />
+                      </Link>
+                    );
                   }
-                  return (
-                    <NewsCard
-                      key={mobile.id}
-                      title={mobile.modal}
-                      banner={mobile.imgsrc}
-                      titleSize={"15px"}
-                      cardWidth={"16%"}
-                      imgHeight={"100px"}
-                      titleAlign={true}
-                    />
-                  );
                 })}
-              </Slider> */}
+              </div>
             </div>
+          </div>
+          <div className={styles.popular}>
+            {news.map((el: any, i: number) => {
+              if (i > 5) {
+                return (
+                  <Link key={el.id} href={`blogs/${el.id}`}>
+                    <NewsCard
+                      title={el.title}
+                      titleSize={"15px"}
+                      banner={el.banner}
+                      imgHeight={"170px"}
+                      imgWidth={"250px"}
+                    />
+                  </Link>
+                );
+              }
+            })}
           </div>
         </div>
         {/* right side bar  */}

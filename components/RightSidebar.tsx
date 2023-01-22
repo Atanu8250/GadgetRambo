@@ -7,6 +7,7 @@ import { State } from "@/redux/store";
 import { getNews } from "@/redux/news/news.actions";
 import { getMobile } from "@/redux/products/products.actions";
 import Link from "next/link";
+import NewsCard from "./newsCard";
 
 const RightSidebar = () => {
   const { news } = useSelector((store: State) => store.newsManager);
@@ -83,6 +84,25 @@ const RightSidebar = () => {
               })}
             </div>
           </div>
+        </div>
+      </div>
+      {/* LATEST NEWS SECTION  */}
+      <div className={styles.latestNews}>
+        <p>LATEST NEWS</p>
+        <div>
+            {news.map((el: any, i: number) => {
+              if (i > 11) {
+                return (
+                  <Link href={`blogs/${el.id}`} key={el.id}>
+                    <NewsCard
+                      title={el.title}
+                      titleSize={"15px"}
+                      banner={el.banner}
+                    />
+                  </Link>
+                );
+              }
+            })}
         </div>
       </div>
     </div>
