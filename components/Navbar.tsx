@@ -229,6 +229,11 @@ const Navbar = () => {
     setLaptops(true);
   };
 
+  // CART
+  const handleCart = () =>{
+    handleFuse();
+  }
+  
   return (
     <div>
       <div className={style.marquee}>
@@ -275,7 +280,7 @@ const Navbar = () => {
               </div>
             )}
             <div className={style.cart}>
-              <Link href="/cart">
+              <Link href="/cart" onClick={handleCart}>
                 <Icon as={HiShoppingCart} boxSize={8} />
               </Link>
             </div>

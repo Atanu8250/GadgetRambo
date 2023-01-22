@@ -26,7 +26,7 @@ const Index = () => {
 
   console.log(Item);
   return (
-    <div style={{display:"flex",padding:"1rem",backgroundColor:"var(--color-bg)"}}>
+    <div  className={style.main}>
       <div className={style.mainSkeleton}>
       <div className={style.headCart}>
         <h1 className={style.headCart1}>
@@ -80,12 +80,12 @@ const Index = () => {
           </div>
         </div>
         <div style={{display:"flex",flexDirection:"column",gap:"0.5rem"}}>
-          <button className={style.checkout}>Checkout</button>
+          <Link href="/checkout"><button className={style.checkout}>Checkout</button></Link>
           <Link href="/"><button className={style.continue}>Continue Shopping</button></Link>
         </div>
       </div>
     </div>
-    <div style={{width:"30%",margin:"0 1rem"}}>
+    <div className={style.right}>
       <RightSidebar/>
     </div>
     </div>

@@ -42,13 +42,13 @@ const CartItem = (props: CartProps) => {
         </div>
         <div className={style.quantity}>
           <div className={style.quantityInner}>
-            <Button onClick={() => dec()}>-</Button>
-            <Button isDisabled fontSize={20}>{count}</Button>
-            <Button onClick={() => inc()}>+</Button>
+            <Button className={style.buttonSize} onClick={() => dec()}>-</Button>
+            <Button className={style.buttonSize} isDisabled fontSize={20}>{count}</Button>
+            <Button className={style.buttonSize} onClick={() => inc()}>+</Button>
           </div>
         </div>
         <div className={style.remove}>
-          <Button>
+          <Button className={style.buttonSize} >
             <Icon as={RxCross2} />
           </Button>
         </div>

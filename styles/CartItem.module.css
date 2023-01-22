@@ -48,3 +48,8 @@
         margin: auto;
     }
 }
+@media only screen and (max-width: 648px) {
+    .quantityInner{
+        width: 10px;
+    }
+}

@@ -72,6 +72,7 @@
     background-color: #EE3E38;
     color: aliceblue;
     padding: 1rem;
+    width: 100%;
 }
 .continue{
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
@@ -79,7 +80,24 @@
     color: #EE3E38;
     padding: 1rem;
 }
+.right{
+    width: 30% ;
+    margin: 0 1rem;
+}
+.main{
+    display: flex;
+    padding: 1rem;
+    background-color: var(--color-bg);
+}
+@media only screen and (max-width: 1440px) {
+    .right{
+        display: none;
+    }
+}
 @media only screen and (max-width: 784px) {
+    .mainSkeleton{
+        margin: 0rem;
+    }
     .bottomCart{
         flex-direction: column;
         gap: 0.5rem;
@@ -98,5 +116,16 @@
     }
     .continue{
         width: 100%;
+    }
+    .checkout{
+        width: 100%;
+    }
+    .right{
+        display: none;
+    }
+    .main{
+        display: block;
+        padding: 1rem;
+        background-color: var(--color-bg);
     }
 }
