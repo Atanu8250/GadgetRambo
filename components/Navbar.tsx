@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import style from "../styles/Navbar.module.css";
@@ -15,33 +15,51 @@ import { truncate } from "fs";
 import { Dispatch } from "redux";
 import { useDispatch, useSelector } from "react-redux";
 import useToastMsg from "@/customHook/UseToastMsg";
+import { MdAdminPanelSettings } from 'react-icons/md'
 
+import logo from '../assets/GadgetRambo.png'
 import Login from "./Login";
 import Signup from "./Signup";
 import { State } from "@/redux/store";
 import Router from "next/router";
 import { intrfcUser } from "@/constants/constants";
+import { getUsers } from "@/redux/users/users.action";
 import { auth } from "@/Backend/Firebase/firebase";
 
 const Navbar = () => {
   // useAuth called for getting the current user of our website
   useAuth();
 
-  const { user }: any = useSelector((store: State) => store.authManager);
-  const { users }: { users: Array<intrfcUser> } = useSelector(
-    (store: State) => store.usersManager
-  );
-  const dispatch: Dispatch<any> = useDispatch();
-  const { showAdminPanel }: { showAdminPanel: boolean } = useSelector(
-    (store: State) => store.authManager
-  );
-  const toastMsg = useToastMsg();
+  const { user }: any = useSelector((store: State) => store.authManager)
+  const { users }: { users: Array<intrfcUser> } = useSelector((store: State) => store.usersManager)
+  const dispatch: Dispatch<any> = useDispatch()
+  const { showAdminPanel }: { showAdminPanel: boolean } = useSelector((store: State) => store.authManager)
+  const toastMsg = useToastMsg()
+  // const [isAdmin, setIsAdmin] = useState<boolean>(false)
+  // console.log('isAdmin:', isAdmin)
+  // const [change, setChange] = useState<boolean>(false);
 
-  useEffect(() => {}, []);
 
-  const checkUserIsAdminOrNot = () => {
-    console.log({ users });
-  };
+  // useEffect(() => {
+  //   dispatch(getUsers())
+  //   setTimeout(() => {
+  //     setChange((prev:boolean) => !prev);
+  //   }, 200)
+  // }, [])
+
+  // console.log({users});
+  
+
+  // // checking user is admin or not
+  // const checkUserAdminOrNot = () => {
+  //   users.forEach((el) => {
+  //     if (el.email === auth.currentUser?.email) {
+  //       setIsAdmin(el.isAdmin)
+  //       return;
+  //     }
+  //   })
+  // }
+
 
   const handleLogout = () => {
     dispatch(logout(toastMsg));
@@ -257,7 +275,7 @@ const Navbar = () => {
   };
 
   if (showAdminPanel) {
-    return;
+    return <></>;
   }
 
   return (
@@ -275,9 +293,9 @@ const Navbar = () => {
           <div className={style.logo}>
             <Link href="/">
               <Image
-                src="https://cdn.gadgets360.com/gadgets360_logo.png"
+                src={logo}
                 alt="logo"
-                width={150}
+                width={100}
                 height={20}
               />
             </Link>
@@ -289,15 +307,19 @@ const Navbar = () => {
 
             {user.uid ? (
               <div className={style.personData}>
-                <div className={style.avatar}>
-                  <Avatar
-                    src={
-                      user.photoURL ||
-                      "https://static.vecteezy.com/system/resources/thumbnails/000/439/863/small/Basic_Ui__28186_29.jpg"
-                    }
-                  />
+                <div className={style.avatar} title={user.email || ""}>
+                  <Avatar size='sm' src={user.photoURL || "https://static.vecteezy.com/system/resources/thumbnails/000/439/863/small/Basic_Ui__28186_29.jpg"} />
+
                   <div className={style.avName}>
                     <p>{user.displayName || "User"}</p>
+                  </div>
+                  <div className={style.showAdminButton}>
+                    <Link href="/admin">
+                      <Button
+                      colorScheme="gray"
+                      onClick={handleShowAdminPanel}
+                      > <MdAdminPanelSettings /> Admin Panel</Button>
+                    </Link>
                   </div>
                 </div>
                 <div className={style.login}>

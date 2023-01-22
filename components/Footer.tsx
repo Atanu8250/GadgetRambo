@@ -14,7 +14,7 @@ const Footer = () => {
     const { showAdminPanel }: { showAdminPanel: boolean } = useSelector((store: State) => store.authManager)
 
     if(showAdminPanel){
-        return;
+        return <></>;
     }
 
     return (

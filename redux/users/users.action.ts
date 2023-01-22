@@ -4,6 +4,7 @@ import { getUsersAPI, storeUserAPI, updateUserAPI } from "./users.api"
 import { GET_USERS_SUCCESS, USERS_ERROR, USERS_LOADING } from "./users.type"
 
 export const storeUser = async (obj: any) => {
+    console.log('obj:', obj)
     const user = {
         uid: obj.uid,
         displayName: obj.displayName,
