@@ -10,12 +10,7 @@ import { getLaptopAPI } from "@/redux/products/products.api";
 const Laptops = ({ laptops }: any) => {
   return (
     <>
-      <Flex
-        direction={{ base: "column", sm: "column", md: "row" }}
-        w={"100%"}
-        p={"10"}
-        justifyContent={"center"}
-      >
+      <Flex direction={{ base: "column", sm: "column", md: "row" }} w={"100%"} p={"10"} justifyContent={"center"}>
         <Flex
           flex={1}
           justifyContent={{
@@ -30,14 +25,9 @@ const Laptops = ({ laptops }: any) => {
           </Show>
           <ResponsiveLaptopFilter />
         </Flex>
-        <Flex flex={2} direction={"column"} alignItems={"center"}>
+        <Flex flex={2} mx={4} direction={"column"} alignItems={"center"}>
           <Flex>
-            <Input
-              w={{ base: "300px", sm: "380px" }}
-              variant="flushed"
-              type={"text"}
-              placeholder={"Search Here"}
-            />
+            <Input w={{ base: "300px", sm: "380px" }} variant="flushed" type={"text"} placeholder={"Search Here"} />
             <IconButton
               aria-label="xyz"
               // onClick={() => HandleSearch()}
@@ -52,7 +42,7 @@ const Laptops = ({ laptops }: any) => {
             <ProductCard key={data.id} {...data} productLink={"laptops"} />
           ))}
         </Flex>
-        <Show above="lg">
+        <Show above="xl">
           <Flex mx={4} flex={2} justifyContent={"center"}>
             <RightSidebar />
           </Flex>

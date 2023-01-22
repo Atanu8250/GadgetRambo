@@ -5,18 +5,14 @@ import ResponsiveLaptopFilter from "@/components/ProductSection/Laptops/Responsi
 import ProductCard from "@/components/ProductSection/ProductCard";
 import { BsSearch } from "react-icons/bs";
 import { getTvAPI } from "@/redux/products/products.api";
+import RightSidebar from "@/components/RightSidebar";
 
 const Television = ({ televisons }: any) => {
   console.log(televisons);
 
   return (
     <>
-      <Flex
-        direction={{ base: "column", sm: "column", md: "row" }}
-        w={"100%"}
-        p={"8"}
-        justifyContent={"center"}
-      >
+      <Flex direction={{ base: "column", sm: "column", md: "row" }} w={"100%"} p={"10"} justifyContent={"center"}>
         <Flex
           flex={1}
           justifyContent={{
@@ -24,36 +20,25 @@ const Television = ({ televisons }: any) => {
             sm: "flex-start",
             md: "center",
           }}
+          mx={4}
         >
           <Show above="md">
             <LaptopFilter />
           </Show>
           <ResponsiveLaptopFilter />
         </Flex>
-        <Flex flex={2} direction={"column"} alignItems={"center"}>
+        <Flex flex={2} mx={4} direction={"column"} alignItems={"center"}>
           <Flex>
-            <Input
-              w={"380px"}
-              variant="flushed"
-              type={"text"}
-              placeholder={"Search Here"}
-            />
-            <IconButton
-              aria-label="SearchByBrand"
-              borderRadius={"0px"}
-              _hover={{}}
-              color={"white"}
-              bgColor={"red"}
-              icon={<BsSearch />}
-            />
+            <Input w={{ base: "300px", sm: "380px" }} variant="flushed" type={"text"} placeholder={"Search Here"} />
+            <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<BsSearch />} />
           </Flex>
           {televisons.map((data: any) => (
             <ProductCard key={data.id} {...data} productLink={"tv"} />
           ))}
         </Flex>
         <Show above="lg">
-          <Flex flex={2} justifyContent={"center"}>
-            Last Div
+          <Flex mx={4} flex={2} justifyContent={"center"}>
+            <RightSidebar />
           </Flex>
         </Show>
       </Flex>
