@@ -1,7 +1,7 @@
 import { auth } from '@/Backend/Firebase/firebase';
 import { AUTH_LOGIN_SUCCESS, AUTH_LOGOUT_SUCCESS } from '@/redux/auth/auth.type';
 import { onAuthStateChanged } from 'firebase/auth'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useDispatch } from 'react-redux';
 import { Dispatch } from 'redux';
 

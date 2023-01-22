@@ -1,7 +1,6 @@
 import { intrfcToastMsg } from '@/constants/constants';
 import { useToast } from '@chakra-ui/react';
 
-
 const useToastMsg = () => {
     const toast = useToast();
 

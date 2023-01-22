@@ -1,4 +1,6 @@
 import SidebarWithHeader from '@/components/admin/Navbar'
+import UnderConstruction from '@/components/underConstruction'
+import { Box, Image, Text } from '@chakra-ui/react'
 import Head from 'next/head'
 import React from 'react'
 
@@ -10,8 +12,8 @@ const Orders = (props: Props) => {
       <Head>
         <title>GadgetRambo: Orders</title>
       </Head>
-      <SidebarWithHeader>
-        <div>Orders</div>
+      <SidebarWithHeader active='Orders'>
+        <UnderConstruction />
       </SidebarWithHeader>
     </>
   )

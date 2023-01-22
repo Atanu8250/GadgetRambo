@@ -6,8 +6,17 @@ import { Divider } from "@chakra-ui/react";
 import { Icon } from '@chakra-ui/react'
 import { FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaGooglePlay, FaApple } from 'react-icons/fa'
 import { AiFillTwitterCircle } from 'react-icons/ai'
+import { useSelector } from "react-redux";
+import { State } from "@/redux/store";
 
 const Footer = () => {
+
+    const { showAdminPanel }: { showAdminPanel: boolean } = useSelector((store: State) => store.authManager)
+
+    if(showAdminPanel){
+        return;
+    }
+
     return (
         <div className={style.main}>
             <div className={style.secMain}>

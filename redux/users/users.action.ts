@@ -1,6 +1,5 @@
 import { authActionType } from "@/constants/constants"
 import { Dispatch } from "redux"
-// import { Dispatch } from "redux"
 import { getUsersAPI, storeUserAPI, updateUserAPI } from "./users.api"
 import { GET_USERS_SUCCESS, USERS_ERROR, USERS_LOADING } from "./users.type"
 
@@ -13,11 +12,6 @@ export const storeUser = async (obj: any) => {
         photoURL: obj.photoURL,
         creationTime: obj.metadata.creationTime,
         lastSignInTime: new Date().toLocaleString(),
-        // isAnonymous: obj.isAnonymous,
-        // metadata: obj.metadata,
-        // providerData: obj.providerData,
-        // refreshToken: obj.stsTokenManager.refreshToken,
-        // ...obj,
         isAdmin: false,
         isActive: true,
     }

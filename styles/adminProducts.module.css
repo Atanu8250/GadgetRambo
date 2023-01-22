@@ -1,3 +1,17 @@
+/* main product section */
+.products>div:first-child{
+    gap: 20px;
+}
+
+
+/* Add product button */
+.products>div:first-child>button:last-child{
+    background-color: var(--color-primary);
+    font-size: 25px;
+    
+}
+
+
 
 /* laptop cards */
 .Prod>div{

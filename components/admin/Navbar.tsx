@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import {
   IconButton,
   Avatar,
@@ -34,6 +34,10 @@ import {
 import { IconType } from 'react-icons';
 import { ReactText } from 'react';
 import Link from 'next/link'
+import Router from 'next/router';
+import { useDispatch } from 'react-redux';
+import { setHideAdminPanel, setShowAdminPanel } from '@/redux/auth/auth.action';
+import { Dispatch } from 'redux';
 
 interface LinkItemProps {
   name: string;
@@ -50,13 +54,24 @@ const LinkItems: Array<LinkItemProps> = [
 
 export default function SidebarWithHeader({
   children,
+  active,
 }: {
   children: ReactNode;
+  active: string;
 }) {
+
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const dispatch: Dispatch<any> = useDispatch()
+
+  useEffect(() => {
+    setShowAdminPanel(dispatch)
+  }, [])
+
+
   return (
     <Box minH="100vh" bg={useColorModeValue('gray.100', 'gray.900')}>
       <SidebarContent
+        active={active}
         onClose={() => onClose}
         display={{ base: 'none', md: 'block' }}
       />
@@ -69,7 +84,7 @@ export default function SidebarWithHeader({
         onOverlayClick={onClose}
         size="full">
         <DrawerContent>
-          <SidebarContent onClose={onClose} />
+          <SidebarContent active={active} onClose={onClose} />
         </DrawerContent>
       </Drawer>
       {/* mobilenav */}
@@ -82,10 +97,19 @@ export default function SidebarWithHeader({
 }
 
 interface SidebarProps extends BoxProps {
+  active: string;
   onClose: () => void;
 }
 
-const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
+const SidebarContent = ({ active, onClose, ...rest }: SidebarProps) => {
+
+  const dispatch = useDispatch()
+
+  const clearLocalStorage = () => {
+    setHideAdminPanel(dispatch);
+    Router.replace("/")
+  }
+
   return (
     <Box
       transition="3s ease"
@@ -97,13 +121,18 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
       h="full"
       {...rest}>
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-        <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
+        <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold" onClick={clearLocalStorage}>
           GadgetRambo
         </Text>
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
       {LinkItems.map((link) => (
-        <NavItem key={link.name} icon={link.icon} href={link.href}>
+        <NavItem
+          bgColor={active === link.name ? "#ec3b37" : "none"}
+          color={active === link.name ? "#fff" : "black"}
+          key={link.name}
+          icon={link.icon}
+          href={link.href}>
           {link.name}
         </NavItem>
       ))}
