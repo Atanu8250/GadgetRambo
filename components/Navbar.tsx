@@ -35,12 +35,19 @@ const Navbar = () => {
   const { showAdminPanel }: { showAdminPanel: boolean } = useSelector((store: State) => store.authManager)
   const toastMsg = useToastMsg()
   const [isAdmin, setIsAdmin] = useState<boolean>(false)
+  console.log('isAdmin:', isAdmin)
+  const [change, setChange] = useState<boolean>(false);
 
 
   useEffect(() => {
     dispatch(getUsers())
+    setTimeout(() => {
+      setChange((prev:boolean) => !prev);
+    }, 200)
   }, [])
 
+  console.log({users});
+  
 
   // checking user is admin or not
   const checkUserAdminOrNot = () => {
@@ -269,7 +276,7 @@ const Navbar = () => {
 
 
   if (showAdminPanel) {
-    return;
+    return <></>;
   }
 
   return (
