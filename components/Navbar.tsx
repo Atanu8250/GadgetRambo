@@ -12,7 +12,7 @@ import NavbarDrawer from "../components/NavbarDrawer";
 import useAuth from "@/customHook/UseAuth";
 import { logout, setShowAdminPanel } from "@/redux/auth/auth.action";
 import { truncate } from "fs";
-import { Dispatch } from 'redux'
+import { Dispatch } from "redux";
 import { useDispatch, useSelector } from "react-redux";
 import useToastMsg from "@/customHook/UseToastMsg";
 import { MdAdminPanelSettings } from 'react-icons/md'
@@ -27,9 +27,9 @@ import { getUsers } from "@/redux/users/users.action";
 import { auth } from "@/Backend/Firebase/firebase";
 
 const Navbar = () => {
-
   // useAuth called for getting the current user of our website
   useAuth();
+
   const { user }: any = useSelector((store: State) => store.authManager)
   const { users }: { users: Array<intrfcUser> } = useSelector((store: State) => store.usersManager)
   const dispatch: Dispatch<any> = useDispatch()
@@ -61,10 +61,9 @@ const Navbar = () => {
   // }
 
 
-
   const handleLogout = () => {
-    dispatch(logout(toastMsg))
-  }
+    dispatch(logout(toastMsg));
+  };
 
   const handleFuse = () => {
     setFocusHome(false);
@@ -95,7 +94,7 @@ const Navbar = () => {
   };
 
   // HOME
-  const [focusHome, setFocusHome] = React.useState<boolean>(false);
+  const [focusHome, setFocusHome] = React.useState<boolean>(true);
   const handleHome = () => {
     handleFuse();
     setFocusHome(true);
@@ -271,10 +270,9 @@ const Navbar = () => {
   };
 
   const handleShowAdminPanel = () => {
-    setShowAdminPanel(dispatch)
+    setShowAdminPanel(dispatch);
     Router.replace("/admin");
-  }
-
+  };
 
   if (showAdminPanel) {
     return <></>;
@@ -283,7 +281,12 @@ const Navbar = () => {
   return (
     <div>
       <div className={style.marquee}>
-        <Marquee>NDTV Business Hindi Movies Cricket Health Food Crypto Tech Webstories Education Swasth Lifestyle Shopping Auto Apps Art NDTV Business Hindi Movies Cricket Health Food Crypto Tech Webstories Education Swasth Lifestyle Shopping Auto Apps Art</Marquee>
+        <Marquee>
+          NDTV Business Hindi Movies Cricket Health Food Crypto Tech Webstories
+          Education Swasth Lifestyle Shopping Auto Apps Art NDTV Business Hindi
+          Movies Cricket Health Food Crypto Tech Webstories Education Swasth
+          Lifestyle Shopping Auto Apps Art
+        </Marquee>
       </div>
       <div className={style.main}>
         <div className={style.logoUpper}>
@@ -298,7 +301,6 @@ const Navbar = () => {
             </Link>
           </div>
           <div className={style.personData}>
-
             {/*
             Login and Logout 
              */}
@@ -307,6 +309,7 @@ const Navbar = () => {
               <div className={style.personData}>
                 <div className={style.avatar} title={user.email || ""}>
                   <Avatar size='sm' src={user.photoURL || "https://static.vecteezy.com/system/resources/thumbnails/000/439/863/small/Basic_Ui__28186_29.jpg"} />
+
                   <div className={style.avName}>
                     <p>{user.displayName || "User"}</p>
                   </div>
@@ -320,9 +323,9 @@ const Navbar = () => {
                   </div>
                 </div>
                 <div className={style.login}>
-                  <div
-                    className={style.loginButton}
-                    onClick={handleLogout}>Logout</div>
+                  <div className={style.loginButton} onClick={handleLogout}>
+                    Logout
+                  </div>
                 </div>
               </div>
             ) : (
@@ -871,13 +874,13 @@ const Navbar = () => {
             style={
               focusmobile
                 ? {
-                  backgroundColor: "black",
-                  color: "#EE3E38",
-                }
+                    backgroundColor: "black",
+                    color: "#EE3E38",
+                  }
                 : {
-                  backgroundColor: "#EE3E38",
-                  color: "rgb(32, 32, 32)",
-                }
+                    backgroundColor: "#EE3E38",
+                    color: "rgb(32, 32, 32)",
+                  }
             }
           >
             MOBILES
@@ -889,13 +892,13 @@ const Navbar = () => {
             style={
               focuslaptops
                 ? {
-                  backgroundColor: "black",
-                  color: "#EE3E38",
-                }
+                    backgroundColor: "black",
+                    color: "#EE3E38",
+                  }
                 : {
-                  backgroundColor: "#EE3E38",
-                  color: "rgb(32, 32, 32)",
-                }
+                    backgroundColor: "#EE3E38",
+                    color: "rgb(32, 32, 32)",
+                  }
             }
           >
             LAPTOPS
@@ -907,13 +910,13 @@ const Navbar = () => {
             style={
               focusTV
                 ? {
-                  backgroundColor: "black",
-                  color: "#EE3E38",
-                }
+                    backgroundColor: "black",
+                    color: "#EE3E38",
+                  }
                 : {
-                  backgroundColor: "#EE3E38",
-                  color: "rgb(32, 32, 32)",
-                }
+                    backgroundColor: "#EE3E38",
+                    color: "rgb(32, 32, 32)",
+                  }
             }
           >
             TV
@@ -925,13 +928,13 @@ const Navbar = () => {
             style={
               focussmartwatches
                 ? {
-                  backgroundColor: "black",
-                  color: "#EE3E38",
-                }
+                    backgroundColor: "black",
+                    color: "#EE3E38",
+                  }
                 : {
-                  backgroundColor: "#EE3E38",
-                  color: "rgb(32, 32, 32)",
-                }
+                    backgroundColor: "#EE3E38",
+                    color: "rgb(32, 32, 32)",
+                  }
             }
           >
             SMART WATCHES
@@ -943,13 +946,13 @@ const Navbar = () => {
             style={
               focuscameras
                 ? {
-                  backgroundColor: "black",
-                  color: "#EE3E38",
-                }
+                    backgroundColor: "black",
+                    color: "#EE3E38",
+                  }
                 : {
-                  backgroundColor: "#EE3E38",
-                  color: "rgb(32, 32, 32)",
-                }
+                    backgroundColor: "#EE3E38",
+                    color: "rgb(32, 32, 32)",
+                  }
             }
           >
             CAMERAS
@@ -962,13 +965,13 @@ const Navbar = () => {
             style={
               focussmartbands
                 ? {
-                  backgroundColor: "black",
-                  color: "#EE3E38",
-                }
+                    backgroundColor: "black",
+                    color: "#EE3E38",
+                  }
                 : {
-                  backgroundColor: "#EE3E38",
-                  color: "rgb(32, 32, 32)",
-                }
+                    backgroundColor: "#EE3E38",
+                    color: "rgb(32, 32, 32)",
+                  }
             }
           >
             SMART BANDS
@@ -981,13 +984,13 @@ const Navbar = () => {
             style={
               focusspeakers
                 ? {
-                  backgroundColor: "black",
-                  color: "#EE3E38",
-                }
+                    backgroundColor: "black",
+                    color: "#EE3E38",
+                  }
                 : {
-                  backgroundColor: "#EE3E38",
-                  color: "rgb(32, 32, 32)",
-                }
+                    backgroundColor: "#EE3E38",
+                    color: "rgb(32, 32, 32)",
+                  }
             }
           >
             SMART SPEAKERS
@@ -1000,13 +1003,13 @@ const Navbar = () => {
             style={
               focusgames
                 ? {
-                  backgroundColor: "black",
-                  color: "#EE3E38",
-                }
+                    backgroundColor: "black",
+                    color: "#EE3E38",
+                  }
                 : {
-                  backgroundColor: "#EE3E38",
-                  color: "rgb(32, 32, 32)",
-                }
+                    backgroundColor: "#EE3E38",
+                    color: "rgb(32, 32, 32)",
+                  }
             }
           >
             GAMES
@@ -1019,13 +1022,13 @@ const Navbar = () => {
             style={
               focusaircooler
                 ? {
-                  backgroundColor: "black",
-                  color: "#EE3E38",
-                }
+                    backgroundColor: "black",
+                    color: "#EE3E38",
+                  }
                 : {
-                  backgroundColor: "#EE3E38",
-                  color: "rgb(32, 32, 32)",
-                }
+                    backgroundColor: "#EE3E38",
+                    color: "rgb(32, 32, 32)",
+                  }
             }
           >
             AIR COOLER
@@ -1038,13 +1041,13 @@ const Navbar = () => {
             style={
               focuswashingmashine
                 ? {
-                  backgroundColor: "black",
-                  color: "#EE3E38",
-                }
+                    backgroundColor: "black",
+                    color: "#EE3E38",
+                  }
                 : {
-                  backgroundColor: "#EE3E38",
-                  color: "rgb(32, 32, 32)",
-                }
+                    backgroundColor: "#EE3E38",
+                    color: "rgb(32, 32, 32)",
+                  }
             }
           >
             WASHING MACHINE
@@ -1057,13 +1060,13 @@ const Navbar = () => {
             style={
               focustablets
                 ? {
-                  backgroundColor: "black",
-                  color: "#EE3E38",
-                }
+                    backgroundColor: "black",
+                    color: "#EE3E38",
+                  }
                 : {
-                  backgroundColor: "#EE3E38",
-                  color: "rgb(32, 32, 32)",
-                }
+                    backgroundColor: "#EE3E38",
+                    color: "rgb(32, 32, 32)",
+                  }
             }
           >
             TABLETS
@@ -1076,13 +1079,13 @@ const Navbar = () => {
             style={
               focusheadphones
                 ? {
-                  backgroundColor: "black",
-                  color: "#EE3E38",
-                }
+                    backgroundColor: "black",
+                    color: "#EE3E38",
+                  }
                 : {
-                  backgroundColor: "#EE3E38",
-                  color: "rgb(32, 32, 32)",
-                }
+                    backgroundColor: "#EE3E38",
+                    color: "rgb(32, 32, 32)",
+                  }
             }
           >
             HEADPHONES

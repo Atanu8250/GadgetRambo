@@ -5,6 +5,9 @@ import CartItem from "@/components/CartItem";
 import { Divider, Button, Input } from "@chakra-ui/react";
 import Link from "next/link";
 import RightSidebar from "@/components/RightSidebar";
+import { getCart } from "@/redux/cart/cart.actions";
+import { useDispatch, useSelector } from "react-redux";
+import { State } from "@/redux/store";
 
 const Index = () => {
   const [Item, setItem] = React.useState<Array<object>>([]);
@@ -13,12 +16,14 @@ const Index = () => {
   const [subTotal, setSubTotal] = React.useState<number>(0);
   const [total, setTotal] = React.useState<number>(0);
 
-  React.useEffect(() => {
-    
-  }, []);
-  //  setItem(data);
+  const { cart } = useSelector((store: State) => store.cartManager);
 
-  console.log(Item);
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    getCart(dispatch);
+  }, []);
+
   return (
     <div
       style={{
@@ -37,7 +42,7 @@ const Index = () => {
         </div>
         <Divider />
         <div className={style.subSkeleton}>
-          {Item.map((items) => (
+          {cart.map((items: any) => (
             <div key={items.id}>
               <CartItem items={items} />
             </div>
@@ -45,17 +50,15 @@ const Index = () => {
         </div>
         <Divider />
         <div className={style.bottomCart}>
-          <div className={style.box}>Discount: Rs{discount}</div>
+          {/* <div className={style.box}>Discount: Rs{discount}</div>
           <div className={style.box}>Delivery: Rs{discount}</div>
           <div className={style.box}>Subtotal: Rs{subTotal}</div>
-          <div className={style.box}>Total: Rs{total}</div>
+          <div className={style.box}>Total: Rs{total}</div> */}
         </div>
-        <p style={{ paddingLeft: "3rem" }}>
-          If you have a promo code enter it here
-        </p>
+
         <div className={style.bottomDiscount}>
           <div>
-            <div style={{ display: "flex" }}>
+            <div style={{ display: "flex", width: "40%" }}>
               <input
                 className={style.input}
                 placeholder="Please enter promo code"
@@ -63,17 +66,17 @@ const Index = () => {
               <button className={style.buttonpromo}>Apply Discount</button>
             </div>
           </div>
-          <div
-            style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}
-          >
-            <button className={style.checkout}>Checkout</button>
+          <div style={{ display: "flex", gap: "0.5rem" }}>
+            <Link href={"/checkout"}>
+              <button className={style.checkout}>Checkout</button>
+            </Link>
             <Link href="/">
               <button className={style.continue}>Continue Shopping</button>
             </Link>
           </div>
         </div>
       </div>
-      <div style={{ width: "30%", margin: "0 1rem" }}>
+      <div style={{ width: "25%", margin: "0 1rem" }}>
         <RightSidebar />
       </div>
     </div>
