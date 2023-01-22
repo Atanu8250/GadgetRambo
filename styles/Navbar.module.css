@@ -81,17 +81,32 @@
     color: #EE3E38;
 }
 .avatar{
+    position: relative;
     display: flex;
     gap:0.5rem;
     margin-top: 1rem;
 }
 .avName{
-    padding-top: 0.6rem;
+    padding-top: 0.3rem;
     margin-right: 1rem;
     font-family: Titillium, sans-serif;
     color: #EE3E38;
     font-weight: 700;
 }
+
+
+.avatar:hover .showAdminButton{
+    display: block;
+}
+
+.showAdminButton{
+    z-index: 2;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    display: none;
+}
+
 @media only screen and (max-width: 784px) {
     
 }

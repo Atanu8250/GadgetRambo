@@ -27,11 +27,28 @@ import { IoIosArrowDown } from "react-icons/io";
 import Image from "next/image";
 import Login from "./Login";
 import Signup from "./Signup";
+import useAuth from "@/customHook/UseAuth";
+import { useDispatch, useSelector } from "react-redux";
+import { State } from "@/redux/store";
+import { logout } from "@/redux/auth/auth.action";
+import { Dispatch } from "redux";
+import useToastMsg from "@/customHook/UseToastMsg";
 
 const NavbarDrawer = () => {
+
+  // useAuth called for getting the current user of our website
+  useAuth();
+
+  const { user }: any = useSelector((store: State) => store.authManager)
+
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [youIn, setYouIn] = React.useState<boolean>(true);
-  const btnRef = React.useRef();
+  const dispatch: Dispatch<any> = useDispatch()
+  const toastMsg = useToastMsg()
+
+  const handleLogout = () => {
+    dispatch(logout(toastMsg))
+  }
+
   return (
     <div>
       <Button colorScheme="red" onClick={onOpen}>
@@ -450,21 +467,24 @@ const NavbarDrawer = () => {
           </DrawerBody>
 
           <DrawerFooter className={style.drawer}>
-            
+
             {/*
             Login and Logout 
              */}
 
-            {youIn ? (
+            {user.uid ? (
               <div style={{ display: "flex", gap: "1rem" }}>
                 <div className={style.avatar}>
-                  <Avatar src="https://lh3.googleusercontent.com/ogw/AAEL6sj5ldG0q8z-IHftwzB6vcn6fay6knkGTD2W0ChUQQ=s32-c-mo" />
-                  <div style={{paddingTop:"0.5rem"}}>
-                    <p>Name</p>
+                  <Avatar size='sm' src={user.photoURL || "https://static.vecteezy.com/system/resources/thumbnails/000/439/863/small/Basic_Ui__28186_29.jpg"} />
+                  <div>
+                    <p>{user.displayName || "User"}</p>
                   </div>
                 </div>
                 <div className={style.login}>
-                  <div className={style.loginButton}>Logout</div>
+                  <div
+                    className={style.loginButton}
+                    onClick={handleLogout}
+                  >Logout</div>
                 </div>
               </div>
             ) : (
