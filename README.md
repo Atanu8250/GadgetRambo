@@ -9,6 +9,8 @@
 - Rajkumar Pradhan
 - Sudipta Pramanik
 
+### We have used NextJS with Typescript and redux as frontend and Firebase as backend for this project and working on stripe for checkout process.
+
 ## Homepage
 ![home](https://user-images.githubusercontent.com/112638599/213979464-b2926ec2-65d7-4a3b-9772-d18d3ad05637.jpg)
 
