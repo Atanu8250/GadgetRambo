@@ -1,7 +1,11 @@
 # GadgetRambo.com
 ### Gadget rambo is a leading technology, news, reviews and ecommerce plateform related to tech gadgets. It is a clone of Gadget360.com.
-### This project was completed in 5 days with 5 team members [Atanu (team lead), Sachin, Sayyed, rajkumar and sudipta].
-### We have used NextJS with typescript and redux and firebase as backend
+### This project was completed in 5 days with 5 team members
+- Atanu Karamkar (team lead)
+- Sachin Mishra
+- Sayyed Sharuk
+- Rajkumar Pradhan
+- Sudipta Pramanik
 
 ## Homepage
 ![home](https://user-images.githubusercontent.com/112638599/213979464-b2926ec2-65d7-4a3b-9772-d18d3ad05637.jpg)
