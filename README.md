@@ -1,4 +1,6 @@
+![logo](https://user-images.githubusercontent.com/112638599/213981790-9e5f4b43-da90-403e-b1ed-c0e122a02114.png)
 # GadgetRambo.com
+
 ### Gadget rambo is a leading technology, news, reviews and ecommerce plateform related to tech gadgets. It is a clone of Gadget360.com.
 ### This project was completed in 5 days with 5 team members
 - Atanu Karamkar (team lead)
