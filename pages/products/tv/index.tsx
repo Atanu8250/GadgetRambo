@@ -42,7 +42,7 @@ const Television = ({ televisons }: any) => {
             Load More
           </Button>
         </Flex>
-        <Show above="lg">
+        <Show above="xl">
           <Flex mx={4} flex={2} justifyContent={"center"}>
             <RightSidebar />
           </Flex>
