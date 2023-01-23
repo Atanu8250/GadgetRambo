@@ -7,6 +7,8 @@
 
 ## Blog Page
 ![blog](https://user-images.githubusercontent.com/112638599/213979530-4c8daa8f-021e-4fbf-9783-76ac1c032707.jpg)
+
+# Products Page
 ![products](https://user-images.githubusercontent.com/112638599/213979657-62376b31-cb5e-4c00-86e6-57775329b7b9.jpg)
 
 ## Cart Page
