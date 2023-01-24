@@ -8,20 +8,26 @@ import RightSidebar from "@/components/RightSidebar";
 import { getCart } from "@/redux/cart/cart.actions";
 import { useDispatch, useSelector } from "react-redux";
 import { State } from "@/redux/store";
+import { auth } from "@/Backend/Firebase/firebase";
+import Router from "next/router";
+import useToastMsg from "@/customHook/UseToastMsg";
 
 const Index = () => {
-  const [Item, setItem] = React.useState<Array<object>>([]);
-  const [discount, setDiscount] = React.useState<number>(0);
-  const [delivery, setDelivery] = React.useState<number>(0);
-  const [subTotal, setSubTotal] = React.useState<number>(0);
-  const [total, setTotal] = React.useState<number>(0);
 
+  const toastMsg = useToastMsg();
   const { cart } = useSelector((store: State) => store.cartManager);
 
   const dispatch = useDispatch();
 
   React.useEffect(() => {
     getCart(dispatch);
+    if(auth.currentUser === null){
+      Router.replace("/");
+      toastMsg({
+        title: "Please Login first",
+        status: "warning"
+      })
+    }
   }, []);
 
   return (

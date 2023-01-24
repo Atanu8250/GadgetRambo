@@ -1,4 +1,4 @@
-import React, { Dispatch } from "react";
+import React, { useEffect } from "react";
 import style from "../../styles/Checkout.module.css";
 import RightSidebar from "@/components/RightSidebar";
 import {
@@ -18,18 +18,22 @@ import { FaCcMastercard } from "react-icons/fa";
 import Link from "next/link";
 import useToastMsg from "@/customHook/UseToastMsg";
 import Router from "next/router";
-import { deleteDoc, doc } from "firebase/firestore";
-import { auth, db } from "@/Backend/Firebase/firebase";
-import { useDispatch, useSelector } from "react-redux";
-import { State } from "@/redux/store";
-import { intrfcUser } from "@/constants/constants";
+import { auth } from "@/Backend/Firebase/firebase";
 
 const Checkout = () => {
 
-  // const { user }: { user: intrfcUser } = useSelector((store: State) => store.authManager)
-  const dispatch = useDispatch()
   const toastmsg = useToastMsg();
   const [value, setValue] = React.useState("1");
+
+  useEffect(() => {
+    if(auth.currentUser === null){
+      Router.replace("/");
+      toastmsg({
+        title: "Please Login first",
+        status: "warning"
+      })
+    }
+  }, [])
 
   const handlePayment =  () => {
       toastmsg({
