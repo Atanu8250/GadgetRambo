@@ -23,7 +23,7 @@ const Mobiles = ({ mobiles }: any) => {
 
   return (
     <>
-      <Flex direction={{ base: "column", sm: "column", md: "row" }} w={"100%"} p={"10"}>
+      <Flex direction={{ base: "column", sm: "column", md: "row" }} w={"100%"} p={"10"} justifyContent={"center"}>
         <Flex
           flex={1}
           justifyContent={{
@@ -74,7 +74,6 @@ const Mobiles = ({ mobiles }: any) => {
 };
 
 export default Mobiles;
-
 
 export const getStaticProps = async () => {
   const mobiles = await getMobileAPI(10);

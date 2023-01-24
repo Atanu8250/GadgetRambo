@@ -32,46 +32,35 @@ import { useDispatch, useSelector } from "react-redux";
 import { State } from "@/redux/store";
 import { logout } from "@/redux/auth/auth.action";
 import { Dispatch } from "redux";
-import logo from '../assets/GadgetRambo.png'
+import logo from "../assets/GadgetRambo.png";
 import useToastMsg from "@/customHook/UseToastMsg";
 
-
 const NavbarDrawer = () => {
-
   // useAuth called for getting the current user of our website
   useAuth();
 
-  const { user }: any = useSelector((store: State) => store.authManager)
+  const { user }: any = useSelector((store: State) => store.authManager);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const dispatch: Dispatch<any> = useDispatch()
-  const toastMsg = useToastMsg()
+  const dispatch: Dispatch<any> = useDispatch();
+  const toastMsg = useToastMsg();
 
   const handleLogout = () => {
-    dispatch(logout(toastMsg))
-  }
+    dispatch(logout(toastMsg));
+  };
 
   return (
     <div>
       <Button colorScheme="red" onClick={onOpen}>
         <Icon as={GiHamburgerMenu} />
       </Button>
-      <Drawer
-        isOpen={isOpen}
-        placement="right"
-        onClose={onClose}
-      >
+      <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton color={"#EE3E38"} />
           <DrawerHeader className={style.drawer}>
             <Link href="/">
-              <Image
-                src={logo}
-                alt="logo"
-                width={150}
-                height={20}
-              />
+              <Image src={logo} alt="logo" width={150} height={20} />
             </Link>
           </DrawerHeader>
 
@@ -131,16 +120,11 @@ const NavbarDrawer = () => {
             </p>
             <br />
             <div>
-              <Accordion defaultIndex={[0]} allowMultiple>
+              <Accordion allowToggle>
                 <AccordionItem>
                   <h2>
                     <AccordionButton>
-                      <Box
-                        as="span"
-                        flex="1"
-                        textAlign="left"
-                        className={style.drawer}
-                      >
+                      <Box as="span" flex="1" textAlign="left" className={style.drawer}>
                         VIDEOS
                       </Box>
                       <AccordionIcon />
@@ -175,16 +159,11 @@ const NavbarDrawer = () => {
               </Accordion>
             </div>
             <div>
-              <Accordion defaultIndex={[0]} allowMultiple>
+              <Accordion allowToggle>
                 <AccordionItem>
                   <h2>
                     <AccordionButton>
-                      <Box
-                        as="span"
-                        flex="1"
-                        textAlign="left"
-                        className={style.drawer}
-                      >
+                      <Box as="span" flex="1" textAlign="left" className={style.drawer}>
                         PRODUCT FINDER
                       </Box>
                       <AccordionIcon />
@@ -192,15 +171,15 @@ const NavbarDrawer = () => {
                   </h2>
                   <AccordionPanel pb={4}>
                     <p>
-                      <Link href="/">MOBILE</Link>
+                      <Link href="/products/mobiles">MOBILE</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/">LAPTOPS</Link>
+                      <Link href="/products/laptops">LAPTOPS</Link>
                     </p>
                     <br />
                     <p>
-                      <Link href="/">TV</Link>
+                      <Link href="/products/tv">TV</Link>
                     </p>
                     <br />
                     <p>
@@ -267,16 +246,11 @@ const NavbarDrawer = () => {
               </Accordion>
             </div>
             <div>
-              <Accordion defaultIndex={[0]} allowMultiple>
+              <Accordion allowToggle>
                 <AccordionItem>
                   <h2>
                     <AccordionButton>
-                      <Box
-                        as="span"
-                        flex="1"
-                        textAlign="left"
-                        className={style.drawer}
-                      >
+                      <Box as="span" flex="1" textAlign="left" className={style.drawer}>
                         COMPARE
                       </Box>
                       <AccordionIcon />
@@ -359,16 +333,11 @@ const NavbarDrawer = () => {
               </Accordion>
             </div>
             <div>
-              <Accordion defaultIndex={[0]} allowMultiple>
+              <Accordion allowToggle>
                 <AccordionItem>
                   <h2>
                     <AccordionButton>
-                      <Box
-                        as="span"
-                        flex="1"
-                        textAlign="left"
-                        className={style.drawer}
-                      >
+                      <Box as="span" flex="1" textAlign="left" className={style.drawer}>
                         RECHARGE
                       </Box>
                       <AccordionIcon />
@@ -391,16 +360,11 @@ const NavbarDrawer = () => {
               </Accordion>
             </div>
             <div>
-              <Accordion defaultIndex={[0]} allowMultiple>
+              <Accordion allowToggle>
                 <AccordionItem>
                   <h2>
                     <AccordionButton>
-                      <Box
-                        as="span"
-                        flex="1"
-                        textAlign="left"
-                        className={style.drawer}
-                      >
+                      <Box as="span" flex="1" textAlign="left" className={style.drawer}>
                         MORE
                       </Box>
                       <AccordionIcon />
@@ -469,7 +433,6 @@ const NavbarDrawer = () => {
           </DrawerBody>
 
           <DrawerFooter className={style.drawer}>
-
             {/*
             Login and Logout 
              */}
@@ -477,16 +440,15 @@ const NavbarDrawer = () => {
             {user.uid ? (
               <div style={{ display: "flex", gap: "1rem" }}>
                 <div className={style.avatar}>
-                  <Avatar size='sm' src={user.photoURL || "https://static.vecteezy.com/system/resources/thumbnails/000/439/863/small/Basic_Ui__28186_29.jpg"} />
+                  <Avatar size="sm" src={user.photoURL || "https://static.vecteezy.com/system/resources/thumbnails/000/439/863/small/Basic_Ui__28186_29.jpg"} />
                   <div>
                     <p>{user.displayName || "User"}</p>
                   </div>
                 </div>
                 <div className={style.login}>
-                  <div
-                    className={style.loginButton}
-                    onClick={handleLogout}
-                  >Logout</div>
+                  <div className={style.loginButton} onClick={handleLogout}>
+                    Logout
+                  </div>
                 </div>
               </div>
             ) : (
@@ -496,12 +458,7 @@ const NavbarDrawer = () => {
               </div>
             )}
             <Link href="/cart">
-              <Icon
-                as={HiShoppingCart}
-                boxSize={8}
-                color={"#EE3E38"}
-                paddingTop="0.2rem"
-              />
+              <Icon as={HiShoppingCart} boxSize={8} color={"#EE3E38"} paddingTop="0.2rem" />
             </Link>
           </DrawerFooter>
         </DrawerContent>
