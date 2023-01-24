@@ -1,13 +1,13 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import style from "../styles/Footer.module.css"
-import { Divider } from "@chakra-ui/react";
-import { Icon } from '@chakra-ui/react'
-import { FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaGooglePlay, FaApple } from 'react-icons/fa'
-import { AiFillTwitterCircle } from 'react-icons/ai'
-import { useSelector } from "react-redux";
 import { State } from "@/redux/store";
+import { Icon } from '@chakra-ui/react'
+import { useSelector } from "react-redux";
+import { Divider } from "@chakra-ui/react";
+import style from "../styles/Footer.module.css"
+import { FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaGooglePlay, FaApple } from 'react-icons/fa'
+import logo from '../assets/GadgetRambo.png'
 
 const Footer = () => {
 
@@ -22,9 +22,9 @@ const Footer = () => {
             <div className={style.secMain}>
                 <div className={style.logo}>
                     <Image
-                        src="https://cdn.gadgets360.com/gadgets360_logo.png"
+                        src={logo}
                         alt="logo"
-                        width={180}
+                        width={150}
                         height={60}
                     />
                 </div>
