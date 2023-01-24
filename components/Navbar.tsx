@@ -1,65 +1,35 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Dispatch } from "redux";
+import Marquee from "react-fast-marquee";
+import useAuth from "@/customHook/UseAuth";
+import { Divider } from "@chakra-ui/react";
 import style from "../styles/Navbar.module.css";
 import { IoIosArrowDown } from "react-icons/io";
 import { HiShoppingCart } from "react-icons/hi";
 import { Icon, Button } from "@chakra-ui/react";
-import { Menu, MenuButton, MenuList, MenuItem, Avatar } from "@chakra-ui/react";
-import Marquee from "react-fast-marquee";
-import { Divider } from "@chakra-ui/react";
-import NavbarDrawer from "../components/NavbarDrawer";
-import useAuth from "@/customHook/UseAuth";
-import { logout, setShowAdminPanel } from "@/redux/auth/auth.action";
-import { truncate } from "fs";
-import { Dispatch } from "redux";
-import { useDispatch, useSelector } from "react-redux";
 import useToastMsg from "@/customHook/UseToastMsg";
 import { MdAdminPanelSettings } from 'react-icons/md'
+import NavbarDrawer from "../components/NavbarDrawer";
+import { useDispatch, useSelector } from "react-redux";
+import { logout, setShowAdminPanel } from "@/redux/auth/auth.action";
+import { Menu, MenuButton, MenuList, MenuItem, Avatar } from "@chakra-ui/react";
 
-import logo from '../assets/GadgetRambo.png'
 import Login from "./Login";
 import Signup from "./Signup";
-import { State } from "@/redux/store";
 import Router from "next/router";
-import { intrfcUser } from "@/constants/constants";
-import { getUsers } from "@/redux/users/users.action";
-import { auth } from "@/Backend/Firebase/firebase";
+import { State } from "@/redux/store";
+import logo from '../assets/GadgetRambo.png'
 
 const Navbar = () => {
   // useAuth called for getting the current user of our website
   useAuth();
 
   const { user }: any = useSelector((store: State) => store.authManager)
-  const { users }: { users: Array<intrfcUser> } = useSelector((store: State) => store.usersManager)
   const dispatch: Dispatch<any> = useDispatch()
   const { showAdminPanel }: { showAdminPanel: boolean } = useSelector((store: State) => store.authManager)
   const toastMsg = useToastMsg()
-  // const [isAdmin, setIsAdmin] = useState<boolean>(false)
-  // console.log('isAdmin:', isAdmin)
-  // const [change, setChange] = useState<boolean>(false);
-
-
-  // useEffect(() => {
-  //   dispatch(getUsers())
-  //   setTimeout(() => {
-  //     setChange((prev:boolean) => !prev);
-  //   }, 200)
-  // }, [])
-
-  // console.log({users});
-  
-
-  // // checking user is admin or not
-  // const checkUserAdminOrNot = () => {
-  //   users.forEach((el) => {
-  //     if (el.email === auth.currentUser?.email) {
-  //       setIsAdmin(el.isAdmin)
-  //       return;
-  //     }
-  //   })
-  // }
-
 
   const handleLogout = () => {
     dispatch(logout(toastMsg));

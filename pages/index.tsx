@@ -1,47 +1,23 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Head from "next/head";
 import React from "react";
-import styles from "@/styles/Home.module.css";
-import { Box, Flex, Show, SimpleGrid, Text, useBreakpointValue } from "@chakra-ui/react";
-import Slider from "react-slick";
-import NewsCard from "@/components/newsCard";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { getNews } from "@/redux/news/news.actions";
-import { State } from "../redux/store";
-import { AiOutlineMobile, AiOutlineTablet } from "react-icons/ai";
-import { BsLaptop, BsSmartwatch, BsSpeaker, BsHeadphones, BsCamera } from "react-icons/bs";
-import { IoTvOutline } from "react-icons/io5";
-import { GiConsoleController, GiWashingMachine } from "react-icons/gi";
-import { CgSmartHomeRefrigerator, CgGames } from "react-icons/cg";
-import { getMobile } from "@/redux/products/products.actions";
-import RightSidebar from "@/components/RightSidebar";
-import LeftSidebar from "@/components/LeftSidebar";
 import Link from "next/link";
-
-// function SampleNextArrow(props: any) {
-//   const { className, style, onClick } = props;
-//   return (
-//     <div
-//       className={className}
-//       style={{ ...style, display: "block", background: "black", color: "black" }}
-//       onClick={onClick}
-//     />
-//   );
-// }
-
-// function SamplePrevArrow() {
-//   // const { className, style, onClick } = props;
-//   return (
-//     <div
-//       // className={className}
-//       style={{ display: "block", background: "green" }}
-//       // onClick={onClick}
-
-//     </div>
-//   );
-// }
+import Head from "next/head";
+import Slider from "react-slick";
+import { useEffect } from "react";
+import { State } from "../redux/store";
+import NewsCard from "@/components/newsCard";
+import { IoTvOutline } from "react-icons/io5";
+import LeftSidebar from "@/components/LeftSidebar";
+import { getNews } from "@/redux/news/news.actions";
+import RightSidebar from "@/components/RightSidebar";
+import { useDispatch, useSelector } from "react-redux";
+import { getMobile } from "@/redux/products/products.actions";
+import { CgSmartHomeRefrigerator, CgGames } from "react-icons/cg";
+import { AiOutlineMobile, AiOutlineTablet } from "react-icons/ai";
+import { GiConsoleController, GiWashingMachine } from "react-icons/gi";
+import { Flex, Show, SimpleGrid, Text, useBreakpointValue } from "@chakra-ui/react";
+import { BsLaptop, BsSmartwatch, BsSpeaker, BsHeadphones, BsCamera } from "react-icons/bs";
 
 export default function Home() {
   const gridProducts = useBreakpointValue<any>({
