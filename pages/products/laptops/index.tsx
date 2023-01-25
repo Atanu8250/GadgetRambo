@@ -20,7 +20,7 @@ const Laptops = ({ laptops }: any) => {
             md: "center",
           }}
           alignItems={"flex-start"}
-          mx={"4"}
+          mx={4}
         >
           <Show above="md">
             <LaptopFilter />

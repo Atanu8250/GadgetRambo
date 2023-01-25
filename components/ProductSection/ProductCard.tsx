@@ -62,7 +62,7 @@ const ProductCard = ({
     >
       <Flex justifyContent={"space-evenly"} alignItems={"center"}>
         <Flex flex={1} direction={"column"} alignItems={"center"}>
-          <Image src={imgsrc ? imgsrc : image} alt={imgsrc} width={"100px"} />
+          <Image src={imgsrc ? imgsrc : image} alt={imgsrc} height={"100px"} mx={"auto"} />
         </Flex>
         <Flex flex={4} direction={"column"}>
           <Text ml={3} fontSize={"lg"}>

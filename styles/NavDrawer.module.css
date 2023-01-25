@@ -1,26 +1,32 @@
-.drawer{
-    color: #EE3E38;
-    font-weight: 500;
-    background-color: #414347;
+.drawer {
+  color: #ee3e38;
+  font-weight: 500;
+  background-color: #414347;
 }
-.loginButton{
-    padding: 0.5rem 1rem;
-    margin-right: 0.5rem;
-    background-color: #EE3E38;
-    border-radius: 10px;
-    cursor: pointer;
-    font-family: Titillium, sans-serif;
-    font-weight: 700;
-    color: white;
-    border: 2px solid #EE3E38;
+.drawer::-webkit-scrollbar {
+  display: none;
 }
-.loginButton:hover{
-    background-color: white;
-    color: #EE3E38;
+.loginButton {
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+  background-color: #ee3e38;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: Titillium, sans-serif;
+  font-weight: 700;
+  color: white;
+  border: 2px solid #ee3e38;
 }
-.avatar{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap:0.5rem;
+.loginButton:hover {
+  background-color: white;
+  color: #ee3e38;
+}
+.login {
+  display: flex;
+}
+.avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
 }

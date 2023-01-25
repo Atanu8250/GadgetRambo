@@ -29,26 +29,11 @@ const RightSidebar = () => {
       <div className={styles.socialHandle}>
         <p>Follow Us</p>
         <div>
-          <FaFacebookF
-            className={styles.socialIcons}
-            style={{ background: "#177aee" }}
-          />
-          <BsTwitter
-            className={styles.socialIcons}
-            style={{ background: "#26b8e9" }}
-          />
-          <BsYoutube
-            className={styles.socialIcons}
-            style={{ background: "#fd0000" }}
-          />
-          <FaPodcast
-            className={styles.socialIcons}
-            style={{ background: "#7d50a0" }}
-          />
-          <FaRss
-            className={styles.socialIcons}
-            style={{ background: "#e07645" }}
-          />
+          <FaFacebookF className={styles.socialIcons} style={{ background: "#177aee" }} />
+          <BsTwitter className={styles.socialIcons} style={{ background: "#26b8e9" }} />
+          <BsYoutube className={styles.socialIcons} style={{ background: "#fd0000" }} />
+          <FaPodcast className={styles.socialIcons} style={{ background: "#7d50a0" }} />
+          <FaRss className={styles.socialIcons} style={{ background: "#e07645" }} />
         </div>
       </div>
       {/* TRENDING GADGETS AND TOPICS SECTION  */}
@@ -90,19 +75,15 @@ const RightSidebar = () => {
       <div className={styles.latestNews}>
         <p>LATEST NEWS</p>
         <div>
-            {news.map((el: any, i: number) => {
-              if (i > 11) {
-                return (
-                  <Link href={`blogs/${el.id}`} key={el.id}>
-                    <NewsCard
-                      title={el.title}
-                      titleSize={"15px"}
-                      banner={el.banner}
-                    />
-                  </Link>
-                );
-              }
-            })}
+          {news.map((el: any, i: number) => {
+            if (i > 11) {
+              return (
+                <Link href={`blogs/${el.id}`} key={el.id}>
+                  <NewsCard title={el.title} titleSize={"15px"} banner={el.banner} />
+                </Link>
+              );
+            }
+          })}
         </div>
       </div>
     </div>
