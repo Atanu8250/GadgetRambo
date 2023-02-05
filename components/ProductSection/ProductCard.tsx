@@ -53,8 +53,8 @@ const ProductCard = ({
     <Flex
       direction={"column"}
       transition={"1000ms"}
-      width={{ base: "300px", sm: "550px", md: "700px" }}
-      m={"4"}
+      width={{ base: "300px", sm: "550px", md: "500px" }}
+      m={"3"}
       borderRadius={"8"}
       p={"3"}
       bgColor={"white"}
@@ -62,7 +62,7 @@ const ProductCard = ({
     >
       <Flex justifyContent={"space-evenly"} alignItems={"center"}>
         <Flex flex={1} direction={"column"} alignItems={"center"}>
-          <Image src={imgsrc ? imgsrc : image} alt={imgsrc} height={"100px"} mx={"auto"} />
+          <Image src={imgsrc ? imgsrc : image} alt={imgsrc} mx={"auto"} />
         </Flex>
         <Flex flex={4} direction={"column"}>
           <Text ml={3} fontSize={"lg"}>

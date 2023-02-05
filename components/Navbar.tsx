@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Dispatch } from "redux";
 import Marquee from "react-fast-marquee";
 import useAuth from "@/customHook/UseAuth";
-import { Box, Divider, Flex } from "@chakra-ui/react";
+import { Box, Divider, Flex, Show } from "@chakra-ui/react";
 import style from "../styles/Navbar.module.css";
 import { IoIosArrowDown } from "react-icons/io";
 import { HiShoppingCart } from "react-icons/hi";
@@ -512,56 +512,66 @@ const Navbar = () => {
           </div>
         </div>
         {/* ///////////////////////////////////Navbar */}
-        <Flex direction={"column"} gap={4}>
-          <Flex bgColor={"white"} justifyContent={"center"}>
-            {navbarOne.map((el, id) => {
-              return el.dropData1 && el.dropData2 ? (
-                <Menu>
-                  <MenuButton
-                    borderRadius={"0px"}
-                    fontSize={"sm"}
-                    _active={{ borderBottom: "4px solid red" }}
-                    color={"black"}
-                    colorScheme={"white"}
-                    as={Button}
-                    rightIcon={<ChevronDownIcon />}
-                  >
-                    {el.title}
-                  </MenuButton>
-                  <MenuList style={{ display: "flex", direction: "column" }}>
-                    <Box>
-                      {el.dropData1.map((el2, id2) => {
-                        return <MenuItem key={id2}>{el2.title}</MenuItem>;
-                      })}
-                    </Box>
-                    <Box>
-                      {el.dropData2.map((el2, id2) => {
-                        return <MenuItem key={id2}>{el2.title}</MenuItem>;
-                      })}
-                    </Box>
-                  </MenuList>
-                </Menu>
-              ) : (
-                <Link key={id} href={el.link}>
-                  <Button _active={{ borderBottom: "4px solid red" }} borderRadius={"0px"} p={{ base: 1, xl: 2 }} fontSize={"sm"} color={"black"} colorScheme={"white"}>
-                    {el.title}
-                  </Button>
-                </Link>
-              );
-            })}
+        <Show above="lg">
+          <Flex direction={"column"} gap={4}>
+            <Flex bgColor={"white"} justifyContent={"center"}>
+              {navbarOne.map((el, id) => {
+                return el.dropData1 && el.dropData2 ? (
+                  <Menu>
+                    <MenuButton
+                      p={{ base: 1, xl: 2, "2xl": 4 }}
+                      borderRadius={"0px"}
+                      fontSize={{ xl: "xs", "2xl": "sm" }}
+                      _active={{ borderBottom: "4px solid red" }}
+                      color={"black"}
+                      colorScheme={"white"}
+                      as={Button}
+                      rightIcon={<ChevronDownIcon />}
+                    >
+                      {el.title}
+                    </MenuButton>
+                    <MenuList style={{ display: "flex", direction: "column" }}>
+                      <Box>
+                        {el.dropData1.map((el2, id2) => {
+                          return <MenuItem key={id2}>{el2.title}</MenuItem>;
+                        })}
+                      </Box>
+                      <Box>
+                        {el.dropData2.map((el2, id2) => {
+                          return <MenuItem key={id2}>{el2.title}</MenuItem>;
+                        })}
+                      </Box>
+                    </MenuList>
+                  </Menu>
+                ) : (
+                  <Link key={id} href={el.link}>
+                    <Button _active={{ borderBottom: "4px solid red" }} borderRadius={"0px"} p={{ base: 1, xl: 2, "2xl": 4 }} fontSize={"sm"} color={"black"} colorScheme={"white"}>
+                      {el.title}
+                    </Button>
+                  </Link>
+                );
+              })}
+            </Flex>
+            <Flex bgColor={"red.500"} justifyContent={"center"}>
+              {navbarTwo.map((el, id) => {
+                return (
+                  <Link key={id} href={el.link}>
+                    <Button
+                      _active={{ bgColor: "gray.100", color: "black" }}
+                      borderRadius={"0px"}
+                      p={{ base: 1, xl: 2, "2xl": 4 }}
+                      fontSize={"xs"}
+                      color={"white"}
+                      colorScheme={"red"}
+                    >
+                      {el.title}
+                    </Button>
+                  </Link>
+                );
+              })}
+            </Flex>
           </Flex>
-          <Flex bgColor={"red.500"} justifyContent={"center"}>
-            {navbarTwo.map((el, id) => {
-              return (
-                <Link key={id} href={el.link}>
-                  <Button _active={{ bgColor: "gray.100", color: "black" }} borderRadius={"0px"} p={{ base: 1, xl: 2 }} fontSize={"xs"} color={"white"} colorScheme={"red"}>
-                    {el.title}
-                  </Button>
-                </Link>
-              );
-            })}
-          </Flex>
-        </Flex>
+        </Show>
         {/* ///////////////////////////////////Navbar */}
 
         {/* DRAWER */}

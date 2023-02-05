@@ -30,8 +30,8 @@ const Blog = ({ newsData }: newsBlogId) => {
         <Flex
           p={5}
           flex={8}
-          justifyContent={"center"}
           direction={"column"}
+          justifyContent={"flex-start"}
           alignItems={"flex-start"}
         >
           <Flex mb={5}>
