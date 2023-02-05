@@ -530,7 +530,7 @@ const Navbar = () => {
                     >
                       {el.title}
                     </MenuButton>
-                    <MenuList style={{ display: "flex", direction: "column" }}>
+                    <MenuList style={{ display: "flex", flexDirection: "column" }}>
                       <Box>
                         {el.dropData1.map((el2, id2) => {
                           return <MenuItem key={id2}>{el2.title}</MenuItem>;
