@@ -10,7 +10,7 @@ const ResponsiveMobileFilter = (props: Props) => {
   const btnRef = useRef() as React.MutableRefObject<HTMLButtonElement>;
 
   return (
-    <Show below="md">
+    <Show breakpoint="(max-width: 767px)">
       <Flex gap={3} alignItems={"center"}>
         <Heading size={"md"}>Filters</Heading>
         <IconButton ref={btnRef} colorScheme="red" onClick={onOpen} icon={<BiFilterAlt />} aria-label={"Blank Drwawer"} />

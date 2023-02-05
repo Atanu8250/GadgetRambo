@@ -32,9 +32,9 @@ const Mobiles = ({ mobiles }: any) => {
             md: "center",
           }}
           alignItems={"flex-start"}
-          mx={4}
+          mx={1}
         >
-          <Show above="md">
+          <Show breakpoint="(min-width: 768px)">
             <MobileFilter />
           </Show>
           <ResponsiveMobileFilter />
