@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import style from "../../styles/Checkout.module.css";
 import RightSidebar from "@/components/RightSidebar";
 import {
@@ -20,13 +20,16 @@ import useToastMsg from "@/customHook/UseToastMsg";
 import Router from "next/router";
 import { auth } from "@/Backend/Firebase/firebase";
 
+
 const Checkout = () => {
 
   const toastmsg = useToastMsg();
   const [value, setValue] = React.useState("1");
+  const [firstName, setFirstName] = React.useState("")
+  const [address, setAddress] = React.useState("");
 
   useEffect(() => {
-    if(auth.currentUser === null){
+    if (auth.currentUser === null) {
       Router.replace("/");
       toastmsg({
         title: "Please Login first",
@@ -35,12 +38,20 @@ const Checkout = () => {
     }
   }, [])
 
-  const handlePayment =  () => {
+  const handlePayment = () => {
+
+    if (firstName === "" || address === "") {
+      toastmsg({
+        title: "Please fill all the required fields!",
+        status: "warning",
+      });
+    } else {
       toastmsg({
         title: "Payment Success",
         status: "success",
       });
       Router.replace("/");
+    }
   };
 
   return (
@@ -53,7 +64,9 @@ const Checkout = () => {
               <div style={{ display: "flex", gap: "3rem" }}>
                 <div>
                   <h1>First Name</h1>
-                  <Input placeholder="First Name" />
+                  <Input placeholder="First Name" value={firstName} onChange={(e) => {
+                    setFirstName(e.currentTarget.value)
+                  }} />
                 </div>
                 <div>
                   <h1>Second Name</h1>
@@ -70,7 +83,9 @@ const Checkout = () => {
               </div>
               <div>
                 <h1>Address</h1>
-                <Textarea placeholder="Address" />
+                <Textarea placeholder="Address" value={address} onChange={(e) => {
+                  setAddress(e.currentTarget.value)
+                }} />
               </div>
               <div style={{ display: "flex", gap: "3rem" }}>
                 <div>
@@ -134,7 +149,7 @@ const Checkout = () => {
                   </div>
                   <div style={{ width: "40%" }}>
                     <h1>CVV</h1>
-                    <PinInput>
+                    <PinInput type='alphanumeric' mask>
                       <PinInputField />
                       <PinInputField />
                       <PinInputField />
