@@ -1,33 +1,34 @@
-![logo](https://user-images.githubusercontent.com/112638599/213981790-9e5f4b43-da90-403e-b1ed-c0e122a02114.png)
+<img src="https://user-images.githubusercontent.com/112638599/213981790-9e5f4b43-da90-403e-b1ed-c0e122a02114.png" width="250px" />
+
+
 # GadgetRambo.com
 
-### Gadget rambo is a leading technology, news, reviews and ecommerce plateform related to tech gadgets. It is a clone of Gadget360.com.
-### This project was completed in 5 days with 5 team members
+### :nazar_amulet: It is a leading technology, news, reviews and ecommerce plateform which selles Tech-Gadgets of various types (Phones, Laptops, Televisions, etc.).
+### :snowflake: This project was completed in 5 days with 5 team members
 - Atanu Karamkar (team lead)
 - Sachin Mishra
 - Sayyed Sharuk
 - Rajkumar Pradhan
 - Sudipta Pramanik
 
-### We have used NextJS with Typescript and redux as frontend and Firebase as backend for this project and working on stripe for checkout process.
+### :large_blue_diamond: We have used NextJS with Typescript and redux as frontend and Firebase as backend for this project and working on stripe for checkout process.
 
-## Homepage
-![home](https://user-images.githubusercontent.com/112638599/213979464-b2926ec2-65d7-4a3b-9772-d18d3ad05637.jpg)
+## :small_blue_diamond: Homepage
+![Home](https://user-images.githubusercontent.com/112304655/218240822-01f3eda4-c05b-4aaa-8860-175cce5022d7.png)
 
-## Blog Page
-![blog](https://user-images.githubusercontent.com/112638599/213979530-4c8daa8f-021e-4fbf-9783-76ac1c032707.jpg)
+## :small_blue_diamond: Blog Page
+![blog](https://user-images.githubusercontent.com/112304655/218240851-cc2aab8b-8f3a-4503-b8e4-9331480b9271.png)
 
-## Products Page
-![products](https://user-images.githubusercontent.com/112638599/213979657-62376b31-cb5e-4c00-86e6-57775329b7b9.jpg)
+## :small_blue_diamond: Products Page
+![products](https://user-images.githubusercontent.com/112304655/218240867-91fa0b41-d3bf-4ef7-94fb-cc747a06de4b.png)
 
-## Cart Page
-![cart](https://user-images.githubusercontent.com/112638599/213979934-930018ab-6e76-4c7b-9f28-9bebfa7aefeb.jpg)
+## :small_blue_diamond: Cart Page
+![cart](https://user-images.githubusercontent.com/112304655/218240889-839324b5-df04-4243-8b01-692360457449.png)
 
+## :small_blue_diamond: Admin Site
+![admin](https://user-images.githubusercontent.com/112304655/218240899-261f879f-17b6-4aad-a7cf-4b13bfa969cf.png)
 
-## Admin Site
-![admin](https://user-images.githubusercontent.com/112638599/213979885-9f0b79bc-6bc3-44fd-85a3-3b4e724c708a.jpg)
-
-### Please feel free for any suggestions, questions or contributions. 
+### :chipmunk: Please feel free for any suggestions, questions or contributions. 
 ### Thank you 
 
 <!-- it's only for my portfolio
