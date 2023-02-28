@@ -11,16 +11,6 @@ const Mobiles = ({ mobiles }: any) => {
   const srcIpRef = useRef<HTMLInputElement>(null);
   const [loader, setLoader] = useState<number>(5);
 
-  // let searchValue = srcIpRef?.current?.value || "";
-
-  // const HandleSearch = () => {
-  //   let searchedData = mobiles.filter((el) => {
-  //     // return Object.values(el).find((str) => ("" + str).toLowerCase().includes(searchValue.toLowerCase()));
-  //     return Object.values(el);
-  //   });
-  //   setMobileData(searchedData);
-  // };
-
   return (
     <>
       <Flex direction={{ base: "column", sm: "column", md: "row" }} w={"100%"} p={"10"} justifyContent={"center"}>

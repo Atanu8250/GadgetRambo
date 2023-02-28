@@ -16,12 +16,11 @@ const Index = () => {
 
   const toastMsg = useToastMsg();
   const { cart } = useSelector((store: State) => store.cartManager);
-
   const dispatch = useDispatch();
 
   React.useEffect(() => {
     getCart(dispatch);
-    if(auth.currentUser === null){
+    if (auth.currentUser === null) {
       Router.replace("/");
       toastMsg({
         title: "Please Login first",
@@ -29,6 +28,17 @@ const Index = () => {
       })
     }
   }, []);
+
+  const goTocheckout = () => {
+    if (cart.length) {
+      Router.replace("/checkout")
+    } else {
+      toastMsg({
+        title: "Cart is empty for now.",
+        status: "warning"
+      })
+    }
+  }
 
   return (
     <div
@@ -73,9 +83,9 @@ const Index = () => {
             </div>
           </div>
           <div style={{ display: "flex", gap: "0.5rem" }}>
-            <Link href={"/checkout"}>
+            <span onClick={goTocheckout}>
               <button className={style.checkout}>Checkout</button>
-            </Link>
+            </span>
             <Link href="/">
               <button className={style.continue}>Continue Shopping</button>
             </Link>

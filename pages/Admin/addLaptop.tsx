@@ -99,32 +99,3 @@ const Index = () => {
 }
 
 export default Index
-
-
-
-
-// https://newsapi.org/v2/everything?q=tesla&from=2022-12-17&sortBy=publishedAt&apiKey=561ab479673942a5b176833291f18b05
-
-
-// bateryCapacity: 56
-// brand: "Honor"
-// colours: "Space Gray"
-// description: "Honor MagicBook X 14 is a Windows 10 Home laptop with a 14.00-inch display that has a resolution of 1920x1080 pixels. It is powered by a Core i3 processor and it comes with 8GB of RAM. The Honor MagicBook X 14 packs 256GB of SSD storage."
-// dimensions: "214.80 x 322.50 x 15.90"
-// hardDisk: "No"
-// image: "https://i.gadgets360cdn.com/products/large/Honor-magicbook-X-14-DB-800x800-1620394329.jpg?downsize=: 
-// model: "MagicBook X 14"
-// modelNumber: "MagicBook X 14"
-// name: "Honor MagicBook X 14"
-// numberOfUSBPorts: 2
-// os: "Windows 10 Home"
-// price: 55819
-// processor: "Intel Core i3 10th Gen"
-// ram: 8
-// releaseDate: "7th May 2021"
-// resolution: "1920x1080 pixels"
-// series: "MagicBook X"
-// size: "14.00-inch"
-// ssd: 256
-// weight: 1.38
-// wifi: "No"

@@ -1,4 +1,3 @@
-import { auth } from '@/Backend/Firebase/firebase';
 import * as authTypes from './auth.type';
 
 type reducerAction = {

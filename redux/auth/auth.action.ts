@@ -1,4 +1,3 @@
-import { auth } from "@/Backend/Firebase/firebase";
 import { authActionType, intrfcToastMsg } from "@/constants/constants";
 import { Dispatch } from "react";
 import { storeUser, updateUser } from "../users/users.action";
@@ -11,11 +10,16 @@ import * as authTypes from "./auth.type";
 
 // sign up with only email and password
 export const signupWithEmailAndPwd = (cred: { email: string, password: string }, toastMsg: ({ }: intrfcToastMsg) => void) => (dispatch: ({ type, payload }: authActionType) => void) => {
-    dispatch({ type: authTypes.AUTH_LOADING })
-    const email = cred.email;
-    const password = cred.password;
+    if (!cred.email || !cred.password) {
+        toastMsg({
+            title: "Please provide proper inputs!",
+            status: "warning"
+        })
+        return;
+    }
 
-    if (!email.includes("@") || !email.includes(".com")) {
+
+    if (!cred.email.includes("@") || !cred.email.includes(".com")) {
         toastMsg({
             title: "Please put correct email address",
             status: "warning"
@@ -23,13 +27,18 @@ export const signupWithEmailAndPwd = (cred: { email: string, password: string },
         return;
     }
 
-    if (password.length <= 7) {
+    if (cred.password.length <= 7) {
         toastMsg({
             title: "Please Enter longer password than 6",
             status: "warning"
         })
         return;
     }
+
+
+    dispatch({ type: authTypes.AUTH_LOADING })
+    const email = cred.email;
+    const password = cred.password;
 
     SignupWithEmailAndPwdAPI(email, password)
         .then((res) => {
@@ -90,6 +99,14 @@ export const googleAuth = (toastMsg: ({ }: intrfcToastMsg) => void) => (dispatch
 
 // Login with only email and password
 export const login = (cred: { email: string, password: string }, toastMsg: ({ }: intrfcToastMsg) => void) => (dispatch: Dispatch<any>) => {
+
+    if (!cred.email || !cred.password) {
+        toastMsg({
+            title: "Please fill the all the details properly!",
+            status: 'warning'
+        })
+        return;
+    }
 
     dispatch({ type: authTypes.AUTH_LOADING })
     const email = cred.email;

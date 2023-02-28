@@ -26,7 +26,15 @@ const Checkout = () => {
   const toastmsg = useToastMsg();
   const [value, setValue] = React.useState("1");
   const [firstName, setFirstName] = React.useState("")
+  const [secondName, setSecondName] = React.useState("")
+  const [email, setEmail] = React.useState("");
+  const [mobile, setMobile] = React.useState("");
+  const [city, setCity] = React.useState("");
+  const [cardNumber, setCardNumber] = React.useState("");
+  const [cardName, setCardName] = React.useState("");
   const [address, setAddress] = React.useState("");
+  const [zip, setZip] = React.useState("");
+  const [cvv, setCvv] = React.useState("");
 
   useEffect(() => {
     if (auth.currentUser === null) {
@@ -40,7 +48,7 @@ const Checkout = () => {
 
   const handlePayment = () => {
 
-    if (firstName === "" || address === "") {
+    if (firstName === "" || address === "" || secondName === "" || email === "" || mobile === "" || city === "" || cardName === "" || cardNumber === "" || zip.length !== 6 || cvv.length !== 3) {
       toastmsg({
         title: "Please fill all the required fields!",
         status: "warning",
@@ -70,16 +78,22 @@ const Checkout = () => {
                 </div>
                 <div>
                   <h1>Second Name</h1>
-                  <Input placeholder="Second Name" />
+                  <Input placeholder="Second Name" value={secondName} onChange={(e) => {
+                    setSecondName(e.currentTarget.value)
+                  }} />
                 </div>
               </div>
               <div>
                 <h1>Email</h1>
-                <Input placeholder="Email" />
+                <Input placeholder="Email" value={email} onChange={(e) => {
+                  setEmail(e.currentTarget.value)
+                }} />
               </div>
               <div>
                 <h1>Phone Number</h1>
-                <Input placeholder="Phone Number" />
+                <Input placeholder="Phone Number" value={mobile} onChange={(e) => {
+                  setMobile(e.currentTarget.value)
+                }} />
               </div>
               <div>
                 <h1>Address</h1>
@@ -90,7 +104,9 @@ const Checkout = () => {
               <div style={{ display: "flex", gap: "3rem" }}>
                 <div>
                   <h1>Zip Code</h1>
-                  <PinInput>
+                  <PinInput onChange={(e) => {
+                    setZip(e)
+                  }}>
                     <PinInputField />
                     <PinInputField />
                     <PinInputField />
@@ -101,7 +117,9 @@ const Checkout = () => {
                 </div>
                 <div>
                   <h1>City</h1>
-                  <Input placeholder="City" />
+                  <Input placeholder="City" value={city} onChange={(e) => {
+                    setCity(e.currentTarget.value)
+                  }} />
                 </div>
               </div>
             </div>
@@ -128,11 +146,15 @@ const Checkout = () => {
                 </div>
                 <div>
                   <h1>Card Number</h1>
-                  <Input placeholder="0000 0000 0000 0000" />
+                  <Input placeholder="0000 0000 0000 0000" value={cardNumber} onChange={(e) => {
+                    setCardNumber(e.currentTarget.value)
+                  }} />
                 </div>
                 <div>
                   <h1>Cardholder Name</h1>
-                  <Input placeholder="Name" />
+                  <Input placeholder="Name" value={cardName} onChange={(e) => {
+                    setCardName(e.currentTarget.value)
+                  }} />
                 </div>
                 <div
                   style={{ display: "flex", justifyContent: "space-between" }}
@@ -149,7 +171,9 @@ const Checkout = () => {
                   </div>
                   <div style={{ width: "40%" }}>
                     <h1>CVV</h1>
-                    <PinInput type='alphanumeric' mask>
+                    <PinInput type='alphanumeric' mask onChange={(e) => {
+                      setCvv(e)
+                    }}>
                       <PinInputField />
                       <PinInputField />
                       <PinInputField />

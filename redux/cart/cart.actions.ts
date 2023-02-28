@@ -11,7 +11,6 @@ export const getCart = async (dispatch: Dispatch) => {
     payload: cartItems,
   });
 };
-// , toastMsg:({}:intrfcToastMsg)=>void
 
 export const addCart = async (
   cartItems: any,
