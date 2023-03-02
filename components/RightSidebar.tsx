@@ -24,7 +24,6 @@ const RightSidebar = () => {
       ? window.location.origin
       : "";
 
-
   return (
     <div className={styles.container}>
       {/* newsletter section  */}
