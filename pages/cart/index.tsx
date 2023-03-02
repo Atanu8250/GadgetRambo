@@ -1,4 +1,3 @@
-import { async } from "@firebase/util";
 import React from "react";
 import style from "../../styles/Cart.module.css";
 import CartItem from "@/components/CartItem";
@@ -13,32 +12,24 @@ import Router from "next/router";
 import useToastMsg from "@/customHook/UseToastMsg";
 
 const Index = () => {
-
   const toastMsg = useToastMsg();
   const { cart } = useSelector((store: State) => store.cartManager);
   const dispatch = useDispatch();
 
   React.useEffect(() => {
     getCart(dispatch);
-    if (auth.currentUser === null) {
-      Router.replace("/");
-      toastMsg({
-        title: "Please Login first",
-        status: "warning"
-      })
-    }
   }, []);
 
   const goTocheckout = () => {
     if (cart.length) {
-      Router.replace("/checkout")
+      Router.replace("/checkout");
     } else {
       toastMsg({
-        title: "Cart is empty for now.",
-        status: "warning"
-      })
+        title: "Cart is empty! Please add some items.",
+        status: "warning",
+      });
     }
-  }
+  };
 
   return (
     <div

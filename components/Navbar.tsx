@@ -14,7 +14,7 @@ import NavbarDrawer from "../components/NavbarDrawer";
 import { useDispatch, useSelector } from "react-redux";
 import { logout, setShowAdminPanel } from "@/redux/auth/auth.action";
 import { Menu, MenuButton, MenuList, MenuItem, Avatar } from "@chakra-ui/react";
-
+import { auth } from "@/Backend/Firebase/firebase";
 import Login from "./Login";
 import Signup from "./Signup";
 import Router from "next/router";
@@ -28,11 +28,24 @@ const Navbar = () => {
 
   const { user }: any = useSelector((store: State) => store.authManager);
   const dispatch: Dispatch<any> = useDispatch();
-  const { showAdminPanel }: { showAdminPanel: boolean } = useSelector((store: State) => store.authManager);
+  const { showAdminPanel }: { showAdminPanel: boolean } = useSelector(
+    (store: State) => store.authManager
+  );
   const toastMsg = useToastMsg();
 
   const handleLogout = () => {
     dispatch(logout(toastMsg));
+  };
+
+  const handleCartVerify = () => {
+    if (auth.currentUser === null) {
+      toastMsg({
+        title: "Please Login first",
+        status: "warning",
+      });
+    } else {
+      Router.replace("/cart");
+    }
   };
 
   const navbarOne = [
@@ -414,7 +427,8 @@ const Navbar = () => {
   };
 
   // WASHING MACHINE
-  const [focuswashingmashine, setWashingMashine] = React.useState<boolean>(false);
+  const [focuswashingmashine, setWashingMashine] =
+    React.useState<boolean>(false);
   const handleWashingMashine = () => {
     handleFuse();
     setWashingMashine(true);
@@ -454,8 +468,10 @@ const Navbar = () => {
     <div>
       <div className={style.marquee}>
         <Marquee>
-          NDTV Business Hindi Movies Cricket Health Food Crypto Tech Webstories Education Swasth Lifestyle Shopping Auto Apps Art NDTV Business Hindi Movies Cricket Health Food
-          Crypto Tech Webstories Education Swasth Lifestyle Shopping Auto Apps Art
+          NDTV Business Hindi Movies Cricket Health Food Crypto Tech Webstories
+          Education Swasth Lifestyle Shopping Auto Apps Art NDTV Business Hindi
+          Movies Cricket Health Food Crypto Tech Webstories Education Swasth
+          Lifestyle Shopping Auto Apps Art
         </Marquee>
       </div>
       <div className={style.main}>
@@ -473,7 +489,13 @@ const Navbar = () => {
             {user.uid ? (
               <div className={style.personData}>
                 <div className={style.avatar} title={user.email || ""}>
-                  <Avatar size="sm" src={user.photoURL || "https://static.vecteezy.com/system/resources/thumbnails/000/439/863/small/Basic_Ui__28186_29.jpg"} />
+                  <Avatar
+                    size="sm"
+                    src={
+                      user.photoURL ||
+                      "https://static.vecteezy.com/system/resources/thumbnails/000/439/863/small/Basic_Ui__28186_29.jpg"
+                    }
+                  />
 
                   <div className={style.avName}>
                     <p>{user.displayName || "User"}</p>
@@ -504,9 +526,9 @@ const Navbar = () => {
               </div>
             )}
             <div className={style.cart}>
-              <Link href="/cart">
+              <button onClick={handleCartVerify}>
                 <Icon as={HiShoppingCart} boxSize={8} />
-              </Link>
+              </button>
             </div>
           </div>
         </div>
@@ -529,7 +551,9 @@ const Navbar = () => {
                     >
                       {el.title}
                     </MenuButton>
-                    <MenuList style={{ display: "flex", flexDirection: "column" }}>
+                    <MenuList
+                      style={{ display: "flex", flexDirection: "column" }}
+                    >
                       <Box>
                         {el.dropData1.map((el2, id2) => {
                           return <MenuItem key={id2}>{el2.title}</MenuItem>;
@@ -544,7 +568,14 @@ const Navbar = () => {
                   </Menu>
                 ) : (
                   <Link key={id} href={el.link}>
-                    <Button _active={{ borderBottom: "4px solid red" }} borderRadius={"0px"} p={{ base: 1, xl: 2, "2xl": 4 }} fontSize={"sm"} color={"black"} colorScheme={"white"}>
+                    <Button
+                      _active={{ borderBottom: "4px solid red" }}
+                      borderRadius={"0px"}
+                      p={{ base: 1, xl: 2, "2xl": 4 }}
+                      fontSize={"sm"}
+                      color={"black"}
+                      colorScheme={"white"}
+                    >
                       {el.title}
                     </Button>
                   </Link>
