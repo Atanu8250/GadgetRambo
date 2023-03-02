@@ -65,7 +65,7 @@ const Mobiles = ({ mobiles }: any) => {
 export default Mobiles;
 
 export const getStaticProps = async () => {
-  const mobiles = await getMobileAPI(10);
+  const mobiles = await getMobileAPI(80);
   return {
     props: {
       mobiles,

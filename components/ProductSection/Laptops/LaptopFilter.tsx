@@ -27,7 +27,13 @@ const LaptopFilter = () => {
   const [range, setRange] = useState<number>(198000);
   return (
     <Flex direction={"column"} p={"1"} w={"248px"} bgColor={"#DDDDDD"}>
-      <Flex bgColor={"white"} mb={"5"} borderRadius={"8"} justifyContent={"space-evenly"} alignItems={"center"}>
+      <Flex
+        bgColor={"white"}
+        mb={"5"}
+        borderRadius={"8"}
+        justifyContent={"space-evenly"}
+        alignItems={"center"}
+      >
         {/* Top Heading */}
         <Text>Filters</Text>
         <Button borderRadius={"4"} bgColor={"#FFFFFFFF"} _hover={{}}>
@@ -46,17 +52,10 @@ const LaptopFilter = () => {
           </AccordionButton>
 
           <AccordionPanel pb={4}>
-            <Text fontSize={"sm"}>{"₹ " + range + " /-"}</Text>
-            <Slider aria-label="slider-ex-1" defaultValue={198000} onChangeEnd={(val) => setRange(val * 1980)}>
-              <SliderTrack>
-                <SliderFilledTrack />
-              </SliderTrack>
-              <SliderThumb />
-            </Slider>
-
-            <Button color={"white"} mt={2} w={"100%"} bgColor={"red"} _hover={{}}>
-              Go
-            </Button>
+            <Flex direction={"column"}>
+              <Checkbox value="">Low to High</Checkbox>
+              <Checkbox value="">High to Low</Checkbox>
+            </Flex>
           </AccordionPanel>
         </AccordionItem>
         {/* By Brand */}
@@ -70,8 +69,19 @@ const LaptopFilter = () => {
 
           <AccordionPanel pb={4}>
             <Flex>
-              <Input fontSize={"xs"} borderRadius={"0px"} placeholder="Search by Brand" />
-              <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<BsSearch />} />
+              <Input
+                fontSize={"xs"}
+                borderRadius={"0px"}
+                placeholder="Search by Brand"
+              />
+              <IconButton
+                aria-label="SearchByBrand"
+                borderRadius={"0px"}
+                _hover={{}}
+                color={"white"}
+                bgColor={"red"}
+                icon={<BsSearch />}
+              />
             </Flex>
             <Flex direction={"column"}>
               <Checkbox value="samsung">Asus</Checkbox>
@@ -94,8 +104,19 @@ const LaptopFilter = () => {
 
           <AccordionPanel pb={4}>
             <Flex>
-              <Input fontSize={"xs"} borderRadius={"0px"} placeholder="Search by Ram" />
-              <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<BsSearch />} />
+              <Input
+                fontSize={"xs"}
+                borderRadius={"0px"}
+                placeholder="Search by Ram"
+              />
+              <IconButton
+                aria-label="SearchByBrand"
+                borderRadius={"0px"}
+                _hover={{}}
+                color={"white"}
+                bgColor={"red"}
+                icon={<BsSearch />}
+              />
             </Flex>
             <Flex direction={"column"}>
               <Checkbox value="11">11 inches & Below</Checkbox>
@@ -117,8 +138,19 @@ const LaptopFilter = () => {
 
           <AccordionPanel pb={4}>
             <Flex>
-              <Input fontSize={"xs"} borderRadius={"0px"} placeholder="Search by Ram" />
-              <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<BsSearch />} />
+              <Input
+                fontSize={"xs"}
+                borderRadius={"0px"}
+                placeholder="Search by Ram"
+              />
+              <IconButton
+                aria-label="SearchByBrand"
+                borderRadius={"0px"}
+                _hover={{}}
+                color={"white"}
+                bgColor={"red"}
+                icon={<BsSearch />}
+              />
             </Flex>
             <Flex direction={"column"}>
               <Checkbox value="hd">HD</Checkbox>
@@ -138,8 +170,19 @@ const LaptopFilter = () => {
 
           <AccordionPanel pb={4}>
             <Flex>
-              <Input fontSize={"xs"} borderRadius={"0px"} placeholder="Search by Ram" />
-              <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<BsSearch />} />
+              <Input
+                fontSize={"xs"}
+                borderRadius={"0px"}
+                placeholder="Search by Ram"
+              />
+              <IconButton
+                aria-label="SearchByBrand"
+                borderRadius={"0px"}
+                _hover={{}}
+                color={"white"}
+                bgColor={"red"}
+                icon={<BsSearch />}
+              />
             </Flex>
             <Flex direction={"column"}>
               <Checkbox value="intel"> Intel</Checkbox>
@@ -161,8 +204,19 @@ const LaptopFilter = () => {
 
           <AccordionPanel pb={4}>
             <Flex>
-              <Input fontSize={"xs"} borderRadius={"0px"} placeholder="Search by Ram" />
-              <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<BsSearch />} />
+              <Input
+                fontSize={"xs"}
+                borderRadius={"0px"}
+                placeholder="Search by Ram"
+              />
+              <IconButton
+                aria-label="SearchByBrand"
+                borderRadius={"0px"}
+                _hover={{}}
+                color={"white"}
+                bgColor={"red"}
+                icon={<BsSearch />}
+              />
             </Flex>
             <Flex direction={"column"}>
               <Checkbox value="1.5"> 1.5 Ghz & Below</Checkbox>
@@ -183,8 +237,19 @@ const LaptopFilter = () => {
 
           <AccordionPanel pb={4}>
             <Flex>
-              <Input fontSize={"xs"} borderRadius={"0px"} placeholder="Search by Ram" />
-              <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<BsSearch />} />
+              <Input
+                fontSize={"xs"}
+                borderRadius={"0px"}
+                placeholder="Search by Ram"
+              />
+              <IconButton
+                aria-label="SearchByBrand"
+                borderRadius={"0px"}
+                _hover={{}}
+                color={"white"}
+                bgColor={"red"}
+                icon={<BsSearch />}
+              />
             </Flex>
             <Flex direction={"column"}>
               <Checkbox value="2">2 GB & Below</Checkbox>
@@ -206,8 +271,19 @@ const LaptopFilter = () => {
 
           <AccordionPanel pb={4}>
             <Flex>
-              <Input fontSize={"xs"} borderRadius={"0px"} placeholder="Search by Ram" />
-              <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<BsSearch />} />
+              <Input
+                fontSize={"xs"}
+                borderRadius={"0px"}
+                placeholder="Search by Ram"
+              />
+              <IconButton
+                aria-label="SearchByBrand"
+                borderRadius={"0px"}
+                _hover={{}}
+                color={"white"}
+                bgColor={"red"}
+                icon={<BsSearch />}
+              />
             </Flex>
             <Flex direction={"column"}>
               <Checkbox value="hdd">HDD</Checkbox>
@@ -229,8 +305,19 @@ const LaptopFilter = () => {
 
           <AccordionPanel pb={4}>
             <Flex>
-              <Input fontSize={"xs"} borderRadius={"0px"} placeholder="Search by Ram" />
-              <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<BsSearch />} />
+              <Input
+                fontSize={"xs"}
+                borderRadius={"0px"}
+                placeholder="Search by Ram"
+              />
+              <IconButton
+                aria-label="SearchByBrand"
+                borderRadius={"0px"}
+                _hover={{}}
+                color={"white"}
+                bgColor={"red"}
+                icon={<BsSearch />}
+              />
             </Flex>
             <Flex direction={"column"}>
               <Checkbox value="w10">Windows 10</Checkbox>
@@ -252,8 +339,19 @@ const LaptopFilter = () => {
 
           <AccordionPanel pb={4}>
             <Flex>
-              <Input fontSize={"xs"} borderRadius={"0px"} placeholder="Search by Ram" />
-              <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<BsSearch />} />
+              <Input
+                fontSize={"xs"}
+                borderRadius={"0px"}
+                placeholder="Search by Ram"
+              />
+              <IconButton
+                aria-label="SearchByBrand"
+                borderRadius={"0px"}
+                _hover={{}}
+                color={"white"}
+                bgColor={"red"}
+                icon={<BsSearch />}
+              />
             </Flex>
             <Flex direction={"column"}>
               <Checkbox value="1">1</Checkbox>

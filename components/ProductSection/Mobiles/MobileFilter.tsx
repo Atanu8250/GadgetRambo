@@ -26,7 +26,13 @@ const MobileFilter = () => {
   const [range, setRange] = useState<number>(198000);
   return (
     <Flex direction={"column"} p={"1"} w={"248px"} bgColor={"#DDDDDD"}>
-      <Flex bgColor={"white"} mb={"5"} borderRadius={"8"} justifyContent={"space-evenly"} alignItems={"center"}>
+      <Flex
+        bgColor={"white"}
+        mb={"5"}
+        borderRadius={"8"}
+        justifyContent={"space-evenly"}
+        alignItems={"center"}
+      >
         {/* Top Heading */}
         <Text>Filters</Text>
         <Button borderRadius={"4"} bgColor={"#FFFFFFFF"} _hover={{}}>
@@ -34,7 +40,7 @@ const MobileFilter = () => {
           <MdRestartAlt />
         </Button>
       </Flex>
-      <Accordion defaultIndex={[0, 1, 2, 3, 4]} allowMultiple>
+      <Accordion defaultIndex={[0, 1, 2, 3, 4]} allowMultiple >
         {/* By Price */}
         <AccordionItem bgColor={"white"}>
           <AccordionButton>
@@ -45,17 +51,10 @@ const MobileFilter = () => {
           </AccordionButton>
 
           <AccordionPanel pb={4}>
-            <Text fontSize={"sm"}>{"₹ " + range + " /-"}</Text>
-            <Slider aria-label="slider-ex-1" defaultValue={198000} onChangeEnd={(val) => setRange(val * 1980)}>
-              <SliderTrack>
-                <SliderFilledTrack />
-              </SliderTrack>
-              <SliderThumb />
-            </Slider>
-
-            <Button color={"white"} mt={2} w={"100%"} bgColor={"red"} _hover={{}}>
-              Go
-            </Button>
+            <Flex direction={"column"}>
+              <Checkbox value="">Low to High</Checkbox>
+              <Checkbox value="">High to Low</Checkbox>
+            </Flex>
           </AccordionPanel>
         </AccordionItem>
         {/* By Brand */}
@@ -69,8 +68,19 @@ const MobileFilter = () => {
 
           <AccordionPanel pb={4}>
             <Flex>
-              <Input fontSize={"xs"} borderRadius={"0px"} placeholder="Search by Brand" />
-              <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<BsSearch />} />
+              <Input
+                fontSize={"xs"}
+                borderRadius={"0px"}
+                placeholder="Search by Brand"
+              />
+              <IconButton
+                aria-label="SearchByBrand"
+                borderRadius={"0px"}
+                _hover={{}}
+                color={"white"}
+                bgColor={"red"}
+                icon={<BsSearch />}
+              />
             </Flex>
             <Flex direction={"column"}>
               <Checkbox value="samsung">Samsung</Checkbox>
@@ -93,8 +103,19 @@ const MobileFilter = () => {
 
           <AccordionPanel pb={4}>
             <Flex>
-              <Input fontSize={"xs"} borderRadius={"0px"} placeholder="Search by Ram" />
-              <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<BsSearch />} />
+              <Input
+                fontSize={"xs"}
+                borderRadius={"0px"}
+                placeholder="Search by Ram"
+              />
+              <IconButton
+                aria-label="SearchByBrand"
+                borderRadius={"0px"}
+                _hover={{}}
+                color={"white"}
+                bgColor={"red"}
+                icon={<BsSearch />}
+              />
             </Flex>
             <Flex direction={"column"}>
               <Checkbox value="6">6 inches & Above</Checkbox>
@@ -116,8 +137,19 @@ const MobileFilter = () => {
 
           <AccordionPanel pb={4}>
             <Flex>
-              <Input fontSize={"xs"} borderRadius={"0px"} placeholder="Search by Ram" />
-              <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<BsSearch />} />
+              <Input
+                fontSize={"xs"}
+                borderRadius={"0px"}
+                placeholder="Search by Ram"
+              />
+              <IconButton
+                aria-label="SearchByBrand"
+                borderRadius={"0px"}
+                _hover={{}}
+                color={"white"}
+                bgColor={"red"}
+                icon={<BsSearch />}
+              />
             </Flex>
             <Flex direction={"column"}>
               <Checkbox value="single">Single Camera</Checkbox>
@@ -139,8 +171,19 @@ const MobileFilter = () => {
 
           <AccordionPanel pb={4}>
             <Flex>
-              <Input fontSize={"xs"} borderRadius={"0px"} placeholder="Search by Ram" />
-              <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<BsSearch />} />
+              <Input
+                fontSize={"xs"}
+                borderRadius={"0px"}
+                placeholder="Search by Ram"
+              />
+              <IconButton
+                aria-label="SearchByBrand"
+                borderRadius={"0px"}
+                _hover={{}}
+                color={"white"}
+                bgColor={"red"}
+                icon={<BsSearch />}
+              />
             </Flex>
             <Flex direction={"column"}>
               <Checkbox value="21"> 21 MP & Above</Checkbox>
@@ -162,8 +205,19 @@ const MobileFilter = () => {
 
           <AccordionPanel pb={4}>
             <Flex>
-              <Input fontSize={"xs"} borderRadius={"0px"} placeholder="Search by Ram" />
-              <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<BsSearch />} />
+              <Input
+                fontSize={"xs"}
+                borderRadius={"0px"}
+                placeholder="Search by Ram"
+              />
+              <IconButton
+                aria-label="SearchByBrand"
+                borderRadius={"0px"}
+                _hover={{}}
+                color={"white"}
+                bgColor={"red"}
+                icon={<BsSearch />}
+              />
             </Flex>
             <Flex direction={"column"}>
               <Checkbox value="21"> 21 MP & Above</Checkbox>
@@ -185,8 +239,19 @@ const MobileFilter = () => {
 
           <AccordionPanel pb={4}>
             <Flex>
-              <Input fontSize={"xs"} borderRadius={"0px"} placeholder="Search by Ram" />
-              <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<BsSearch />} />
+              <Input
+                fontSize={"xs"}
+                borderRadius={"0px"}
+                placeholder="Search by Ram"
+              />
+              <IconButton
+                aria-label="SearchByBrand"
+                borderRadius={"0px"}
+                _hover={{}}
+                color={"white"}
+                bgColor={"red"}
+                icon={<BsSearch />}
+              />
             </Flex>
             <Flex direction={"column"}>
               <Checkbox value="8">8 GB & Above</Checkbox>
@@ -208,8 +273,19 @@ const MobileFilter = () => {
 
           <AccordionPanel pb={4}>
             <Flex>
-              <Input fontSize={"xs"} borderRadius={"0px"} placeholder="Search by Ram" />
-              <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<BsSearch />} />
+              <Input
+                fontSize={"xs"}
+                borderRadius={"0px"}
+                placeholder="Search by Ram"
+              />
+              <IconButton
+                aria-label="SearchByBrand"
+                borderRadius={"0px"}
+                _hover={{}}
+                color={"white"}
+                bgColor={"red"}
+                icon={<BsSearch />}
+              />
             </Flex>
             <Flex direction={"column"}>
               <Checkbox value="256">256 GB & Above</Checkbox>
@@ -231,8 +307,19 @@ const MobileFilter = () => {
 
           <AccordionPanel pb={4}>
             <Flex>
-              <Input fontSize={"xs"} borderRadius={"0px"} placeholder="Search by Ram" />
-              <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<BsSearch />} />
+              <Input
+                fontSize={"xs"}
+                borderRadius={"0px"}
+                placeholder="Search by Ram"
+              />
+              <IconButton
+                aria-label="SearchByBrand"
+                borderRadius={"0px"}
+                _hover={{}}
+                color={"white"}
+                bgColor={"red"}
+                icon={<BsSearch />}
+              />
             </Flex>
             <Flex direction={"column"}>
               <Checkbox value="exp">Expandable Storage</Checkbox>
@@ -252,8 +339,19 @@ const MobileFilter = () => {
 
           <AccordionPanel pb={4}>
             <Flex>
-              <Input fontSize={"xs"} borderRadius={"0px"} placeholder="Search by Ram" />
-              <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<BsSearch />} />
+              <Input
+                fontSize={"xs"}
+                borderRadius={"0px"}
+                placeholder="Search by Ram"
+              />
+              <IconButton
+                aria-label="SearchByBrand"
+                borderRadius={"0px"}
+                _hover={{}}
+                color={"white"}
+                bgColor={"red"}
+                icon={<BsSearch />}
+              />
             </Flex>
             <Flex direction={"column"}>
               <Checkbox value="5000">5000 - 5999mAh</Checkbox>

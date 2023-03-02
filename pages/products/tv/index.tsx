@@ -55,7 +55,7 @@ const Television = ({ televisons }: any) => {
 export default Television;
 
 export const getStaticProps = async () => {
-  const televisons = await getTvAPI(10);
+  const televisons = await getTvAPI(80);
   return {
     props: {
       televisons,
