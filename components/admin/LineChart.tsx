@@ -61,8 +61,7 @@ export default class LineChartCompo extends PureComponent {
 
   render() {
     return (
-      <ResponsiveContainer width="100%" height="100%">
-        <LineChart width={500} height={300} data={data}>
+        <LineChart width={300} height={300} data={data}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" padding={{ left: 30, right: 30 }} />
           <YAxis />
@@ -71,7 +70,6 @@ export default class LineChartCompo extends PureComponent {
           <Line type="monotone" dataKey="active_users" stroke="#8884d8" activeDot={{ r: 8 }} />
           <Line type="monotone" dataKey="revenue" stroke="#82ca9d" />
         </LineChart>
-      </ResponsiveContainer>
     );
   }
 }

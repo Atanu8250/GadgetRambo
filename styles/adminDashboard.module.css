@@ -4,9 +4,7 @@
 
 /* overview cards */
 .dashboard>div:nth-child(1) {
-    /* border: 2px solid blue; */
-    width: 100%;
-    justify-content: space-around;
+    
 }
 
 
@@ -65,48 +63,48 @@
 
 /* chart section */
 .dashboard>div:nth-child(2) {
-    height: 500px;
+    /* height: 500px;
     margin-top: 15px;
-    /* border: 2px solid red; */
-    justify-content: space-between;
+    /* border: 2px solid red; 
+    justify-content: space-between; */
 }
 
 .dashboard>div:nth-child(2)>div>h2 {
-    text-align: center;
+    /* text-align: center; */
 }
 
 
 /* line chart */
 .dashboard>div:nth-child(2)>div:nth-child(1) {
-    flex-direction: column;
+    /* flex-direction: column;
     width: 65%;
-    height: 100%;
+    height: 100%; */
     /* border: 1px solid red; */
 }
 
 /* heading */
 .dashboard>div:nth-child(2)>div>h2{
-    font-size: 22px;
-    font-weight: bold;
+    /* font-size: 22px;
+    font-weight: bold; */
 }
 
 .dashboard>div:nth-child(2)>div:nth-child(1)>div {
-    height: 100%;
-    width: 100%;
+    /* height: 100%;
+    width: 100%; */
 }
 
 /* pie chart */
 .dashboard>div:nth-child(2)>div:nth-child(2) {
-    flex-direction: column;
+    /* flex-direction: column;
     width: 35%;
     height: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     /* border: 1px solid red; */
 }
 
 .dashboard>div:nth-child(2)>div:nth-child(2)>div {
-    height: 100%;
-    width: 100%;
+    /* height: 100%;
+    width: 100%; */
 }
