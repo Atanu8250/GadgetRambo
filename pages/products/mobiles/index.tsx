@@ -29,13 +29,12 @@ const Mobiles = ({ mobiles }: any) => {
           </Show>
           <ResponsiveMobileFilter />
         </Flex>
-        <Flex mx={4} flex={2} direction={"column"} alignItems={"center"}>
+        <Flex mx={4} flex={3} direction={"column"} alignItems={"center"}>
           {/* Search Functionality */}
           <Flex>
             <Input ref={srcIpRef} w={{ base: "300px", sm: "380px" }} variant="flushed" type={"text"} placeholder={"Search Here"} />
             <IconButton
               aria-label="xyz"
-              // onClick={() => HandleSearch()}
               borderRadius={"0px"}
               _hover={{}}
               color={"white"}
@@ -54,7 +53,7 @@ const Mobiles = ({ mobiles }: any) => {
           </Button>
         </Flex>
         <Show above="xl">
-          <Flex mx={4} flex={2} justifyContent={"center"}>
+          <Flex mx={4} flex={1.2} justifyContent={"center"}>
             <RightSidebar />
           </Flex>
         </Show>

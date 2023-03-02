@@ -18,9 +18,16 @@ const RightSidebar = () => {
     getMobile(dispatch, 43);
   }, []);
 
+
+  const origin =
+    typeof window !== "undefined" && window.location.origin
+      ? window.location.origin
+      : "";
+
+
   return (
     <div className={styles.container}>
-      {/* newletter section  */}
+      {/* newsletter section  */}
       <div className={styles.newsLetterBox}>
         <input type="text" placeholder="Enter email for our newsletter" />
         <button style={{ backgroundColor: "var(--color-primary)" }}>Subscribe</button>
@@ -47,7 +54,10 @@ const RightSidebar = () => {
               {mobiles.map((el: any, i: number) => {
                 if (i <= 20) {
                   return (
-                    <Link href={`products/mobiles/${el.id}`} key={el.id}>
+                    <Link
+                      href={`${origin}/products/mobiles/${el.id}`}
+                      key={el.id}
+                    >
                       <p>{el.modal}</p>
                     </Link>
                   );
@@ -61,7 +71,10 @@ const RightSidebar = () => {
               {mobiles.map((el: any, i: number) => {
                 if (i > 20) {
                   return (
-                    <Link href={`products/mobiles/${el.id}`} key={el.id}>
+                    <Link
+                      href={`${origin}/products/mobiles/${el.id}`}
+                      key={el.id}
+                    >
                       <p>{el.modal}</p>
                     </Link>
                   );
@@ -78,8 +91,12 @@ const RightSidebar = () => {
           {news.map((el: any, i: number) => {
             if (i > 11) {
               return (
-                <Link href={`blogs/${el.id}`} key={el.id}>
-                  <NewsCard title={el.title} titleSize={"15px"} banner={el.banner} />
+                <Link href={`${origin}/blogs/${el.id}`} key={el.id}>
+                  <NewsCard
+                    title={el.title}
+                    titleSize={"15px"}
+                    banner={el.banner}
+                  />
                 </Link>
               );
             }

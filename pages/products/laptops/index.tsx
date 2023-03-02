@@ -20,14 +20,14 @@ const Laptops = ({ laptops }: any) => {
             md: "center",
           }}
           alignItems={"flex-start"}
-          mx={4}
+          mx={1}
         >
           <Show above="md">
             <LaptopFilter />
           </Show>
           <ResponsiveLaptopFilter />
         </Flex>
-        <Flex flex={2} mx={4} direction={"column"} alignItems={"center"}>
+        <Flex flex={3} mx={4} direction={"column"} alignItems={"center"}>
           <Flex>
             <Input w={{ base: "300px", sm: "380px" }} variant="flushed" type={"text"} placeholder={"Search Here"} />
             <IconButton
@@ -50,7 +50,7 @@ const Laptops = ({ laptops }: any) => {
           </Button>
         </Flex>
         <Show above="xl">
-          <Flex mx={4} flex={2} justifyContent={"center"}>
+          <Flex mx={4} flex={1.2} justifyContent={"center"}>
             <RightSidebar />
           </Flex>
         </Show>

@@ -4,9 +4,8 @@ import Image from "next/image";
 import { Dispatch } from "redux";
 import Marquee from "react-fast-marquee";
 import useAuth from "@/customHook/UseAuth";
-import { Box, Divider, Flex, Show } from "@chakra-ui/react";
+import { Box, Flex, Show } from "@chakra-ui/react";
 import style from "../styles/Navbar.module.css";
-import { IoIosArrowDown } from "react-icons/io";
 import { HiShoppingCart } from "react-icons/hi";
 import { Icon, Button } from "@chakra-ui/react";
 import useToastMsg from "@/customHook/UseToastMsg";
@@ -517,7 +516,7 @@ const Navbar = () => {
             <Flex bgColor={"white"} justifyContent={"center"}>
               {navbarOne.map((el, id) => {
                 return el.dropData1 && el.dropData2 ? (
-                  <Menu>
+                  <Menu key={id}>
                     <MenuButton
                       p={{ base: 1, xl: 2, "2xl": 4 }}
                       borderRadius={"0px"}
