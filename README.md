@@ -9,7 +9,6 @@
 - Sachin Mishra
 - Sayyed Sharuk
 - Rajkumar Pradhan
-- Sudipta Pramanik
 
 ### :large_blue_diamond: We have used NextJS with Typescript and redux as frontend and Firebase as backend for this project and working on stripe for checkout process.
 
