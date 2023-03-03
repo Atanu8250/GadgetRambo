@@ -116,6 +116,7 @@
 .graph{
     display: flex;
 }
+
 @media only screen and (max-width: 1706px) {
     .graph{
         flex-direction:column-reverse;
