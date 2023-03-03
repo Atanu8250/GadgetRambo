@@ -12,28 +12,51 @@ import NewsCard from "./newsCard";
 const RightSidebar = () => {
   const { news } = useSelector((store: State) => store.newsManager);
   const { mobiles } = useSelector((store: State) => store.productsManager);
+
   const dispatch = useDispatch();
   useEffect(() => {
     getNews(dispatch, 15);
     getMobile(dispatch, 43);
   }, []);
 
+  const origin =
+    typeof window !== "undefined" && window.location.origin
+      ? window.location.origin
+      : "";
+
   return (
     <div className={styles.container}>
-      {/* newletter section  */}
+      {/* newsletter section  */}
       <div className={styles.newsLetterBox}>
         <input type="text" placeholder="Enter email for our newsletter" />
-        <button style={{ backgroundColor: "var(--color-primary)" }}>Subscribe</button>
+        <button style={{ backgroundColor: "var(--color-primary)" }}>
+          Subscribe
+        </button>
       </div>
       {/* social handles section  */}
       <div className={styles.socialHandle}>
         <p>Follow Us</p>
         <div>
-          <FaFacebookF className={styles.socialIcons} style={{ background: "#177aee" }} />
-          <BsTwitter className={styles.socialIcons} style={{ background: "#26b8e9" }} />
-          <BsYoutube className={styles.socialIcons} style={{ background: "#fd0000" }} />
-          <FaPodcast className={styles.socialIcons} style={{ background: "#7d50a0" }} />
-          <FaRss className={styles.socialIcons} style={{ background: "#e07645" }} />
+          <FaFacebookF
+            className={styles.socialIcons}
+            style={{ background: "#177aee" }}
+          />
+          <BsTwitter
+            className={styles.socialIcons}
+            style={{ background: "#26b8e9" }}
+          />
+          <BsYoutube
+            className={styles.socialIcons}
+            style={{ background: "#fd0000" }}
+          />
+          <FaPodcast
+            className={styles.socialIcons}
+            style={{ background: "#7d50a0" }}
+          />
+          <FaRss
+            className={styles.socialIcons}
+            style={{ background: "#e07645" }}
+          />
         </div>
       </div>
       {/* TRENDING GADGETS AND TOPICS SECTION  */}
@@ -47,7 +70,10 @@ const RightSidebar = () => {
               {mobiles.map((el: any, i: number) => {
                 if (i <= 20) {
                   return (
-                    <Link href={`products/mobiles/${el.id}`} key={el.id}>
+                    <Link
+                      href={`${origin}/products/mobiles/${el.id}`}
+                      key={el.id}
+                    >
                       <p>{el.modal}</p>
                     </Link>
                   );
@@ -61,7 +87,10 @@ const RightSidebar = () => {
               {mobiles.map((el: any, i: number) => {
                 if (i > 20) {
                   return (
-                    <Link href={`products/mobiles/${el.id}`} key={el.id}>
+                    <Link
+                      href={`${origin}/products/mobiles/${el.id}`}
+                      key={el.id}
+                    >
                       <p>{el.modal}</p>
                     </Link>
                   );
@@ -78,8 +107,12 @@ const RightSidebar = () => {
           {news.map((el: any, i: number) => {
             if (i > 11) {
               return (
-                <Link href={`blogs/${el.id}`} key={el.id}>
-                  <NewsCard title={el.title} titleSize={"15px"} banner={el.banner} />
+                <Link href={`${origin}/blogs/${el.id}`} key={el.id}>
+                  <NewsCard
+                    title={el.title}
+                    titleSize={"15px"}
+                    banner={el.banner}
+                  />
                 </Link>
               );
             }
@@ -90,4 +123,4 @@ const RightSidebar = () => {
   );
 };
 
-export default RightSidebar;
+export default React.memo(RightSidebar);

@@ -26,7 +26,6 @@ interface singleMobile {
 const Mobile = ({ mobile }: singleMobile) => {
   const toastMsg = useToastMsg();
   const dispatch = useDispatch();
-
   const handleAddtoCart = () => {
     addCart(mobile, dispatch, toastMsg);
     getCart(dispatch);

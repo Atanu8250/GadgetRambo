@@ -21,14 +21,14 @@ const Television = ({ televisons }: any) => {
             md: "center",
           }}
           alignItems={"flex-start"}
-          mx={4}
+          mx={1}
         >
           <Show above="md">
             <LaptopFilter />
           </Show>
           <ResponsiveLaptopFilter />
         </Flex>
-        <Flex flex={2} mx={4} direction={"column"} alignItems={"center"}>
+        <Flex flex={3} mx={4} direction={"column"} alignItems={"center"}>
           <Flex>
             <Input w={{ base: "300px", sm: "380px" }} variant="flushed" type={"text"} placeholder={"Search Here"} />
             <IconButton aria-label="SearchByBrand" borderRadius={"0px"} _hover={{}} color={"white"} bgColor={"red"} icon={<BsSearch />} />
@@ -43,7 +43,7 @@ const Television = ({ televisons }: any) => {
           </Button>
         </Flex>
         <Show above="xl">
-          <Flex mx={4} flex={2} justifyContent={"center"}>
+          <Flex mx={4} flex={1.2} justifyContent={"center"}>
             <RightSidebar />
           </Flex>
         </Show>
@@ -55,7 +55,7 @@ const Television = ({ televisons }: any) => {
 export default Television;
 
 export const getStaticProps = async () => {
-  const televisons = await getTvAPI(10);
+  const televisons = await getTvAPI(80);
   return {
     props: {
       televisons,
