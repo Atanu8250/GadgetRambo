@@ -96,12 +96,6 @@ export default function Home() {
     infinite: false,
     slidesToScroll: 3,
   };
-  const ComparisonCarouselSettings = {
-    speed: 200,
-    infinite: false,
-    slidesToShow: 6,
-    slidesToScroll: 3,
-  };
   const { news } = useSelector((store: State) => store.newsManager);
   const { mobiles } = useSelector((store: State) => store.productsManager);
   const dispatch = useDispatch();
