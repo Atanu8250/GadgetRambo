@@ -20,13 +20,11 @@ import useToastMsg from "@/customHook/UseToastMsg";
 import Router from "next/router";
 import { auth } from "@/Backend/Firebase/firebase";
 
-
 const Checkout = () => {
-
   const toastmsg = useToastMsg();
   const [value, setValue] = React.useState("1");
-  const [firstName, setFirstName] = React.useState("")
-  const [secondName, setSecondName] = React.useState("")
+  const [firstName, setFirstName] = React.useState("");
+  const [secondName, setSecondName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [mobile, setMobile] = React.useState("");
   const [city, setCity] = React.useState("");
@@ -41,14 +39,24 @@ const Checkout = () => {
       Router.replace("/");
       toastmsg({
         title: "Please Login first",
-        status: "warning"
-      })
+        status: "warning",
+      });
     }
-  }, [])
+  }, []);
 
   const handlePayment = () => {
-
-    if (firstName === "" || address === "" || secondName === "" || email === "" || mobile === "" || city === "" || cardName === "" || cardNumber === "" || zip.length !== 6 || cvv.length !== 3) {
+    if (
+      firstName === "" ||
+      address === "" ||
+      secondName === "" ||
+      email === "" ||
+      mobile === "" ||
+      city === "" ||
+      cardName === "" ||
+      cardNumber === "" ||
+      zip.length !== 6 ||
+      cvv.length !== 3
+    ) {
       toastmsg({
         title: "Please fill all the required fields!",
         status: "warning",
@@ -69,44 +77,76 @@ const Checkout = () => {
           <div className={style.shippingMain}>
             <h1 className={style.shippingHead}>SHIPPING INFORMATION</h1>
             <div className={style.shipping}>
-              <div style={{ display: "flex", gap: "3rem" }}>
+              <div className={style.name}>
                 <div>
                   <h1>First Name</h1>
-                  <Input placeholder="First Name" value={firstName} onChange={(e) => {
-                    setFirstName(e.currentTarget.value)
-                  }} />
+                  <Input
+                    placeholder="First Name"
+                    value={firstName}
+                    onChange={(e) => {
+                      setFirstName(e.currentTarget.value);
+                    }}
+                  />
                 </div>
                 <div>
                   <h1>Second Name</h1>
-                  <Input placeholder="Second Name" value={secondName} onChange={(e) => {
-                    setSecondName(e.currentTarget.value)
-                  }} />
+                  <Input
+                    placeholder="Second Name"
+                    value={secondName}
+                    onChange={(e) => {
+                      setSecondName(e.currentTarget.value);
+                    }}
+                  />
                 </div>
               </div>
               <div>
                 <h1>Email</h1>
-                <Input placeholder="Email" value={email} onChange={(e) => {
-                  setEmail(e.currentTarget.value)
-                }} />
+                <Input
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.currentTarget.value);
+                  }}
+                />
               </div>
               <div>
                 <h1>Phone Number</h1>
-                <Input placeholder="Phone Number" value={mobile} onChange={(e) => {
-                  setMobile(e.currentTarget.value)
-                }} />
+                <Input
+                  placeholder="Phone Number"
+                  value={mobile}
+                  onChange={(e) => {
+                    setMobile(e.currentTarget.value);
+                  }}
+                />
               </div>
               <div>
                 <h1>Address</h1>
-                <Textarea placeholder="Address" value={address} onChange={(e) => {
-                  setAddress(e.currentTarget.value)
-                }} />
+                <Textarea
+                  placeholder="Address"
+                  value={address}
+                  onChange={(e) => {
+                    setAddress(e.currentTarget.value);
+                  }}
+                />
               </div>
-              <div style={{ display: "flex", gap: "3rem" }}>
+              <div className={style.lowerAdd}>
+                <div className={style.city}>
+                  <h1>City</h1>
+                  <Input
+                    placeholder="City"
+                    value={city}
+                    onChange={(e) => {
+                      setCity(e.currentTarget.value);
+                    }}
+                  />
+                </div>
                 <div>
                   <h1>Zip Code</h1>
-                  <PinInput onChange={(e) => {
-                    setZip(e)
-                  }}>
+                  <PinInput
+                    onChange={(e) => {
+                      setZip(e);
+                    }}
+                  >
                     <PinInputField />
                     <PinInputField />
                     <PinInputField />
@@ -114,12 +154,6 @@ const Checkout = () => {
                     <PinInputField />
                     <PinInputField />
                   </PinInput>
-                </div>
-                <div>
-                  <h1>City</h1>
-                  <Input placeholder="City" value={city} onChange={(e) => {
-                    setCity(e.currentTarget.value)
-                  }} />
                 </div>
               </div>
             </div>
@@ -131,7 +165,8 @@ const Checkout = () => {
                 <div>
                   <h1>Select Card</h1>
                   <RadioGroup onChange={setValue} value={value}>
-                    <Stack direction="row" gap="2rem">
+                    <div className={style.card}>
+                    {/* <Stack direction={['column', 'row']} gap="2rem"> */}
                       <Radio value="1">
                         <Icon as={RiVisaFill} boxSize={12} />
                       </Radio>
@@ -141,39 +176,50 @@ const Checkout = () => {
                       <Radio value="3">
                         <Icon as={SiAmericanexpress} boxSize={12} />
                       </Radio>
-                    </Stack>
+                    {/* </Stack> */}
+                    </div>
                   </RadioGroup>
                 </div>
                 <div>
                   <h1>Card Number</h1>
-                  <Input placeholder="0000 0000 0000 0000" value={cardNumber} onChange={(e) => {
-                    setCardNumber(e.currentTarget.value)
-                  }} />
+                  <Input
+                    placeholder="0000 0000 0000 0000"
+                    value={cardNumber}
+                    onChange={(e) => {
+                      setCardNumber(e.currentTarget.value);
+                    }}
+                  />
                 </div>
                 <div>
                   <h1>Cardholder Name</h1>
-                  <Input placeholder="Name" value={cardName} onChange={(e) => {
-                    setCardName(e.currentTarget.value)
-                  }} />
+                  <Input
+                    placeholder="Name"
+                    value={cardName}
+                    onChange={(e) => {
+                      setCardName(e.currentTarget.value);
+                    }}
+                  />
                 </div>
-                <div
-                  style={{ display: "flex", justifyContent: "space-between" }}
-                >
-                  <div style={{ display: "flex", gap: "1rem" }}>
-                    <div style={{ width: "20%" }}>
+                <div className={style.lowerPayment}>
+                  <div className={style.date}>
+                    <div className={style.month}>
                       <h1>Month</h1>
                       <Input placeholder="12" />
                     </div>
-                    <div style={{ width: "20%" }}>
+                    <div className={style.year}>
                       <h1>Year</h1>
                       <Input placeholder="2023" />
                     </div>
                   </div>
-                  <div style={{ width: "40%" }}>
+                  <div className={style.cvv}>
                     <h1>CVV</h1>
-                    <PinInput type='alphanumeric' mask onChange={(e) => {
-                      setCvv(e)
-                    }}>
+                    <PinInput
+                      type="alphanumeric"
+                      mask
+                      onChange={(e) => {
+                        setCvv(e);
+                      }}
+                    >
                       <PinInputField />
                       <PinInputField />
                       <PinInputField />

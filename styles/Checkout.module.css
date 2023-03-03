@@ -53,3 +53,99 @@
 .right {
   width: 20%;
 }
+.lowerAdd{
+  display: flex;
+  justify-content: space-between;
+}
+.lowerPayment{
+  display: flex;
+  justify-content: space-between;
+}
+.date{
+  display: flex;
+  gap: 0.5rem;
+}
+.month{
+  width: 20%;
+}
+.year{
+  width: 20%;
+}
+.cvv{
+  width: 40%;
+}
+.name{
+  display: flex;
+  gap: 3rem;
+}
+.card{
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+@media only screen and (max-width: 1050px) {
+  .right{
+    display: none;
+  }
+  .mainSkeleton{
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 709px) {
+  .lowerAdd{
+    flex-direction: column;
+  }
+  .city{
+    margin-bottom: 1rem;
+  }
+  .month{
+    width: 30%;
+  }
+  .year{
+    width: 30%;
+  }
+}
+@media only screen and (max-width: 640px) {
+  .month{
+    width: 50%;
+  }
+  .year{
+    width: 50%;
+  }
+  .lowerPayment{
+    flex-direction: column;
+  }
+  .cvv{
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+@media only screen and (max-width: 510px) {
+  .name{
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .mainSkeleton {
+    padding: 0.5rem;
+    margin: 1rem;
+  }
+  .main {
+    padding: 0rem;
+  }
+  .shippingHead {
+    font-size: 1.5rem;
+  }
+  .paymentHead {
+    font-size: 1.5rem;
+  }
+}
+@media only screen and (max-width: 360px) {
+  .payment {
+    box-shadow:none;
+  }
+  .shipping {
+    box-shadow: none;
+  }
+}

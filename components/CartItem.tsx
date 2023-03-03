@@ -31,29 +31,38 @@ const CartItem = ({ items }: any) => {
   return (
     <div className={style.item}>
       <div key={items.id} className={style.subitem}>
-        <div style={{ width: "10%", margin: "auto", textAlign: "center" }}>
-          <Image src={items.imgsrc} height={120} margin={"auto"} alt="" />
+        <div className={style.image}>
+          <Image src={items.imgsrc} height={100} margin={"auto"} alt="" />
         </div>
         <div className={style.subitemText}>
-          <h1
-            style={{
-              fontSize: "1.5rem",
-              fontWeight: "bolder",
-            }}
-          >
+          <h1 className={style.name}>
             {items.modal}
           </h1>
+          <div>
           <Text>{items.related}</Text>
+          <Text className={style.price}>Rs.{price}</Text>
+          <div className={style.quantityDesc}>
+            <Button className={style.quantityInnerButton} isDisabled={count == 1} onClick={() => dec()}>
+              -
+            </Button>
+            <Button className={style.quantityInnerButton} isDisabled fontSize={20}>
+              {count}
+            </Button>
+            <Button className={style.quantityInnerButton} isDisabled={count == 5} onClick={() => inc()}>
+              +
+            </Button>
+          </div>
+          </div>
         </div>
         <div className={style.quantity}>
           <div className={style.quantityInner}>
-            <Button isDisabled={count == 1} onClick={() => dec()}>
+            <Button className={style.quantityInnerButton} isDisabled={count == 1} onClick={() => dec()}>
               -
             </Button>
-            <Button isDisabled fontSize={20}>
+            <Button className={style.quantityInnerButton} isDisabled fontSize={20}>
               {count}
             </Button>
-            <Button isDisabled={count == 5} onClick={() => inc()}>
+            <Button className={style.quantityInnerButton} isDisabled={count == 5} onClick={() => inc()}>
               +
             </Button>
           </div>
@@ -63,14 +72,7 @@ const CartItem = ({ items }: any) => {
             <Icon as={RxCross2} />
           </Button>
         </div>
-        <div
-          style={{
-            width: "10%",
-            margin: "auto",
-            textAlign: "center",
-            paddingTop: "0.5rem",
-          }}
-        >
+        <div className={style.lastPrice}>
           <h1>{price}</h1>
         </div>
       </div>
