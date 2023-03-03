@@ -66,23 +66,17 @@ const Index = () => {
         </div>
         <Divider />
         <div className={style.bottomCart}>
-          {/* <div className={style.box}>Discount: Rs{discount}</div>
-          <div className={style.box}>Delivery: Rs{discount}</div>
-          <div className={style.box}>Subtotal: Rs{subTotal}</div>
-          <div className={style.box}>Total: Rs{total}</div> */}
         </div>
 
         <div className={style.bottomDiscount}>
-          <div>
-            <div style={{ display: "flex", width: "40%" }}>
+            <div className={style.Applydiscount}>
               <input
                 className={style.input}
                 placeholder="Please enter promo code"
               />
               <button className={style.buttonpromo}>Apply Discount</button>
             </div>
-          </div>
-          <div style={{ display: "flex", gap: "0.5rem" }}>
+          <div className={style.lowerButton} style={{ display: "flex", gap: "0.5rem" }}>
             <span onClick={goTocheckout}>
               <button className={style.checkout}>Checkout</button>
             </span>
@@ -92,7 +86,7 @@ const Index = () => {
           </div>
         </div>
       </div>
-      <div style={{ width: "25%", margin: "0 1rem" }}>
+      <div className={style.right}>
         <RightSidebar />
       </div>
     </div>

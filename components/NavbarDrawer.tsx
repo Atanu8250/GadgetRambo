@@ -65,55 +65,55 @@ const NavbarDrawer = () => {
           </DrawerHeader>
 
           <DrawerBody className={style.drawer}>
-            <p style={{ paddingLeft: "1rem" }}>
+            <p className={style.topDetails} onClick={onClose}>
               <Link href="/" className={style.notdropDown}>
                 HOME
               </Link>
             </p>
             <br />
-            <p style={{ paddingLeft: "1rem" }}>
+            <p className={style.topDetails} onClick={onClose}>
               <Link href="/" className={style.notdropDown}>
                 GUIDE
               </Link>
             </p>
             <br />
-            <p style={{ paddingLeft: "1rem" }}>
+            <p className={style.topDetails} onClick={onClose}>
               <Link href="/" className={style.notdropDown}>
                 AUTO EXPO 2023
               </Link>
             </p>
             <br />
-            <p style={{ paddingLeft: "1rem" }}>
+            <p className={style.topDetails} onClick={onClose}>
               <Link href="/" className={style.notdropDown}>
                 NEWS
               </Link>
             </p>
             <br />
-            <p style={{ paddingLeft: "1rem" }}>
+            <p className={style.topDetails} onClick={onClose}>
               <Link href="/" className={style.notdropDown}>
                 REVIEWS
               </Link>
             </p>
             <br />
-            <p style={{ paddingLeft: "1rem" }}>
+            <p className={style.topDetails} onClick={onClose}>
               <Link href="/" className={style.notdropDown}>
                 FEATURES
               </Link>
             </p>
             <br />
-            <p style={{ paddingLeft: "1rem" }}>
+            <p className={style.topDetails} onClick={onClose}>
               <Link href="/" className={style.notdropDown}>
                 BRANDS
               </Link>
             </p>
             <br />
-            <p style={{ paddingLeft: "1rem" }}>
+            <p className={style.topDetails} onClick={onClose}>
               <Link href="/" className={style.notdropDown}>
                 PODCASTS
               </Link>
             </p>
             <br />
-            <p style={{ paddingLeft: "1rem" }}>
+            <p className={style.topDetails} onClick={onClose}>
               <Link href="/" className={style.notdropDown}>
                 PRODUCT FINDER
               </Link>
@@ -131,27 +131,27 @@ const NavbarDrawer = () => {
                     </AccordionButton>
                   </h2>
                   <AccordionPanel pb={4}>
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">LATEST</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">BUYING GUIDES</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">CRYPTOCURRENCY</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">EVENTS</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">HOW TO</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">SPONSORED</Link>
                     </p>
                   </AccordionPanel>
@@ -170,75 +170,75 @@ const NavbarDrawer = () => {
                     </AccordionButton>
                   </h2>
                   <AccordionPanel pb={4}>
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/products/mobiles">MOBILE</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/products/laptops">LAPTOPS</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/products/tv">TV</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">SMART WATCH</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">CAMERAS</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">SMART BANDS</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">SMART SPEAKERS</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">GAMES</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">AIR COOLER</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">WASHING MACHINE</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">TABLETS</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">HEADPHONES</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">GAMING CONSOLE</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">SPEAKERS</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">AC</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">REFRIGERATOR</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">AIR PURIFIER</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">INVERTER</Link>
                     </p>
                   </AccordionPanel>
@@ -257,75 +257,75 @@ const NavbarDrawer = () => {
                     </AccordionButton>
                   </h2>
                   <AccordionPanel pb={4}>
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/products/mobiles">MOBILE</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/products/laptops">LAPTOPS</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/products/tv">TV</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">SMART WATCH</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">CAMERAS</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">SMART BANDS</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">SMART SPEAKERS</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">GAMES</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">AIR COOLER</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">WASHING MACHINE</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}p>
                       <Link href="/">TABLETS</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">HEADPHONES</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">GAMING CONSOLE</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">SPEAKERS</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">AC</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">REFRIGERATOR</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">AIR PURIFIER</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">INVERTER</Link>
                     </p>
                   </AccordionPanel>
@@ -344,15 +344,15 @@ const NavbarDrawer = () => {
                     </AccordionButton>
                   </h2>
                   <AccordionPanel pb={4}>
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">BROADBAND PLANS</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">DTH RECHARGE</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">MOBILE RECHARGE</Link>
                     </p>
                   </AccordionPanel>
@@ -371,59 +371,59 @@ const NavbarDrawer = () => {
                     </AccordionButton>
                   </h2>
                   <AccordionPanel pb={4}>
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">CRYPTOCURRENCY PRICES</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">GOLD RATE</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">AMAZON SALE</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">MOVIES</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">SERVICE CENTERS</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">FINANCE</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">COMMUNITY</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">DIGITAL GOLD</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">DEALS</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">FLIPKART SALE</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">WEB SERIES</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">SMART HOME</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">CLUB360</Link>
                     </p>
                     <br />
-                    <p>
+                    <p onClick={onClose}>
                       <Link href="/">SILVER RATE</Link>
                     </p>
                   </AccordionPanel>
