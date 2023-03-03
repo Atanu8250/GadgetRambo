@@ -125,7 +125,7 @@ export default function Home() {
             <Flex direction={"column"}>
               <Text fontSize={"xl"}>IN-DEPTH</Text>
               <SimpleGrid columns={{ base: 3, sm: 3, md: 4, lg: 5 }} spacing={5}>
-                {news.map((el: any, index: number) => {
+                {news?.map((el: any, index: number) => {
                   if (index >= 5 && index < newsProducts + 5) {
                     return (
                       <Link key={el.id} href={`blogs/${el.id}`}>
@@ -163,7 +163,7 @@ export default function Home() {
                   Popular Phones
                 </Text>
                 <Flex justifyContent={"space-evenly"} bgColor={"white"} m={2} borderRadius={10} boxShadow={"lg"}>
-                  {mobiles.map((mobile: any, id: number) => {
+                  {mobiles?.map((mobile: any, id: number) => {
                     if (id >= gridProducts) {
                       return;
                     }
@@ -186,7 +186,7 @@ export default function Home() {
                   Latest Phones
                 </Text>
                 <Flex justifyContent={"space-evenly"} bgColor={"white"} m={2} borderRadius={10} boxShadow={"lg"}>
-                  {mobiles.map((mobile: any, id: number) => {
+                  {mobiles?.map((mobile: any, id: number) => {
                     if (id > 12 + gridProducts && id < 19) {
                       return (
                         <Link key={mobile.id} href={`products/mobiles/${mobile.id}`}>
@@ -208,7 +208,7 @@ export default function Home() {
                   Upcoming Phones
                 </Text>
                 <Flex justifyContent={"space-evenly"} bgColor={"white"} m={2} borderRadius={10} boxShadow={"lg"}>
-                  {mobiles.map((mobile: any, id: number) => {
+                  {mobiles?.map((mobile: any, id: number) => {
                     if (id > 20 + gridProducts && id < 27) {
                       return (
                         <Link key={mobile.id} href={`products/mobiles/${mobile.id}`}>
