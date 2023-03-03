@@ -1,68 +1,130 @@
 /* main product section */
-.products>div:first-child{
-    gap: 20px;
+.products > div:first-child {
+  gap: 20px;
 }
-
 
 /* Add product button */
-.products>div:first-child>button:last-child{
-    background-color: var(--color-primary);
-    font-size: 25px;
-    
+.products > div:first-child > button:last-child {
+  background-color: var(--color-primary);
+  font-size: 25px;
 }
-
-
 
 /* laptop cards */
-.Prod>div{
-    margin: 10px 0px;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    background-color: #fff;
+.Prod > div {
+  margin: 10px 0px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #fff;
 }
-
-
 
 /* laptop heading part */
-.Prod>div:nth-child(1) p{
-    font-weight: bold;
+.Prod > div:nth-child(1) p {
+  font-weight: bold;
 }
 
-
-.Prod>div>div{
-    /* border: 1px solid red; */
-    width: 100%;
-    margin-right: 10px;
+.Prod > div > div {
+  /* border: 1px solid red; */
+  width: 100%;
+  margin-right: 10px;
 }
 
 /* serial no box */
-.Prod>div>div:nth-child(1){
-    width: 100px;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 20px;
+.Prod > div > div:nth-child(1) {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
 }
 
 /* price section */
-.Prod>div>div:nth-child(7){
-    width: 650px;
-    margin-right: 20px;
+.Prod > div > div:nth-child(2) {
+  width: 80%;
+  margin-right: 20px;
+}
+.Prod > div > div:nth-child(3) {
+  width: 120%;
+  margin-right: 20px;
+}
+.Prod > div > div:nth-child(4) {
+  width: 120%;
+  margin-right: 20px;
+}
+.Prod > div > div:nth-child(5) {
+  width: 140%;
+  margin-right: 20px;
+}
+.Prod > div > div:nth-child(6) {
+  width: 80%;
+  margin-right: 20px;
 }
 
+/* price section */
+.Prod > div > div:nth-child(7) {
+  width: 100%;
+  margin-right: 20px;
+}
 
 /* Edit section */
-.Prod>div>div:nth-child(8){
-    width: 400px;
-    margin-right: 20px;
+.Prod > div > div:nth-child(8) {
+  width: 100%;
+  margin-right: 20px;
 }
-
 
 /* Delete section */
-.Prod>div>div:nth-child(9){
-    width: 400px;
-    margin-right: 20px;
+.Prod > div > div:nth-child(9) {
+  width: 90%;
+  margin-right: 20px;
 }
 
+.smallBox {
+  display: none;
+}
+
+.responsive {
+  display: none;
+}
+
+@media only screen and (max-width: 1148px) {
+  .Prod > div > div:nth-child(4) {
+    display: none;
+  }
+  .Prod > div > div:nth-child(5) {
+    display: none;
+  }
+  .Prod > div > div:nth-child(6) {
+    display: none;
+  }
+  .Prod > div > div {
+    margin: auto;
+  }
+  .Prod > div > div:nth-child(8) {
+    margin: auto;
+  }
+  .Prod > div > div:nth-child(9) {
+    margin: auto;
+  }
+  .Prod > div > div:nth-child(3) {
+    width: 180%;
+    margin-right: 20px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .Prod > div > div:nth-child(7) {
+    display: none;
+  }
+  .Prod > div > div:nth-child(8) {
+    display: none;
+  }
+  .Prod > div > div:nth-child(9) {
+    display: none;
+  }
+  .responsiveEdit {
+    margin-right: 20px;
+  }
+  .responsive {
+    display: block;
+  }
+}
