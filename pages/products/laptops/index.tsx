@@ -11,7 +11,12 @@ const Laptops = ({ laptops }: any) => {
   const [loader, setLoader] = useState<number>(5);
   return (
     <>
-      <Flex direction={{ base: "column", sm: "column", md: "row" }} w={"100%"} p={"10"} justifyContent={"center"}>
+      <Flex
+        direction={{ base: "column", sm: "column", md: "row" }}
+        w={"100%"}
+        p={"10"}
+        justifyContent={"center"}
+      >
         <Flex
           flex={1}
           justifyContent={{
@@ -29,7 +34,12 @@ const Laptops = ({ laptops }: any) => {
         </Flex>
         <Flex flex={3} mx={4} direction={"column"} alignItems={"center"}>
           <Flex>
-            <Input w={{ base: "300px", sm: "380px" }} variant="flushed" type={"text"} placeholder={"Search Here"} />
+            <Input
+              w={{ base: "300px", sm: "380px" }}
+              variant="flushed"
+              type={"text"}
+              placeholder={"Search Here"}
+            />
             <IconButton
               aria-label="xyz"
               // onClick={() => HandleSearch()}
@@ -42,10 +52,15 @@ const Laptops = ({ laptops }: any) => {
           </Flex>
           {laptops.map((data: any, id: number) => {
             if (id < loader) {
-              return <ProductCard key={data.id} {...data} productLink={"laptops"} />;
+              return (
+                <ProductCard key={data.id} {...data} productLink={"laptops"} />
+              );
             }
           })}
-          <Button onClick={() => setLoader((prev) => prev + 2)} colorScheme={"red"}>
+          <Button
+            onClick={() => setLoader((prev) => prev + 2)}
+            colorScheme={"red"}
+          >
             Load More
           </Button>
         </Flex>
@@ -62,7 +77,7 @@ const Laptops = ({ laptops }: any) => {
 export default Laptops;
 
 export const getStaticProps = async () => {
-  const laptops = await getLaptopAPI(11);
+  const laptops = await getLaptopAPI();
   return {
     props: {
       laptops,

@@ -7,19 +7,22 @@ import { BsSearch } from "react-icons/bs";
 import { getMobileAPI } from "@/redux/products/products.api";
 import RightSidebar from "@/components/RightSidebar";
 import { intrfcMobile } from "@/constants/constants";
+import { getMobile } from "@/redux/products/products.actions";
+import { useDispatch } from "react-redux";
 
 const Mobiles = ({ mobiles }: any) => {
-  const srcIpRef = useRef<HTMLInputElement>(null);
   const [loader, setLoader] = useState<number>(5);
-  // const [mobiles, setMobile] = useState<[]>([]);
-  // const [count, setCount] = useState(1);
-  // const setMobiles = (d: any) => {
-  //   setMobile(d);
-  //   setCount(count + 1);
-  // };
-  // useEffect(() => {
-  //   setMobile(mobiles);
-  // }, [count]);
+  const [mobile, setMobile] = useState<[]>([]);
+  const [count, setCount] = useState(1);
+  const dispatch = useDispatch();
+  const setMobiles = (d: any) => {
+    setMobile(d);
+    setCount(count + 1);
+  };
+  useEffect(() => {
+    getMobile(dispatch, mobiles);
+    setMobile(mobile);
+  }, []);
 
   return (
     <>
@@ -40,31 +43,12 @@ const Mobiles = ({ mobiles }: any) => {
           mx={1}
         >
           <Show breakpoint="(min-width: 768px)">
-            <MobileFilter setMobiles={mobiles} />
+            <MobileFilter setMobiles={setMobiles} />
           </Show>
           <ResponsiveMobileFilter />
         </Flex>
         <Flex mx={4} flex={3} direction={"column"} alignItems={"center"}>
-          {/* Search Functionality */}
-          <Flex>
-            <Input
-              ref={srcIpRef}
-              w={{ base: "300px", sm: "380px" }}
-              variant="flushed"
-              type={"text"}
-              placeholder={"Search Here"}
-            />
-            <IconButton
-              aria-label="xyz"
-              borderRadius={"0px"}
-              _hover={{}}
-              color={"white"}
-              bgColor={"red"}
-              icon={<BsSearch />}
-            />
-          </Flex>
-          {/* Search Function End */}
-          {mobiles?.map((data: intrfcMobile, id: number) => {
+          {mobile?.map((data: intrfcMobile, id: number) => {
             if (id < loader) {
               return (
                 <ProductCard key={data.id} {...data} productLink={"mobiles"} />
@@ -91,7 +75,7 @@ const Mobiles = ({ mobiles }: any) => {
 export default Mobiles;
 
 export const getStaticProps = async () => {
-  const mobiles = await getMobileAPI(10);
+  const mobiles = await getMobileAPI();
   return {
     props: {
       mobiles,
