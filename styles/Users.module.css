@@ -1,0 +1,25 @@
+.smallScreen{
+    display: none;
+}
+.miniScreen{
+    display: none;
+}
+@media only screen and (max-width: 940px) {
+    .smallScreen{
+        display: block;
+    }
+    .largeScreen{
+        display: none;
+    }
+}
+@media only screen and (max-width: 775px) {
+    .miniScreen{
+        display: block;
+    }
+    .smallScreen{
+        display: none;
+    }
+    .modification{
+        display: none;
+    }
+}
