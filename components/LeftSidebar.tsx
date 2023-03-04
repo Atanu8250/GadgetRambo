@@ -19,7 +19,7 @@ const LeftSidebar = () => {
       <Text color={"var(--color-primary)"} fontSize={"18px"} fontWeight={"400"}>
         TRENDING
       </Text>
-      {news.map((el: any, index: number) => {
+      {news?.map((el: any, index: number) => {
         if (index >= 11) {
           return;
         }

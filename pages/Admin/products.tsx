@@ -111,7 +111,7 @@ const Products = () => {
                   </Box>
                 </Flex>
                 {
-                  laptops.map((item: intrfcLaptop, i: number) => <Flex key={i}>
+                  laptops?.map((item: intrfcLaptop, i: number) => <Flex key={i}>
                     <Box>
                       <Text>{i + 1}</Text>
                     </Box>
@@ -186,7 +186,7 @@ const Products = () => {
                     </Box>
                   </Flex>
                   {
-                    mobiles.map((item: intrfcMobile, i: number) => <Flex key={i}>
+                    mobiles?.map((item: intrfcMobile, i: number) => <Flex key={i}>
                       <Box>
                         <Text>{i + 1}</Text>
                       </Box>
@@ -261,7 +261,7 @@ const Products = () => {
                     </Box>
                   </Flex>
                   {
-                    televisions.map((item: intrfcTv, i: number) => <Flex key={i}>
+                    televisions?.map((item: intrfcTv, i: number) => <Flex key={i}>
                       <Box>
                         <Text>{i + 1}</Text>
                       </Box>
