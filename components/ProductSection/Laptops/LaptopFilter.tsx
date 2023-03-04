@@ -1,16 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Flex,
   Box,
   AccordionIcon,
   AccordionPanel,
-  Slider,
-  SliderTrack,
-  SliderFilledTrack,
-  SliderThumb,
   Checkbox,
   Input,
-  Link,
   Button,
   Text,
   Accordion,
@@ -20,11 +15,107 @@ import {
 } from "@chakra-ui/react";
 import { MdRestartAlt } from "react-icons/md";
 import { BsSearch } from "react-icons/bs";
+import { useSelector } from "react-redux";
+import { intrfcLaptop, lap_filterProps } from "@/constants/constants";
+import { State } from "@/redux/store";
 
-// { imgsrc, modal, displaySize, frontCamera, rearCamera, processor, releaseDate, price }: mobileType
+const LaptopFilter = ({ setLaptops }: any) => {
+  const { laptops } = useSelector((store: State) => store.productsManager);
+  let sortedArr = laptops;
+  const [cat, setCat] = useState<lap_filterProps>({
+    price: "",
+    brand: "",
+    screen: "",
+    os: "",
+  });
+  useEffect(() => {
+    setLaptops(laptops);
+  }, []);
 
-const LaptopFilter = () => {
-  const [range, setRange] = useState<number>(198000);
+  const HandleReset = () => {
+    setLaptops(laptops);
+    setCat({
+      price: "",
+      brand: "",
+      screen: "",
+      os: "",
+    });
+  };
+
+  //*  price sorting
+  const lthSort = () => {
+    sortedArr = sortedArr.sort((a: intrfcLaptop, b: intrfcLaptop) => {
+      return +a.price - +b.price;
+    });
+    setLaptops(sortedArr);
+  };
+  const htlSort = () => {
+    sortedArr = sortedArr.sort((a: intrfcLaptop, b: intrfcLaptop) => {
+      return +b.price - +a.price;
+    });
+    setLaptops(sortedArr);
+  };
+  //* brand filtering
+  const asusFilter = () => {
+    sortedArr = sortedArr.filter((el: any) => el.name.includes("Asus"));
+    setLaptops(sortedArr);
+  };
+  const dellFilter = () => {
+    sortedArr = sortedArr.filter(
+      (el: intrfcLaptop) =>
+        el.name.includes("Apple") || el.name.includes("Dell")
+    );
+    setLaptops(sortedArr);
+  };
+  const lenovoFilter = () => {
+    sortedArr = sortedArr.filter((el: intrfcLaptop) =>
+      el.name.includes("Lenovo")
+    );
+    setLaptops(sortedArr);
+  };
+  const acerFilter = () => {
+    sortedArr = sortedArr.filter((el: intrfcLaptop) =>
+      el.name.includes("Acer")
+    );
+    setLaptops(sortedArr);
+  };
+  const realmeFilter = () => {
+    sortedArr = sortedArr.filter((el: intrfcLaptop) =>
+      el.name.includes("Realme")
+    );
+    setLaptops(sortedArr);
+  };
+
+  //* screen filtering
+  const s1filter = () => {
+    sortedArr = sortedArr.filter((el: intrfcLaptop) =>
+      el.size.includes("16.00")
+    );
+    setLaptops(sortedArr);
+  };
+  const s2filter = () => {
+    sortedArr = sortedArr.filter(
+      (el: intrfcLaptop) =>
+        el.size.includes("14.00") || el.size.includes("15.60")
+    );
+    setLaptops(sortedArr);
+  };
+
+  //* os filtering
+  const o1filter = () => {
+    sortedArr = sortedArr.filter((el: intrfcLaptop) => el.os.includes("10"));
+    setLaptops(sortedArr);
+  };
+  const o2filter = () => {
+    sortedArr = sortedArr.filter((el: intrfcLaptop) =>
+      el.os.includes("Chrome")
+    );
+    setLaptops(sortedArr);
+  };
+  const o3filter = () => {
+    sortedArr = sortedArr.filter((el: intrfcLaptop) => el.os.includes("11"));
+    setLaptops(sortedArr);
+  };
   return (
     <Flex direction={"column"} p={"1"} w={"248px"} bgColor={"#DDDDDD"}>
       <Flex
@@ -36,12 +127,17 @@ const LaptopFilter = () => {
       >
         {/* Top Heading */}
         <Text>Filters</Text>
-        <Button borderRadius={"4"} bgColor={"#FFFFFFFF"} _hover={{}}>
+        <Button
+          onClick={HandleReset}
+          borderRadius={"4"}
+          bgColor={"#FFFFFFFF"}
+          _hover={{}}
+        >
           Reset All
           <MdRestartAlt />
         </Button>
       </Flex>
-      <Accordion defaultIndex={[0, 1, 2, 3, 4]} allowMultiple>
+      <Accordion defaultIndex={[0, 1, 2, 3]} allowMultiple>
         {/* By Price */}
         <AccordionItem bgColor={"white"}>
           <AccordionButton>
@@ -53,8 +149,34 @@ const LaptopFilter = () => {
 
           <AccordionPanel pb={4}>
             <Flex direction={"column"}>
-              <Checkbox value="">Low to High</Checkbox>
-              <Checkbox value="">High to Low</Checkbox>
+              <Checkbox
+                isChecked={cat.price === "lth"}
+                onChange={(e: any) => {
+                  if (cat.price === "lth") {
+                    setCat({ ...cat, price: "" });
+                  } else {
+                    setCat({ ...cat, price: e.target.value });
+                    lthSort();
+                  }
+                }}
+                value="lth"
+              >
+                Low to High
+              </Checkbox>
+              <Checkbox
+                isChecked={cat.price === "htl"}
+                onChange={(e: any) => {
+                  if (cat.price === "htl") {
+                    setCat({ ...cat, price: "" });
+                  } else {
+                    setCat({ ...cat, price: e.target.value });
+                    htlSort();
+                  }
+                }}
+                value="htl"
+              >
+                High to Low
+              </Checkbox>
             </Flex>
           </AccordionPanel>
         </AccordionItem>
@@ -66,30 +188,78 @@ const LaptopFilter = () => {
             </Box>
             <AccordionIcon />
           </AccordionButton>
-
           <AccordionPanel pb={4}>
-            <Flex>
-              <Input
-                fontSize={"xs"}
-                borderRadius={"0px"}
-                placeholder="Search by Brand"
-              />
-              <IconButton
-                aria-label="SearchByBrand"
-                borderRadius={"0px"}
-                _hover={{}}
-                color={"white"}
-                bgColor={"red"}
-                icon={<BsSearch />}
-              />
-            </Flex>
             <Flex direction={"column"}>
-              <Checkbox value="samsung">Asus</Checkbox>
-              <Checkbox value="apple">Apple</Checkbox>
-              <Checkbox value="oneplus">Dell</Checkbox>
-              <Checkbox value="xiaomi">Lenovo</Checkbox>
-              <Checkbox value="xiaomi">Acer</Checkbox>
-              <Checkbox value="oppo">RealMe</Checkbox>
+              <Checkbox
+                isChecked={cat.brand === "asus"}
+                onChange={(e: any) => {
+                  if (cat.brand === "asus") {
+                    setCat({ ...cat, brand: "" });
+                  } else {
+                    setCat({ ...cat, brand: e.target.value });
+                    asusFilter();
+                  }
+                }}
+                value="asus"
+              >
+                Asus
+              </Checkbox>
+              <Checkbox
+                isChecked={cat.brand === "dell"}
+                onChange={(e: any) => {
+                  if (cat.brand === "dell") {
+                    setCat({ ...cat, brand: "" });
+                  } else {
+                    setCat({ ...cat, brand: e.target.value });
+                    dellFilter();
+                  }
+                }}
+                value="dell"
+              >
+                Dell
+              </Checkbox>
+              <Checkbox
+                isChecked={cat.brand === "lenevo"}
+                onChange={(e: any) => {
+                  if (cat.brand === "lenevo") {
+                    setCat({ ...cat, brand: "" });
+                  } else {
+                    setCat({ ...cat, brand: e.target.value });
+                    lenovoFilter();
+                  }
+                }}
+                value="lenevo"
+              >
+                Lenovo
+              </Checkbox>
+              <Checkbox
+                isChecked={cat.brand === "acer"}
+                onChange={(e: any) => {
+                  if (cat.brand === "acer") {
+                    setCat({ ...cat, brand: "" });
+                  } else {
+                    setCat({ ...cat, brand: e.target.value });
+                    acerFilter();
+                  }
+                }}
+                value="acer"
+              >
+                Acer
+              </Checkbox>
+              <Checkbox
+                isChecked={cat.brand === "realme"}
+                onChange={(e: any) => {
+                  if (cat.brand === "realme") {
+                    setCat({ ...cat, brand: "" });
+                  } else {
+                    setCat({ ...cat, brand: e.target.value });
+                    realmeFilter();
+                  }
+                }}
+                value="realme"
+              >
+                RealMe
+              </Checkbox>
             </Flex>
           </AccordionPanel>
         </AccordionItem>
@@ -103,198 +273,39 @@ const LaptopFilter = () => {
           </AccordionButton>
 
           <AccordionPanel pb={4}>
-            <Flex>
-              <Input
-                fontSize={"xs"}
-                borderRadius={"0px"}
-                placeholder="Search by Ram"
-              />
-              <IconButton
-                aria-label="SearchByBrand"
-                borderRadius={"0px"}
-                _hover={{}}
-                color={"white"}
-                bgColor={"red"}
-                icon={<BsSearch />}
-              />
-            </Flex>
             <Flex direction={"column"}>
-              <Checkbox value="11">11 inches & Below</Checkbox>
-              <Checkbox value="12">12 inches</Checkbox>
-              <Checkbox value="13">13 inches</Checkbox>
-              <Checkbox value="14">14 inches</Checkbox>
-              <Checkbox value="15">15 inches & Above</Checkbox>
+              <Checkbox
+                isChecked={cat.screen === "15"}
+                onChange={(e: any) => {
+                  if (cat.screen === "15") {
+                    setCat({ ...cat, screen: "" });
+                  } else {
+                    setCat({ ...cat, screen: e.target.value });
+                    s1filter();
+                  }
+                }}
+                value="15"
+              >
+                16 inches & Above
+              </Checkbox>
+              <Checkbox
+                isChecked={cat.screen === "16"}
+                onChange={(e: any) => {
+                  if (cat.screen === "16") {
+                    setCat({ ...cat, screen: "" });
+                  } else {
+                    setCat({ ...cat, screen: e.target.value });
+                    s2filter();
+                  }
+                }}
+                value="16"
+              >
+                15.9 inches & Below
+              </Checkbox>
             </Flex>
           </AccordionPanel>
         </AccordionItem>
-        {/* By Screen Resolution */}
-        <AccordionItem bgColor={"white"}>
-          <AccordionButton>
-            <Box fontSize={"sm"} as="span" flex="1" textAlign="left">
-              Screen Resolution
-            </Box>
-            <AccordionIcon />
-          </AccordionButton>
-
-          <AccordionPanel pb={4}>
-            <Flex>
-              <Input
-                fontSize={"xs"}
-                borderRadius={"0px"}
-                placeholder="Search by Ram"
-              />
-              <IconButton
-                aria-label="SearchByBrand"
-                borderRadius={"0px"}
-                _hover={{}}
-                color={"white"}
-                bgColor={"red"}
-                icon={<BsSearch />}
-              />
-            </Flex>
-            <Flex direction={"column"}>
-              <Checkbox value="hd">HD</Checkbox>
-              <Checkbox value="fhd">Full HD</Checkbox>
-              <Checkbox value="uhd">Ultra HD</Checkbox>
-            </Flex>
-          </AccordionPanel>
-        </AccordionItem>
-        {/* Processor Brands */}
-        <AccordionItem bgColor={"white"}>
-          <AccordionButton>
-            <Box fontSize={"sm"} as="span" flex="1" textAlign="left">
-              Processor Brands
-            </Box>
-            <AccordionIcon />
-          </AccordionButton>
-
-          <AccordionPanel pb={4}>
-            <Flex>
-              <Input
-                fontSize={"xs"}
-                borderRadius={"0px"}
-                placeholder="Search by Ram"
-              />
-              <IconButton
-                aria-label="SearchByBrand"
-                borderRadius={"0px"}
-                _hover={{}}
-                color={"white"}
-                bgColor={"red"}
-                icon={<BsSearch />}
-              />
-            </Flex>
-            <Flex direction={"column"}>
-              <Checkbox value="intel"> Intel</Checkbox>
-              <Checkbox value="qualcomm"> Qualcomm</Checkbox>
-              <Checkbox value="mediatek"> Mediatek</Checkbox>
-              <Checkbox value="amd"> AMD</Checkbox>
-              <Checkbox value="apple"> Apple</Checkbox>
-            </Flex>
-          </AccordionPanel>
-        </AccordionItem>
-        {/* By Processor Clock Speeds */}
-        <AccordionItem bgColor={"white"}>
-          <AccordionButton>
-            <Box fontSize={"sm"} as="span" flex="1" textAlign="left">
-              Processor Clock Speeds
-            </Box>
-            <AccordionIcon />
-          </AccordionButton>
-
-          <AccordionPanel pb={4}>
-            <Flex>
-              <Input
-                fontSize={"xs"}
-                borderRadius={"0px"}
-                placeholder="Search by Ram"
-              />
-              <IconButton
-                aria-label="SearchByBrand"
-                borderRadius={"0px"}
-                _hover={{}}
-                color={"white"}
-                bgColor={"red"}
-                icon={<BsSearch />}
-              />
-            </Flex>
-            <Flex direction={"column"}>
-              <Checkbox value="1.5"> 1.5 Ghz & Below</Checkbox>
-              <Checkbox value="1.6"> 1.6 Ghz - 1.9 Ghz</Checkbox>
-              <Checkbox value="2"> 2 Ghz - 2.4 Ghz</Checkbox>
-              <Checkbox value="2.5"> 2.5 Ghz & Above</Checkbox>
-            </Flex>
-          </AccordionPanel>
-        </AccordionItem>
-        {/* By Ram */}
-        <AccordionItem bgColor={"white"}>
-          <AccordionButton>
-            <Box fontSize={"sm"} as="span" flex="1" textAlign="left">
-              RAM
-            </Box>
-            <AccordionIcon />
-          </AccordionButton>
-
-          <AccordionPanel pb={4}>
-            <Flex>
-              <Input
-                fontSize={"xs"}
-                borderRadius={"0px"}
-                placeholder="Search by Ram"
-              />
-              <IconButton
-                aria-label="SearchByBrand"
-                borderRadius={"0px"}
-                _hover={{}}
-                color={"white"}
-                bgColor={"red"}
-                icon={<BsSearch />}
-              />
-            </Flex>
-            <Flex direction={"column"}>
-              <Checkbox value="2">2 GB & Below</Checkbox>
-              <Checkbox value="3">3 GB</Checkbox>
-              <Checkbox value="4">4 GB</Checkbox>
-              <Checkbox value="6">6 GB</Checkbox>
-              <Checkbox value="8">8 GB & Above</Checkbox>
-            </Flex>
-          </AccordionPanel>
-        </AccordionItem>
-        {/* By Storage */}
-        <AccordionItem bgColor={"white"}>
-          <AccordionButton>
-            <Box fontSize={"sm"} as="span" flex="1" textAlign="left">
-              Storage Type
-            </Box>
-            <AccordionIcon />
-          </AccordionButton>
-
-          <AccordionPanel pb={4}>
-            <Flex>
-              <Input
-                fontSize={"xs"}
-                borderRadius={"0px"}
-                placeholder="Search by Ram"
-              />
-              <IconButton
-                aria-label="SearchByBrand"
-                borderRadius={"0px"}
-                _hover={{}}
-                color={"white"}
-                bgColor={"red"}
-                icon={<BsSearch />}
-              />
-            </Flex>
-            <Flex direction={"column"}>
-              <Checkbox value="hdd">HDD</Checkbox>
-              <Checkbox value="ssd">SSD</Checkbox>
-              <Checkbox value="hdd">HDD or SSHD</Checkbox>
-              <Checkbox value="sshd">SSHD</Checkbox>
-              <Checkbox value="hhd">HHD</Checkbox>
-            </Flex>
-          </AccordionPanel>
-        </AccordionItem>
-        {/* External Storage */}
+        {/* Operating System */}
         <AccordionItem bgColor={"white"}>
           <AccordionButton>
             <Box fontSize={"sm"} as="span" flex="1" textAlign="left">
@@ -302,63 +313,50 @@ const LaptopFilter = () => {
             </Box>
             <AccordionIcon />
           </AccordionButton>
-
           <AccordionPanel pb={4}>
-            <Flex>
-              <Input
-                fontSize={"xs"}
-                borderRadius={"0px"}
-                placeholder="Search by Ram"
-              />
-              <IconButton
-                aria-label="SearchByBrand"
-                borderRadius={"0px"}
-                _hover={{}}
-                color={"white"}
-                bgColor={"red"}
-                icon={<BsSearch />}
-              />
-            </Flex>
             <Flex direction={"column"}>
-              <Checkbox value="w10">Windows 10</Checkbox>
-              <Checkbox value="w10h">Windows 10 Home</Checkbox>
-              <Checkbox value="mos">MacOS</Checkbox>
-              <Checkbox value="w8">Windows 8</Checkbox>
-              <Checkbox value="w11">Windows 11</Checkbox>
-            </Flex>
-          </AccordionPanel>
-        </AccordionItem>
-        {/* Battery Capacity */}
-        <AccordionItem bgColor={"white"}>
-          <AccordionButton>
-            <Box fontSize={"sm"} as="span" flex="1" textAlign="left">
-              Number of USB Ports
-            </Box>
-            <AccordionIcon />
-          </AccordionButton>
-
-          <AccordionPanel pb={4}>
-            <Flex>
-              <Input
-                fontSize={"xs"}
-                borderRadius={"0px"}
-                placeholder="Search by Ram"
-              />
-              <IconButton
-                aria-label="SearchByBrand"
-                borderRadius={"0px"}
-                _hover={{}}
-                color={"white"}
-                bgColor={"red"}
-                icon={<BsSearch />}
-              />
-            </Flex>
-            <Flex direction={"column"}>
-              <Checkbox value="1">1</Checkbox>
-              <Checkbox value="2">2</Checkbox>
-              <Checkbox value="3">3</Checkbox>
-              <Checkbox value="4">4</Checkbox>
-              <Checkbox value="5">5</Checkbox>
+              <Checkbox
+                isChecked={cat.os === "w10"}
+                onChange={(e: any) => {
+                  if (cat.os === "w10") {
+                    setCat({ ...cat, os: "" });
+                  } else {
+                    setCat({ ...cat, os: e.target.value });
+                    o1filter();
+                  }
+                }}
+                value="w10"
+              >
+                Windows 10
+              </Checkbox>
+              <Checkbox
+                isChecked={cat.os === "chrome"}
+                onChange={(e: any) => {
+                  if (cat.os === "chrome") {
+                    setCat({ ...cat, os: "" });
+                  } else {
+                    setCat({ ...cat, os: e.target.value });
+                    o2filter();
+                  }
+                }}
+                value="chrome"
+              >
+                Chrome OS
+              </Checkbox>
+              <Checkbox
+                isChecked={cat.os === "w11"}
+                onChange={(e: any) => {
+                  if (cat.os === "w11") {
+                    setCat({ ...cat, os: "" });
+                  } else {
+                    setCat({ ...cat, os: e.target.value });
+                    o3filter();
+                  }
+                }}
+                value="w11"
+              >
+                Windows 11
+              </Checkbox>
             </Flex>
           </AccordionPanel>
         </AccordionItem>

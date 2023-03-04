@@ -1,10 +1,10 @@
 import { collection, deleteDoc, doc, getDocs, limit, query } from "firebase/firestore";
 import { db } from "@/Backend/Firebase/firebase";
 
-export const getMobileAPI = async (limitQuery: number) => {
+export const getMobileAPI = async () => {
   try {
     const mobileRef = collection(db, "mobiles");
-    const q = query(mobileRef, limit(limitQuery));
+    const q = query(mobileRef);
     const res = await getDocs(q);
     const mobiles = res.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
     return mobiles;
@@ -12,10 +12,10 @@ export const getMobileAPI = async (limitQuery: number) => {
     console.log(error);
   }
 };
-export const getLaptopAPI = async (limitQuery: number) => {
+export const getLaptopAPI = async () => {
   try {
     const laptopRef = collection(db, "gadget_rambo/products/laptops");
-    const q = query(laptopRef, limit(limitQuery));
+    const q = query(laptopRef);
     const res = await getDocs(q);
     const laptops = res.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
     return laptops;
@@ -23,10 +23,10 @@ export const getLaptopAPI = async (limitQuery: number) => {
     console.log(error);
   }
 };
-export const getTvAPI = async (limitQuery: number) => {
+export const getTvAPI = async () => {
   try {
     const tvRef = collection(db, "tv");
-    const q = query(tvRef, limit(limitQuery));
+    const q = query(tvRef);
     const res = await getDocs(q);
     const tv = res.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
     return tv;

@@ -1,39 +1,28 @@
 import { intrfcToastMsg } from "@/constants/constants";
 import { Dispatch } from "redux";
-import {
-  deleteLaptopAPI,
-  deleteMobileAPI,
-  deleteTvAPI,
-  getLaptopAPI,
-  getMobileAPI,
-  getTvAPI,
-} from "./products.api";
+import { deleteLaptopAPI, deleteMobileAPI, deleteTvAPI } from "./products.api";
 import { ProductsTypes } from "./products.types";
 
 // settting mobile data in state
-// interface propType {}
 
-export const getMobile = async (dispatch: Dispatch, limit: number) => {
-  const mobiles = await getMobileAPI(limit);
+export const getMobile = async (dispatch: Dispatch, payload: any) => {
   dispatch({
     type: ProductsTypes.GET_MOBILES_DATA,
-    payload: mobiles,
+    payload: payload,
   });
 };
 
-export const getLaptop = async (dispatch: Dispatch, limit: number) => {
-  const laptops = await getLaptopAPI(limit);
+export const getLaptop = async (dispatch: Dispatch, payload: any) => {
   dispatch({
     type: ProductsTypes.GET_LAPTOPS_DATA,
-    payload: laptops,
+    payload: payload,
   });
 };
 
-export const getTv = async (dispatch: Dispatch, limit: number) => {
-  const tv = await getTvAPI(limit);
+export const getTv = async (dispatch: Dispatch, payload: any) => {
   dispatch({
     type: ProductsTypes.GET_TV_DATA,
-    payload: tv,
+    payload: payload,
   });
 };
 
