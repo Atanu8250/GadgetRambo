@@ -67,7 +67,7 @@ const RightSidebar = () => {
           <div>
             <p>Latest</p>
             <div>
-              {mobiles.map((el: any, i: number) => {
+              {mobiles?.map((el: any, i: number) => {
                 if (i <= 20) {
                   return (
                     <Link
@@ -84,7 +84,7 @@ const RightSidebar = () => {
           <div>
             <p>Popular</p>
             <div>
-              {mobiles.map((el: any, i: number) => {
+              {mobiles?.map((el: any, i: number) => {
                 if (i > 20) {
                   return (
                     <Link
@@ -104,7 +104,7 @@ const RightSidebar = () => {
       <div className={styles.latestNews}>
         <p>LATEST NEWS</p>
         <div>
-          {news.map((el: any, i: number) => {
+          {news?.map((el: any, i: number) => {
             if (i > 11) {
               return (
                 <Link href={`${origin}/blogs/${el.id}`} key={el.id}>

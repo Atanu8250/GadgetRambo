@@ -228,7 +228,7 @@ export default function Home() {
               </Flex>
             </Flex>
             <SimpleGrid columns={3} spacing={4}>
-              {news.map((el: any, i: number) => {
+              {news?.map((el: any, i: number) => {
                 if (i > newsProducts) {
                   return (
                     <Link key={el.id} href={`blogs/${el.id}`}>
