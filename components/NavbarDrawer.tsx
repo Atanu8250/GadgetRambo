@@ -124,7 +124,12 @@ const NavbarDrawer = () => {
                 <AccordionItem>
                   <h2>
                     <AccordionButton>
-                      <Box as="span" flex="1" textAlign="left" className={style.drawer}>
+                      <Box
+                        as="span"
+                        flex="1"
+                        textAlign="left"
+                        className={style.drawer}
+                      >
                         VIDEOS
                       </Box>
                       <AccordionIcon />
@@ -163,7 +168,12 @@ const NavbarDrawer = () => {
                 <AccordionItem>
                   <h2>
                     <AccordionButton>
-                      <Box as="span" flex="1" textAlign="left" className={style.drawer}>
+                      <Box
+                        as="span"
+                        flex="1"
+                        textAlign="left"
+                        className={style.drawer}
+                      >
                         PRODUCT FINDER
                       </Box>
                       <AccordionIcon />
@@ -250,7 +260,12 @@ const NavbarDrawer = () => {
                 <AccordionItem>
                   <h2>
                     <AccordionButton>
-                      <Box as="span" flex="1" textAlign="left" className={style.drawer}>
+                      <Box
+                        as="span"
+                        flex="1"
+                        textAlign="left"
+                        className={style.drawer}
+                      >
                         COMPARE
                       </Box>
                       <AccordionIcon />
@@ -297,7 +312,7 @@ const NavbarDrawer = () => {
                       <Link href="/">WASHING MACHINE</Link>
                     </p>
                     <br />
-                    <p onClick={onClose}p>
+                    <p onClick={onClose}>
                       <Link href="/">TABLETS</Link>
                     </p>
                     <br />
@@ -337,7 +352,12 @@ const NavbarDrawer = () => {
                 <AccordionItem>
                   <h2>
                     <AccordionButton>
-                      <Box as="span" flex="1" textAlign="left" className={style.drawer}>
+                      <Box
+                        as="span"
+                        flex="1"
+                        textAlign="left"
+                        className={style.drawer}
+                      >
                         RECHARGE
                       </Box>
                       <AccordionIcon />
@@ -364,7 +384,12 @@ const NavbarDrawer = () => {
                 <AccordionItem>
                   <h2>
                     <AccordionButton>
-                      <Box as="span" flex="1" textAlign="left" className={style.drawer}>
+                      <Box
+                        as="span"
+                        flex="1"
+                        textAlign="left"
+                        className={style.drawer}
+                      >
                         MORE
                       </Box>
                       <AccordionIcon />
@@ -440,7 +465,13 @@ const NavbarDrawer = () => {
             {user.uid ? (
               <div style={{ display: "flex", gap: "1rem" }}>
                 <div className={style.avatar}>
-                  <Avatar size="sm" src={user.photoURL || "https://static.vecteezy.com/system/resources/thumbnails/000/439/863/small/Basic_Ui__28186_29.jpg"} />
+                  <Avatar
+                    size="sm"
+                    src={
+                      user.photoURL ||
+                      "https://static.vecteezy.com/system/resources/thumbnails/000/439/863/small/Basic_Ui__28186_29.jpg"
+                    }
+                  />
                   <div>
                     <p>{user.displayName || "User"}</p>
                   </div>
@@ -458,7 +489,12 @@ const NavbarDrawer = () => {
               </div>
             )}
             <Link href="/cart">
-              <Icon as={HiShoppingCart} boxSize={8} color={"#EE3E38"} paddingTop="0.2rem" />
+              <Icon
+                as={HiShoppingCart}
+                boxSize={8}
+                color={"#EE3E38"}
+                paddingTop="0.2rem"
+              />
             </Link>
           </DrawerFooter>
         </DrawerContent>
