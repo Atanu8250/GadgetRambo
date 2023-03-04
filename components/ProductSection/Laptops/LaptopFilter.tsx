@@ -5,16 +5,13 @@ import {
   AccordionIcon,
   AccordionPanel,
   Checkbox,
-  Input,
   Button,
   Text,
   Accordion,
   AccordionItem,
   AccordionButton,
-  IconButton,
 } from "@chakra-ui/react";
 import { MdRestartAlt } from "react-icons/md";
-import { BsSearch } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import { intrfcLaptop, lap_filterProps } from "@/constants/constants";
 import { State } from "@/redux/store";
