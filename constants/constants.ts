@@ -95,3 +95,9 @@ export interface filterProps {
   fcam: String;
   ram: String;
 }
+export interface lap_filterProps {
+  price: String;
+  brand: String;
+  screen: String;
+  os: String;
+}
