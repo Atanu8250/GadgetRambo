@@ -8,18 +8,18 @@ import { getMobileAPI } from "@/redux/products/products.api";
 import RightSidebar from "@/components/RightSidebar";
 import { intrfcMobile } from "@/constants/constants";
 
-const Mobiles = () => {
+const Mobiles = ({ mobiles }: any) => {
   const srcIpRef = useRef<HTMLInputElement>(null);
   const [loader, setLoader] = useState<number>(5);
-  const [mobiles, setMobile] = useState<[]>([]);
-  const [count, setCount] = useState(1);
-  const setMobiles = (d: any) => {
-    setMobile(d);
-    setCount(count + 1);
-  };
-  useEffect(() => {
-    setMobile(mobiles);
-  }, [count]);
+  // const [mobiles, setMobile] = useState<[]>([]);
+  // const [count, setCount] = useState(1);
+  // const setMobiles = (d: any) => {
+  //   setMobile(d);
+  //   setCount(count + 1);
+  // };
+  // useEffect(() => {
+  //   setMobile(mobiles);
+  // }, [count]);
 
   return (
     <>
@@ -40,7 +40,7 @@ const Mobiles = () => {
           mx={1}
         >
           <Show breakpoint="(min-width: 768px)">
-            <MobileFilter setMobiles={setMobiles} />
+            <MobileFilter setMobiles={mobiles} />
           </Show>
           <ResponsiveMobileFilter />
         </Flex>
@@ -91,7 +91,7 @@ const Mobiles = () => {
 export default Mobiles;
 
 export const getStaticProps = async () => {
-  const mobiles = await getMobileAPI(20);
+  const mobiles = await getMobileAPI(10);
   return {
     props: {
       mobiles,

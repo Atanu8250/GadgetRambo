@@ -30,25 +30,29 @@ const MobileFilter = ({ setMobiles }: any) => {
   });
   const dispatch = useDispatch();
   const getdata = () => {
-    setMobiles(mobiles);
+    // setMobiles(mobiles);
   };
   useEffect(() => {
     getMobile(dispatch, 43);
-    getdata();
+    // getdata();
   }, []);
 
-  //  price sorting
+  //*  price sorting
   const lthSort = () => {
     sortedArr = sortedArr.sort((a: intrfcMobile, b: intrfcMobile) => {
       return +a.price - +b.price;
     });
-    setMobiles(mobiles);
+    // setMobiles(sortedArr);
   };
   const htlSort = () => {
     sortedArr = sortedArr.sort((a: intrfcMobile, b: intrfcMobile) => {
       return +b.price - +a.price;
     });
-    setMobiles(mobiles);
+    // setMobiles(sortedArr);
+  };
+  //* brand filtering
+  const samsungFilter = () => {
+    sortedArr.filter((el: any) => console.log(el));
   };
 
   return (
