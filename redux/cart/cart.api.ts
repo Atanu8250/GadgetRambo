@@ -36,14 +36,7 @@ export const addCartAPI = async (
         status: "warning",
       });
     } else {
-      const olddata = await getCartAPI();
-      const flag = olddata?.map((el) => el.id === cartItems.id);
-      if (flag) {
-        toastMsg({
-          title: "Item already exist",
-          status: "success",
-        });
-      } else {
+      {
         const cartRef = doc(
           db,
           `cartItems/${auth.currentUser?.email}/items`,
