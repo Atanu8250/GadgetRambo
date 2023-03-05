@@ -28,36 +28,36 @@ const Laptop = ({ laptop }: any) => {
     getCart(dispatch);
   };
   return (
-    <Flex p={7}>
+    <Flex p={10} w={"100%"} justifyContent={"center"}>
       <Show above="lg">
         {/* Left Side */}
-        <Flex mx={4} flex={1}>
+        <Flex mx={2} flex={1}>
           <LeftSidebar />
         </Flex>
       </Show>
       {/* Center Side */}
       <Flex
         mx={{ base: 1, sm: 4 }}
-        p={{ base: 1, sm: 5 }}
-        flex={4}
+        p={{ base: 0, sm: 5 }}
+        flex={3}
         justifyContent={"flex-start"}
         direction={"column"}
         alignItems={"center"}
       >
-        <Flex mb={8} w={"100%"} justifyContent={"flex-start"}>
+        <Flex mb={8} w={"100%"} justifyContent={"center"}>
           <Heading size={{ base: "lg", sm: "xl" }}>{laptop.name}</Heading>
+        </Flex>
+        <Flex
+          mb={8}
+          justifyContent={{ base: "center", sm: "center", md: "flex-start" }}
+        >
+          <Image src={laptop.image} alt={laptop.name} w={"380px"} />
         </Flex>
         <Flex
           gap={5}
           direction={{ base: "column", sm: "column", md: "row", lg: "row" }}
           justifyContent={"space-evenly"}
         >
-          <Flex
-            mb={8}
-            justifyContent={{ base: "center", sm: "center", md: "flex-start" }}
-          >
-            <Image src={laptop.image} alt={laptop.name} w={"180px"} />
-          </Flex>
           <Flex border={"7px double #DDDDDD"} borderRadius={"20px"} p={"5"}>
             <SimpleGrid
               columns={{ base: 1, sm: 2 }}
@@ -150,7 +150,7 @@ const Laptop = ({ laptop }: any) => {
       </Flex>
       <Show above="xl">
         {/* Right Side */}
-        <Flex mx={4} flex={2}>
+        <Flex mx={4} flex={1.2}>
           <RightSidebar />
         </Flex>
       </Show>
@@ -182,6 +182,6 @@ export const getStaticProps = async (context: any) => {
       },
     };
   } catch (error) {
-    console.log(error);
+    throw error;
   }
 };
