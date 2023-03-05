@@ -36,7 +36,22 @@ export const addCartAPI = async (
         status: "warning",
       });
     } else {
-      {
+      const cartRef = collection(
+        db,
+        `cartItems/${auth.currentUser?.email}/items`
+      );
+      const res = await getDocs(cartRef);
+      const olddata = res.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+      let flag = false;
+      for (let el of olddata) {
+        if (el.id === cartItems.id) flag = true;
+      }
+      if (flag) {
+        toastMsg({
+          title: "Item already exist in cart",
+          status: "success",
+        });
+      } else {
         const cartRef = doc(
           db,
           `cartItems/${auth.currentUser?.email}/items`,

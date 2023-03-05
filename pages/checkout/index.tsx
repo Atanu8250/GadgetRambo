@@ -19,6 +19,9 @@ import Link from "next/link";
 import useToastMsg from "@/customHook/UseToastMsg";
 import Router from "next/router";
 import { auth } from "@/Backend/Firebase/firebase";
+import { addOrderAPI } from "@/redux/orders/orders.api";
+import { getCart } from "@/redux/cart/cart.actions";
+import { useDispatch } from "react-redux";
 
 const Checkout = () => {
   const toastmsg = useToastMsg();
@@ -33,6 +36,7 @@ const Checkout = () => {
   const [address, setAddress] = React.useState("");
   const [zip, setZip] = React.useState("");
   const [cvv, setCvv] = React.useState("");
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (auth.currentUser === null) {
@@ -44,7 +48,7 @@ const Checkout = () => {
     }
   }, []);
 
-  const handlePayment = () => {
+  const handlePayment = async () => {
     if (
       firstName === "" ||
       address === "" ||
@@ -62,10 +66,8 @@ const Checkout = () => {
         status: "warning",
       });
     } else {
-      toastmsg({
-        title: "Payment Success",
-        status: "success",
-      });
+      await addOrderAPI(toastmsg);
+      getCart(dispatch);
       Router.replace("/");
     }
   };
@@ -166,7 +168,7 @@ const Checkout = () => {
                   <h1>Select Card</h1>
                   <RadioGroup onChange={setValue} value={value}>
                     <div className={style.card}>
-                    {/* <Stack direction={['column', 'row']} gap="2rem"> */}
+                      {/* <Stack direction={['column', 'row']} gap="2rem"> */}
                       <Radio value="1">
                         <Icon as={RiVisaFill} boxSize={12} />
                       </Radio>
@@ -176,7 +178,7 @@ const Checkout = () => {
                       <Radio value="3">
                         <Icon as={SiAmericanexpress} boxSize={12} />
                       </Radio>
-                    {/* </Stack> */}
+                      {/* </Stack> */}
                     </div>
                   </RadioGroup>
                 </div>
