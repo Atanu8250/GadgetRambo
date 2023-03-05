@@ -1,6 +1,7 @@
 import { db } from "@/Backend/Firebase/firebase";
 import LeftSidebar from "@/components/LeftSidebar";
 import RightSidebar from "@/components/RightSidebar";
+import { intrfcTv } from "@/constants/constants";
 import useToastMsg from "@/customHook/UseToastMsg";
 import { addCart, getCart } from "@/redux/cart/cart.actions";
 import {
@@ -19,44 +20,48 @@ import { IoMdPricetags } from "react-icons/io";
 import { MdOutlineScreenSearchDesktop } from "react-icons/md";
 import { useDispatch } from "react-redux";
 
-const Tv = ({ tv }: any) => {
+interface singleTv {
+  tv: intrfcTv;
+}
+
+const Tv = ({ tv }: singleTv) => {
   const toastMsg = useToastMsg();
   const dispatch = useDispatch();
   const handleAddtoCart = () => {
-    addCart(tv, dispatch, toastMsg);
+    addCart(tv, toastMsg);
     getCart(dispatch);
   };
   return (
-    <Flex p={7}>
+    <Flex p={10}>
       <Show above="lg">
         {/* Left Side */}
-        <Flex mx={4} flex={1}>
+        <Flex mx={2} flex={1}>
           <LeftSidebar />
         </Flex>
       </Show>
       {/* Center Side */}
       <Flex
         mx={{ base: 1, sm: 4 }}
-        p={{ base: 1, sm: 5 }}
-        flex={4}
+        p={{ base: 0, sm: 5 }}
+        flex={3}
         justifyContent={"flex-start"}
         direction={"column"}
         alignItems={"center"}
       >
-        <Flex mb={8} w={"100%"} justifyContent={"flex-start"}>
+        <Flex mb={8} w={"100%"} justifyContent={"center"}>
           <Heading size={{ base: "lg", sm: "xl" }}>{tv.modal}</Heading>
+        </Flex>
+        <Flex
+          mb={8}
+          justifyContent={{ base: "center", sm: "center", md: "flex-start" }}
+        >
+          <Image src={tv.imgsrc} alt={tv.modal} w={"180px"} />
         </Flex>
         <Flex
           gap={5}
           direction={{ base: "column", sm: "column", md: "row", lg: "row" }}
           justifyContent={"space-evenly"}
         >
-          <Flex
-            mb={8}
-            justifyContent={{ base: "center", sm: "center", md: "flex-start" }}
-          >
-            <Image src={tv.imgsrc} alt={tv.modal} w={"180px"} />
-          </Flex>
           <Flex border={"7px double #DDDDDD"} borderRadius={"20px"} p={"5"}>
             <SimpleGrid
               columns={{ base: 1, sm: 2 }}
@@ -112,7 +117,7 @@ const Tv = ({ tv }: any) => {
           </Button>
         </Flex>
         <Flex direction={"column"} gap={3}>
-          <Text as={"b"}>{tv.name} Summary</Text>
+          <Text as={"b"}>{tv.modal} Summary</Text>
           <Text textAlign={"justify"} fontSize={"md"}>
             {tv.modal} Inch Crystal 4K Neo TV (UA43AUE65AKXXL) price in India
             starts from ₹ {tv.price}. The lowest price of Samsung 43 Inch
@@ -127,15 +132,11 @@ const Tv = ({ tv }: any) => {
             enables this TV to function amazingly well, mesmerising you with its
             effectiveness.
           </Text>
-          <Text as={"b"}>Brand</Text>
-          <Text fontSize={"md"}>{tv.brand}</Text>
-          <Text as={"b"}>Release Date</Text>
-          <Text fontSize={"md"}>{tv.releaseDate}</Text>
         </Flex>
       </Flex>
       <Show above="xl">
         {/* Right Side */}
-        <Flex mx={4} flex={2}>
+        <Flex mx={4} flex={1.2}>
           <RightSidebar />
         </Flex>
       </Show>
@@ -163,7 +164,7 @@ export const getStaticProps = async (context: any) => {
     const tv = res.data();
     return {
       props: {
-        tv,
+        tv: { ...tv, id: params.id, quantity: 1 },
       },
     };
   } catch (error) {

@@ -1,7 +1,7 @@
 import { db } from "@/Backend/Firebase/firebase";
 import LeftSidebar from "@/components/LeftSidebar";
 import RightSidebar from "@/components/RightSidebar";
-import { intrfcMobile } from "@/constants/constants";
+import { cartItemsProps, intrfcMobile } from "@/constants/constants";
 import useToastMsg from "@/customHook/UseToastMsg";
 import { addCart, getCart } from "@/redux/cart/cart.actions";
 import {
@@ -18,7 +18,6 @@ import React from "react";
 import { BiAperture } from "react-icons/bi";
 import { BsCameraFill, BsCpu, BsDisplay, BsWifi } from "react-icons/bs";
 import { useDispatch } from "react-redux";
-
 interface singleMobile {
   mobile: intrfcMobile;
 }
@@ -26,41 +25,42 @@ interface singleMobile {
 const Mobile = ({ mobile }: singleMobile) => {
   const toastMsg = useToastMsg();
   const dispatch = useDispatch();
-  const handleAddtoCart = () => {
-    addCart(mobile, dispatch, toastMsg);
+  const handleAddtoCart = async () => {
+    addCart(mobile, toastMsg);
     getCart(dispatch);
   };
+
   return (
-    <Flex p={7}>
+    <Flex p={10}>
       <Show above="lg">
         {/* Left Side */}
-        <Flex mx={4} flex={1}>
+        <Flex mx={2} flex={1}>
           <LeftSidebar />
         </Flex>
       </Show>
       {/* Center Side */}
       <Flex
         mx={{ base: 1, sm: 4 }}
-        p={{ base: 1, sm: 5 }}
-        flex={4}
+        p={{ base: 0, sm: 5 }}
+        flex={3}
         justifyContent={"flex-start"}
         direction={"column"}
         alignItems={"center"}
       >
-        <Flex mb={8} w={"100%"} justifyContent={"flex-start"}>
+        <Flex mb={8} w={"100%"} justifyContent={"center"}>
           <Heading size={{ base: "lg", sm: "xl" }}>{mobile.modal}</Heading>
+        </Flex>
+        <Flex
+          mb={8}
+          justifyContent={{ base: "center", sm: "center", md: "flex-start" }}
+        >
+          <Image src={mobile.imgsrc} alt={mobile.modal} w={"180px"} />
         </Flex>
         <Flex
           gap={5}
           direction={{ base: "column", sm: "column", md: "row", lg: "row" }}
           justifyContent={"space-evenly"}
         >
-          <Flex
-            mb={8}
-            justifyContent={{ base: "center", sm: "center", md: "flex-start" }}
-          >
-            <Image src={mobile.imgsrc} alt={mobile.modal} w={"180px"} />
-          </Flex>
           <Flex border={"7px double #DDDDDD"} borderRadius={"20px"} p={"5"}>
             <SimpleGrid
               columns={{ base: 1, sm: 2 }}
@@ -153,7 +153,7 @@ const Mobile = ({ mobile }: singleMobile) => {
       </Flex>
       <Show above="xl">
         {/* Right Side */}
-        <Flex mx={4} flex={2}>
+        <Flex mx={4} flex={1.2}>
           <RightSidebar />
         </Flex>
       </Show>
@@ -165,14 +165,13 @@ export default Mobile;
 
 export async function getStaticPaths() {
   const prodRef = collection(db, "mobiles");
-  let res = await getDocs(prodRef)
+  let res = await getDocs(prodRef);
   let data = res.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
   return {
     paths: data.map((blog) => ({ params: { id: blog.id.toString() } })),
     fallback: false, // can also be true or 'blocking'
-  }
+  };
 }
-
 
 export const getStaticProps = async (context: any) => {
   const { params } = context;
