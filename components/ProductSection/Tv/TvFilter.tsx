@@ -13,12 +13,12 @@ import {
 } from "@chakra-ui/react";
 import { MdRestartAlt } from "react-icons/md";
 import { useSelector } from "react-redux";
-import { intrfcLaptop, lap_filterProps } from "@/constants/constants";
+import { intrfcTv, lap_filterProps } from "@/constants/constants";
 import { State } from "@/redux/store";
 
-const LaptopFilter = ({ setLaptops }: any) => {
-  const { laptops } = useSelector((store: State) => store.productsManager);
-  let sortedArr = laptops;
+const TvFilter = ({ setTv }: any) => {
+  const { televisions } = useSelector((store: State) => store.productsManager);
+  let sortedArr = televisions;
   const [cat, setCat] = useState<lap_filterProps>({
     price: "",
     brand: "",
@@ -26,11 +26,11 @@ const LaptopFilter = ({ setLaptops }: any) => {
     os: "",
   });
   useEffect(() => {
-    setLaptops(laptops);
+    setTv(televisions);
   }, []);
 
   const HandleReset = () => {
-    setLaptops(laptops);
+    setTv(televisions);
     setCat({
       price: "",
       brand: "",
@@ -41,76 +41,90 @@ const LaptopFilter = ({ setLaptops }: any) => {
 
   //*  price sorting
   const lthSort = () => {
-    sortedArr = sortedArr.sort((a: intrfcLaptop, b: intrfcLaptop) => {
+    sortedArr = sortedArr.sort((a: intrfcTv, b: intrfcTv) => {
       return +a.price - +b.price;
     });
-    setLaptops(sortedArr);
+    setTv(sortedArr);
   };
   const htlSort = () => {
-    sortedArr = sortedArr.sort((a: intrfcLaptop, b: intrfcLaptop) => {
+    sortedArr = sortedArr.sort((a: intrfcTv, b: intrfcTv) => {
       return +b.price - +a.price;
     });
-    setLaptops(sortedArr);
+    setTv(sortedArr);
   };
   //* brand filtering
-  const asusFilter = () => {
-    sortedArr = sortedArr.filter((el: any) => el.name.includes("Asus"));
-    setLaptops(sortedArr);
+  const lgFilter = () => {
+    sortedArr = sortedArr.filter((el: any) => el.modal.includes("LG"));
+    setTv(sortedArr);
   };
-  const dellFilter = () => {
-    sortedArr = sortedArr.filter((el: intrfcLaptop) =>
-      el.name.includes("Dell")
-    );
-    setLaptops(sortedArr);
+  const sonyFilter = () => {
+    sortedArr = sortedArr.filter((el: intrfcTv) => el.modal.includes("Sony"));
+    setTv(sortedArr);
   };
-  const lenovoFilter = () => {
-    sortedArr = sortedArr.filter((el: intrfcLaptop) =>
-      el.name.includes("Lenovo")
+  const panasonicFilter = () => {
+    sortedArr = sortedArr.filter((el: intrfcTv) =>
+      el.modal.includes("Panasonic")
     );
-    setLaptops(sortedArr);
+    setTv(sortedArr);
   };
-  const acerFilter = () => {
-    sortedArr = sortedArr.filter((el: intrfcLaptop) =>
-      el.name.includes("Acer")
-    );
-    setLaptops(sortedArr);
+  const vuFilter = () => {
+    sortedArr = sortedArr.filter((el: intrfcTv) => el.modal.includes("Vu"));
+    setTv(sortedArr);
   };
-  const realmeFilter = () => {
-    sortedArr = sortedArr.filter((el: intrfcLaptop) =>
-      el.name.includes("Realme")
+  const oneplusF = () => {
+    sortedArr = sortedArr.filter((el: intrfcTv) =>
+      el.modal.includes("OnePlus")
     );
-    setLaptops(sortedArr);
+    setTv(sortedArr);
   };
 
   //* screen filtering
   const s1filter = () => {
-    sortedArr = sortedArr.filter((el: intrfcLaptop) =>
-      el.size.includes("16.00")
+    sortedArr = sortedArr.filter(
+      (el: intrfcTv) =>
+        el.displaySize.includes("43") ||
+        el.displaySize.includes("55") ||
+        el.displaySize.includes("70") ||
+        el.displaySize.includes("65") ||
+        el.displaySize.includes("60")
     );
-    setLaptops(sortedArr);
+    setTv(sortedArr);
   };
   const s2filter = () => {
     sortedArr = sortedArr.filter(
-      (el: intrfcLaptop) =>
-        el.size.includes("14.00") || el.size.includes("15.60")
+      (el: intrfcTv) =>
+        el.displaySize.includes("32") ||
+        el.displaySize.includes("40") ||
+        el.displaySize.includes("42")
     );
-    setLaptops(sortedArr);
+    setTv(sortedArr);
+  };
+  const s3filter = () => {
+    sortedArr = sortedArr.filter(
+      (el: intrfcTv) =>
+        el.displaySize.includes("24") || el.displaySize.includes("28")
+    );
+    setTv(sortedArr);
   };
 
-  //* os filtering
+  //* display type filtering
   const o1filter = () => {
-    sortedArr = sortedArr.filter((el: intrfcLaptop) => el.os.includes("10"));
-    setLaptops(sortedArr);
+    sortedArr = sortedArr.filter((el: intrfcTv) =>
+      el.displayType.includes("LED")
+    );
+    setTv(sortedArr);
   };
   const o2filter = () => {
-    sortedArr = sortedArr.filter((el: intrfcLaptop) =>
-      el.os.includes("Chrome")
+    sortedArr = sortedArr.filter((el: intrfcTv) =>
+      el.displayType.includes("HD-Ready")
     );
-    setLaptops(sortedArr);
+    setTv(sortedArr);
   };
   const o3filter = () => {
-    sortedArr = sortedArr.filter((el: intrfcLaptop) => el.os.includes("11"));
-    setLaptops(sortedArr);
+    sortedArr = sortedArr.filter((el: intrfcTv) =>
+      el.displayType.includes("Full-HD")
+    );
+    setTv(sortedArr);
   };
   return (
     <Flex direction={"column"} p={"1"} w={"248px"} bgColor={"#DDDDDD"}>
@@ -187,74 +201,74 @@ const LaptopFilter = ({ setLaptops }: any) => {
           <AccordionPanel pb={4}>
             <Flex direction={"column"}>
               <Checkbox
-                isChecked={cat.brand === "asus"}
+                isChecked={cat.brand === "lg"}
                 onChange={(e: any) => {
-                  if (cat.brand === "asus") {
+                  if (cat.brand === "lg") {
                     setCat({ ...cat, brand: "" });
                   } else {
                     setCat({ ...cat, brand: e.target.value });
-                    asusFilter();
+                    lgFilter();
                   }
                 }}
                 value="asus"
               >
-                Asus
+                LG
               </Checkbox>
               <Checkbox
-                isChecked={cat.brand === "dell"}
+                isChecked={cat.brand === "sony"}
                 onChange={(e: any) => {
-                  if (cat.brand === "dell") {
+                  if (cat.brand === "sony") {
                     setCat({ ...cat, brand: "" });
                   } else {
                     setCat({ ...cat, brand: e.target.value });
-                    dellFilter();
+                    sonyFilter();
                   }
                 }}
-                value="dell"
+                value="sony"
               >
-                Dell
+                Sony
               </Checkbox>
               <Checkbox
-                isChecked={cat.brand === "lenevo"}
+                isChecked={cat.brand === "panasonic"}
                 onChange={(e: any) => {
-                  if (cat.brand === "lenevo") {
+                  if (cat.brand === "panasonic") {
                     setCat({ ...cat, brand: "" });
                   } else {
                     setCat({ ...cat, brand: e.target.value });
-                    lenovoFilter();
+                    panasonicFilter();
                   }
                 }}
-                value="lenevo"
+                value="panasonic"
               >
-                Lenovo
+                Panasonic
               </Checkbox>
               <Checkbox
-                isChecked={cat.brand === "acer"}
+                isChecked={cat.brand === "vu"}
                 onChange={(e: any) => {
-                  if (cat.brand === "acer") {
+                  if (cat.brand === "vu") {
                     setCat({ ...cat, brand: "" });
                   } else {
                     setCat({ ...cat, brand: e.target.value });
-                    acerFilter();
+                    vuFilter();
                   }
                 }}
-                value="acer"
+                value="vu"
               >
-                Acer
+                Vu
               </Checkbox>
               <Checkbox
-                isChecked={cat.brand === "realme"}
+                isChecked={cat.brand === "oneplus"}
                 onChange={(e: any) => {
-                  if (cat.brand === "realme") {
+                  if (cat.brand === "oneplus") {
                     setCat({ ...cat, brand: "" });
                   } else {
                     setCat({ ...cat, brand: e.target.value });
-                    realmeFilter();
+                    oneplusF();
                   }
                 }}
-                value="realme"
+                value="oneplus"
               >
-                RealMe
+                Oneplus
               </Checkbox>
             </Flex>
           </AccordionPanel>
@@ -263,7 +277,7 @@ const LaptopFilter = ({ setLaptops }: any) => {
         <AccordionItem bgColor={"white"}>
           <AccordionButton>
             <Box fontSize={"sm"} as="span" flex="1" textAlign="left">
-              Screen Sizes
+              Display Sizes
             </Box>
             <AccordionIcon />
           </AccordionButton>
@@ -271,41 +285,55 @@ const LaptopFilter = ({ setLaptops }: any) => {
           <AccordionPanel pb={4}>
             <Flex direction={"column"}>
               <Checkbox
-                isChecked={cat.screen === "15"}
+                isChecked={cat.screen === "43"}
                 onChange={(e: any) => {
-                  if (cat.screen === "15") {
+                  if (cat.screen === "43") {
                     setCat({ ...cat, screen: "" });
                   } else {
                     setCat({ ...cat, screen: e.target.value });
                     s1filter();
                   }
                 }}
-                value="15"
+                value="43"
               >
-                16 inches & Above
+                43 inches & Above
               </Checkbox>
               <Checkbox
-                isChecked={cat.screen === "16"}
+                isChecked={cat.screen === "32"}
                 onChange={(e: any) => {
-                  if (cat.screen === "16") {
+                  if (cat.screen === "32") {
                     setCat({ ...cat, screen: "" });
                   } else {
                     setCat({ ...cat, screen: e.target.value });
                     s2filter();
                   }
                 }}
-                value="16"
+                value="32"
               >
-                15.9 inches & Below
+                32 - 42 inches
+              </Checkbox>
+              <Checkbox
+                isChecked={cat.screen === "28"}
+                onChange={(e: any) => {
+                  if (cat.screen === "28") {
+                    setCat({ ...cat, screen: "" });
+                  } else {
+                    setCat({ ...cat, screen: e.target.value });
+                    s3filter();
+                  }
+                }}
+                value="28"
+              >
+                28 - 24 inches
               </Checkbox>
             </Flex>
           </AccordionPanel>
         </AccordionItem>
-        {/* Operating System */}
+        {/* display types */}
         <AccordionItem bgColor={"white"}>
           <AccordionButton>
             <Box fontSize={"sm"} as="span" flex="1" textAlign="left">
-              Operating System
+              Display Types
             </Box>
             <AccordionIcon />
           </AccordionButton>
@@ -323,7 +351,7 @@ const LaptopFilter = ({ setLaptops }: any) => {
                 }}
                 value="w10"
               >
-                Windows 10
+                LED
               </Checkbox>
               <Checkbox
                 isChecked={cat.os === "chrome"}
@@ -337,7 +365,7 @@ const LaptopFilter = ({ setLaptops }: any) => {
                 }}
                 value="chrome"
               >
-                Chrome OS
+                HD-Ready
               </Checkbox>
               <Checkbox
                 isChecked={cat.os === "w11"}
@@ -351,7 +379,7 @@ const LaptopFilter = ({ setLaptops }: any) => {
                 }}
                 value="w11"
               >
-                Windows 11
+                Full-HD
               </Checkbox>
             </Flex>
           </AccordionPanel>
@@ -361,4 +389,4 @@ const LaptopFilter = ({ setLaptops }: any) => {
   );
 };
 
-export default LaptopFilter;
+export default TvFilter;
