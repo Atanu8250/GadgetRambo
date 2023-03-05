@@ -1,7 +1,7 @@
 import { db } from "@/Backend/Firebase/firebase";
 import LeftSidebar from "@/components/LeftSidebar";
 import RightSidebar from "@/components/RightSidebar";
-import { intrfcMobile } from "@/constants/constants";
+import { cartItemsProps, intrfcMobile } from "@/constants/constants";
 import useToastMsg from "@/customHook/UseToastMsg";
 import { addCart, getCart } from "@/redux/cart/cart.actions";
 import {
@@ -18,7 +18,6 @@ import React from "react";
 import { BiAperture } from "react-icons/bi";
 import { BsCameraFill, BsCpu, BsDisplay, BsWifi } from "react-icons/bs";
 import { useDispatch } from "react-redux";
-
 interface singleMobile {
   mobile: intrfcMobile;
 }
@@ -26,10 +25,11 @@ interface singleMobile {
 const Mobile = ({ mobile }: singleMobile) => {
   const toastMsg = useToastMsg();
   const dispatch = useDispatch();
-  const handleAddtoCart = () => {
-    addCart(mobile, dispatch, toastMsg);
+  const handleAddtoCart = async () => {
+    addCart(mobile, toastMsg);
     getCart(dispatch);
   };
+
   return (
     <Flex p={10}>
       <Show above="lg">

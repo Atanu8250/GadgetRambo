@@ -16,12 +16,6 @@ const cartReducer = (
         cart: action.payload,
       };
     }
-    case CartTypes.ADD_TO_CART: {
-      return {
-        ...state,
-        cart: [...state.cart, action.payload],
-      };
-    }
     case CartTypes.REMOVE_FROM_CART: {
       return {
         ...state,
@@ -37,10 +31,6 @@ const cartReducer = (
       };
     }
 
-    case CartTypes.CLEAR_CART: {
-      return initialState;
-    }
-    
     default:
       return state;
   }

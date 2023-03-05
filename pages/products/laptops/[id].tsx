@@ -1,6 +1,7 @@
 import { db } from "@/Backend/Firebase/firebase";
 import LeftSidebar from "@/components/LeftSidebar";
 import RightSidebar from "@/components/RightSidebar";
+import { intrfcLaptop } from "@/constants/constants";
 import useToastMsg from "@/customHook/UseToastMsg";
 import { addCart, getCart } from "@/redux/cart/cart.actions";
 import {
@@ -20,11 +21,15 @@ import { FaUsb } from "react-icons/fa";
 import { MdOutlineScreenSearchDesktop } from "react-icons/md";
 import { useDispatch } from "react-redux";
 
-const Laptop = ({ laptop }: any) => {
+interface singleLaptop {
+  laptop: intrfcLaptop;
+}
+
+const Laptop = ({ laptop }: singleLaptop) => {
   const toastMsg = useToastMsg();
   const dispatch = useDispatch();
   const handleAddtoCart = () => {
-    addCart(laptop, dispatch, toastMsg);
+    addCart(laptop, toastMsg);
     getCart(dispatch);
   };
   return (
@@ -178,7 +183,7 @@ export const getStaticProps = async (context: any) => {
     const laptop = res.data();
     return {
       props: {
-        laptop,
+        laptop: { ...laptop, id: params.id, quantity: 1 },
       },
     };
   } catch (error) {

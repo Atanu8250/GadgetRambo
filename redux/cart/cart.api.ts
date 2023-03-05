@@ -7,8 +7,7 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import { auth, db } from "@/Backend/Firebase/firebase";
-import { intrfcToastMsg } from "@/constants/constants";
-import { cartItemsProps } from "./cart.interfaces";
+import { cartItemsProps, intrfcToastMsg } from "@/constants/constants";
 
 // api for getting all cart items
 export const getCartAPI = async () => {
@@ -37,16 +36,25 @@ export const addCartAPI = async (
         status: "warning",
       });
     } else {
-      const cartRef = doc(
-        db,
-        `cartItems/${auth.currentUser?.email}/items`,
-        cartItems.id
-      );
-      await setDoc(cartRef, cartItems);
-      toastMsg({
-        title: "Item added to Cart",
-        status: "success",
-      });
+      const olddata = await getCartAPI();
+      const flag = olddata?.map((el) => el.id === cartItems.id);
+      if (flag) {
+        toastMsg({
+          title: "Item already exist",
+          status: "success",
+        });
+      } else {
+        const cartRef = doc(
+          db,
+          `cartItems/${auth.currentUser?.email}/items`,
+          cartItems.id
+        );
+        await setDoc(cartRef, cartItems);
+        toastMsg({
+          title: "Item added to Cart",
+          status: "success",
+        });
+      }
     }
   } catch (error: any) {
     toastMsg({
@@ -67,7 +75,10 @@ export const updateCartAPI = async (cartId: string) => {
 };
 
 // api for removing items from cart reducer
-export const removeCartAPI = async (cartId: string) => {
+export const removeCartAPI = async (
+  cartId: string,
+  toastMsg: ({}: intrfcToastMsg) => void
+) => {
   try {
     const cartRef = doc(
       db,
@@ -75,6 +86,10 @@ export const removeCartAPI = async (cartId: string) => {
       cartId
     );
     await deleteDoc(cartRef);
+    toastMsg({
+      title: "Item removed from Cart",
+      status: "success",
+    });
   } catch (error) {
     console.log(error);
   }

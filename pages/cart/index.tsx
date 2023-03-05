@@ -5,22 +5,21 @@ import { Divider } from "@chakra-ui/react";
 import Link from "next/link";
 import RightSidebar from "@/components/RightSidebar";
 import { getCart } from "@/redux/cart/cart.actions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { State } from "@/redux/store";
 import Router from "next/router";
 import useToastMsg from "@/customHook/UseToastMsg";
-import { getCartAPI } from "@/redux/cart/cart.api";
 import { cartItemsProps } from "@/constants/constants";
 
-const Index = ({ cartItems }: any) => {
+const Index = () => {
   const toastMsg = useToastMsg();
   const dispatch = useDispatch();
-
   React.useEffect(() => {
-    getCart(dispatch, cartItems);
+    getCart(dispatch);
   }, []);
-
+  const { cart } = useSelector((store: State) => store.cartManager);
   const goTocheckout = () => {
-    if (cartItems.length) {
+    if (cart.length) {
       Router.replace("/checkout");
     } else {
       toastMsg({
@@ -48,7 +47,7 @@ const Index = ({ cartItems }: any) => {
         </div>
         <Divider />
         <div className={style.subSkeleton}>
-          {cartItems.map((items: cartItemsProps) => (
+          {cart?.map((items: cartItemsProps) => (
             <div key={items.id}>
               <CartItem items={items} />
             </div>
@@ -86,16 +85,3 @@ const Index = ({ cartItems }: any) => {
 };
 
 export default Index;
-
-export async function getStaticProps() {
-  const cartItems = await getCartAPI();
-  try {
-    return {
-      props: {
-        cartItems,
-      },
-    };
-  } catch (error) {
-    console.log(error);
-  }
-}

@@ -1,6 +1,7 @@
 import { db } from "@/Backend/Firebase/firebase";
 import LeftSidebar from "@/components/LeftSidebar";
 import RightSidebar from "@/components/RightSidebar";
+import { intrfcTv } from "@/constants/constants";
 import useToastMsg from "@/customHook/UseToastMsg";
 import { addCart, getCart } from "@/redux/cart/cart.actions";
 import {
@@ -19,11 +20,15 @@ import { IoMdPricetags } from "react-icons/io";
 import { MdOutlineScreenSearchDesktop } from "react-icons/md";
 import { useDispatch } from "react-redux";
 
-const Tv = ({ tv }: any) => {
+interface singleTv {
+  tv: intrfcTv;
+}
+
+const Tv = ({ tv }: singleTv) => {
   const toastMsg = useToastMsg();
   const dispatch = useDispatch();
   const handleAddtoCart = () => {
-    addCart(tv, dispatch, toastMsg);
+    addCart(tv, toastMsg);
     getCart(dispatch);
   };
   return (
@@ -112,7 +117,7 @@ const Tv = ({ tv }: any) => {
           </Button>
         </Flex>
         <Flex direction={"column"} gap={3}>
-          <Text as={"b"}>{tv.name} Summary</Text>
+          <Text as={"b"}>{tv.modal} Summary</Text>
           <Text textAlign={"justify"} fontSize={"md"}>
             {tv.modal} Inch Crystal 4K Neo TV (UA43AUE65AKXXL) price in India
             starts from ₹ {tv.price}. The lowest price of Samsung 43 Inch
@@ -127,10 +132,6 @@ const Tv = ({ tv }: any) => {
             enables this TV to function amazingly well, mesmerising you with its
             effectiveness.
           </Text>
-          <Text as={"b"}>Brand</Text>
-          <Text fontSize={"md"}>{tv.brand}</Text>
-          <Text as={"b"}>Release Date</Text>
-          <Text fontSize={"md"}>{tv.releaseDate}</Text>
         </Flex>
       </Flex>
       <Show above="xl">
@@ -163,7 +164,7 @@ export const getStaticProps = async (context: any) => {
     const tv = res.data();
     return {
       props: {
-        tv,
+        tv: { ...tv, id: params.id, quantity: 1 },
       },
     };
   } catch (error) {

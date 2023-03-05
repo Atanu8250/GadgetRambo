@@ -103,7 +103,7 @@ export interface lap_filterProps {
 }
 
 export interface cartItemsProps {
-  id?: string;
+  id: string;
   displayType?: string;
   resolutionStandard?: string;
   displaySize?: string;
@@ -125,7 +125,7 @@ export interface cartItemsProps {
   name?: string;
   numberOfUSBPorts?: number;
   os?: string;
-  price?: number;
+  price: number;
   processor?: string;
   ram?: number;
   releaseDate?: string;
@@ -135,4 +135,5 @@ export interface cartItemsProps {
   ssd?: number;
   weight?: number;
   wifi?: string;
+  quantity: number;
 }
