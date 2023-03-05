@@ -57,7 +57,6 @@ const Products = () => {
       status: "info",
     });
   };
-
   return (
     <>
       <Head>
@@ -111,7 +110,7 @@ const Products = () => {
                   <Text>Delete</Text>
                 </Box>
               </Flex>
-              {laptops.map((item: intrfcLaptop, i: number) => (
+              {laptops?.map((item: intrfcLaptop, i: number) => (
                 <Flex key={i}>
                   <Box>
                     <Text>{i + 1}</Text>
