@@ -101,3 +101,38 @@ export interface lap_filterProps {
   screen: String;
   os: String;
 }
+
+export interface cartItemsProps {
+  id?: string;
+  displayType?: string;
+  resolutionStandard?: string;
+  displaySize?: string;
+  frontCamera?: string;
+  imgsrc?: string;
+  modal?: string;
+  rearCamera?: string;
+  related?: string;
+  related2?: string;
+  bateryCapacity?: number;
+  brand?: string;
+  colours?: string;
+  description?: string;
+  dimensions?: string;
+  hardDisk?: string;
+  image?: string;
+  model?: string;
+  modelNumber?: string;
+  name?: string;
+  numberOfUSBPorts?: number;
+  os?: string;
+  price?: number;
+  processor?: string;
+  ram?: number;
+  releaseDate?: string;
+  resolution?: string;
+  series?: string;
+  size?: string;
+  ssd?: number;
+  weight?: number;
+  wifi?: string;
+}

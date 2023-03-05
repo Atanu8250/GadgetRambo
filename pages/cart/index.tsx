@@ -1,27 +1,26 @@
 import React from "react";
 import style from "../../styles/Cart.module.css";
 import CartItem from "@/components/CartItem";
-import { Divider, Button, Input } from "@chakra-ui/react";
+import { Divider } from "@chakra-ui/react";
 import Link from "next/link";
 import RightSidebar from "@/components/RightSidebar";
 import { getCart } from "@/redux/cart/cart.actions";
-import { useDispatch, useSelector } from "react-redux";
-import { State } from "@/redux/store";
-import { auth } from "@/Backend/Firebase/firebase";
+import { useDispatch } from "react-redux";
 import Router from "next/router";
 import useToastMsg from "@/customHook/UseToastMsg";
+import { getCartAPI } from "@/redux/cart/cart.api";
+import { cartItemsProps } from "@/constants/constants";
 
-const Index = () => {
+const Index = ({ cartItems }: any) => {
   const toastMsg = useToastMsg();
-  const { cart } = useSelector((store: State) => store.cartManager);
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    getCart(dispatch);
+    getCart(dispatch, cartItems);
   }, []);
 
   const goTocheckout = () => {
-    if (cart.length) {
+    if (cartItems.length) {
       Router.replace("/checkout");
     } else {
       toastMsg({
@@ -49,25 +48,27 @@ const Index = () => {
         </div>
         <Divider />
         <div className={style.subSkeleton}>
-          {cart.map((items: any) => (
+          {cartItems.map((items: cartItemsProps) => (
             <div key={items.id}>
               <CartItem items={items} />
             </div>
           ))}
         </div>
         <Divider />
-        <div className={style.bottomCart}>
-        </div>
+        <div className={style.bottomCart}></div>
 
         <div className={style.bottomDiscount}>
-            <div className={style.Applydiscount}>
-              <input
-                className={style.input}
-                placeholder="Please enter promo code"
-              />
-              <button className={style.buttonpromo}>Apply Discount</button>
-            </div>
-          <div className={style.lowerButton} style={{ display: "flex", gap: "0.5rem" }}>
+          <div className={style.Applydiscount}>
+            <input
+              className={style.input}
+              placeholder="Please enter promo code"
+            />
+            <button className={style.buttonpromo}>Apply Discount</button>
+          </div>
+          <div
+            className={style.lowerButton}
+            style={{ display: "flex", gap: "0.5rem" }}
+          >
             <span onClick={goTocheckout}>
               <button className={style.checkout}>Checkout</button>
             </span>
@@ -85,3 +86,16 @@ const Index = () => {
 };
 
 export default Index;
+
+export async function getStaticProps() {
+  const cartItems = await getCartAPI();
+  try {
+    return {
+      props: {
+        cartItems,
+      },
+    };
+  } catch (error) {
+    console.log(error);
+  }
+}

@@ -8,6 +8,7 @@ import {
 } from "firebase/firestore";
 import { auth, db } from "@/Backend/Firebase/firebase";
 import { intrfcToastMsg } from "@/constants/constants";
+import { cartItemsProps } from "./cart.interfaces";
 
 // api for getting all cart items
 export const getCartAPI = async () => {
@@ -26,7 +27,7 @@ export const getCartAPI = async () => {
 
 // api for adding items in cart reducer
 export const addCartAPI = async (
-  cartItems: any,
+  cartItems: cartItemsProps,
   toastMsg: ({}: intrfcToastMsg) => void
 ) => {
   try {
@@ -66,7 +67,7 @@ export const updateCartAPI = async (cartId: string) => {
 };
 
 // api for removing items from cart reducer
-export const removeCartAPI = async (cartId: any) => {
+export const removeCartAPI = async (cartId: string) => {
   try {
     const cartRef = doc(
       db,
