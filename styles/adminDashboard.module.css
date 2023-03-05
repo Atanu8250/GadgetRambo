@@ -65,7 +65,7 @@
 
 /* chart section */
 .dashboard>div:nth-child(2) {
-    height: 500px;
+    /* height: 500px; */
     margin-top: 15px;
     /* border: 2px solid red; */
     justify-content: space-between;
@@ -109,4 +109,49 @@
 .dashboard>div:nth-child(2)>div:nth-child(2)>div {
     height: 100%;
     width: 100%;
+}
+.flex{
+    display: flex;
+}
+.graph{
+    display: flex;
+}
+
+@media only screen and (max-width: 1706px) {
+    .graph{
+        flex-direction:column-reverse;
+        align-items: center;
+    }
+}
+@media only screen and (max-width: 1103px) {
+    .overviewCard{
+        white-space: nowrap;
+        width: 40%;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+    }
+    .flex{
+        flex-wrap: wrap;
+    }
+}
+@media only screen and (max-width: 1047px) {
+    .overviewCard{
+        white-space: nowrap;
+        width: 80%;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+    }
+}
+@media only screen and (max-width: 415px) {
+    .overviewCard{
+        white-space: nowrap;
+        width: 95%;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+    }
+}
+@media only screen and (max-width: 356px) {
+    .cardLogo{
+        display: none;
+    }
 }

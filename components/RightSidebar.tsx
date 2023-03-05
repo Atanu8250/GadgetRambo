@@ -16,7 +16,7 @@ const RightSidebar = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     getNews(dispatch, 15);
-    getMobile(dispatch, 43);
+    // getMobile(dispatch, 43);
   }, []);
 
   const origin =
@@ -85,7 +85,7 @@ const RightSidebar = () => {
             <p>Popular</p>
             <div>
               {mobiles?.map((el: any, i: number) => {
-                if (i > 20) {
+                if (i > 20 && i<=40) {
                   return (
                     <Link
                       href={`${origin}/products/mobiles/${el.id}`}
