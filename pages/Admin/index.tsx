@@ -56,14 +56,14 @@ const Home = () => {
 
           {/* overview cards */}
 
-          <Flex>
+          <div className={styles.flex}>
             <Box className={styles.overviewCard}>
               <Box>
                 <h2>Users</h2>
                 <p>{users.length}</p>
                 <p>Last updated: {mountTime} </p>
               </Box>
-              <Box>
+              <Box className={styles.cardLogo}>
                 <FaUsers />
               </Box>
             </Box>
@@ -74,7 +74,7 @@ const Home = () => {
                 <p>12345</p>
                 <p>Last updated: {mountTime}</p>
               </Box>
-              <Box>
+              <Box className={styles.cardLogo}>
                 <VscProject />
               </Box>
             </Box>
@@ -85,16 +85,16 @@ const Home = () => {
                 <p>₹ 12,345.00 /-</p>
                 <p>Last updated: {mountTime} </p>
               </Box>
-              <Box>
+              <Box className={styles.cardLogo}>
                 <GiMoneyStack />
               </Box>
             </Box>
-          </Flex>
+          </div>
 
 
           {/* Chart section */}
 
-          <Flex>
+          <div className={styles.graph}>
             <Flex>
               <h2>Revenue & users graph</h2>
               <Box>
@@ -102,12 +102,12 @@ const Home = () => {
               </Box>
             </Flex>
             <Flex>
+              <h2>Users details</h2>
               <Box>
                 <PieChartCompo />
               </Box>
-              <h2>Users details</h2>
             </Flex>
-          </Flex>
+          </div>
         </div>
       </SidebarWithHeader>
     </>

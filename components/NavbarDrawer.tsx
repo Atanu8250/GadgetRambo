@@ -20,10 +20,9 @@ import {
 import { Icon } from "@chakra-ui/react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { HiShoppingCart } from "react-icons/hi";
-import { Menu, MenuButton, MenuList, MenuItem, Avatar } from "@chakra-ui/react";
+import { Avatar } from "@chakra-ui/react";
 import style from "../styles/NavDrawer.module.css";
 import Link from "next/link";
-import { IoIosArrowDown } from "react-icons/io";
 import Image from "next/image";
 import Login from "./Login";
 import Signup from "./Signup";
