@@ -1,4 +1,11 @@
-import { collection, deleteDoc, doc, getDocs, limit, query } from "firebase/firestore";
+import {
+  collection,
+  deleteDoc,
+  doc,
+  getDocs,
+  limit,
+  query,
+} from "firebase/firestore";
 import { db } from "@/Backend/Firebase/firebase";
 
 export const getMobileAPI = async () => {
@@ -35,18 +42,17 @@ export const getTvAPI = async () => {
   }
 };
 
-
 export const deleteLaptopAPI = async (id: string) => {
-    const laptopRef = doc(db, "gadget_rambo/products/laptops", id);
-    return await deleteDoc(laptopRef);
-}
+  const laptopRef = doc(db, "gadget_rambo/products/laptops", id);
+  return await deleteDoc(laptopRef);
+};
 
 export const deleteMobileAPI = async (id: string) => {
-  const laptopRef = doc(db, "tv", id);
+  const laptopRef = doc(db, "mobiles", id);
   return await deleteDoc(laptopRef);
-}
+};
 
 export const deleteTvAPI = async (id: string) => {
-  const laptopRef = doc(db, "laptops", id);
+  const laptopRef = doc(db, "tv", id);
   return await deleteDoc(laptopRef);
-}
+};

@@ -23,7 +23,22 @@ export const getOrderAPI = async () => {
   }
 };
 
-// api for adding items in order
+export const getTotalSaleAPI = async () => {
+  const orderRef = collection(
+    db,
+    `orderItems/${auth.currentUser?.email}/items`
+  );
+  const res = await getDocs(orderRef);
+  const orderItems = res.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+
+  let sale = 0;
+  for (let el of orderItems) {
+    sale += el.price;
+  }
+  return sale;
+};
+
+// api for adding  order items
 export const addOrderAPI = async (toastMsg: ({}: intrfcToastMsg) => void) => {
   try {
     if (auth.currentUser === null) {
