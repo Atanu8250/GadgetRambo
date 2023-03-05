@@ -39,7 +39,8 @@ import { useDispatch,useSelector} from 'react-redux';
 import { setHideAdminPanel, setShowAdminPanel } from '@/redux/auth/auth.action';
 import { Dispatch } from 'redux';
 import { State } from "@/redux/store";
-
+import { logout } from "@/redux/auth/auth.action";
+import useToastMsg from "@/customHook/UseToastMsg";
 interface LinkItemProps {
   name: string;
   icon: IconType;
@@ -182,6 +183,12 @@ interface MobileProps extends FlexProps {
 }
 const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
   const { user }: any = useSelector((store: State) => store.authManager);
+  const toastMsg = useToastMsg();
+  const dispatch: Dispatch<any> = useDispatch();
+  const handleLogout = () => {
+    dispatch(logout(toastMsg));
+    window.location.href="/";
+  };
 
   return (
     <Flex
@@ -250,7 +257,9 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
                 window.location.href="/";
               }}>Go to home page</MenuItem>
               <MenuDivider />
-              <MenuItem>Sign out</MenuItem>
+              <MenuItem onClick={()=>{
+                handleLogout()
+              }}>Sign out</MenuItem>
             </MenuList>
           </Menu>
         </Flex>
