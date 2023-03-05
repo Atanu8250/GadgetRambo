@@ -210,7 +210,7 @@ const TvFilter = ({ setTv }: any) => {
                     lgFilter();
                   }
                 }}
-                value="asus"
+                value="lg"
               >
                 LG
               </Checkbox>

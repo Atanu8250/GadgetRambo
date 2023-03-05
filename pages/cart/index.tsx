@@ -1,25 +1,23 @@
 import React from "react";
 import style from "../../styles/Cart.module.css";
 import CartItem from "@/components/CartItem";
-import { Divider, Button, Input } from "@chakra-ui/react";
+import { Divider } from "@chakra-ui/react";
 import Link from "next/link";
 import RightSidebar from "@/components/RightSidebar";
 import { getCart } from "@/redux/cart/cart.actions";
 import { useDispatch, useSelector } from "react-redux";
 import { State } from "@/redux/store";
-import { auth } from "@/Backend/Firebase/firebase";
 import Router from "next/router";
 import useToastMsg from "@/customHook/UseToastMsg";
+import { cartItemsProps } from "@/constants/constants";
 
 const Index = () => {
   const toastMsg = useToastMsg();
-  const { cart } = useSelector((store: State) => store.cartManager);
   const dispatch = useDispatch();
-
   React.useEffect(() => {
     getCart(dispatch);
   }, []);
-
+  const { cart } = useSelector((store: State) => store.cartManager);
   const goTocheckout = () => {
     if (cart.length) {
       Router.replace("/checkout");
@@ -49,25 +47,27 @@ const Index = () => {
         </div>
         <Divider />
         <div className={style.subSkeleton}>
-          {cart.map((items: any) => (
+          {cart?.map((items: cartItemsProps) => (
             <div key={items.id}>
               <CartItem items={items} />
             </div>
           ))}
         </div>
         <Divider />
-        <div className={style.bottomCart}>
-        </div>
+        <div className={style.bottomCart}></div>
 
         <div className={style.bottomDiscount}>
-            <div className={style.Applydiscount}>
-              <input
-                className={style.input}
-                placeholder="Please enter promo code"
-              />
-              <button className={style.buttonpromo}>Apply Discount</button>
-            </div>
-          <div className={style.lowerButton} style={{ display: "flex", gap: "0.5rem" }}>
+          <div className={style.Applydiscount}>
+            <input
+              className={style.input}
+              placeholder="Please enter promo code"
+            />
+            <button className={style.buttonpromo}>Apply Discount</button>
+          </div>
+          <div
+            className={style.lowerButton}
+            style={{ display: "flex", gap: "0.5rem" }}
+          >
             <span onClick={goTocheckout}>
               <button className={style.checkout}>Checkout</button>
             </span>
