@@ -2,12 +2,12 @@ import SidebarWithHeader from '@/components/admin/Navbar'
 import { State } from '@/redux/store'
 import { getUsers, updateUser } from '@/redux/users/users.action'
 import { deleteUserAPI } from '@/redux/users/users.api'
-import { Badge, Button, Table, TableCaption, TableContainer, Tbody, Th, Thead, Tr } from '@chakra-ui/react'
+import { Badge, Button, Divider, Table, TableCaption, TableContainer, Tbody, Th, Thead, Tr } from '@chakra-ui/react'
 import Head from 'next/head'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Dispatch } from 'redux'
-
+import styles from "../../styles/Users.module.css"
 import { intrfcUser } from '../../constants/constants'
 
 const Users = () => {
@@ -28,36 +28,58 @@ const Users = () => {
       </Head>
       <SidebarWithHeader active='Users'>
         <div>
-          <TableContainer>
+          <TableContainer overflowX={"hidden"}>
             <Table variant='simple'>
               <TableCaption>User Management</TableCaption>
               <Thead>
-                <Tr>
-                  <Th>uid</Th>
-                  <Th>email</Th>
-                  <Th>last login</Th>
-                  <Th>Status</Th>
-                  <Th>Edit</Th>
-                  <Th>Delete</Th>
+                <Tr className={styles.header}>
+                  <Th>Details</Th>
+                  <Th className={styles.largeScreen}>Status</Th>
+                  <Th className={styles.modification}>Modification</Th>
                 </Tr>
               </Thead>
               <Tbody>
                 {
                   users.map((user: intrfcUser) => <Tr key={user.uid}>
-                    <Th>{user.uid}</Th>
-                    <Th>{user.email}</Th>
-                    <Th>{user.lastSignInTime}</Th>
-                    <Th>
-                      <Badge colorScheme={user.isActive ? "green" : "red"}>{user.isActive ? "Active" : "Inactive"}</Badge>
-                      </Th>
-                    <Th><Button colorScheme={"blue"} onClick={() => {
+                    <Th className={styles.smallScreen}>
+                    UId: {user.uid}
+                    <br />
+                    Email: {user.email}
+                    <br />
+                    <Badge colorScheme={user.isActive ? "green" : "red"}>{user.isActive ? "Active" : "Inactive"}</Badge>
+                    <br />
+                    Last SignIn: {user.lastSignInTime}
+                    </Th>
+                    <Th className={styles.miniScreen}>
+                    Id:{user.uid}
+                    <br />
+                    Mail: {user.email}
+                    <br />
+                    <Badge colorScheme={user.isActive ? "green" : "red"}>{user.isActive ? "Active" : "Inactive"}</Badge>
+                    <br />
+                    Last SignIn: {user.lastSignInTime}
+                    <br />
+                    <Button colorScheme={"blue"} marginTop={"0.5rem"} marginRight={"0.3rem"} onClick={() => {
                       dispatch(updateUser(user.uid, {isAdmin: !user.isAdmin}))
                     }}>{
                       user.isAdmin ? "Dismis as Admin" : "Set as Admin"
-                    }</Button></Th>
-                    <Th><Button colorScheme={"red"} onClick={() => { 
+                    }</Button>
+                    <Button colorScheme={"red"} onClick={() => { 
                         deleteUserAPI(user.uid).then(() => {setChangeby(!changeby)})
-                     }}>Delete</Button></Th>
+                     }}>Delete</Button>
+                    </Th>
+                    <Th className={styles.largeScreen}>UId: {user.uid}<br />Email: {user.email}</Th>
+                    <Th className={styles.largeScreen}><Badge colorScheme={user.isActive ? "green" : "red"}>{user.isActive ? "Active" : "Inactive"}</Badge><br />{user.lastSignInTime}</Th>
+                    <Th className={styles.modification}><Button colorScheme={"blue"} marginBottom={"0.2rem"} onClick={() => {
+                      dispatch(updateUser(user.uid, {isAdmin: !user.isAdmin}))
+                    }}>{
+                      user.isAdmin ? "Dismis as Admin" : "Set as Admin"
+                    }</Button> <br />
+                    <Button colorScheme={"red"} onClick={() => { 
+                        deleteUserAPI(user.uid).then(() => {setChangeby(!changeby)})
+                     }}>Delete</Button>
+                    </Th>
+                    <Divider colorScheme="black" height={"1rem"}/>
                   </Tr>)
                 }
               </Tbody>
