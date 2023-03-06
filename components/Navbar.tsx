@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Dispatch } from "redux";
@@ -9,7 +9,6 @@ import style from "../styles/Navbar.module.css";
 import { HiShoppingCart } from "react-icons/hi";
 import { Icon, Button } from "@chakra-ui/react";
 import useToastMsg from "@/customHook/UseToastMsg";
-import { MdAdminPanelSettings } from "react-icons/md";
 import NavbarDrawer from "../components/NavbarDrawer";
 import { useDispatch, useSelector } from "react-redux";
 import { logout, setShowAdminPanel } from "@/redux/auth/auth.action";
@@ -32,14 +31,14 @@ import { FiChevronDown } from "react-icons/fi";
 import { getUsers } from "@/redux/users/users.action";
 import { intrfcUser } from "@/constants/constants";
 
-
 const Navbar = () => {
   // useAuth called for getting the current user of our website
   useAuth();
-  const [admin,setAdmin]=React.useState<boolean>(false)
   const { user }: any = useSelector((store: State) => store.authManager);
   const dispatch: Dispatch<any> = useDispatch();
-  const { users }:{users:Array<intrfcUser>} = useSelector((store:State) => store.usersManager)
+  const { users }: { users: Array<intrfcUser> } = useSelector(
+    (store: State) => store.usersManager
+  );
   const { showAdminPanel }: { showAdminPanel: boolean } = useSelector(
     (store: State) => store.authManager
   );
@@ -47,17 +46,17 @@ const Navbar = () => {
   const handleLogout = () => {
     dispatch(logout(toastMsg));
   };
+
   useEffect(() => {
-    dispatch(getUsers())
-    for(let i=0;i<users.length;i++){
-      console.log(user.email,users);
-      if(user.email==users[i].email){
-        setAdmin(users[i].isAdmin);
+    dispatch(getUsers());
+  }, []);
+  const showAdminFun = () => {
+    for (let i = 0; i < users.length; i++) {
+      if (user.email === users[i].email) {
+        return users[i].isAdmin;
       }
     }
-  }, [user.email])
-  
-  console.log(user.email,users,admin);
+  };
   const handleCartVerify = () => {
     if (auth.currentUser === null) {
       toastMsg({
@@ -340,7 +339,24 @@ const Navbar = () => {
                       <MenuItem>
                         <Link href={"/order"}>My Orders</Link>
                       </MenuItem>
-                      {admin ? <MenuItem onClick={handleShowAdminPanel}>Admin</MenuItem> : <div></div>}
+                      {
+                        <MenuItem
+                          onClick={() => {
+                            let ans = showAdminFun();
+                            if (ans) {
+                              handleShowAdminPanel();
+                            } else {
+                              toastMsg({
+                                title: "Admin",
+                                desc: "You are not an Admin",
+                                status: "error",
+                              });
+                            }
+                          }}
+                        >
+                          Admin
+                        </MenuItem>
+                      }
                       <MenuDivider />
                       <MenuItem
                         onClick={() => {

@@ -28,7 +28,7 @@ import Signup from "./Signup";
 import useAuth from "@/customHook/UseAuth";
 import { useDispatch, useSelector } from "react-redux";
 import { State } from "@/redux/store";
-import { logout } from "@/redux/auth/auth.action";
+import { logout, setShowAdminPanel } from "@/redux/auth/auth.action";
 import { Dispatch } from "redux";
 import logo from "../assets/GadgetRambo.png";
 import useToastMsg from "@/customHook/UseToastMsg";
@@ -40,7 +40,6 @@ import { getUsers } from "@/redux/users/users.action";
 const NavbarDrawer = () => {
   // useAuth called for getting the current user of our website
   useAuth();
-  const [admin, setAdmin] = React.useState<boolean>(false);
   const { user }: any = useSelector((store: State) => store.authManager);
   const dispatch: Dispatch<any> = useDispatch();
   const { users }: { users: Array<intrfcUser> } = useSelector(
@@ -53,14 +52,20 @@ const NavbarDrawer = () => {
   const toastMsg = useToastMsg();
   useEffect(() => {
     dispatch(getUsers());
+  }, []);
+  const showAdminFun = () => {
     for (let i = 0; i < users.length; i++) {
-      if (user.email == users[i].email) {
-        setAdmin(users[i].isAdmin);
+      if (user.email === users[i].email) {
+        return users[i].isAdmin;
       }
     }
-  }, [user.email]);
+  };
 
-  console.log(user.email, users, admin);
+  const handleShowAdminPanel = () => {
+    setShowAdminPanel(dispatch);
+    Router.replace("/admin");
+  };
+
   const handleCartVerify = () => {
     if (auth.currentUser === null) {
       toastMsg({
@@ -495,15 +500,28 @@ const NavbarDrawer = () => {
                     My Order
                   </Link>
                 </Button>
-                {admin ? (
-                  <Button className={style.userDetails} onClick={onClose}>
+
+                {
+                  <Button
+                    className={style.userDetails}
+                    onClick={() => {
+                      let ans = showAdminFun();
+                      if (ans) {
+                        handleShowAdminPanel();
+                      } else {
+                        toastMsg({
+                          title: "Admin",
+                          desc: "You are not an Admin",
+                          status: "error",
+                        });
+                      }
+                    }}
+                  >
                     <Link href="/" className={style.notdropDown}>
                       Admin
                     </Link>
                   </Button>
-                ) : (
-                  <div></div>
-                )}
+                }
               </div>
             ) : (
               <div></div>
@@ -542,14 +560,14 @@ const NavbarDrawer = () => {
                 <Signup />
               </div>
             )}
-            <Link href="/cart">
+            <button onClick={handleCartVerify}>
               <Icon
                 as={HiShoppingCart}
                 boxSize={8}
                 color={"#EE3E38"}
                 paddingTop="0.2rem"
               />
-            </Link>
+            </button>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
