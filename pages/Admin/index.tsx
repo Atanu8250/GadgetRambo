@@ -99,13 +99,11 @@ const Home = () => {
 
           <div className={styles.graph}>
             <Flex>
-              <h2>Revenue & users graph</h2>
               <Box>
                 <LineChartCompo />
               </Box>
             </Flex>
             <Flex>
-              <h2>Users details</h2>
               <Box>
                 <PieChartCompo />
               </Box>

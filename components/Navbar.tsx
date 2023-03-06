@@ -324,7 +324,7 @@ const Navbar = () => {
                           ml="2"
                         >
                           <Text fontSize="lg" color="tomato">
-                            {user.displayName}
+                          {user.displayName || "User"}
                           </Text>
                         </VStack>
                         <Box display={{ base: "none", md: "flex" }}>
@@ -333,9 +333,6 @@ const Navbar = () => {
                       </HStack>
                     </MenuButton>
                     <MenuList>
-                      <MenuItem>
-                        <Link href={"/"}>Profile</Link>
-                      </MenuItem>
                       <MenuItem>
                         <Link href={"/order"}>My Orders</Link>
                       </MenuItem>
