@@ -176,9 +176,11 @@ export default function Home({ mobiles, news, tv, laptops }: any) {
             </Flex>
             {/* product finder section start here  */}
             <Flex direction={"column"}>
-              <Text fontSize={"xl"}>PRODUCT FINDER</Text>
               <Flex direction={"column"} p={2} bgColor={"#eae8e8"}>
                 {/* product slider section */}
+                <Text fontSize={"md"} ml={4}>
+                  Categories Available
+                </Text>
                 <Slider slidesToShow={sliderItems} {...settings}>
                   {productFinderArr.map((item, id) => (
                     <Flex
