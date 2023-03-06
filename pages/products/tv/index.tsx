@@ -6,6 +6,7 @@ import RightSidebar from "@/components/RightSidebar";
 import { useDispatch } from "react-redux";
 import { getTv } from "@/redux/products/products.actions";
 import TvFilter from "@/components/ProductSection/Tv/TvFilter";
+import ResponsiveTvFilter from "@/components/ProductSection/Tv/ResponsiveTvFilter";
 
 const Television = ({ tv }: any) => {
   const [loader, setLoader] = useState<number>(5);
@@ -41,6 +42,7 @@ const Television = ({ tv }: any) => {
           <Show above="md">
             <TvFilter setTv={setTv} />
           </Show>
+          <ResponsiveTvFilter setTv={setTv} />
         </Flex>
         <Flex flex={3} mx={4} direction={"column"} alignItems={"center"}>
           {televisons.map((data: any, id: number) => {

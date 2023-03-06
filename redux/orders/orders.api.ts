@@ -32,9 +32,9 @@ export const getTotalSaleAPI = async () => {
   const orderItems = res.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
 
   let sale = 0;
-  for (let el of orderItems) {
+  orderItems.forEach((el: any) => {
     sale += el.price;
-  }
+  });
   return sale;
 };
 
