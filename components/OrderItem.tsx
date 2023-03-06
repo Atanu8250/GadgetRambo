@@ -42,11 +42,6 @@ const OrderItem = ({ items }: any) => {
           Dispatched <br />
           On its way
         </div>
-        <div className={style.remove}>
-          <Button onClick={handleRemove}>
-            <Icon as={RxCross2} />
-          </Button>
-        </div>
         <div className={style.lastPrice}>
           <h1>{price}</h1>
         </div>
