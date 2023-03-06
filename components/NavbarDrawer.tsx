@@ -33,9 +33,9 @@ import { Dispatch } from "redux";
 import logo from "../assets/GadgetRambo.png";
 import useToastMsg from "@/customHook/UseToastMsg";
 import { auth } from "@/Backend/Firebase/firebase";
-import { Router } from "next/router";
 import { intrfcUser } from "@/constants/constants";
 import { getUsers } from "@/redux/users/users.action";
+import Router from "next/router";
 
 const NavbarDrawer = () => {
   // useAuth called for getting the current user of our website
@@ -60,12 +60,6 @@ const NavbarDrawer = () => {
       }
     }
   };
-
-  const handleShowAdminPanel = () => {
-    setShowAdminPanel(dispatch);
-    Router.replace("/admin");
-  };
-
   const handleCartVerify = () => {
     if (auth.currentUser === null) {
       toastMsg({
@@ -80,6 +74,15 @@ const NavbarDrawer = () => {
   const handleLogout = () => {
     dispatch(logout(toastMsg));
   };
+
+  const handleShowAdminPanel = () => {
+    setShowAdminPanel(dispatch);
+    Router.replace("/admin");
+  };
+
+  if (showAdminPanel) {
+    return <></>;
+  }
 
   return (
     <div>
