@@ -9,7 +9,6 @@ import {
   DrawerCloseButton,
   Button,
   useDisclosure,
-  Input,
   Accordion,
   AccordionItem,
   AccordionButton,
@@ -41,25 +40,27 @@ import { getUsers } from "@/redux/users/users.action";
 const NavbarDrawer = () => {
   // useAuth called for getting the current user of our website
   useAuth();
-  const [admin,setAdmin]=React.useState<boolean>(false)
+  const [admin, setAdmin] = React.useState<boolean>(false);
   const { user }: any = useSelector((store: State) => store.authManager);
   const dispatch: Dispatch<any> = useDispatch();
-  const { users }:{users:Array<intrfcUser>} = useSelector((store:State) => store.usersManager)
+  const { users }: { users: Array<intrfcUser> } = useSelector(
+    (store: State) => store.usersManager
+  );
   const { showAdminPanel }: { showAdminPanel: boolean } = useSelector(
     (store: State) => store.authManager
   );
   const { isOpen, onOpen, onClose } = useDisclosure();
   const toastMsg = useToastMsg();
   useEffect(() => {
-    dispatch(getUsers())
-    for(let i=0;i<users.length;i++){
-      if(user.email==users[i].email){
+    dispatch(getUsers());
+    for (let i = 0; i < users.length; i++) {
+      if (user.email == users[i].email) {
         setAdmin(users[i].isAdmin);
       }
     }
-  }, [user.email])
-  
-  console.log(user.email,users,admin);
+  }, [user.email]);
+
+  console.log(user.email, users, admin);
   const handleCartVerify = () => {
     if (auth.currentUser === null) {
       toastMsg({
@@ -490,17 +491,19 @@ const NavbarDrawer = () => {
                   </Link>
                 </Button>
                 <Button className={style.userDetails} onClick={onClose}>
-                  <Link href="/" className={style.notdropDown}>
+                  <Link href="/order" className={style.notdropDown}>
                     My Order
                   </Link>
                 </Button>
                 {admin ? (
                   <Button className={style.userDetails} onClick={onClose}>
-                  <Link href="/" className={style.notdropDown}>
-                    Admin
-                  </Link>
-                </Button>
-                ) : (<div></div>)}
+                    <Link href="/" className={style.notdropDown}>
+                      Admin
+                    </Link>
+                  </Button>
+                ) : (
+                  <div></div>
+                )}
               </div>
             ) : (
               <div></div>
