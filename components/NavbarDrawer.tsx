@@ -9,7 +9,6 @@ import {
   DrawerCloseButton,
   Button,
   useDisclosure,
-  Input,
   Accordion,
   AccordionItem,
   AccordionButton,
@@ -497,7 +496,7 @@ const NavbarDrawer = () => {
                   </Link>
                 </Button>
                 <Button className={style.userDetails} onClick={onClose}>
-                  <Link href="/" className={style.notdropDown}>
+                  <Link href="/order" className={style.notdropDown}>
                     My Order
                   </Link>
                 </Button>
