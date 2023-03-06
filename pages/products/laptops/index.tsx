@@ -43,7 +43,7 @@ const Laptops = ({ laptops }: any) => {
           <Show above="md">
             <LaptopFilter setLaptops={setLaptops} />
           </Show>
-          <ResponsiveLaptopFilter />
+          <ResponsiveLaptopFilter setLaptops={setLaptops} />
         </Flex>
         <Flex flex={3} mx={4} direction={"column"} alignItems={"center"}>
           {laptop?.map((data: any, id: number) => {

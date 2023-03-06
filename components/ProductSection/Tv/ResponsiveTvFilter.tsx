@@ -12,17 +12,17 @@ import {
   Heading,
   Flex,
 } from "@chakra-ui/react";
-import LaptopFilter from "./LaptopFilter";
 import { BiFilterAlt } from "react-icons/bi";
+import TvFilter from "./TvFilter";
 
 type Props = {};
 
-const ResponsiveLaptopFilter = ({ setLaptops }: any) => {
+const ResponsiveTvFilter = ({ setTv }: any) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef() as React.MutableRefObject<HTMLButtonElement>;
 
   return (
-    <Show below="md">
+    <Show breakpoint="(max-width: 767px)">
       <Flex gap={3} alignItems={"center"}>
         <Heading size={"md"}>Filters</Heading>
         <IconButton
@@ -44,7 +44,7 @@ const ResponsiveLaptopFilter = ({ setLaptops }: any) => {
           <DrawerCloseButton />
           <DrawerHeader></DrawerHeader>
           <DrawerBody>
-            <LaptopFilter setLaptops={setLaptops} />
+            <TvFilter setTv={setTv} />
           </DrawerBody>
         </DrawerContent>
       </Drawer>
@@ -52,4 +52,4 @@ const ResponsiveLaptopFilter = ({ setLaptops }: any) => {
   );
 };
 
-export default ResponsiveLaptopFilter;
+export default ResponsiveTvFilter;

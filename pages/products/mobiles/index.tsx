@@ -45,7 +45,7 @@ const Mobiles = ({ mobiles }: any) => {
           <Show breakpoint="(min-width: 768px)">
             <MobileFilter setMobiles={setMobiles} />
           </Show>
-          <ResponsiveMobileFilter />
+          <ResponsiveMobileFilter setMobiles={setMobiles} />
         </Flex>
         <Flex mx={4} flex={3} direction={"column"} alignItems={"center"}>
           {mobile?.map((data: intrfcMobile, id: number) => {
