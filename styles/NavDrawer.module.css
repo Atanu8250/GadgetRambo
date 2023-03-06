@@ -33,3 +33,7 @@
 .topDetails{
   padding-left: 1rem;
 }
+.userDetails{
+  width: 100%;
+  margin-bottom: 0.6rem;
+}

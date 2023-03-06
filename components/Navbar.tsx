@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Dispatch } from "redux";
 import Marquee from "react-fast-marquee";
 import useAuth from "@/customHook/UseAuth";
-import { Box, Flex, Show } from "@chakra-ui/react";
+import { Box, Flex, Show, HStack, VStack, Text } from "@chakra-ui/react";
 import style from "../styles/Navbar.module.css";
 import { HiShoppingCart } from "react-icons/hi";
 import { Icon, Button } from "@chakra-ui/react";
@@ -13,7 +13,14 @@ import { MdAdminPanelSettings } from "react-icons/md";
 import NavbarDrawer from "../components/NavbarDrawer";
 import { useDispatch, useSelector } from "react-redux";
 import { logout, setShowAdminPanel } from "@/redux/auth/auth.action";
-import { Menu, MenuButton, MenuList, MenuItem, Avatar } from "@chakra-ui/react";
+import {
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  Avatar,
+  MenuDivider,
+} from "@chakra-ui/react";
 import { auth } from "@/Backend/Firebase/firebase";
 import Login from "./Login";
 import Signup from "./Signup";
@@ -21,22 +28,35 @@ import Router from "next/router";
 import { State } from "@/redux/store";
 import logo from "../assets/GadgetRambo.png";
 import { ChevronDownIcon } from "@chakra-ui/icons";
+import { FiChevronDown } from "react-icons/fi";
+import { getUsers } from "@/redux/users/users.action";
+import { intrfcUser } from "@/constants/constants";
+
 
 const Navbar = () => {
   // useAuth called for getting the current user of our website
   useAuth();
-
+  const [admin,setAdmin]=React.useState<boolean>(false)
   const { user }: any = useSelector((store: State) => store.authManager);
   const dispatch: Dispatch<any> = useDispatch();
+  const { users }:{users:Array<intrfcUser>} = useSelector((store:State) => store.usersManager)
   const { showAdminPanel }: { showAdminPanel: boolean } = useSelector(
     (store: State) => store.authManager
   );
   const toastMsg = useToastMsg();
-
   const handleLogout = () => {
     dispatch(logout(toastMsg));
   };
-
+  useEffect(() => {
+    dispatch(getUsers())
+    for(let i=0;i<users.length;i++){
+      if(user.email==users[i].email){
+        setAdmin(users[i].isAdmin);
+      }
+    }
+  }, [user.email])
+  
+  console.log(user.email,users,admin);
   const handleCartVerify = () => {
     if (auth.currentUser === null) {
       toastMsg({
@@ -488,32 +508,53 @@ const Navbar = () => {
 
             {user.uid ? (
               <div className={style.personData}>
-                <div className={style.avatar} title={user.email || ""}>
-                  <Avatar
-                    size="sm"
-                    src={
-                      user.photoURL ||
-                      "https://static.vecteezy.com/system/resources/thumbnails/000/439/863/small/Basic_Ui__28186_29.jpg"
-                    }
-                  />
-
-                  <div className={style.avName}>
-                    <p>{user.displayName || "User"}</p>
-                  </div>
-                  <div className={style.showAdminButton}>
-                    <Link href="/admin">
-                      <Button colorScheme="gray" onClick={handleShowAdminPanel}>
-                        {" "}
-                        <MdAdminPanelSettings /> Admin Panel
-                      </Button>
-                    </Link>
-                  </div>
-                </div>
-                <div className={style.login}>
-                  <div className={style.loginButton} onClick={handleLogout}>
-                    Logout
-                  </div>
-                </div>
+                <Flex
+                  alignItems={"center"}
+                  marginBottom={"2rem"}
+                  marginRight={"1rem"}
+                >
+                  <Menu>
+                    <MenuButton
+                      py={2}
+                      transition="all 0.3s"
+                      _focus={{ boxShadow: "none" }}
+                    >
+                      <HStack>
+                        <Avatar size="sm" src={user.photoURL} />
+                        <VStack
+                          display={{ base: "none", md: "flex" }}
+                          alignItems="flex-start"
+                          spacing="1px"
+                          ml="2"
+                        >
+                          <Text fontSize="lg" color="tomato">
+                            {user.displayName}
+                          </Text>
+                        </VStack>
+                        <Box display={{ base: "none", md: "flex" }}>
+                          <FiChevronDown />
+                        </Box>
+                      </HStack>
+                    </MenuButton>
+                    <MenuList>
+                      <MenuItem>
+                        <Link href={"/"}>Profile</Link>
+                      </MenuItem>
+                      <MenuItem>
+                        <Link href={"/"}>My Orders</Link>
+                      </MenuItem>
+                      {admin ? <MenuItem onClick={handleShowAdminPanel}>Admin</MenuItem> : <div></div>}
+                      <MenuDivider />
+                      <MenuItem
+                        onClick={() => {
+                          handleLogout();
+                        }}
+                      >
+                        Sign out
+                      </MenuItem>
+                    </MenuList>
+                  </Menu>
+                </Flex>
               </div>
             ) : (
               <div className={style.personData}>

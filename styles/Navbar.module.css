@@ -142,4 +142,7 @@
   .cart {
     display: none;
   }
+  .personData{
+    display: none;
+  }
 }

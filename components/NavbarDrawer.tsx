@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Drawer,
   DrawerBody,
@@ -33,16 +33,43 @@ import { logout } from "@/redux/auth/auth.action";
 import { Dispatch } from "redux";
 import logo from "../assets/GadgetRambo.png";
 import useToastMsg from "@/customHook/UseToastMsg";
+import { auth } from "@/Backend/Firebase/firebase";
+import { Router } from "next/router";
+import { intrfcUser } from "@/constants/constants";
+import { getUsers } from "@/redux/users/users.action";
 
 const NavbarDrawer = () => {
   // useAuth called for getting the current user of our website
   useAuth();
-
+  const [admin,setAdmin]=React.useState<boolean>(false)
   const { user }: any = useSelector((store: State) => store.authManager);
-
-  const { isOpen, onOpen, onClose } = useDisclosure();
   const dispatch: Dispatch<any> = useDispatch();
+  const { users }:{users:Array<intrfcUser>} = useSelector((store:State) => store.usersManager)
+  const { showAdminPanel }: { showAdminPanel: boolean } = useSelector(
+    (store: State) => store.authManager
+  );
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const toastMsg = useToastMsg();
+  useEffect(() => {
+    dispatch(getUsers())
+    for(let i=0;i<users.length;i++){
+      if(user.email==users[i].email){
+        setAdmin(users[i].isAdmin);
+      }
+    }
+  }, [user.email])
+  
+  console.log(user.email,users,admin);
+  const handleCartVerify = () => {
+    if (auth.currentUser === null) {
+      toastMsg({
+        title: "Please Login first",
+        status: "warning",
+      });
+    } else {
+      Router.replace("/cart");
+    }
+  };
 
   const handleLogout = () => {
     dispatch(logout(toastMsg));
@@ -454,6 +481,31 @@ const NavbarDrawer = () => {
                 </AccordionItem>
               </Accordion>
             </div>
+            <br />
+            {user.uid ? (
+              <div className={style.user}>
+                <Button className={style.userDetails} onClick={onClose}>
+                  <Link href="/" className={style.notdropDown}>
+                    User Profile
+                  </Link>
+                </Button>
+                <Button className={style.userDetails} onClick={onClose}>
+                  <Link href="/" className={style.notdropDown}>
+                    My Order
+                  </Link>
+                </Button>
+                {admin ? (
+                  <Button className={style.userDetails} onClick={onClose}>
+                  <Link href="/" className={style.notdropDown}>
+                    Admin
+                  </Link>
+                </Button>
+                ) : (<div></div>)}
+              </div>
+            ) : (
+              <div></div>
+            )}
+            <br />
           </DrawerBody>
 
           <DrawerFooter className={style.drawer}>
