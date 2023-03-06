@@ -2,6 +2,7 @@
 
 
 # GadgetRambo.com
+https://gadget-rambo.vercel.app
 
 ### :nazar_amulet: It is a leading technology, news, reviews and ecommerce plateform which selles Tech-Gadgets of various types (Phones, Laptops, Televisions, etc.).
 ### :snowflake: This project was completed in 5 days with 5 team members
