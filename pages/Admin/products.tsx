@@ -1,5 +1,5 @@
 import SidebarWithHeader from "@/components/admin/Navbar";
-import React from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
 import { useDispatch, useSelector } from "react-redux";
 import { State } from "@/redux/store";
@@ -21,33 +21,28 @@ import { deleteLaptop } from "../../redux/products/products.actions";
 
 import styles from "../../styles/adminProducts.module.css";
 import useToastMsg from "@/customHook/UseToastMsg";
+import {
+  deleteTvAPI,
+  getLaptopAPI,
+  getMobileAPI,
+  getTvAPI,
+} from "@/redux/products/products.api";
 
 // get price in indian price format
 let dollarIndianLocale = Intl.NumberFormat("en-IN");
 
-const Products = () => {
+const Products = ({ mobiles, tv, laptops }: any) => {
   const dispatch: Dispatch<any> = useDispatch();
-  const { laptops, mobiles, televisions } = useSelector(
-    (store: State) => store.productsManager
-  );
   const toastMsg = useToastMsg();
-
-  const [showItems, setShowItems] = React.useState<string>("laptops");
-
-  React.useEffect(() => {
-    getLaptop(dispatch, 16);
-
-    getMobile(dispatch, 80);
-
-    getTv(dispatch, 80);
+  const [showItems, setShowItems] = React.useState<string>("mobiles");
+  useEffect(() => {
+    getMobile(dispatch, mobiles);
+    getTv(dispatch, tv);
+    getLaptop(dispatch, laptops);
   }, []);
 
   const handleChange: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
-    if (e.target.value == "" || e.target.value == "laptops") {
-      setShowItems("laptops");
-    } else {
-      setShowItems(e.target.value);
-    }
+    setShowItems(e.target.value);
   };
 
   const underConstruction = () => {
@@ -68,7 +63,7 @@ const Products = () => {
             <Select
               variant="filled"
               bgColor="#fff"
-              placeholder="Choose Product"
+              placeholder="Select"
               onChange={handleChange}
             >
               <option value="laptops">Laptops</option>
@@ -131,8 +126,9 @@ const Products = () => {
                       </Button>
                       <Button
                         colorScheme="red"
-                        onClick={() => {
+                        onClick={async () => {
                           dispatch(deleteLaptop(item.id || "", toastMsg));
+                          await getLaptopAPI();
                         }}
                       >
                         <RiDeleteBin6Line />
@@ -159,8 +155,9 @@ const Products = () => {
                   <Box>
                     <Button
                       colorScheme="red"
-                      onClick={() => {
+                      onClick={async () => {
                         dispatch(deleteLaptop(item.id || "", toastMsg));
+                        await getLaptopAPI();
                       }}
                     >
                       <RiDeleteBin6Line />
@@ -221,8 +218,9 @@ const Products = () => {
                       </Button>
                       <Button
                         colorScheme="red"
-                        onClick={() => {
-                          dispatch(deleteLaptop(item.id || "", toastMsg));
+                        onClick={async () => {
+                          dispatch(deleteMobile(item.id || "", toastMsg));
+                          await getMobileAPI();
                         }}
                       >
                         <RiDeleteBin6Line />
@@ -249,8 +247,9 @@ const Products = () => {
                   <Box>
                     <Button
                       colorScheme="red"
-                      onClick={() => {
+                      onClick={async () => {
                         dispatch(deleteMobile(item.id || "", toastMsg));
+                        await getMobileAPI();
                       }}
                     >
                       <RiDeleteBin6Line />
@@ -290,7 +289,7 @@ const Products = () => {
                   <Text>Delete</Text>
                 </Box>
               </Flex>
-              {televisions.map((item: intrfcTv, i: number) => (
+              {tv.map((item: intrfcTv, i: number) => (
                 <Flex key={i}>
                   <Box>
                     <Text>{i + 1}</Text>
@@ -311,8 +310,9 @@ const Products = () => {
                       </Button>
                       <Button
                         colorScheme="red"
-                        onClick={() => {
-                          dispatch(deleteLaptop(item.id || "", toastMsg));
+                        onClick={async () => {
+                          dispatch(deleteTv(item.id || "", toastMsg));
+                          await getTvAPI();
                         }}
                       >
                         <RiDeleteBin6Line />
@@ -339,8 +339,9 @@ const Products = () => {
                   <Box>
                     <Button
                       colorScheme="red"
-                      onClick={() => {
+                      onClick={async () => {
                         dispatch(deleteTv(item.id || "", toastMsg));
+                        await getTvAPI();
                       }}
                     >
                       <RiDeleteBin6Line />
@@ -357,3 +358,16 @@ const Products = () => {
 };
 
 export default Products;
+
+export const getStaticProps = async () => {
+  const mobiles = await getMobileAPI();
+  const laptops = await getLaptopAPI();
+  const tv = await getTvAPI();
+  return {
+    props: {
+      mobiles,
+      laptops,
+      tv,
+    },
+  };
+};

@@ -31,7 +31,6 @@ export const deleteLaptop =
   (dispatch: Dispatch) => {
     deleteLaptopAPI(id)
       .then(() => {
-        getLaptop(dispatch, 15);
         toastMsg({
           title: "Misssion Successful",
           desc: "Laptop item deleted successfully",
@@ -52,7 +51,6 @@ export const deleteMobile =
   (dispatch: Dispatch) => {
     deleteMobileAPI(id)
       .then(() => {
-        getLaptop(dispatch, 75);
         toastMsg({
           title: "Misssion Successful",
           desc: "Mobile item deleted successfully",
@@ -73,7 +71,6 @@ export const deleteTv =
   (dispatch: Dispatch) => {
     deleteTvAPI(id)
       .then(() => {
-        getTv(dispatch, 75);
         toastMsg({
           title: "Misssion Successful",
           desc: "Television item deleted successfully",

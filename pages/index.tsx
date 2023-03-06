@@ -42,6 +42,7 @@ export default function Home({ mobiles, news, tv, laptops }: any) {
   useEffect(() => {
     getMobile(dispatch, mobiles);
     getTv(dispatch, tv);
+    getNews(dispatch, 15);
     getLaptop(dispatch, laptops);
   }, []);
   const gridProducts = useBreakpointValue<any>({
